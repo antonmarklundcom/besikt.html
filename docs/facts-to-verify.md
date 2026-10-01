@@ -107,3 +107,25 @@ Alla fasers poster listas här; varje fas lägger till sitt eget avsnitt.
 - [ ] Guide tvist med hantverkare: Att konsumenten kan ha rätt att hålla inne betalning motsvarande felet, med villkor – bekräfta försiktig formulering med jurist/Konsumentverket.
 - [ ] Guide tvist med hantverkare: Att en oberoende besiktningsrapport kan användas som underlag mot hantverkare, försäkringsbolag eller i en prövning hos ARN – bekräfta med besiktningsmannen och att rapporten inte avgör tvisten.
 - [ ] Guide tvist med hantverkare: Hänvisning till Konsumentverket/kommunal konsumentvägledning och hemförsäkringens rättsskydd som väg för juridisk rådgivning – bekräfta att dessa instanser finns och är rätt att hänvisa till.
+
+## S4 – Om oss, juridik och lansering
+
+Allt som måste bekräftas innan sajten marknadsförs.
+
+### Om oss och certifiering
+- [ ] "Certifierad besiktningsman (SBR/KIWA)" står på startsidan, i metabeskrivningar och på /om-oss/. Bekräfta att utföraren har just de certifieringarna – annars ta bort SBR/KIWA (plan §1.1, sökordsplanen §5).
+- [ ] Att certifieringsorgan som SBR, KIWA och RISE "granskar kunskaper och arbetssätt, gäller en viss typ av besiktning och förnyas med jämna mellanrum" – bekräfta formuleringen.
+- [ ] Certifikatnummer och vad som visas på sajten (finns inte på sidan i dag).
+- [ ] "Inga ekonomiska band till säljare/mäklare/entreprenör" och att utföraren inte säljer reparation/sanering – bekräfta.
+- [ ] "Offert med fast pris, vanligtvis inom en arbetsdag" – bekräfta att utföraren hinner svara så.
+
+### Juridik och företagsuppgifter
+- [ ] Organisationsnummer för Marklund Sales & Marketing AB (`orgNumber` i `content/site.php`; står inte på sidan).
+- [ ] Integritetspolicy: lagringstid (12 månader för förfrågningar utan uppdrag), rättslig grund och att besiktningsmannen är självständigt personuppgiftsansvarig – juridisk granskning.
+- [ ] Ersättningsmodell mellan Anton och utföraren (plan §8) – påverkar inte koden.
+
+### Teknik vid lansering (se docs/DEPLOY.md)
+- [ ] Telefonnummer (`phone` i `content/site.php`).
+- [ ] `kontakt@`/`leads@`/`no-reply@` i Cloudflare Email Routing och Email Sending; testlead.
+- [ ] VenderCRM-URL och API-nyckel i `config.php` på servern.
+- [ ] Hostinger: webbplats, alias `xn--besiktningsmnnen-6nb.se` och uppladdning av zip.
