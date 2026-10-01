@@ -27,6 +27,29 @@ eller Hostinger.
 Utan VenderCRM-nyckel fungerar formuläret ändå. Leads hamnar i `logs/leads.log`, och
 `php deploy/leads-to-csv.php` gör en CSV av dem.
 
+## 2b. Alternativ: deploy via Git (rekommenderas)
+
+Hostinger kan hämta sajten direkt från GitHub, så att varje merge till `main` blir en uppdatering
+utan att du packar zip. Det kostar inga Actions-minuter (Hostinger bygger inget – den kopierar filerna).
+
+1. hPanel → webbplatsen → **Avancerat → Git** → *Connect with GitHub* → välj repot
+   `antonmarklundcom/besikt.html`, branch `main`, målmapp `public_html` (tom mapp, ta bort
+   Hostingers standardfil `default.php` först).
+2. Skapa `public_html/config.php` på servern (kopiera `config.example.php`). Filen finns inte i git och
+   skrivs inte över av senare deploys.
+3. Slå på **Auto Deployment** (webhook) så att varje push till `main` deployas, eller tryck *Deploy* manuellt.
+4. PHP 8.2 i hPanel → PHP Configuration.
+
+Det som hamnar på servern utöver zip-innehållet (`docs/`, `prompts/`, `tests/`, `deploy/`, `plan.md`,
+`*.md`, `verify.sh`, `.github/`) är avstängt av `.htaccess` (404 eller 403). Kontrollera efter första
+deployen att `https://besiktningsmannen.se/docs/`, `/plan.md` och `/.github/` ger 404/403.
+
+Skillnad mot zip: Git-varianten serverar den läsbara `assets/css/site.css` (≈ 52 kB, ≈ 9 kB gzippad)
+i stället för den minifierade. Kör `node deploy/minify-css.mjs` och committa `site.min.css` om du vill
+byta senare. Rollback: *Deploy* en äldre commit i hPanel eller `git revert` på `main`.
+
+Arbetsflöde framåt: ändra på en branch → PR mot `main` → `verify` grön → squash-merge → Hostinger deployar.
+
 ## 3. Cloudflare DNS (om domänerna ligger där)
 
 - `besiktningsmannen.se`: A/CNAME till Hostinger enligt hPanel.
