@@ -113,7 +113,7 @@ Alla fasers poster listas här; varje fas lägger till sitt eget avsnitt.
 Allt som måste bekräftas innan sajten marknadsförs.
 
 ### Om oss och certifiering
-- [ ] "Certifierad besiktningsman (SBR/KIWA)" står på startsidan, i metabeskrivningar och på /om-oss/. Bekräfta att utföraren har just de certifieringarna – annars ta bort SBR/KIWA (plan §1.1, sökordsplanen §5).
+- [x] (Bekräftat av Anton 2026-10-01: utföraren är certifierad.) "Certifierad besiktningsman (SBR/KIWA)" står på startsidan, i metabeskrivningar och på /om-oss/. Bekräfta att utföraren har just de certifieringarna – annars ta bort SBR/KIWA (plan §1.1, sökordsplanen §5).
 - [ ] Att certifieringsorgan som SBR, KIWA och RISE "granskar kunskaper och arbetssätt, gäller en viss typ av besiktning och förnyas med jämna mellanrum" – bekräfta formuleringen.
 - [ ] Certifikatnummer och vad som visas på sajten (finns inte på sidan i dag).
 - [ ] "Inga ekonomiska band till säljare/mäklare/entreprenör" och att utföraren inte säljer reparation/sanering – bekräfta.
