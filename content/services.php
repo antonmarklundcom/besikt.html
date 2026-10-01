@@ -153,9 +153,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på husbesiktning'],
         'related'   => ['statusbesiktning', 'badrumsbesiktning', 'fuktutredning'],
-        'guides'    => [],
+        'guides'    => ['mogel-i-hus', 'fuktskada-kallare', 'fuktmatning-betong'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Välj tjänst, storlek och tillval i priskalkylatorn och få ett prisintervall på en minut.'],
+        ],
     ],
 
     'statusbesiktning' => [
@@ -272,9 +274,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på statusbesiktning'],
         'related'   => ['overlatelsebesiktning', 'brf', 'underhallsplan'],
-        'guides'    => [],
+        'guides'    => ['mogel-i-hus', 'fuktskada-kallare'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Välj tjänst, storlek och tillval i priskalkylatorn och få ett prisintervall på en minut.'],
+        ],
     ],
 
     'badrumsbesiktning' => [
@@ -391,9 +395,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på badrumsbesiktning'],
         'related'   => ['fuktutredning', 'slutbesiktning', 'brf'],
-        'guides'    => [],
+        'guides'    => ['fuktskada-badrum', 'mogel-i-hus'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Välj tjänst, storlek och tillval i priskalkylatorn och få ett prisintervall på en minut.'],
+        ],
     ],
 
     'fuktutredning' => [
@@ -509,9 +515,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på fuktutredning'],
         'related'   => ['badrumsbesiktning', 'statusbesiktning', 'overlatelsebesiktning'],
-        'guides'    => [],
+        'guides'    => ['mogel-i-hus', 'fuktskada-badrum', 'fuktskada-parkett', 'fuktskada-kallare', 'fuktmatning-betong'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Välj tjänst, storlek och tillval i priskalkylatorn och få ett prisintervall på en minut.'],
+        ],
     ],
 
     'slutbesiktning' => [
@@ -627,9 +635,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på slutbesiktning'],
         'related'   => ['entreprenadbesiktning', 'garantibesiktning', 'badrumsbesiktning'],
-        'guides'    => [],
+        'guides'    => ['tvist-med-hantverkare', 'fuktskada-badrum'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Välj tjänst, storlek och tillval i priskalkylatorn och få ett prisintervall på en minut.'],
+        ],
     ],
 
     'entreprenadbesiktning' => [
@@ -745,9 +755,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på entreprenadbesiktning'],
         'related'   => ['slutbesiktning', 'garantibesiktning', 'brf'],
-        'guides'    => [],
+        'guides'    => ['tvist-med-hantverkare'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/', 'label' => 'Se priser på besiktning', 'text' => 'Riktpriser för alla tjänster. Uppdrag för föreningar och entreprenader får offert efter omfattning.'],
+        ],
     ],
 
     'garantibesiktning' => [
@@ -855,9 +867,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på garantibesiktning'],
         'related'   => ['entreprenadbesiktning', 'slutbesiktning', 'brf'],
-        'guides'    => [],
+        'guides'    => ['tvist-med-hantverkare'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/', 'label' => 'Se priser på besiktning', 'text' => 'Riktpriser för alla tjänster. Uppdrag för föreningar och entreprenader får offert efter omfattning.'],
+        ],
     ],
 
     'brf' => [
@@ -976,9 +990,11 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert för föreningen'],
         'related'   => ['underhallsplan', 'garantibesiktning', 'badrumsbesiktning'],
-        'guides'    => [],
+        'guides'    => ['fuktskada-badrum', 'mogel-i-hus'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Välj tjänst, storlek och tillval i priskalkylatorn och få ett prisintervall på en minut.'],
+        ],
     ],
 
     'underhallsplan' => [
@@ -1091,8 +1107,10 @@ return [
         ],
         'cta'       => ['label' => 'Begär offert på underhållsplan'],
         'related'   => ['brf', 'statusbesiktning', 'entreprenadbesiktning'],
-        'guides'    => [],
+        'guides'    => ['fuktskada-kallare'],
         'articles'  => [],
-        'toolLinks' => [],
+        'toolLinks' => [
+            ['path' => '/priser/', 'label' => 'Se priser på besiktning', 'text' => 'Riktpriser för alla tjänster. Uppdrag för föreningar och entreprenader får offert efter omfattning.'],
+        ],
     ],
 ];

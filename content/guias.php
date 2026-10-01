@@ -225,7 +225,7 @@ return [
             ],
         ],
         'relatedService' => 'badrumsbesiktning',
-        'toolLink'       => null,
+        'toolLink'       => ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Priskalkylatorn ger ett prisintervall för besiktning och fuktutredning.'],
         'related'        => ['mogel-i-hus', 'fuktmatning-betong', 'tvist-med-hantverkare'],
     ],
 
@@ -503,7 +503,7 @@ return [
             ],
         ],
         'relatedService' => 'fuktutredning',
-        'toolLink'       => null,
+        'toolLink'       => ['path' => '/priser/kalkylator/', 'label' => 'Räkna ut ett ungefärligt pris', 'text' => 'Priskalkylatorn ger ett prisintervall för besiktning och fuktutredning.'],
         'related'        => ['fuktskada-kallare', 'fuktskada-parkett', 'mogel-i-hus'],
     ],
 
@@ -590,7 +590,7 @@ return [
             ],
         ],
         'relatedService' => 'slutbesiktning',
-        'toolLink'       => null,
+        'toolLink'       => ['path' => '/priser/', 'label' => 'Se priser på besiktning', 'text' => 'Riktpriser för slutbesiktning och andra besiktningar.'],
         'related'        => ['fuktskada-badrum', 'mogel-i-hus', 'fuktmatning-betong'],
     ],
 ];
