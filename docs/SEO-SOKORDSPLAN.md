@@ -1,6 +1,6 @@
 # SEO-sökordsplan – besiktningsmannen.se
 
-Status: **Steg 1 (plan). Ingen kod skrivs förrän planen är godkänd.**
+Status: **Steg 1 (plan), uppdaterad efter Antons svar. Byggplanen finns i `plan.md`. Ingen kod före godkännande.**
 Källa: Google Keyword Planner, Sverige, svenska, exporterad 2026-10-01
 (`besiktningsmannen.se-keywords-for-ai.md`, 641 unika sökningar, 38 310 sök/mån deduplicerat).
 Detta dokument ersätter de "ej verifierade" sökordslistorna. Nu finns riktig data.
@@ -131,12 +131,9 @@ plus en ruta med relaterade tjänster. Guiderna länkar alltid till sin tjänste
 
 ---
 
-## 5. Frågor att besvara innan steg 2
+## 5. Beslut (2026-10-01)
 
-1. **Bolag och region:** Samma bolag som Rapportverket (Entreprenadkonsulterna Sthlm AB, SBR/KIWA) och
-   Stockholms län? Ska Uppsala nämnas?
-2. **Vilka av dessa tjänster erbjuds?** Underhållsplan för BRF (1 140 sök/mån, högst CPC), takbesiktning,
-   fuktmätning i betong enligt RBK, kontrollansvarig, OVK.
-3. **Priser:** Får vi visa prisintervall och en kalkylator på /priser/? Ange i så fall pris per tjänst
-   (eller "från X kr").
-4. **Kontakt:** Telefon, e-post, adress (för GBP och NAP), samt VenderCRM-nyckel (eller ska den skapas).
+Se `plan.md` §1. Kortfattat: varumärket är Besiktningsmannen (utföraren nämns inte), fokus på Stockholms län
+(Stockholm + Nynäshamn, övriga Sverige efter överenskommelse), "från"-priser som är preliminära, formuläret först.
+Underhållsplan BRF och takbesiktning är parkerade tills det är bekräftat att tjänsterna erbjuds. Påståenden om SBR/KIWA i title kräver
+utförarens certifikat. Annars blir startsidans title "Besiktningsman i Stockholm – certifierad & oberoende".
