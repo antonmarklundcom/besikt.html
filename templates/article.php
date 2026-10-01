@@ -66,11 +66,11 @@ if (!empty($article['service'])) {
 $page = [
     'title'       => $article['seoTitle'] ?? '',
     'description' => $article['description'],
-    'path'        => '/blog/' . $article['slug'] . '/',
+    'path'        => article_path($article['slug']),
     'ogType'      => 'article',
     'breadcrumbs' => [
-        ['label' => ui('nav.blog'), 'path' => '/blog/'],
-        ['label' => $article['title'], 'path' => '/blog/' . $article['slug'] . '/'],
+        ['label' => ui('nav.blog'), 'path' => site_path('blog')],
+        ['label' => $article['title'], 'path' => article_path($article['slug'])],
     ],
     'faq'         => $faq,
     /* An article has no service of its own, so it borrows the one it is about. Articles with no

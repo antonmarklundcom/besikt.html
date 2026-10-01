@@ -65,7 +65,7 @@ require ROOT_DIR . '/partials/header.php';
           <h2 class="card-title"><?= e(ui('services_hub.unsure_title')) ?></h2>
           <p><?= e(ui('services_hub.unsure_text')) ?></p>
         </div>
-        <a class="btn btn--primary" href="<?= e($hubWhatsapp ?? '/contacto/') ?>"<?= $hubWhatsapp ? ' rel="noopener"' : '' ?>>
+        <a class="btn btn--primary" href="<?= e($hubWhatsapp ?? site_path('contact')) ?>"<?= $hubWhatsapp ? ' rel="noopener"' : '' ?>>
           <?= e(ui('services_hub.unsure_cta')) ?>
         </a>
       </div>

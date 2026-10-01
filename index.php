@@ -65,7 +65,7 @@ require ROOT_DIR . '/partials/header.php';
         <p class="lead hero__lead"><?= e(ui('home.lead')) ?></p>
 
         <div class="btn-row">
-          <a class="btn btn--primary" href="/contacto/"><?= e(ui('cta.consult')) ?></a>
+          <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.consult')) ?></a>
           <a class="btn btn--secondary" href="#servicios"><?= e(ui('cta.see_included')) ?></a>
         </div>
 
@@ -112,7 +112,7 @@ require ROOT_DIR . '/partials/header.php';
           <h3 class="card-title"><?= e(ui('home.unsure_title')) ?></h3>
           <p><?= e(ui('home.unsure_text')) ?></p>
         </div>
-        <a class="btn btn--primary" href="<?= e($homeWhatsapp ?? '/contacto/') ?>"<?= $homeWhatsapp ? ' rel="noopener"' : '' ?>>
+        <a class="btn btn--primary" href="<?= e($homeWhatsapp ?? site_path('contact')) ?>"<?= $homeWhatsapp ? ' rel="noopener"' : '' ?>>
           <?= e(ui('cta.talk')) ?>
         </a>
       </div>
@@ -199,7 +199,7 @@ require ROOT_DIR . '/partials/header.php';
           <?php if (site('phone')): ?>
             <a class="btn btn--secondary" href="tel:+<?= e(phone_digits(site('phone'))) ?>"><?= e(site('phone')) ?></a>
           <?php else: ?>
-            <a class="btn btn--secondary" href="/contacto/"><?= e(ui('nav.contact')) ?></a>
+            <a class="btn btn--secondary" href="<?= e(site_path('contact')) ?>"><?= e(ui('nav.contact')) ?></a>
           <?php endif; ?>
         </div>
 

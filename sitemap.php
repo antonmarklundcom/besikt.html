@@ -47,7 +47,7 @@ foreach (nav('guias') as $guide) {
 
 foreach (content('blog') as $article) {
     $urls[] = [
-        'loc'        => url('/blog/' . $article['slug'] . '/'),
+        'loc'        => url(article_path($article['slug'])),
         'lastmod'    => $article['updated'] ?? $article['date'] ?? null,
         'changefreq' => 'yearly',
         'priority'   => '0.6',

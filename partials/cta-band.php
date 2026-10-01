@@ -9,7 +9,7 @@
  *                         from content/lead-values.php, so the
  *                         message names the service the visitor was reading
  *                         about and never the button's label
- *   $ctaContactPath string  the primary button's href, defaults to /contacto/
+ *   $ctaContactPath string  the primary button's href, defaults to the contact page
  *                           (a second-language section passes its own path)
  */
 
@@ -20,7 +20,7 @@ $ctaLead        = $ctaLead ?? ui('cta_band.lead');
 $ctaWhatsapp    = $ctaWhatsapp ?? whatsapp_text_for_page();
 $ctaSlug        = current_lead_slug();
 $ctaLink        = whatsapp_link($ctaWhatsapp);
-$ctaContactPath = $ctaContactPath ?? '/contacto/';
+$ctaContactPath = $ctaContactPath ?? site_path('contact');
 ?>
 <section class="section section--ink">
   <div class="container stack">

@@ -107,6 +107,41 @@ function services_hub_path(): string
 }
 
 /**
+ * Path of a hub or fixed page, from content/site.php 'paths'. The defaults are
+ * the template's Spanish route directories; a site in another language sets its
+ * own (e.g. 'contact' => '/kontakt/') and renames the route directory to match.
+ * Every partial, template and enviar.php builds these links through here, so
+ * no path is hardcoded outside content/.
+ *
+ * Keys: contact, tools, guides, blog, prices, privacy, terms.
+ */
+function site_path(string $key): string
+{
+    static $defaults = [
+        'contact' => '/contacto/',
+        'tools'   => '/herramientas/',
+        'guides'  => '/guias/',
+        'blog'    => '/blog/',
+        'prices'  => '/precios/',
+        'privacy' => '/privacidad/',
+        'terms'   => '/terminos/',
+    ];
+
+    $paths = site('paths');
+    $path  = is_array($paths) ? ($paths[$key] ?? null) : null;
+
+    return is_string($path) && $path !== '' ? $path : ($defaults[$key] ?? '/');
+}
+
+/**
+ * Path of one blog article.
+ */
+function article_path(string $slug): string
+{
+    return site_path('blog') . $slug . '/';
+}
+
+/**
  * A static page record from content/pages.php, keyed by path.
  */
 function page_meta(string $path): array
@@ -142,7 +177,7 @@ function phone_digits(?string $phone): string
 
 /**
  * wa.me deep link with a prefilled message, or null when no WhatsApp number is
- * configured yet. Callers fall back to /contacto/.
+ * configured yet. Callers fall back to the contact page.
  */
 function whatsapp_link(?string $text = null): ?string
 {
@@ -165,7 +200,7 @@ function whatsapp_link(?string $text = null): ?string
  */
 function contact_link(?string $text = null): string
 {
-    return whatsapp_link($text) ?? '/contacto/';
+    return whatsapp_link($text) ?? site_path('contact');
 }
 
 /**

@@ -39,7 +39,7 @@ foreach (nav('guias') as $guide) {
     $routes[$guide['path']] = 200;
 }
 foreach (content('blog') as $article) {
-    $routes['/blog/' . $article['slug'] . '/'] = 200;
+    $routes[article_path($article['slug'])] = 200;
 }
 foreach (content('segmentos') as $segmento) {
     $routes[$segmento['path']] = 200;

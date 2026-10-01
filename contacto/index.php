@@ -11,12 +11,12 @@
 
 require __DIR__ . '/../lib/bootstrap.php';
 
-$meta = page_meta('/contacto/');
+$meta = page_meta(site_path('contact'));
 $page = [
     'title'       => $meta['title'],
     'description' => $meta['description'],
-    'path'        => '/contacto/',
-    'breadcrumbs' => [['label' => ui('nav.contact'), 'path' => '/contacto/']],
+    'path'        => site_path('contact'),
+    'breadcrumbs' => [['label' => ui('nav.contact'), 'path' => site_path('contact')]],
 ];
 
 /* The no-JS thank-you. `s` names the service the lead came from; an unknown

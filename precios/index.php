@@ -7,12 +7,12 @@
 
 require __DIR__ . '/../lib/bootstrap.php';
 
-$meta = page_meta('/precios/');
+$meta = page_meta(site_path('prices'));
 $page = [
     'title'       => $meta['title'],
     'description' => $meta['description'],
-    'path'        => '/precios/',
-    'breadcrumbs' => [['label' => ui('nav.pricing'), 'path' => '/precios/']],
+    'path'        => site_path('prices'),
+    'breadcrumbs' => [['label' => ui('nav.pricing'), 'path' => site_path('prices')]],
 ];
 
 require ROOT_DIR . '/partials/head.php';
@@ -51,7 +51,7 @@ require ROOT_DIR . '/partials/header.php';
                 <li><span><?= e($planLine) ?></span></li>
               <?php endforeach; ?>
             </ul>
-            <p class="mt-4"><a class="btn btn--primary" href="/contacto/"><?= e(ui('pricing.cta')) ?></a></p>
+            <p class="mt-4"><a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('pricing.cta')) ?></a></p>
           </article>
         <?php endforeach; ?>
       </div>

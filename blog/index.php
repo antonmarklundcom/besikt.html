@@ -7,12 +7,12 @@
 
 require __DIR__ . '/../lib/bootstrap.php';
 
-$meta = page_meta('/blog/');
+$meta = page_meta(site_path('blog'));
 $page = [
     'title'       => $meta['title'],
     'description' => $meta['description'],
-    'path'        => '/blog/',
-    'breadcrumbs' => [['label' => ui('nav.blog'), 'path' => '/blog/']],
+    'path'        => site_path('blog'),
+    'breadcrumbs' => [['label' => ui('nav.blog'), 'path' => site_path('blog')]],
 ];
 
 $articles = content('blog');
@@ -41,7 +41,7 @@ require ROOT_DIR . '/partials/header.php';
       <?php else: ?>
         <div class="grid grid--3">
           <?php foreach ($articles as $listArticle): ?>
-            <a class="card card--link" href="<?= e('/blog/' . $listArticle['slug'] . '/') ?>">
+            <a class="card card--link" href="<?= e(article_path($listArticle['slug'])) ?>">
               <span class="card__meta"><?= e(fmt_date_long($listArticle['date'])) ?></span>
               <h2 class="card-title"><?= e($listArticle['title']) ?></h2>
               <p class="card__text"><?= e($listArticle['description']) ?></p>

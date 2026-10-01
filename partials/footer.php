@@ -64,7 +64,7 @@ $footSocials = nav('socials');
           <?php if (site('hours')): ?>
             <li><?= e(site('hours')) ?></li>
           <?php endif; ?>
-          <li><a href="/contacto/"><?= e(ui('nav.contact')) ?></a></li>
+          <li><a href="<?= e(site_path('contact')) ?>"><?= e(ui('nav.contact')) ?></a></li>
           <?php foreach ($footSocials as $footSocial): ?>
             <li><a href="<?= e($footSocial) ?>" rel="noopener me"><?= e(parse_url($footSocial, PHP_URL_HOST) ?: $footSocial) ?></a></li>
           <?php endforeach; ?>

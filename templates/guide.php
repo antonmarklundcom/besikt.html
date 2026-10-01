@@ -54,7 +54,7 @@ $page = [
     'description' => $guide['metaDescription'],
     'path'        => $guide['path'],
     'breadcrumbs' => [
-        ['label' => ui('nav.guides'), 'path' => '/guias/'],
+        ['label' => ui('nav.guides'), 'path' => site_path('guides')],
         ['label' => $guide['title'], 'path' => $guide['path']],
     ],
     'faq'      => $guide['faq'],

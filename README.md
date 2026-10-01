@@ -41,7 +41,11 @@ is open. Budget: about 30 minutes.
 3. **Branch.** `git checkout -b t0-adopt`.
 4. **Identity.** Edit `content/site.php`: `name`, `domain`, `slug` (lower-case, names the deploy
    zip), `market` (`py` or `se`), `servicesHub` (`/servicios/` by default; a store can use
-   `/productos/` — then move `servicios/index.php` and its `content/pages.php` key to match), `schemaType` (the schema.org type of the business, e.g.
+   `/productos/` — then move `servicios/index.php` and its `content/pages.php` key to match), `paths`
+   (contact, tools, guides, blog, prices, privacy and terms; a Swedish site sets e.g.
+   `'contact' => '/kontakt/'`, renames the route directory and changes the matching
+   `content/pages.php` and `content/nav.php` paths — nothing in `lib/`, `partials/`,
+   `templates/` or `enviar.php` hardcodes them; service `path`s may sit at the site root), `schemaType` (the schema.org type of the business, e.g.
    `['LegalService']`), `description`. Leave every contact and address value `null` until the
    owner confirms it — the site degrades on purpose.
 5. **Language and labels.** Edit `content/ui.php`: every visible word on the site is here. For a

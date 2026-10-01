@@ -64,7 +64,7 @@ require ROOT_DIR . '/partials/header.php';
           <p class="lead"><?= e($service['metaDescription']) ?></p>
         <?php endif; ?>
         <div class="btn-row">
-          <a class="btn btn--primary" href="/contacto/">
+          <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>">
             <?= e($service['cta']['label'] !== '' ? $service['cta']['label'] : ui('cta.consult')) ?>
           </a>
           <?php if (($wa = whatsapp_link($ctaWhatsapp)) !== null): ?>
@@ -239,7 +239,7 @@ require ROOT_DIR . '/partials/header.php';
             <?php if ($svcArticle === null): ?>
               <?php continue; ?>
             <?php endif; ?>
-            <a class="card card--link" href="<?= e('/blog/' . $svcArticle['slug'] . '/') ?>">
+            <a class="card card--link" href="<?= e(article_path($svcArticle['slug'])) ?>">
               <h3 class="card-title"><?= e($svcArticle['title']) ?></h3>
               <p class="card__text"><?= e($svcArticle['description']) ?></p>
             </a>

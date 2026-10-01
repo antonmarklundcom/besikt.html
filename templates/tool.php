@@ -34,7 +34,7 @@ $page = [
     'description' => $tool['metaDescription'],
     'path'        => $tool['path'],
     'breadcrumbs' => [
-        ['label' => ui('nav.tools'), 'path' => '/herramientas/'],
+        ['label' => ui('nav.tools'), 'path' => site_path('tools')],
         ['label' => $tool['title'], 'path' => $tool['path']],
     ],
     'faq'      => $tool['faq'],

@@ -20,7 +20,7 @@
 #   7. the lead value model: every service and tool has a record, every service
 #      page's form names its own service, a posted service reaches
 #      logs/leads.log as servicio + valor, the per-service thank-you renders on
-#      /contacto/?enviado=1&s=<slug>, and no wa.me link carries a generic message
+#      <contact path>?enviado=1&s=<slug>, and no wa.me link carries a generic message
 #   8. referential integrity across the content arrays: every slug a record
 #      points at exists
 #
@@ -198,10 +198,10 @@ eval "$(php -r '
 require "'"$SITE_ROOT"'/lib/bootstrap.php";
 $slug = (string) array_key_first(services());
 $lead = lead_value($slug);
-printf("FIXTURE_SLUG=%s\nFIXTURE_PATH=%s\nFIXTURE_TIER=%s\nFIXTURE_VALUE=%d\nFIXTURE_CURRENCY=%s\nFIXTURE_NEED=%s\n",
+printf("FIXTURE_SLUG=%s\nFIXTURE_PATH=%s\nFIXTURE_TIER=%s\nFIXTURE_VALUE=%d\nFIXTURE_CURRENCY=%s\nFIXTURE_NEED=%s\nCONTACT_PATH=%s\n",
     escapeshellarg($slug), escapeshellarg(services($slug)["path"]), escapeshellarg((string) $lead["tier"]),
     lead_tier_value((string) $lead["tier"]), escapeshellarg(market_currency()),
-    escapeshellarg((string) array_key_first(content("ui")["needs"])));
+    escapeshellarg((string) array_key_first(content("ui")["needs"])), escapeshellarg(site_path("contact")));
 ')"
 
 # The JSON response carries the resolved lead value, so these
@@ -222,7 +222,7 @@ json_says() {   # json_says <json> <key=value> ...
 
 response=$(curl -s -X POST "$BASE/enviar.php" \
   -H 'Accept: application/json' -H "Origin: $BASE" \
-  -d "name=Verify&phone=0981000999&need=${FIXTURE_NEED}&source_page=/contacto/&idempotency_key=verify-sh-fixture")
+  -d "name=Verify&phone=0981000999&need=${FIXTURE_NEED}&source_page=${CONTACT_PATH}&idempotency_key=verify-sh-fixture")
 
 if why=$(json_says "$response" ok=true degraded=true); then
   ok 'degraded mode returns ok + degraded with no CRM key'
@@ -233,7 +233,7 @@ fi
 nojs=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' -X POST "$BASE/enviar.php" \
   -H "Origin: $BASE" -d "name=Verify&phone=0981000998&service=${FIXTURE_SLUG}")
 case "$nojs" in
-  "303 ${BASE}/contacto/?enviado=1&s=${FIXTURE_SLUG}") ok "no-JS POST redirects to /contacto/?enviado=1&s=<slug>" ;;
+  "303 ${BASE}${CONTACT_PATH}?enviado=1&s=${FIXTURE_SLUG}") ok "no-JS POST redirects to ${CONTACT_PATH}?enviado=1&s=<slug>" ;;
   *) fail "no-JS POST returned: $nojs" ;;
 esac
 
@@ -351,15 +351,15 @@ done < <(php -r '
 [ "$missing_service_field" -eq 0 ] && ok "every service page posts its own slug"
 
 # The per-service thank-you the no-JS redirect lands on.
-thanks=$(curl -s "${BASE}/contacto/?enviado=1&s=${FIXTURE_SLUG}")
+thanks=$(curl -s "${BASE}${CONTACT_PATH}?enviado=1&s=${FIXTURE_SLUG}")
 expected_step=$(php -r '
   require "'"$SITE_ROOT"'/lib/bootstrap.php";
   echo htmlspecialchars(lead_value($argv[1])["nextStep"][0], ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
 ' "$FIXTURE_SLUG")
 if printf '%s' "$thanks" | grep -qF "$expected_step"; then
-  ok "/contacto/?enviado=1&s=${FIXTURE_SLUG} renders that service's next step"
+  ok "${CONTACT_PATH}?enviado=1&s=${FIXTURE_SLUG} renders that service's next step"
 else
-  fail "/contacto/?enviado=1&s=${FIXTURE_SLUG} did not render that service's next step"
+  fail "${CONTACT_PATH}?enviado=1&s=${FIXTURE_SLUG} did not render that service's next step"
 fi
 
 # No wa.me link anywhere may carry a generic message: every prefill names the

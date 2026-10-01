@@ -76,22 +76,22 @@ $navLeadSlug    = current_lead_slug() ?? '';
       </ul>
 
       <div class="nav-drawer-cta">
-        <a class="btn btn--whatsapp" href="<?= e($navWhatsapp ?? '/contacto/') ?>"
+        <a class="btn btn--whatsapp" href="<?= e($navWhatsapp ?? site_path('contact')) ?>"
            <?= $navWhatsapp ? 'rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"' : '' ?>
            data-service="<?= e($navLeadSlug) ?>">
           <?= e($navWhatsapp ? ui('cta.whatsapp_long') : ui('cta.contact')) ?>
         </a>
-        <a class="btn btn--primary" href="/contacto/"><?= e(ui('cta.quote')) ?></a>
+        <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
       </div>
     </div>
 
     <div class="site-header__actions">
-      <a class="btn btn--secondary" href="<?= e($navWhatsapp ?? '/contacto/') ?>"
+      <a class="btn btn--secondary" href="<?= e($navWhatsapp ?? site_path('contact')) ?>"
          <?= $navWhatsapp ? 'rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"' : '' ?>
          data-service="<?= e($navLeadSlug) ?>">
         <?= e($navWhatsapp ? ui('cta.whatsapp') : ui('cta.contact')) ?>
       </a>
-      <a class="btn btn--primary" href="/contacto/"><?= e(ui('cta.quote')) ?></a>
+      <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
     </div>
 
   </div>

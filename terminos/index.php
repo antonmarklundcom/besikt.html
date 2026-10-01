@@ -3,5 +3,5 @@
 
 require __DIR__ . '/../lib/bootstrap.php';
 
-$path = '/terminos/';
+$path = site_path('terms');
 require ROOT_DIR . '/templates/page.php';

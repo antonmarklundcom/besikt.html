@@ -5,12 +5,12 @@
 
 require __DIR__ . '/../lib/bootstrap.php';
 
-$meta = page_meta('/herramientas/');
+$meta = page_meta(site_path('tools'));
 $page = [
     'title'       => $meta['title'],
     'description' => $meta['description'],
-    'path'        => '/herramientas/',
-    'breadcrumbs' => [['label' => ui('nav.tools'), 'path' => '/herramientas/']],
+    'path'        => site_path('tools'),
+    'breadcrumbs' => [['label' => ui('nav.tools'), 'path' => site_path('tools')]],
 ];
 
 require ROOT_DIR . '/partials/head.php';

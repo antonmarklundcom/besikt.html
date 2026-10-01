@@ -43,7 +43,6 @@ require __DIR__ . '/lib/bootstrap.php';
 const LEAD_RATE_MAX     = 5;     // submissions per IP …
 const LEAD_RATE_WINDOW  = 600;   // … per 10 minutes
 const LEAD_CRM_TIMEOUT  = 10;    // seconds
-const LEAD_SUCCESS_PATH = '/contacto/?enviado=1';
 
 $wantsJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
 
@@ -71,12 +70,12 @@ function respond(bool $ok, bool $degraded, ?string $error = null, array $extra =
     /* The thank-you is per service, so the no-JS path has to
        carry the slug across the redirect — /contacto/ renders it from the same
        content/lead-values.php record the inline success state uses. */
-    $success = LEAD_SUCCESS_PATH;
+    $success = site_path('contact') . '?enviado=1';
     if (!empty($extra['service'])) {
         $success .= '&s=' . rawurlencode((string) $extra['service']);
     }
 
-    header('Location: ' . ($ok ? $success : '/contacto/?error=1'));
+    header('Location: ' . ($ok ? $success : site_path('contact') . '?error=1'));
     exit;
 }
 
@@ -251,7 +250,7 @@ function notify_by_email(array $payload, string $outcome): void
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     http_response_code(405);
     header('Allow: POST');
-    header('Location: /contacto/', true, 303);
+    header('Location: ' . site_path('contact'), true, 303);
     exit;
 }
 
