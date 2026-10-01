@@ -9,90 +9,81 @@
  * partial that would show it hides instead or falls back to neutral phrasing.
  * Never a placeholder number, never an invented address.
  *
- * THIS FILE IS EXAMPLE DATA. Step 2 of "Start a new site (T0)" in README.md
- * replaces every value below with the real business.
+ * besiktningsmannen.se — leadsajt för fastighetsbesiktning i Stockholms län.
+ * Utföraren (samarbetspartnern) namnges inte på sajten (plan.md §1.1).
  */
 
 declare(strict_types=1);
 
 return [
     // --- identity -----------------------------------------------------------
-    'name'   => 'Ejemplo S.A.',
-    // Bare hostname, no scheme: the wordmark and robots.txt print it.
-    'domain' => 'ejemplo.com.py',
-    // Lower-case, filename-safe: names the deploy zip (dist/<slug>-DATE.zip).
-    'slug'   => 'ejemplo',
+    'name'   => 'Besiktningsmannen',
+    'domain' => 'besiktningsmannen.se',
+    'slug'   => 'besiktningsmannen',
+    'market' => 'se',
 
-    // Which lib/market/<market>.php + assets/js/market/<market>.js pair loads:
-    // money formatting, tax-id validation, long dates, VAT rates and the legal
-    // reference tables. 'py' (Paraguay) or 'se' (Sweden) ship with the template.
-    'market' => 'py',
+    'schemaType' => ['HomeAndConstructionBusiness'],
 
-    // schema.org types for the organisation block, most specific first. See
-    // https://schema.org/LocalBusiness for the list ('LegalService',
-    // 'Plumber', 'Dentist', 'AccountingService', …).
-    'schemaType' => ['LocalBusiness'],
+    // Tjänster ligger på rotnivå (/overlatelsebesiktning/); hubben listar dem.
+    'servicesHub' => '/tjanster/',
 
-    // Path of the services hub. '/servicios/' by default; a store can use
-    // '/productos/'. Move the servicios/ route directory and its
-    // content/pages.php key to match.
-    'servicesHub' => '/servicios/',
-
-    // Hub and fixed-page paths, read through site_path(). Leave out a key to keep
-    // the template's default; a Swedish site sets e.g. 'contact' => '/kontakt/'
-    // and renames the route directory (and its content/pages.php key) to match.
     'paths' => [
-        'contact' => '/contacto/',
-        'tools'   => '/herramientas/',
-        'guides'  => '/guias/',
-        'blog'    => '/blog/',
-        'prices'  => '/precios/',
-        'privacy' => '/privacidad/',
-        'terms'   => '/terminos/',
+        'contact' => '/kontakt/',
+        'tools'   => '/priser/',            // kalkylatorn ligger under /priser/
+        'guides'  => '/guider/',
+        'blog'    => '/artiklar/',          // ingen blogg i v1 (plan.md §1.10)
+        'prices'  => '/priser/',
+        'privacy' => '/integritetspolicy/',
+        'terms'   => '/integritetspolicy/', // inga separata villkor i v1
     ],
 
-    'legalName'   => null,                       // registered legal name
-    'description' => 'Empresa de ejemplo: reemplace este texto por lo que hace el negocio, '
-                   . 'en una frase que un cliente reconozca.',
+    // Den som driver sajten och är personuppgiftsansvarig (integritetspolicyn).
+    'legalName'   => 'Marklund Sales & Marketing AB',
+    'orgNumber'   => null,                       // org.nr — fylls i när Anton bekräftar
+    'description' => 'Besiktningsman i Stockholms län: överlåtelsebesiktning, badrumsbesiktning, '
+                   . 'fuktutredning, slutbesiktning och besiktning för BRF.',
 
     // --- contact ------------------------------------------------------------
-    // 'phone' and 'whatsapp' in international form, e.g. '+595 981 123 456'.
-    // While both are null the header pill, the floating button and every
-    // service CTA point at /contacto/ instead of wa.me — see
-    // partials/whatsapp-fab.php.
+    // Telefon: internationellt format, t.ex. '+46 8 123 456 78'. Medan den är
+    // null visas ingen tel:-länk. WhatsApp används inte på den här sajten.
     'phone'    => null,
     'whatsapp' => null,
+    // Visas INTE i sidfoten (spam). /kontakt/ skriver ut kontakt@… med JS.
     'email'    => null,
+    'publicEmail' => 'kontakt@besiktningsmannen.se',
 
     // --- address ------------------------------------------------------------
+    // Ingen gatuadress publiceras (ingen GBP, plan.md §8.2).
     'street'  => null,
     'city'    => null,
-    'country' => null,                           // defaults to the market's country
+    'country' => 'Sverige',
     'hours'   => null,
-    // Regions served, for JSON-LD areaServed. Empty = the whole country.
-    // e.g. ['Stockholms län', 'Stockholm', 'Nynäshamn']
-    'areaServed' => [],                           // display string, e.g. 'Lun–Vie 8:00–17:30'
 
-    // schema.org openingHoursSpecification entries, added when hours are confirmed
+    'areaServed' => [
+        'Stockholms län', 'Stockholm', 'Nynäshamn', 'Haninge', 'Nacka', 'Huddinge',
+        'Botkyrka', 'Södertälje', 'Tyresö', 'Värmdö', 'Lidingö', 'Danderyd', 'Täby',
+        'Sollentuna', 'Järfälla', 'Solna', 'Sundbyberg', 'Upplands Väsby', 'Norrtälje',
+    ],
+
     'openingHours' => [],
 
     // --- credentials and scale ----------------------------------------------
-    'registration' => null,                      // licence / registration number
-    'foundedYear'  => null,                      // int
-    'teamSize'     => null,                      // int
+    'registration' => null,
+    'foundedYear'  => null,
+    'teamSize'     => null,
 
     // --- imagery ------------------------------------------------------------
-    // While these are null the homepage "about" slots render as neutral
-    // decorative panels — never a broken image, never a captioned identity claim.
+    // Inga riktiga foton än; inga AI-bilder på personer (plan.md §1.9).
     'photos' => [
-        'portrait' => null,                      // ['src' => '/assets/img/...', 'alt' => '...']
+        'portrait' => null,
         'team'     => null,
     ],
 
-    // --- collections: every one of these renders only when non-empty ---------
-    'socials'      => [],                        // ['https://www.facebook.com/...', ...]
-    'stats'        => [],                        // [['value' => '100 %', 'label' => '...'], ...]
-    'testimonials' => [],                        // [['quote','name','business','city','since'], ...]
-    'team'         => [],                        // [['name','role','credentials','photo'], ...]
-    'credentials'  => [],                        // ['Profesionales matriculados', ...]
+    'socials'      => [],
+    'stats'        => [],
+    'testimonials' => [],
+    'team'         => [],
+    // Bara påståenden som gäller för uppdragens utförare. Certifikatnummer
+    // läggs till först när de är bekräftade.
+    'credentials'  => [],
 ];

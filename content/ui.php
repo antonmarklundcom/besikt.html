@@ -4,9 +4,8 @@
  * in partials/ or templates/ contains a visible word; they all read from here,
  * so translating the site is this one file plus content/*.
  *
- * The strings below are neutral Spanish (formal "usted"), matching the 'py'
- * market the example content uses. A Swedish site rewrites this file in
- * Swedish and sets 'market' => 'se' in content/site.php; no code changes.
+ * Svenska, du-tilltal, sakligt. Inga superlativer och inga påståenden som
+ * kräver bekräftelse (antal uppdrag, år i branschen, recensioner).
  *
  * Nothing here may name a month, a year, a price or a client: strings must stay
  * true without anyone remembering to edit them.
@@ -16,301 +15,327 @@ declare(strict_types=1);
 
 return [
 
-    // Cluster labels, in the order the mega-menu and the services hub use them.
-    // A cluster key is referenced by every service record ('cluster' => ...).
     'clusters' => [
-        'principal'  => 'Servicios principales',
-        'adicional'  => 'Servicios adicionales',
+        'kop'        => 'Köpa eller sälja bostad',
+        'fukt'       => 'Fukt och skador',
+        'bygg'       => 'Bygg, renovering och BRF',
     ],
 
-    // One line under each cluster heading on the services hub. Keyed by cluster id.
     'cluster_leads' => [
-        'principal' => 'Lo que hacemos todos los meses para la mayoría de nuestros clientes.',
-        'adicional' => 'Trabajos puntuales que se contratan cuando hacen falta.',
+        'kop'  => 'Besiktning inför köp eller försäljning av hus och bostadsrätt.',
+        'fukt' => 'När du misstänker fukt, mögel eller en dold skada.',
+        'bygg' => 'Kontroll av byggprojekt, renoveringar och föreningens fastighet.',
     ],
 
     'nav' => [
-        'home'         => 'Inicio',
-        'services'     => 'Servicios',
-        'pricing'      => 'Precios',
-        'tools'        => 'Herramientas',
-        'guides'       => 'Guías',
-        'about'        => 'Nosotros',
-        'blog'         => 'Blog',
-        'contact'      => 'Contacto',
-        'privacy'      => 'Privacidad',
-        'terms'        => 'Términos',
-        'menu'         => 'Menú',
-        'close'        => 'Cerrar',
-        'open_menu'    => 'Abrir el menú',
-        'close_menu'   => 'Cerrar el menú',
-        'skip'         => 'Ir al contenido principal',
-        'firm'         => 'La empresa',
-        'all_services' => 'Ver todos los servicios',
+        'home'         => 'Start',
+        'services'     => 'Tjänster',
+        'pricing'      => 'Priser',
+        'tools'        => 'Priskalkylator',
+        'guides'       => 'Guider',
+        'about'        => 'Om oss',
+        'blog'         => 'Artiklar',
+        'contact'      => 'Kontakt',
+        'privacy'      => 'Integritetspolicy',
+        'terms'        => 'Villkor',
+        'menu'         => 'Meny',
+        'close'        => 'Stäng',
+        'open_menu'    => 'Öppna menyn',
+        'close_menu'   => 'Stäng menyn',
+        'skip'         => 'Hoppa till innehållet',
+        'firm'         => 'Besiktningsmannen',
+        'all_services' => 'Se alla tjänster',
     ],
 
     'cta' => [
-        'quote'         => 'Pedir presupuesto',
+        'quote'         => 'Begär offert',
         'whatsapp'      => 'WhatsApp',
-        'whatsapp_long' => 'Escribir por WhatsApp',
-        'consult'       => 'Solicitar una consulta',
-        'contact'       => 'Contactar',
-        'see_included'  => 'Ver qué incluye',
-        'talk'          => 'Hablar con nosotros',
+        'whatsapp_long' => 'Skriv på WhatsApp',
+        'consult'       => 'Begär offert',
+        'contact'       => 'Kontakta oss',
+        'see_included'  => 'Se våra tjänster',
+        'talk'          => 'Beskriv ditt ärende',
+        'call'          => 'Ring',
     ],
 
-    // The WhatsApp menu. These are BUTTON LABELS only — the message that
-    // actually reaches WhatsApp always comes from content/lead-values.php and
-    // names a service, never a generic "consulta gratis".
+    // WhatsApp används inte på sajten (site.whatsapp = null), men nycklarna
+    // måste finnas för mallens partials.
     'whatsapp' => [
-        'menu_title' => '¿Sobre qué quiere escribirnos?',
-        'menu_note'  => 'Abrimos WhatsApp con el mensaje ya escrito. Puede cambiarlo antes de enviarlo.',
-        'other'      => 'Otra consulta',
-        'this_page'  => 'Lo que está viendo',
-        'open_menu'  => 'Abrir opciones de WhatsApp',
-        'close_menu' => 'Cerrar',
+        'menu_title' => 'Vad gäller det?',
+        'menu_note'  => 'Vi öppnar WhatsApp med ett färdigt meddelande som du kan ändra.',
+        'other'      => 'Något annat',
+        'this_page'  => 'Det du läser om',
+        'open_menu'  => 'Öppna WhatsApp-alternativ',
+        'close_menu' => 'Stäng',
     ],
 
     'home' => [
-        'eyebrow'   => 'Tomamos nuevos clientes',
-        'h1_lead'   => 'El titular de la portada va acá, ',
-        'h1_accent' => 'con la promesa al final.',
-        'lead'      => 'Una o dos líneas que explican qué hace el negocio, para quién y qué '
-                     . 'gana el cliente. Sin adjetivos que no se puedan sostener.',
+        'eyebrow'   => 'Stockholms län · Certifierad besiktningsman',
+        'h1_lead'   => 'Besiktningsman ',
+        'h1_accent' => 'i Stockholm',
+        'lead'      => 'Överlåtelsebesiktning, badrumsbesiktning, fuktutredning och slutbesiktning '
+                     . 'för villa, bostadsrätt och BRF. Beskriv ditt ärende så får du en offert.',
+        'trust' => [
+            'Certifierad besiktningsman (SBR/KIWA)',
+            'Oberoende – inga band till mäklare eller hantverkare',
+            'Skriftligt protokoll med foton',
+            'Uppdrag i hela Stockholms län',
+        ],
 
-        'services_eyebrow' => 'Servicios',
-        'services_title'   => 'Lo que hacemos',
-        'services_lead'    => 'Contrate lo que necesita hoy y sume servicios cuando haga falta.',
+        'services_eyebrow' => 'Tjänster',
+        'services_title'   => 'Vad behöver besiktigas?',
+        'services_lead'    => 'Välj det som liknar ditt ärende. Osäker? Skriv några rader i formuläret, '
+                            . 'så föreslår vi rätt typ av besiktning.',
 
-        'unsure_title' => '¿No sabe qué necesita?',
-        'unsure_text'  => 'Cuéntenos su situación y le decimos qué corresponde, sin costo.',
+        'unsure_title' => 'Vet du inte vilken besiktning du behöver?',
+        'unsure_text'  => 'Beskriv bostaden och vad som har hänt. Vi svarar med ett förslag och ett pris.',
+
+        'area_eyebrow' => 'Område',
+        'area_title'   => 'Besiktningsman i hela Stockholms län',
+        'area_text'    => 'Vi utgår från Stockholm och Nynäshamn och tar uppdrag i alla kommuner i '
+                        . 'länet. Större uppdrag i övriga Sverige tar vi efter överenskommelse – då '
+                        . 'tillkommer resekostnad enligt offert.',
+
+        'prices_eyebrow' => 'Priser',
+        'prices_title'   => 'Fast pris i offerten',
+        'prices_text'    => 'Priset beror på bostadens storlek, typ och vad som ska undersökas. '
+                          . 'Du får alltid ett fast pris innan uppdraget bokas.',
+        'prices_cta'     => 'Se priser',
+
+        'faq_title' => 'Vanliga frågor om besiktning',
+        'form_title' => 'Begär offert',
+        'form_lead'  => 'Svar inom en arbetsdag. Kostnadsfritt och utan förpliktelser.',
     ],
 
-    // The panel at the foot of the homepage hero. Labels only: no amounts, no
-    // dates, no percentages, no client name — see partials/status-panel.php.
     'panel' => [
-        'title' => 'Su trabajo del mes, a la vista',
-        'badge' => 'Al día',
+        'title' => 'Besiktningsprotokoll',
+        'badge' => 'Klart',
         'tiles' => [
-            ['label' => 'Primer entregable',  'value' => 'Listo'],
-            ['label' => 'Segundo entregable', 'value' => 'Listo'],
-            ['label' => 'Tercer entregable',  'value' => 'En curso'],
+            ['label' => 'Okulär besiktning',  'value' => 'Utförd'],
+            ['label' => 'Fuktmätning',        'value' => 'Utförd'],
+            ['label' => 'Protokoll med foton', 'value' => 'Skickat'],
         ],
-        'foot'  => 'Próximo paso acordado',
-        'note'  => 'Ejemplo del informe mensual',
+        'foot'  => 'Genomgång av resultatet',
+        'note'  => 'Exempel',
     ],
 
-    // The "quiénes somos" band on the homepage. Every line here is a commitment
-    // about how the business works, never a claim about size or results — those
-    // need the owner's confirmation and belong in content/site.php.
     'about' => [
-        'eyebrow' => 'Quiénes somos',
-        'title'   => 'Una frase sobre cómo trabajamos y en qué se nota.',
-        'text'    => 'Dos o tres oraciones sobre el equipo, el proceso y el tipo de cliente que '
-                   . 'atiende. Concreto y verificable: qué hace, con qué frecuencia y qué recibe '
-                   . 'el cliente.',
-        // Shown while content/site.php has no credentials[] of its own.
+        'eyebrow' => 'Varför oss',
+        'title'   => 'En oberoende besiktningsman som skriver så att du förstår.',
+        'text'    => 'Besiktningen görs av en certifierad besiktningsman som arbetar med '
+                   . 'småhus, bostadsrätter och entreprenader. Du får ett skriftligt protokoll med '
+                   . 'foton och en genomgång av vad som är viktigt och vad som kan vänta.',
         'credentials' => [
-            'Una persona asignada a su cuenta, no una mesa de entrada',
-            'Alcance y precio acordados por escrito antes de empezar',
-            'Respuesta dentro del siguiente día hábil',
+            'Certifierad besiktningsman (SBR/KIWA)',
+            'Oberoende av mäklare, säljare och entreprenörer',
+            'Fast pris i skriftlig offert innan uppdraget bokas',
         ],
-        'badge_note'     => 'de experiencia',
-        'badge_fallback' => 'Equipo propio',
+        'badge_note'     => 'i branschen',
+        'badge_fallback' => 'Certifierad',
     ],
 
-    // The four-step "cómo trabajamos" block, reused on service pages.
     'process' => [
-        'eyebrow' => 'Cómo trabajamos',
-        'title'   => 'De la primera conversación al primer entregable, con fechas acordadas.',
+        'eyebrow' => 'Så går det till',
+        'title'   => 'Från förfrågan till protokoll – fyra steg.',
         'steps'   => [
             [
-                'title' => 'Conversación inicial',
-                'text'  => 'Media hora para entender qué necesita y en qué situación está hoy.',
+                'title' => 'Du beskriver ärendet',
+                'text'  => 'Fyll i formuläret: vad som ska besiktigas, var och när.',
             ],
             [
-                'title' => 'Propuesta por escrito',
-                'text'  => 'Alcance detallado y precio, con lo que está incluido y lo que no.',
+                'title' => 'Du får en offert',
+                'text'  => 'Fast pris och förslag på tid, oftast inom en arbetsdag.',
             ],
             [
-                'title' => 'Puesta en marcha',
-                'text'  => 'Recibimos la información, ordenamos lo pendiente y arrancamos.',
+                'title' => 'Besiktning på plats',
+                'text'  => 'Besiktningsmannen går igenom bostaden, mäter fukt där det behövs och fotograferar.',
             ],
             [
-                'title' => 'Seguimiento',
-                'text'  => 'Una persona asignada y un informe en lenguaje claro.',
+                'title' => 'Protokoll och genomgång',
+                'text'  => 'Du får ett skriftligt protokoll och kan ställa frågor om resultatet.',
             ],
         ],
     ],
 
-    // Rendered in place of the testimonials band while content/site.php has
-    // none. Sectors, not clients: nothing to verify.
     'industries' => [
-        'eyebrow' => 'Rubros',
-        'title'   => 'Rubros que atendemos',
-        'lead'    => 'Cada rubro tiene sus propias trampas. Estos son los que trabajamos.',
-        // Each item is either a plain string or ['label' => ..., 'path' => ...]
-        // pointing at a segment page in content/segmentos.php.
+        'eyebrow' => 'Vi besiktigar',
+        'title'   => 'Bostäder och fastigheter vi besiktigar',
+        'lead'    => 'Från lägenheten du ska köpa till föreningens stambyte.',
         'items'   => [
-            ['label' => 'Rubro de ejemplo', 'path' => '/segmentos/rubro-ejemplo/'],
+            'Villa och radhus',
+            'Bostadsrätt',
+            'Fritidshus',
+            'Nyproduktion',
+            'Badrum och våtrum',
+            'BRF och flerbostadshus',
         ],
     ],
 
-    // The band renders only when content/site.php has testimonials.
     'testimonials' => [
-        'eyebrow' => 'Casos',
-        'title'   => 'Lo que dicen nuestros clientes',
+        'eyebrow' => 'Omdömen',
+        'title'   => 'Vad kunderna säger',
     ],
 
     'services_hub' => [
-        'eyebrow'      => 'Servicios',
-        'title'        => 'Todo lo que hacemos, en un solo lugar.',
-        'lead'         => 'Contrate lo que necesita hoy y sume servicios cuando haga falta.',
-        'unsure_title' => '¿No sabe qué necesita?',
-        'unsure_text'  => 'Cuéntenos su caso y le decimos qué servicios le corresponden.',
-        'unsure_cta'   => 'Escribirnos',
+        'eyebrow'      => 'Tjänster',
+        'title'        => 'Besiktningar för hus, bostadsrätt och BRF.',
+        'lead'         => 'Alla uppdrag utförs av en certifierad besiktningsman i Stockholms län.',
+        'unsure_title' => 'Osäker på vilken besiktning du behöver?',
+        'unsure_text'  => 'Beskriv ärendet så föreslår vi rätt tjänst och ett fast pris.',
+        'unsure_cta'   => 'Begär offert',
     ],
 
     'cta_band' => [
-        'eyebrow' => 'Solicitar consulta',
-        'title'   => 'Empecemos con una conversación de 30 minutos.',
-        'lead'    => 'Sin costo y sin compromiso. Le respondemos con una propuesta concreta.',
+        'eyebrow' => 'Offert',
+        'title'   => 'Beskriv ditt ärende – få ett fast pris.',
+        'lead'    => 'Kostnadsfritt och utan förpliktelser. Vi svarar inom en arbetsdag.',
     ],
 
     'form' => [
-        'legend'          => 'Solicitar una consulta',
-        'name'            => 'Nombre',
-        'company'         => 'Empresa o rubro',
-        'phone'           => 'WhatsApp o teléfono',
-        'phone_hint'      => 'Ej.: 0981 123 456',
-        'email'           => 'Correo (opcional)',
-        'need'            => '¿Qué necesita?',
-        'message'         => 'Cuéntenos brevemente',
-        'message_hint'    => 'Su situación actual, en dos líneas…',
-        'submit'          => 'Solicitar una consulta',
-        'sending'         => 'Enviando…',
-        'privacy_note'    => 'Usamos sus datos solo para responderle. Ver la política de privacidad.',
-        'success_title'   => 'Recibimos su consulta.',
-        'success_text'    => 'Le respondemos dentro del siguiente día hábil. Si prefiere, escríbanos ahora.',
-        'error_title'     => 'No pudimos enviar el formulario.',
-        'error_text'      => 'Vuelva a intentarlo en un momento o escríbanos directamente.',
-        'error_phone'     => 'Necesitamos un teléfono o WhatsApp válido para responderle.',
-        'required'        => 'obligatorio',
-        'thanks_next'     => 'Qué sigue',
-        'thanks_whatsapp' => 'Si prefiere no esperar, escríbanos ahora por WhatsApp.',
-        'remind_title'    => 'Que le avisemos antes de cada vencimiento',
-        'remind_text'     => 'Le anotamos su caso y le escribimos por WhatsApp unos días antes.',
-        'remind_phone'    => 'Su WhatsApp',
-        'remind_submit'   => 'Quiero que me recuerden',
-        'remind_ok'       => 'Anotado. Le escribimos antes del próximo vencimiento.',
+        'legend'          => 'Begär offert',
+        'name'            => 'Namn',
+        'company'         => 'Förening eller företag (valfritt)',
+        'location'        => 'Ort eller kommun',
+        'location_hint'   => 'T.ex. Nynäshamn',
+        'property'        => 'Typ av bostad',
+        'property_none'   => 'Välj …',
+        'property_types'  => [
+            'villa'       => 'Villa eller radhus',
+            'bostadsratt' => 'Bostadsrätt',
+            'fritidshus'  => 'Fritidshus',
+            'brf'         => 'BRF eller flerbostadshus',
+            'nybygge'     => 'Nybygge eller tillbyggnad',
+            'annat'       => 'Annat',
+        ],
+        'date'            => 'Önskat datum (valfritt)',
+        'phone'           => 'Telefon',
+        'phone_hint'      => 'T.ex. 070-123 45 67',
+        'email'           => 'E-post',
+        'need'            => 'Vad gäller det?',
+        'message'         => 'Beskriv ärendet',
+        'message_hint'    => 'T.ex. adress eller område, byggår, boyta och vad du vill ha undersökt …',
+        'submit'          => 'Skicka förfrågan',
+        'sending'         => 'Skickar …',
+        'privacy_note'    => 'Vi använder dina uppgifter för att besvara förfrågan och lämnar dem till '
+                           . 'den certifierade besiktningsman som utför uppdraget. Läs mer i vår',
+        'success_title'   => 'Tack! Vi har fått din förfrågan.',
+        'success_text'    => 'Vi återkommer med offert inom en arbetsdag.',
+        'error_title'     => 'Förfrågan kunde inte skickas.',
+        'error_text'      => 'Försök igen om en stund, eller mejla oss via kontaktsidan.',
+        'error_phone'     => 'Ange ett telefonnummer så att vi kan nå dig.',
+        'required'        => 'obligatoriskt',
+        'thanks_next'     => 'Nästa steg',
+        'thanks_whatsapp' => 'Vill du komplettera? Svara på bekräftelsen eller ring oss.',
+        'remind_title'    => 'Påminnelse',
+        'remind_text'     => 'Vi påminner dig när det är dags.',
+        'remind_phone'    => 'Telefon',
+        'remind_submit'   => 'Påminn mig',
+        'remind_ok'       => 'Klart, vi hör av oss.',
     ],
 
-    // The chip selector in the lead form. Every key here needs a matching entry
-    // in content/lead-values.php's 'needs' — verify.sh checks that.
+    // Knapparna i formuläret. Varje nyckel behöver en post i
+    // content/lead-values.php 'needs' — verify.sh kontrollerar det.
     'needs' => [
-        'servicio' => 'Un servicio puntual',
-        'mensual'  => 'Trabajo mensual',
-        'otro'     => 'Otro',
+        'kop'        => 'Köpa eller sälja',
+        'badrum'     => 'Badrum',
+        'fukt'       => 'Fukt eller skada',
+        'renovering' => 'Slutbesiktning',
+        'brf'        => 'BRF eller entreprenad',
+        'annat'      => 'Annat',
     ],
 
     'contact' => [
-        'eyebrow' => 'Contacto',
-        'title'   => 'Hablemos de su caso.',
-        'lead'    => 'Escríbanos por WhatsApp o déjenos sus datos y le respondemos dentro '
-                   . 'del siguiente día hábil.',
-        'address' => 'Dirección',
-        'hours'   => 'Horario',
-        'phone'   => 'Teléfono',
-        'email'   => 'Correo',
-        'expect'  => 'Qué pasa después',
+        'eyebrow' => 'Kontakt',
+        'title'   => 'Beskriv ditt ärende.',
+        'lead'    => 'Fyll i formuläret så återkommer vi med offert inom en arbetsdag.',
+        'address' => 'Adress',
+        'hours'   => 'Öppettider',
+        'phone'   => 'Telefon',
+        'email'   => 'E-post',
+        'expect'  => 'Så går det till',
         'steps'   => [
-            'Le respondemos dentro del siguiente día hábil.',
-            'Coordinamos una llamada de 30 minutos, sin costo ni compromiso.',
-            'Recibe una propuesta con el alcance y el precio por escrito.',
+            'Vi svarar inom en arbetsdag.',
+            'Du får ett fast pris och förslag på tid för besiktningen.',
+            'Efter besiktningen får du ett skriftligt protokoll med foton.',
         ],
     ],
 
     'service' => [
-        'includes'     => 'Qué incluye',
-        'excludes'     => 'Qué no incluye',
-        'we_need'      => 'Qué necesitamos de usted',
-        'benefits'     => 'Beneficios',
-        'faq'          => 'Preguntas frecuentes',
-        'related'      => 'Servicios relacionados',
-        'guides'       => 'Guía relacionada',
-        'articles'     => 'Artículo relacionado',
-        'form_eyebrow' => 'Presupuesto',
-        'form_lead'    => 'Déjenos sus datos y le respondemos con una propuesta concreta, '
-                        . 'sin costo y sin compromiso.',
-        'breadcrumb'   => 'Ruta de navegación',
+        'includes'     => 'Det här ingår',
+        'excludes'     => 'Det här ingår inte',
+        'we_need'      => 'Bra att ha till besiktningen',
+        'benefits'     => 'Därför lönar det sig',
+        'faq'          => 'Vanliga frågor',
+        'related'      => 'Relaterade tjänster',
+        'guides'       => 'Läs mer i guiden',
+        'articles'     => 'Relaterad artikel',
+        'form_eyebrow' => 'Offert',
+        'form_lead'    => 'Beskriv ärendet så får du ett fast pris. Svar inom en arbetsdag.',
+        'breadcrumb'   => 'Brödsmulor',
     ],
 
-    // Segment landing pages (content/segmentos.php).
     'segment' => [
-        'traps_title'  => 'Los errores que más le cuestan en su rubro',
-        'bundle_title' => 'Lo que armamos para su rubro',
-        'form_eyebrow' => 'Presupuesto para su rubro',
-        'form_lead'    => 'Cuéntenos su rubro y su volumen; le respondemos con una propuesta concreta.',
+        'traps_title'  => 'Vanliga misstag',
+        'bundle_title' => 'Det här brukar ingå',
+        'form_eyebrow' => 'Offert',
+        'form_lead'    => 'Beskriv ärendet så återkommer vi med ett fast pris.',
     ],
 
-    // Shared microcopy across the tool pages. Calculator-specific labels live in
-    // each tool's own PHP/JS; only the repeated strings are here.
     'tools' => [
-        'reviewed_prefix' => 'Datos revisados el',
-        'orientativo'     => 'Los resultados son orientativos y no reemplazan un cálculo oficial.',
-        'calculate'       => 'Calcular',
-        'result_title'    => 'Resultado',
-        'use_result'      => 'Usar este resultado en el formulario',
-        'need_js'         => 'Esta calculadora necesita JavaScript activado en su navegador.',
-        'restart'         => 'Volver a empezar',
+        'reviewed_prefix' => 'Priserna sågs över',
+        'orientativo'     => 'Kalkylatorn ger ett ungefärligt pris. Det slutliga priset står i offerten.',
+        'calculate'       => 'Räkna',
+        'result_title'    => 'Ungefärligt pris',
+        'use_result'      => 'Använd resultatet i offertförfrågan',
+        'need_js'         => 'Kalkylatorn kräver JavaScript.',
+        'restart'         => 'Börja om',
     ],
 
-    // Shared microcopy across the guide pages.
     'guide' => [
-        'reviewed_prefix'       => 'Revisado el',
-        'orientativo'           => 'Es una guía general: para su caso puntual, confírmelo con nosotros.',
-        'delegate_eyebrow'      => 'Delegarlo',
-        'delegate_title'        => '¿Prefiere que lo hagamos nosotros?',
-        'delegate_lead'         => 'Le respondemos dentro del siguiente día hábil con los pasos exactos '
-                                 . 'para su caso.',
-        'delegate_form_heading' => 'Pedir que nos encarguemos',
-        'related'               => 'Otras guías',
+        'reviewed_prefix'       => 'Granskad',
+        'orientativo'           => 'Guiden är allmän information. Ditt hus kan kräva en besiktning på plats.',
+        'delegate_eyebrow'      => 'Besiktning',
+        'delegate_title'        => 'Vill du att en besiktningsman tittar på det?',
+        'delegate_lead'         => 'Beskriv vad du har sett så återkommer vi med förslag och fast pris '
+                                 . 'inom en arbetsdag.',
+        'delegate_form_heading' => 'Begär offert',
+        'related'               => 'Fler guider',
     ],
 
-    // Article chrome (templates/article.php). The long date itself is formatted
-    // by the market module's fmt_date_long().
     'article' => [
-        'reading_time' => 'min de lectura',
-        'updated'      => 'Actualizado el',
-        'read_more'    => 'Leer el artículo',
+        'reading_time' => 'min läsning',
+        'updated'      => 'Uppdaterad',
+        'read_more'    => 'Läs artikeln',
     ],
 
-    // Hub pages: the listings under /servicios/, /blog/, /herramientas/, /guias/.
     'hub' => [
-        'empty' => 'Todavía no hay nada publicado en esta sección.',
+        'empty' => 'Här finns inget publicerat ännu.',
     ],
 
     'pricing' => [
-        'quote'    => 'A cotizar',
-        'per_month' => 'por mes',
-        'cta'      => 'Pedir presupuesto',
-        'note'     => 'Los planes se ajustan al volumen real; el precio final se acuerda por escrito.',
+        'quote'     => 'Offert',
+        'per_month' => 'per månad',
+        'from'      => 'från',
+        'cta'       => 'Begär offert',
+        'note'      => 'Priserna gäller privatpersoner inklusive moms i Stockholms län. '
+                     . 'Det slutliga priset står i offerten.',
     ],
 
     'placeholder' => [
-        // Shown on a stub page until the phase that owns it writes the content.
-        'notice' => 'Estamos preparando esta página.',
-        'action' => 'Mientras tanto, escríbanos y le respondemos por WhatsApp.',
+        'notice' => 'Vi arbetar på den här sidan.',
+        'action' => 'Under tiden kan du begära offert så hjälper vi dig direkt.',
     ],
 
     'error404' => [
-        'title' => 'No encontramos esta página',
-        'lead'  => 'Puede que el enlace haya cambiado. Estas son las secciones más buscadas.',
+        'title' => 'Sidan finns inte',
+        'lead'  => 'Länken kan ha ändrats. Här är de mest besökta sidorna.',
     ],
 
     'footer' => [
-        'blurb'   => 'Una línea sobre el negocio y a quién atiende.',
-        'rights'  => 'Todos los derechos reservados.',
-        'contact' => 'Contacto',
+        'blurb'    => 'Besiktningsman i Stockholms län. Överlåtelsebesiktning, badrum, fukt, '
+                    . 'slutbesiktning och BRF.',
+        'rights'   => 'Alla rättigheter förbehållna.',
+        'contact'  => 'Kontakt',
+        'operator' => 'Sajten drivs av',
     ],
 ];

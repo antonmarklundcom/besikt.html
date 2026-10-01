@@ -15,16 +15,4 @@
 
 declare(strict_types=1);
 
-return [
-    [
-        'example' => true,
-        'name'     => 'Plan de ejemplo',
-        'audience' => 'Para quién es este plan, en una línea.',
-        'price'    => null,
-        'includes' => [
-            'Lo que incluye, línea por línea',
-            'Una persona asignada a su cuenta',
-        ],
-        'featured' => true,
-    ],
-];
+return [];

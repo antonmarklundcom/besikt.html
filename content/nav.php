@@ -45,9 +45,8 @@ return [
     'primary' => [
         ['label' => ui('nav.services'), 'path' => services_hub_path(), 'mega' => true],
         ['label' => ui('nav.pricing'),  'path' => site_path('prices')],
-        ['label' => ui('nav.tools'),    'path' => site_path('tools')],
         ['label' => ui('nav.guides'),   'path' => site_path('guides')],
-        ['label' => ui('nav.blog'),     'path' => site_path('blog')],
+        ['label' => ui('nav.about'),    'path' => '/om-oss/'],
         ['label' => ui('nav.contact'),  'path' => site_path('contact')],
     ],
 
@@ -59,9 +58,9 @@ return [
 
     // Footer column 3. Tools are appended from the 'tools' key below.
     'firm' => [
+        ['label' => ui('nav.about'),   'path' => '/om-oss/'],
         ['label' => ui('nav.pricing'), 'path' => site_path('prices')],
         ['label' => ui('nav.guides'),  'path' => site_path('guides')],
-        ['label' => ui('nav.blog'),    'path' => site_path('blog')],
         ['label' => ui('nav.contact'), 'path' => site_path('contact')],
     ],
 
@@ -79,7 +78,6 @@ return [
 
     'legal' => [
         ['label' => ui('nav.privacy'), 'path' => site_path('privacy')],
-        ['label' => ui('nav.terms'),   'path' => site_path('terms')],
     ],
 
     // Rendered only when content/site.php has social URLs.

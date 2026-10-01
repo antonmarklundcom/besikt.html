@@ -35,92 +35,170 @@
 
 declare(strict_types=1);
 
-/* The Google Ads conversion value per tier, in whole units of the market's
-   currency (content/site.php 'market'). These are OPTIMISATION PROXIES, not
-   revenue estimates: they exist so smart bidding favours a retainer lead over a
-   calculator lead by roughly 10:1. Retune the ratio here, and re-scale the
-   numbers when the site's market — and therefore its currency — changes. */
+/* Google Ads-konverteringsvärde per nivå, i kronor. Optimeringsvärden, inte
+   intäktsprognoser: de ska få budgivningen att föredra en uppdragslead framför
+   en kalkylatorlead ungefär 10:1. */
 $tierValues = [
-    'A' => 1000000,
-    'B' => 400000,
-    'C' => 100000,
+    'A' => 3000,
+    'B' => 1500,
+    'C' => 300,
 ];
 
-/* Labels for `need` keys that are not one of the form chips, so the CRM reads a
-   sentence instead of a raw key. */
-$needLabels = [
-    'recordatorio' => 'Recordatorio de vencimientos',
-];
+$needLabels = [];
 
 return [
 
     'tierValues' => $tierValues,
     'needLabels' => $needLabels,
 
-    /* Which services the WhatsApp menu offers, in order, after the current
-       page's own service. Keep it short: four is plenty. */
-    'whatsappMenu' => ['servicio-ejemplo'],
+    'whatsappMenu' => ['overlatelsebesiktning', 'badrumsbesiktning', 'fuktutredning'],
 
-    /* The record for a page that names no service: an article without one, a
-       legal page, the homepage. Never null — every form resolves to something. */
     'default' => [
-        'menuLabel'    => 'Consulta general',
-        'need'         => 'otro',
-        'tier'         => 'C',
-        'whatsappText' => 'Hola, quisiera hacer una consulta.',
-        'nextStep'     => [
-            'Le respondemos dentro del siguiente día hábil.',
-            'Tenga a mano una descripción breve de su situación.',
-        ],
-        'crmTag'       => 'consulta-general',
-        'nextLink'     => null,
-    ],
-
-    /* One record per key in content/services.php. verify.sh fails when a service
-       has none — an untagged lead is a lead nobody can route. */
-    'services' => [
-        'servicio-ejemplo' => [
-            'example' => true,
-            'menuLabel'    => 'Servicio de ejemplo',
-            'need'         => 'servicio',
-            'tier'         => 'A',
-            'whatsappText' => 'Hola, quisiera consultar por el servicio de ejemplo.',
-            'nextStep'     => [
-                'Le respondemos dentro del siguiente día hábil.',
-                'Tenga a mano la documentación que pedimos en "qué necesitamos de usted".',
-            ],
-            'crmTag'       => 'servicio-ejemplo',
-            'nextLink'     => [
-                'path'  => '/herramientas/herramienta-ejemplo/',
-                'label' => 'Mientras tanto, haga la cuenta',
-            ],
-        ],
-    ],
-
-    /* One record per key in content/tools.php. A calculator lead is worth less
-       than a service lead — that is the whole point of tiering them. */
-    'tools' => [
-        'herramienta-ejemplo' => [
-            'example' => true,
-            'menuLabel'    => 'Calculadora de ejemplo',
-            'need'         => 'servicio',
+            'menuLabel'    => 'Allmän förfrågan',
+            'need'         => 'annat',
             'tier'         => 'C',
-            'whatsappText' => 'Hola, usé la calculadora de ejemplo y quisiera confirmar el resultado.',
+            'whatsappText' => 'Hej, jag har en fråga om besiktning.',
             'nextStep'     => [
-                'Le respondemos dentro del siguiente día hábil.',
-                'Guarde el resultado que calculó: se lo revisamos con usted.',
+                'Vi återkommer inom en arbetsdag.',
+                'Beskriv gärna bostaden och vad du vill ha hjälp med.',
             ],
-            'crmTag'       => 'herramienta-ejemplo',
+            'crmTag'       => 'allman-forfragan',
+            'nextLink'     => null,
+    ],
+
+    'services' => [
+        'overlatelsebesiktning' => [
+            'menuLabel'    => 'Överlåtelsebesiktning',
+            'need'         => 'kop',
+            'tier'         => 'A',
+            'whatsappText' => 'Hej, jag vill ha offert på en överlåtelsebesiktning av ett hus.',
+            'nextStep'     => [
+                'Vi återkommer med offert och förslag på tid inom en arbetsdag.',
+                'Ha adressen, objektsbeskrivningen och eventuell säljarbesiktning redo.',
+            ],
+            'crmTag'       => 'overlatelsebesiktning',
+            'nextLink'     => null,
+        ],
+        'statusbesiktning' => [
+            'menuLabel'    => 'Statusbesiktning',
+            'need'         => 'kop',
+            'tier'         => 'B',
+            'whatsappText' => 'Hej, jag vill ha offert på en statusbesiktning.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha byggår, boyta och kända åtgärder redo.',
+            ],
+            'crmTag'       => 'statusbesiktning',
+            'nextLink'     => null,
+        ],
+        'badrumsbesiktning' => [
+            'menuLabel'    => 'Badrumsbesiktning',
+            'need'         => 'badrum',
+            'tier'         => 'B',
+            'whatsappText' => 'Hej, jag vill ha offert på en badrumsbesiktning.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha våtrumsintyg eller kvalitetsdokument redo om badrummet är nyrenoverat.',
+            ],
+            'crmTag'       => 'badrumsbesiktning',
+            'nextLink'     => null,
+        ],
+        'fuktutredning' => [
+            'menuLabel'    => 'Fuktutredning / skadeutredning',
+            'need'         => 'fukt',
+            'tier'         => 'A',
+            'whatsappText' => 'Hej, jag misstänker en fuktskada och vill ha en fuktutredning.',
+            'nextStep'     => [
+                'Vi återkommer inom en arbetsdag.',
+                'Ta gärna foton på det du har sett och notera när det började.',
+            ],
+            'crmTag'       => 'fuktutredning',
+            'nextLink'     => null,
+        ],
+        'slutbesiktning' => [
+            'menuLabel'    => 'Slutbesiktning',
+            'need'         => 'renovering',
+            'tier'         => 'A',
+            'whatsappText' => 'Hej, jag vill ha offert på en slutbesiktning.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha avtalet med entreprenören och planerat datum för färdigställande redo.',
+            ],
+            'crmTag'       => 'slutbesiktning',
+            'nextLink'     => null,
+        ],
+        'entreprenadbesiktning' => [
+            'menuLabel'    => 'Entreprenadbesiktning',
+            'need'         => 'brf',
+            'tier'         => 'A',
+            'whatsappText' => 'Hej, vi behöver en besiktningsförrättare för en entreprenad.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha kontrakt, standardavtal (AB 04/ABT 06/ABS 18) och tidplan redo.',
+            ],
+            'crmTag'       => 'entreprenadbesiktning',
+            'nextLink'     => null,
+        ],
+        'garantibesiktning' => [
+            'menuLabel'    => 'Garantibesiktning',
+            'need'         => 'brf',
+            'tier'         => 'B',
+            'whatsappText' => 'Hej, jag vill ha offert på en garantibesiktning.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha slutbesiktningsutlåtandet och en lista över kända fel redo.',
+            ],
+            'crmTag'       => 'garantibesiktning',
+            'nextLink'     => null,
+        ],
+        'brf' => [
+            'menuLabel'    => 'Besiktning för BRF',
+            'need'         => 'brf',
+            'tier'         => 'A',
+            'whatsappText' => 'Hej, vi är en bostadsrättsförening och behöver en besiktningsman.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha föreningens namn, fastighetens storlek och underhållsplan redo om den finns.',
+            ],
+            'crmTag'       => 'brf',
+            'nextLink'     => null,
+        ],
+        'underhallsplan' => [
+            'menuLabel'    => 'Underhållsplan för BRF',
+            'need'         => 'brf',
+            'tier'         => 'A',
+            'whatsappText' => 'Hej, vår förening behöver en underhållsplan.',
+            'nextStep'     => [
+                'Vi återkommer med offert inom en arbetsdag.',
+                'Ha antal lägenheter, byggår och befintlig underhållsplan redo.',
+            ],
+            'crmTag'       => 'underhallsplan',
             'nextLink'     => null,
         ],
     ],
 
-    /* One record per chip in content/ui.php 'needs'. A lead from a page with no
-       service of its own takes the tier of the chip the visitor picked, and
-       borrows that chip's service copy when it names one. */
+    /* Kalkylatorn på /priser/ (fas S2 skapar verktyget i content/tools.php). */
+    'tools' => [
+        'priskalkylator' => [
+            'menuLabel'    => 'Priskalkylator',
+                'need'         => 'kop',
+                'tier'         => 'C',
+                'whatsappText' => 'Hej, jag har räknat på priset och vill ha en offert.',
+                'nextStep'     => [
+                    'Vi återkommer med fast pris inom en arbetsdag.',
+                    'Spara det du räknade fram – vi utgår från det i offerten.',
+                ],
+                'crmTag'       => 'priskalkylator',
+                'nextLink'     => null,
+        ],
+    ],
+
     'needs' => [
-        'servicio' => ['tier' => 'B', 'crmTag' => 'servicio-puntual', 'service' => 'servicio-ejemplo'],
-        'mensual'  => ['tier' => 'A', 'crmTag' => 'trabajo-mensual',  'service' => 'servicio-ejemplo'],
-        'otro'     => ['tier' => 'C', 'crmTag' => 'consulta-general', 'service' => null],
+        'kop'        => ['tier' => 'A', 'crmTag' => 'kop-salj',      'service' => 'overlatelsebesiktning'],
+        'badrum'     => ['tier' => 'B', 'crmTag' => 'badrum',        'service' => 'badrumsbesiktning'],
+        'fukt'       => ['tier' => 'A', 'crmTag' => 'fukt-skada',    'service' => 'fuktutredning'],
+        'renovering' => ['tier' => 'A', 'crmTag' => 'slutbesiktning', 'service' => 'slutbesiktning'],
+        'brf'        => ['tier' => 'A', 'crmTag' => 'brf-entreprenad', 'service' => 'brf'],
+        'annat'      => ['tier' => 'C', 'crmTag' => 'allman-forfragan', 'service' => null],
     ],
 ];

@@ -1,5 +1,5 @@
 <?php
-/** /privacidad/ — content lives in content/pages.php. */
+/** /integritetspolicy/ — innehållet ligger i content/pages.php. */
 
 require __DIR__ . '/../lib/bootstrap.php';
 

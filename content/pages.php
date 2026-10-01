@@ -27,75 +27,66 @@ declare(strict_types=1);
 
 return [
     '/' => [
-        'title'       => 'Inicio',
-        'description' => 'Página de ejemplo del template: reemplace este texto por lo que hace el '
-                       . 'negocio, para quién y en qué ciudad, en 120–155 caracteres.',
-        'h1'          => '',
+        'title'       => 'Certifierad besiktningsman i Stockholm',
+        'description' => 'Certifierad besiktningsman i Stockholms län: överlåtelsebesiktning, '
+                       . 'badrumsbesiktning, fuktutredning, slutbesiktning och BRF. Begär offert.',
+        'h1'          => 'Besiktningsman i Stockholm',
         'lead'        => '',
         'stub'        => false,
         'changefreq'  => 'weekly',
         'priority'    => '1.0',
     ],
 
-    '/servicios/' => [
-        'title'       => 'Servicios',
-        'description' => 'Todos los servicios del negocio en una sola página, agrupados por tipo, '
-                       . 'con el detalle de qué incluye cada uno.',
-        'h1'          => '',
+    '/tjanster/' => [
+        'title'       => 'Tjänster – besiktning av hus och BRF',
+        'description' => 'Alla besiktningar vi utför i Stockholms län: köp av hus och bostadsrätt, '
+                       . 'badrum, fukt och skador, slutbesiktning, entreprenad och BRF.',
+        'h1'          => 'Tjänster',
         'lead'        => '',
         'stub'        => false,
         'changefreq'  => 'monthly',
         'priority'    => '0.9',
     ],
 
-    '/precios/' => [
-        'title'       => 'Precios y planes',
-        'description' => 'Los planes disponibles, con el alcance de cada uno y un presupuesto a '
-                       . 'medida cuando el caso no entra en ninguno.',
-        'h1'          => 'Precios',
-        'lead'        => 'El alcance se define por escrito antes de empezar.',
+    // Fas S2 skriver sidan (prislista + kalkylator) och sätter stub => false.
+    '/priser/' => [
+        'title'       => 'Vad kostar besiktning av hus? Priser',
+        'description' => 'Priser för besiktning av hus, bostadsrätt, badrum och fukt i Stockholms '
+                       . 'län. Se ungefärligt pris och begär en offert med fast pris.',
+        'h1'          => 'Pris på besiktning av hus',
+        'lead'        => 'Från-priser inklusive moms för privatpersoner. Fast pris i offerten.',
+        'stub'        => true,
+        'changefreq'  => 'monthly',
+        'priority'    => '0.8',
+    ],
+
+    '/guider/' => [
+        'title'       => 'Guider om fukt, mögel och besiktning',
+        'description' => 'Guider om fuktskador, mögel i hus, fuktmätning och tvister med hantverkare – '
+                       . 'så känner du igen problemen och vet när du ska anlita besiktningsman.',
+        'h1'          => 'Guider',
+        'lead'        => 'Fakta om fukt, mögel och besiktning – skrivet för husägare och köpare.',
         'stub'        => false,
         'changefreq'  => 'monthly',
         'priority'    => '0.7',
     ],
 
-    '/herramientas/' => [
-        'title'       => 'Herramientas',
-        'description' => 'Calculadoras gratuitas para resolver las cuentas que más nos preguntan, '
-                       . 'con el detalle de cómo se calcula cada una.',
-        'h1'          => 'Herramientas',
-        'lead'        => 'Calculadoras gratuitas para las cuentas más frecuentes.',
-        'stub'        => false,
-        'changefreq'  => 'monthly',
-        'priority'    => '0.7',
-    ],
-
-    '/guias/' => [
-        'title'       => 'Guías',
-        'description' => 'Guías paso a paso de los trámites y procesos que más nos consultan, '
-                       . 'escritas para hacerlas uno mismo.',
-        'h1'          => 'Guías',
-        'lead'        => 'Cómo hacer, paso a paso, lo que más nos preguntan.',
-        'stub'        => false,
-        'changefreq'  => 'monthly',
-        'priority'    => '0.7',
-    ],
-
-    '/blog/' => [
-        'title'       => 'Blog',
-        'description' => 'Artículos prácticos sobre el rubro, escritos por el equipo y '
-                       . 'actualizados cuando cambia algo que importa.',
-        'h1'          => 'Blog',
-        'lead'        => 'Artículos prácticos sobre el rubro.',
-        'stub'        => false,
-        'changefreq'  => 'weekly',
+    // Fas S4 skriver sidan och sätter stub => false.
+    '/om-oss/' => [
+        'title'       => 'Certifierad och oberoende besiktningsman',
+        'description' => 'Om Besiktningsmannen: certifierade besiktningsmän (SBR/KIWA) i Stockholms '
+                       . 'län, oberoende av mäklare och entreprenörer. Så arbetar vi.',
+        'h1'          => 'Certifierad och oberoende besiktningsman',
+        'lead'        => '',
+        'stub'        => true,
+        'changefreq'  => 'yearly',
         'priority'    => '0.6',
     ],
 
-    '/contacto/' => [
-        'title'       => 'Contacto',
-        'description' => 'Escríbanos por WhatsApp o déjenos sus datos: le respondemos dentro del '
-                       . 'siguiente día hábil con una propuesta concreta.',
+    '/kontakt/' => [
+        'title'       => 'Kontakt – begär offert på besiktning',
+        'description' => 'Begär offert på besiktning i Stockholms län. Beskriv ditt ärende i formuläret '
+                       . 'så återkommer vi med fast pris inom en arbetsdag.',
         'h1'          => '',
         'lead'        => '',
         'stub'        => false,
@@ -103,34 +94,70 @@ return [
         'priority'    => '0.8',
     ],
 
-    '/privacidad/' => [
-        'title'       => 'Política de privacidad',
-        'description' => 'Cómo tratamos los datos personales que nos deja en el formulario y cómo '
-                       . 'puede pedir su acceso, corrección o eliminación.',
-        'h1'          => 'Política de privacidad',
-        'lead'        => 'Cómo tratamos los datos personales que nos confía.',
+    '/integritetspolicy/' => [
+        'title'       => 'Integritetspolicy',
+        'description' => 'Så behandlar Besiktningsmannen personuppgifterna du lämnar i formuläret, vem '
+                       . 'som får del av dem och hur du begär utdrag, rättelse eller radering.',
+        'h1'          => 'Integritetspolicy',
+        'lead'        => 'Gäller personuppgifter som lämnas via besiktningsmannen.se.',
         'sections'    => [
             [
-                'h2'   => 'Qué datos recogemos',
+                'h2'   => 'Personuppgiftsansvarig',
                 'body' => [
-                    'Reemplace este texto. Recogemos únicamente los datos que usted escribe en el '
-                        . 'formulario de contacto —nombre, teléfono, correo y el mensaje— más los '
-                        . 'parámetros de campaña que trae el enlace por el que llegó.',
+                    'Besiktningsmannen.se drivs av Marklund Sales & Marketing AB, som är '
+                        . 'personuppgiftsansvarig för de uppgifter du lämnar på webbplatsen.',
                 ],
             ],
             [
-                'h2'   => 'Para qué los usamos',
+                'h2'   => 'Vilka uppgifter vi behandlar',
                 'body' => [
-                    'Reemplace este texto. Usamos sus datos para responderle y para llevar el '
-                        . 'seguimiento de su consulta. No los vendemos ni los cedemos a terceros '
-                        . 'ajenos a la prestación del servicio.',
+                    'Det du skriver i offertformuläret: namn, telefonnummer, e-post, ort, typ av '
+                        . 'bostad, önskat datum och din beskrivning av ärendet. Dessutom vilken sida '
+                        . 'formuläret skickades från och eventuella kampanjparametrar i länken (till '
+                        . 'exempel utm-taggar).',
+                    'Fyll inte i känsliga personuppgifter, till exempel om hälsa, i meddelandefältet.',
                 ],
             ],
             [
-                'h2'   => 'Sus derechos',
+                'h2'   => 'Varför vi behandlar dem',
                 'body' => [
-                    'Reemplace este texto por la vía de contacto real para pedir el acceso, la '
-                        . 'corrección o la eliminación de sus datos.',
+                    'För att besvara din förfrågan, ta fram en offert och förmedla uppdraget till en '
+                        . 'besiktningsman. Den rättsliga grunden är åtgärder innan ett eventuellt avtal '
+                        . 'ingås, och vårt berättigade intresse av att följa upp förfrågningar.',
+                ],
+            ],
+            [
+                'h2'   => 'Vem som får del av uppgifterna',
+                'body' => [
+                    'Förfrågan lämnas till den certifierade besiktningsman som ska utföra uppdraget. '
+                        . 'Besiktningsmannen blir självständigt personuppgiftsansvarig för uppgifter '
+                        . 'som behövs för uppdraget.',
+                    'Vi använder också leverantörer som behandlar uppgifter för vår räkning, till '
+                        . 'exempel webbhotell, kundregister (CRM) och e-posttjänst. De får bara '
+                        . 'behandla uppgifterna enligt våra instruktioner. Vi säljer inte dina uppgifter.',
+                ],
+            ],
+            [
+                'h2'   => 'Hur länge vi sparar uppgifterna',
+                'body' => [
+                    'Förfrågningar som inte leder till uppdrag raderas senast 12 månader efter sista '
+                        . 'kontakten. Uppgifter som behövs för bokföring sparas så länge lagen kräver.',
+                ],
+            ],
+            [
+                'h2'   => 'Dina rättigheter',
+                'body' => [
+                    'Du har rätt att begära utdrag, rättelse eller radering av dina uppgifter, att '
+                        . 'invända mot behandlingen och att begära begränsning. Kontakta oss via '
+                        . 'kontaktsidan. Du kan också lämna klagomål till Integritetsskyddsmyndigheten '
+                        . '(IMY).',
+                ],
+            ],
+            [
+                'h2'   => 'Cookies och statistik',
+                'body' => [
+                    'Webbplatsen sätter inga cookies för marknadsföring utan ditt samtycke. Om vi '
+                        . 'aktiverar besöksstatistik uppdateras den här texten först.',
                 ],
             ],
         ],
@@ -139,40 +166,11 @@ return [
         'priority'    => '0.3',
     ],
 
-    '/terminos/' => [
-        'title'       => 'Términos de servicio',
-        'description' => 'Las condiciones bajo las que prestamos nuestros servicios: alcance, '
-                       . 'plazos y responsabilidades de cada parte.',
-        'h1'          => 'Términos de servicio',
-        'lead'        => 'Condiciones bajo las que prestamos nuestros servicios.',
-        'sections'    => [
-            [
-                'h2'   => 'Alcance',
-                'body' => [
-                    'Reemplace este texto por el alcance real: qué se contrata, qué queda fuera y '
-                        . 'cómo se acuerda cualquier trabajo adicional.',
-                ],
-            ],
-            [
-                'h2'   => 'Plazos y responsabilidades',
-                'body' => [
-                    'Reemplace este texto por los plazos reales y por lo que necesita de parte del '
-                        . 'cliente para poder cumplirlos.',
-                ],
-            ],
-        ],
-        'stub'        => false,
-        'changefreq'  => 'yearly',
-        'priority'    => '0.3',
-    ],
-
-    // Served by 404.php, not by a route file: it has no URL of its own, so it
-    // is excluded from the sitemap and from the route contract.
     '/404' => [
-        'title'       => 'Página no encontrada',
-        'description' => 'No encontramos la página que buscaba. Vea nuestros servicios o '
-                       . 'escríbanos y le indicamos dónde está lo que necesita.',
-        'h1'          => 'No encontramos esta página',
+        'title'       => 'Sidan finns inte',
+        'description' => 'Sidan du letade efter finns inte. Se våra besiktningstjänster i Stockholms '
+                       . 'län eller begär offert så hjälper vi dig vidare.',
+        'h1'          => 'Sidan finns inte',
         'lead'        => '',
         'stub'        => false,
         'noindex'     => true,
