@@ -82,16 +82,85 @@ return [
         'priority'    => '0.9',
     ],
 
-    // Fas S2 skriver sidan (prislista + kalkylator) och sätter stub => false.
     '/priser/' => [
         'title'       => 'Vad kostar besiktning av hus? Priser',
         'description' => 'Priser för besiktning av hus, bostadsrätt, badrum och fukt i Stockholms '
                        . 'län. Se ungefärligt pris och begär en offert med fast pris.',
         'h1'          => 'Pris på besiktning av hus',
-        'lead'        => 'Från-priser inklusive moms för privatpersoner. Fast pris i offerten.',
-        'stub'        => true,
+        'lead'        => 'Från-priser inklusive moms för privatpersoner. Priserna är riktpriser – '
+                       . 'fast pris i offerten.',
+        'stub'        => false,
         'changefreq'  => 'monthly',
         'priority'    => '0.8',
+        // Sidans egen text (priser/index.php). Prislistan kommer från content/precios.php.
+        'calcTeaser'  => [
+            'title' => 'Räkna ut ett ungefärligt pris',
+            'text'  => 'Välj tjänst, storlek och tillval i priskalkylatorn så får du ett intervall på en minut.',
+            'label' => 'Öppna priskalkylatorn',
+        ],
+        'sections' => [
+            [
+                'h2'   => 'Vad kostar en husbesiktning?',
+                'body' => [
+                    'Priset på en besiktning av hus beror på vilken tjänst du behöver och hur stort och komplicerat huset är. '
+                    . 'Tabellen ovan visar våra riktpriser – "från"-priser – för privatpersoner i Stockholms län, inklusive moms. '
+                    . 'Ett vanligt villaköp med överlåtelsebesiktning ligger i den övre delen av listan, medan en enskild '
+                    . 'badrumsbesiktning är en av de mer begränsade tjänsterna.',
+                    'Priset för en överlåtelsebesiktning och för besiktningsman i övrigt avgörs i slutändan av vad uppdraget omfattar. '
+                    . 'Därför får du alltid ett fast pris i offerten innan något bokas.',
+                ],
+            ],
+            [
+                'h2'   => 'Det här påverkar priset',
+                'body' => [
+                    'Boyta och antal våningar är den viktigaste faktorn: ett större hus tar längre tid att gå igenom. '
+                    . 'Husets ålder och skick, antal våtrum, om det finns källare eller krypgrund och hur lättillgängliga utrymmena är '
+                    . 'påverkar också tiden på plats.',
+                    'Tillval som fuktmätning i hela huset eller extra badrum ökar omfattningen. Beskriv gärna i formuläret vad du '
+                    . 'vill ha kontrollerat, så kan offerten bli exakt direkt.',
+                ],
+            ],
+            [
+                'h2'   => 'Resa utanför Stockholms län',
+                'body' => [
+                    'Riktpriserna gäller för fastigheter i Stockholms län. Ligger huset utanför länet tillkommer reseersättning enligt offert. '
+                    . 'Uppdrag i övriga Sverige utförs efter överenskommelse.',
+                ],
+            ],
+            [
+                'h2'   => 'Besiktning och moms',
+                'body' => [
+                    'Priserna är angivna inklusive moms för privatpersoner. För företag, bostadsrättsföreningar och entreprenader '
+                    . 'anges priset i offerten.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Vad kostar en överlåtelsebesiktning?',
+                'a' => 'Riktpriset står i tabellen på den här sidan och beror på husets storlek och skick. Du får ett fast pris i offerten innan du bokar.',
+            ],
+            [
+                'q' => 'Vem betalar för besiktningen?',
+                'a' => 'Den som beställer besiktningen betalar för den. Vid ett husköp är det oftast köparen, men en säljare kan också beställa en besiktning.',
+            ],
+            [
+                'q' => 'Ingår moms i priserna?',
+                'a' => 'Ja, priserna är inklusive moms för privatpersoner. För företag och föreningar anges priset i offerten.',
+            ],
+            [
+                'q' => 'Kan jag få ROT-avdrag för en besiktning?',
+                'a' => 'Nej. ROT-avdrag gäller arbete som utförs på bostaden, till exempel reparationer och ombyggnad, men en besiktning är en kontroll och ger inget ROT-avdrag. Se Skatteverkets information för aktuella regler.',
+            ],
+            [
+                'q' => 'Hur betalar jag?',
+                'a' => 'Betalningsvillkor anges i offerten. Ange gärna i förfrågan om du vill ha faktura.',
+            ],
+            [
+                'q' => 'Är priserna på sidan bindande?',
+                'a' => 'Nej, de är riktpriser. Det bindande priset är det fasta priset i offerten.',
+            ],
+        ],
     ],
 
     '/guider/' => [
