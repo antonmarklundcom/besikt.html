@@ -52,7 +52,7 @@ if ($path === '/robots.txt') {
 
 // --- denied directories and files ------------------------------------------
 if (preg_match('#^/(content|lib|partials|templates|docs|prompts|tests|deploy|logs)(/|$)#', $path)
-    || preg_match('#^/\.#', $path)
+    || preg_match('#^/\.(?!well-known/)#', $path)
     || preg_match('#^/config(\.example)?\.php$#', $path)
     || preg_match('#\.(md|sh|json|lock|ya?ml|log)$#', $path)
 ) {

@@ -51,7 +51,7 @@ ErrorDocument 404 /404.php
 # --- keep the application's internals off the web ------------------------
 RedirectMatch 404 ^/(content|lib|partials|templates|docs|prompts|tests|deploy)(/|$)
 RedirectMatch 404 ^/logs(/|$)
-RedirectMatch 404 ^/\.git(/|$)
+RedirectMatch 404 ^/\.(?!well-known/)
 
 <FilesMatch "^(config|config\.example)\.php$">
   Require all denied
