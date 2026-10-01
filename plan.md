@@ -152,6 +152,7 @@ parallella sessioner (en prompt var). S5 körs sist.
 | --- | --- | --- |
 | O1 (mall) | antonmarklundcom/php-site-template#3 | – |
 | T0 + T1 | foundation-PR (se GitHub) | `docs/log/T1.md` |
+| S1 Tjänster | phase/S1 | `docs/log/S1.md` |
 
 ## 10. Backlog
 
