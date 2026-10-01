@@ -4,12 +4,13 @@ Se även `docs/facts-to-verify.md` (allt som måste bekräftas före lansering).
 
 ## Innehåll
 - Alla priser och kalkylatorns faktorer är preliminära riktvärden (`content/precios.php`, `content/tools.php`).
-- "Certifierad besiktningsman (SBR/KIWA)" förekommer på startsidan, i metabeskrivningar och på /om-oss/ och kräver att utförarens certifikat bekräftas.
+- Certifieringen (SBR/KIWA) är bekräftad av Anton. Certifikatnummer visas inte på sajten.
 - Lag- och regelpåståenden i tjänstetexter (BRF, underhållsplan, garanti) och guider (RBK, konsumenttjänstlagen, ARN) är försiktigt formulerade men inte juridiskt granskade.
 - Telefonnummer, org.nr och certifikatnummer saknas medvetet (`null` i `content/site.php`).
 - Inga bilder (fas I1 startas bara när Anton skriver "Generate image").
 
 ## Tekniskt
+- Lanserad utan e-postnotis och VenderCRM-nyckel: leads hamnar i `logs/leads.log` på servern tills Cloudflare Email och `VENDERCRM_*` i `config.php` är på plats. Titta i loggen (eller kör `php deploy/leads-to-csv.php`) tills dess.
 - Cloudflare Email Sending är i beta: fältnamnen ska verifieras med en testlead (`docs/DEPLOY.md` §4).
 - Kalkylatorsidan visar "uppdaterade 2026-09-04" från `market_last_reviewed()` i `lib/market/se.php` (låst fil, mallens datum).
 - `.site-header__actions` är en pixel bred vid 390 px (ärvt från mallen, klipps).
