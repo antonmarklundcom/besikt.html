@@ -68,7 +68,10 @@ return [
     'street'  => null,
     'city'    => null,
     'country' => null,                           // defaults to the market's country
-    'hours'   => null,                           // display string, e.g. 'Lun–Vie 8:00–17:30'
+    'hours'   => null,
+    // Regions served, for JSON-LD areaServed. Empty = the whole country.
+    // e.g. ['Stockholms län', 'Stockholm', 'Nynäshamn']
+    'areaServed' => [],                           // display string, e.g. 'Lun–Vie 8:00–17:30'
 
     // schema.org openingHoursSpecification entries, added when hours are confirmed
     'openingHours' => [],

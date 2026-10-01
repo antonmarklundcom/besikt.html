@@ -44,11 +44,11 @@ return [
     // Header bar, left to right. 'mega' opens the services panel.
     'primary' => [
         ['label' => ui('nav.services'), 'path' => services_hub_path(), 'mega' => true],
-        ['label' => ui('nav.pricing'),  'path' => '/precios/'],
-        ['label' => ui('nav.tools'),    'path' => '/herramientas/'],
-        ['label' => ui('nav.guides'),   'path' => '/guias/'],
-        ['label' => ui('nav.blog'),     'path' => '/blog/'],
-        ['label' => ui('nav.contact'),  'path' => '/contacto/'],
+        ['label' => ui('nav.pricing'),  'path' => site_path('prices')],
+        ['label' => ui('nav.tools'),    'path' => site_path('tools')],
+        ['label' => ui('nav.guides'),   'path' => site_path('guides')],
+        ['label' => ui('nav.blog'),     'path' => site_path('blog')],
+        ['label' => ui('nav.contact'),  'path' => site_path('contact')],
     ],
 
     // The clusters inside the services mega-menu.
@@ -59,10 +59,10 @@ return [
 
     // Footer column 3. Tools are appended from the 'tools' key below.
     'firm' => [
-        ['label' => ui('nav.pricing'), 'path' => '/precios/'],
-        ['label' => ui('nav.guides'),  'path' => '/guias/'],
-        ['label' => ui('nav.blog'),    'path' => '/blog/'],
-        ['label' => ui('nav.contact'), 'path' => '/contacto/'],
+        ['label' => ui('nav.pricing'), 'path' => site_path('prices')],
+        ['label' => ui('nav.guides'),  'path' => site_path('guides')],
+        ['label' => ui('nav.blog'),    'path' => site_path('blog')],
+        ['label' => ui('nav.contact'), 'path' => site_path('contact')],
     ],
 
     // One entry per content/tools.php record, in the same order.
@@ -78,8 +78,8 @@ return [
     ),
 
     'legal' => [
-        ['label' => ui('nav.privacy'), 'path' => '/privacidad/'],
-        ['label' => ui('nav.terms'),   'path' => '/terminos/'],
+        ['label' => ui('nav.privacy'), 'path' => site_path('privacy')],
+        ['label' => ui('nav.terms'),   'path' => site_path('terms')],
     ],
 
     // Rendered only when content/site.php has social URLs.
