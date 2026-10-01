@@ -76,7 +76,8 @@ return [
         'description' => 'Alla besiktningar vi utför i Stockholms län: köp av hus och bostadsrätt, '
                        . 'badrum, fukt och skador, slutbesiktning, entreprenad och BRF.',
         'h1'          => 'Tjänster',
-        'lead'        => '',
+        'lead'        => 'Besiktning vid köp, renovering och fuktskador – för privatpersoner, '
+                       . 'bostadsrätter och föreningar i Stockholms län.',
         'stub'        => false,
         'changefreq'  => 'monthly',
         'priority'    => '0.9',
@@ -174,16 +175,79 @@ return [
         'priority'    => '0.7',
     ],
 
-    // Fas S4 skriver sidan och sätter stub => false.
     '/om-oss/' => [
         'title'       => 'Certifierad och oberoende besiktningsman',
         'description' => 'Om Besiktningsmannen: certifierade besiktningsmän (SBR/KIWA) i Stockholms '
                        . 'län, oberoende av mäklare och entreprenörer. Så arbetar vi.',
         'h1'          => 'Certifierad och oberoende besiktningsman',
-        'lead'        => '',
-        'stub'        => true,
+        'lead'        => 'Besiktningsmannen förmedlar uppdrag i Stockholms län till en certifierad '
+                       . 'besiktningsman som arbetar oberoende av mäklare, säljare och entreprenörer.',
+        'stub'        => false,
         'changefreq'  => 'yearly',
         'priority'    => '0.6',
+        // Renderas av om-oss/index.php (sektioner + FAQ + CTA).
+        'sections'    => [
+            [
+                'h2'   => 'Vad innebär det att vara certifierad besiktningsman?',
+                'body' => [
+                    'En certifierad besiktningsman har fått sina kunskaper och sitt arbetssätt granskade av ett fristående certifieringsorgan. '
+                    . 'Det finns flera sådana organ i branschen, till exempel SBR, KIWA och RISE, och certifieringen gäller normalt för en viss typ '
+                    . 'av besiktning och måste förnyas med jämna mellanrum.',
+                    'Certifieringen är ett sätt för dig som kund att veta att besiktningsmannen uppfyller krav på kompetens, metod och dokumentation. '
+                    . 'Den ersätter inte din egen bedömning av vad du behöver, men den är en trygghet inför ett beslut som ofta rör en stor affär. '
+                    . 'Du kan alltid fråga vilken certifiering som gäller för just ditt uppdrag.',
+                ],
+            ],
+            [
+                'h2'   => 'Oberoende besiktningsman – vad betyder det?',
+                'body' => [
+                    'En oberoende besiktningsman har inga ekonomiska band till säljaren, mäklaren eller entreprenören som utfört arbetet. '
+                    . 'Det är du som beställer besiktningen som är uppdragsgivare, och protokollet är skrivet för dig.',
+                    'Därför utför vi inte reparationer och sanering och säljer inte sådana tjänster vidare. Besiktningsmannen har inget intresse '
+                    . 'av att hitta fler fel – eller färre – än det som faktiskt finns.',
+                ],
+            ],
+            [
+                'h2'   => 'Så arbetar vi',
+                'body' => [
+                    'Du beskriver ärendet i formuläret och får en offert med fast pris, vanligtvis inom en arbetsdag. När tiden är bokad går '
+                    . 'besiktningsmannen igenom fastigheten, mäter där det behövs och dokumenterar med foton.',
+                    'Efteråt får du ett skriftligt protokoll som beskriver vad som hittats, hur allvarligt det är och vad som bör åtgärdas. '
+                    . 'Besiktningsmannen går gärna igenom resultatet med dig så att du förstår vad som är normalt för husets ålder och vad som är ett problem.',
+                ],
+            ],
+            [
+                'h2'   => 'Var arbetar vi?',
+                'body' => [
+                    'Vi tar uppdrag i hela Stockholms län och utgår från Stockholm och Nynäshamn. Uppdrag i övriga Sverige tar vi efter '
+                    . 'överenskommelse, med reseersättning i offerten.',
+                    'Besiktningsmannen.se drivs av Marklund Sales & Marketing AB. Uppdragen utförs av en certifierad besiktningsman som '
+                    . 'blir din motpart under besiktningen.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Vad är en certifierad besiktningsman?',
+                'a' => 'En besiktningsman vars kompetens och arbetssätt granskats av ett fristående certifieringsorgan. Certifieringen gäller en viss typ av besiktning och förnyas med jämna mellanrum.',
+            ],
+            [
+                'q' => 'Vad är skillnaden mellan certifierad och auktoriserad besiktningsman?',
+                'a' => 'Orden används ibland som om de betydde samma sak, men det är certifieringsorganet och certifieringens omfattning som avgör vad besiktningsmannen får göra. Fråga alltid vilken certifiering som gäller för just ditt uppdrag.',
+            ],
+            [
+                'q' => 'Är besiktningsmannen oberoende av mäklaren och säljaren?',
+                'a' => 'Ja. Du som beställer besiktningen är uppdragsgivare, och besiktningsmannen har inga ekonomiska intressen i affären.',
+            ],
+            [
+                'q' => 'Kan jag få se certifikatet?',
+                'a' => 'Fråga efter det i din förfrågan så skickar vi information om vilken certifiering som gäller för ditt uppdrag.',
+            ],
+            [
+                'q' => 'Utför ni reparationer eller sanering?',
+                'a' => 'Nej. Besiktningen är oberoende, och vi utför inte de åtgärder som besiktningen leder fram till.',
+            ],
+        ],
     ],
 
     '/kontakt/' => [

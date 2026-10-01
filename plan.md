@@ -155,6 +155,7 @@ parallella sessioner (en prompt var). S5 körs sist.
 | S1 Tjänster | phase/S1 | `docs/log/S1.md` |
 | S2 Priser + kalkylator | phase/S2 | `docs/log/S2.md` |
 | S3 Guider | phase/S3 | `docs/log/S3.md` |
+| S4 Om oss + juridik | phase/S4 | `docs/log/S4.md` |
 
 ## 10. Backlog
 
