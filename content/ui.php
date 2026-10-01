@@ -282,7 +282,7 @@ return [
     ],
 
     'tools' => [
-        'reviewed_prefix' => 'Priserna sågs över',
+        'reviewed_prefix' => 'Preliminära riktpriser, uppdaterade',
         'orientativo'     => 'Kalkylatorn ger ett ungefärligt pris. Det slutliga priset står i offerten.',
         'calculate'       => 'Räkna',
         'result_title'    => 'Ungefärligt pris',

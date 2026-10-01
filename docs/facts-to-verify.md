@@ -65,3 +65,11 @@ Alla fasers poster listas här; varje fas lägger till sitt eget avsnitt.
 - [ ] Alla tjänster: "Fast pris i offerten" – bekräfta att utföraren lämnar fast pris.
 - [ ] Statusbesiktning/badrum: att takbesiktning erbjuds (som del av statusbesiktningen), att slutbesiktning av badrumsrenovering erbjuds och att badrumsbesiktning kan ingå i överlåtelsebesiktning.
 - [ ] Fuktutredning/badrum: att borrhål görs bara efter ägarens medgivande, att provtagning/laboratorieanalys ingår bara om det avtalas och att fuktmätning görs även i angränsande utrymmen.
+
+## S2 – Priser och kalkylator
+
+- [ ] Alla "från"-priser i `content/precios.php` (9 900 / 5 900 / 3 900 / 4 900 / 8 900 / 7 900 / 6 900 kr inkl. moms, privatperson, Stockholms län) är preliminära – bekräfta med besiktningsmannen.
+- [ ] Kalkylatorns boyta-faktorer (1,00–2,00 × grundpris), intervall för tjänster utan boyta och tillägg (fuktmätning +2 000–3 000 kr, extra badrum +700–1 200 kr/st) är egna riktvärden i `content/tools.php` – bekräfta eller justera.
+- [ ] Priser: "Över 300 m² enligt offert" och "reseersättning utanför länet enligt offert" – bekräfta.
+- [ ] Priser: ROT-avdrag gäller inte besiktning – bekräfta mot Skatteverket.
+- [ ] Priser: betalningsvillkor och faktura – bekräfta hur utföraren fakturerar.

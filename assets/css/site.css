@@ -2620,3 +2620,19 @@ h1, h2, h3, .card-title {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
+/* == S2 == priskalkylatorn ================================================ */
+/* `.field { display: grid/flex }` slår user-agentens [hidden]; kalkylatorn
+   döljer boyta och tillval per tjänst. */
+.tool .field[hidden] {
+  display: none;
+}
+
+.compare-table a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.compare-table td:nth-child(3) {
+  white-space: nowrap;
+}
