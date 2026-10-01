@@ -4,7 +4,7 @@ Leadsajt för fastighetsbesiktning i Stockholms län. HTML + PHP från `antonmar
 (Sverige-modulen), Hostinger shared hosting, ingen databas. Leads → VenderCRM.
 Sökorden kommer från `docs/SEO-SOKORDSPLAN.md` (Keyword Planner 2026-10-01). Den filen styr title, H1 och innehåll per sida.
 
-Status: **PLAN, väntar på Antons OK. Ingen kod före godkännande.**
+Status: **Godkänd 2026-10-01. Opus-fasen (O1 + T0/T1) är klar. Resten körs med `prompts/sonnet-run-all.md`.**
 
 ---
 
@@ -18,7 +18,8 @@ Status: **PLAN, väntar på Antons OK. Ingen kod före godkännande.**
    överenskommelse" står på en rad på startsidan och i FAQ. Inga ortssidor (bara Stockholm har sökvolym).
 4. **Tjänster i v1:** överlåtelsebesiktning/besiktning av hus, statusbesiktning, badrumsbesiktning,
    fuktutredning/skadeutredning, slutbesiktning, entreprenadbesiktning, garantibesiktning, BRF/bostadsrätt.
-   **Ingår inte:** kontrollansvarig, OVK, fuktsanering. Underhållsplan för BRF och takbesiktning är parkerade (§8).
+   **Ingår också:** underhållsplan för BRF (`/brf/underhallsplan/`), bekräftad av Anton.
+   **Ingår inte:** kontrollansvarig, OVK, fuktsanering. Takbesiktning blir ett avsnitt i statusbesiktningen.
 5. **Priser:** Vi visar "från"-priser inklusive moms för privatpersoner. Siffrorna är **preliminära**
    (`'preliminary' => true` i `content/precios.php`, listade i `docs/facts-to-verify.md`) tills vännen bekräftar dem.
    Startvärden finns i §3.3.
@@ -39,6 +40,8 @@ Status: **PLAN, väntar på Antons OK. Ingen kod före godkännande.**
     (guiderna fångar informationssökningarna).
 11. **Copy:** svenska, du-tilltal, sakligt, inga superlativer, inga påhittade fakta (certifikatnummer, recensioner,
     år i branschen och adress är `null` tills de bekräftats).
+12. **Personuppgiftsansvarig:** Marklund Sales & Marketing AB (org.nr ska bekräftas).
+13. **Ingen Google Business Profile** och inga riktiga foton i v1.
 
 ## 2. Innehållsmodell
 
@@ -94,67 +97,61 @@ Gäller oförändrat som i `phased-autonomous-build` §4 (punkterna 1–15). Vik
 - frågor skrivs i `docs/decisions-needed.md` och sessionen avslutas;
 - **Fable används aldrig** i byggfaser, subagenter eller Routines.
 
-## 5. Lane 1 (sekventiell)
+## 5. Lane 1 (Opus) – KLAR
 
-| Fas | Modell | Vad | Owns |
-| --- | --- | --- | --- |
-| **O1 Mall: svenska sökvägar** | Opus | PR i `php-site-template`: kontakt-, verktygs-, guide-, blogg- och prissökvägar ska vara konfigurerbara i `content/site.php` (`paths`), så att inga spanska sökvägar är hårdkodade i `lib/`, `templates/`, `partials/` och `enviar.php`. Tjänster på rotnivå ska vara tillåtna. `verify.sh` ska vara grön med `market` satt till `py` och `se`. | mallrepot |
-| **T0 Adopt** | Sonnet | Importera mallen (efter O1) till `besikt.html`. Repot är tomt och skapades inte via "Use this template", så historiken importeras med `git merge --allow-unrelated-histories`. Fyll i `site.php`, översätt `ui.php` till svenska, byt route-kataloger till svenska namn, skapa stubbar för alla tjänster/guider/lead-values, ta bort exempelinnehållet. `verify.sh` ska vara grön. | allt utom innehållskopian |
-| **T1 Startsida + formulär** | Opus | Startsida med offertformulär i hjältesektionen, tjänstekort, avsnitt om områden och certifiering, FAQ. Ny layout och nya tokens (förtroende/teknik: mörkblå och varm accent, inte "bil"-gul). Bildplatser definieras med neutrala platshållare. Formulärfält och `lead-values` enligt §3.1. Skapar watcher-rutinen och startar sedan alla lane 2-faser. | `/`, tokens, `partials/lead-form.php` (fälten), `content/ui.php` |
-
-## 6. Lane 2 (Sonnet, parallellt efter T1) + link pass
-
-| Fas | Vad | Owns |
+| Fas | Modell | Status |
 | --- | --- | --- |
-| **S1 Tjänster** | 8 tjänstesidor enligt sökordsplanen. Mallen och en exempelsida först, resten som parallella subagenter. | `content/services.php`, tjänsternas route-kataloger, deras `lead-values`-poster |
-| **S2 Priser + kalkylator** | `/priser/` med prislista och kalkylator (JS via `window.Market`) | `content/precios.php`, `content/tools.php`, `priser/**`, `assets/js/tools/**` |
-| **S3 Guider** | 6 guider, Article-schema, länk till respektive tjänst | `content/guias.php`, `guider/**` |
-| **S4 Sidor + juridik** | `/om-oss/` (certifiering, oberoende besiktningsman), `/kontakt/` (e-post via JS), `/integritetspolicy/` (personuppgiftsansvarig, delning med utförande besiktningsman, lagringstid), `/404` | sidornas poster i `content/pages.php`, deras kataloger |
-| **L Link pass** | Interna länkar enligt sökordsplanen §3, nav, hubbkort, sitemap, `KNOWN-ISSUES.md`, slutrapport | allt som korsar faserna |
-| **I1 Bilder** (manuell, valfri) | Startas först när Anton skriver "Generate image". Higgsfield → `webimg` → bildplatser. Riktiga foton har förtur. | `assets/img/**` |
+| O1 Mall: konfigurerbara sökvägar + areaServed | Opus | PR antonmarklundcom/php-site-template#3 |
+| T0 Adopt + T1 Startsida/formulär/e-post/redirects | Opus | se §9 |
+
+## 6. Lane 2 (Sonnet) – körs i en session med `prompts/sonnet-run-all.md`
+
+| Fas | Prompt | Owns (kort) |
+| --- | --- | --- |
+| S1 Tjänster | `prompts/sonnet-1-tjanster.md` | `content/services.php`, tjänsternas route-kataloger |
+| S2 Priser + kalkylator | `prompts/sonnet-2-priser.md` | `content/precios.php`, `content/tools.php`, `priser/**`, `assets/js/tools/**` |
+| S3 Guider | `prompts/sonnet-3-guider.md` | `content/guias.php`, `guider/<slug>/**` |
+| S4 Om oss + juridik | `prompts/sonnet-4-sidor.md` | sidposter i `content/pages.php`, `om-oss/**`, `docs/facts-to-verify.md` |
+| S5 Länkpassning | `prompts/sonnet-5-link-pass.md` | tvärgående länkar, `KNOWN-ISSUES.md`, slutrapport |
+| I1 Bilder (valfri) | – | Startas bara när Anton skriver "Generate image" |
+
+Gemensamma regler: `prompts/_sonnet-common.md`. S1–S4 äger olika filer och kan också köras i fyra
+parallella sessioner (en prompt var). S5 körs sist.
 
 ### Kostnad och tid (uppskattning, användningsekvivalent)
 
 | Fas | Modell | Kostnad | Tid |
 | --- | --- | ---: | ---: |
-| O1 | Opus | 8–12 $ | 45 min |
-| T0 | Sonnet | 3–5 $ | 30 min |
-| T1 | Opus | 10–15 $ | 60 min |
-| S1–S4 (parallellt) | Sonnet | 30–40 $ | 90 min |
-| L | Sonnet | 3 $ | 30 min |
-| Watcher (varje timme) | Sonnet | < 1 $ | – |
-| **Totalt** | | **≈ 55–75 $** | **≈ 4–4,5 h** |
+| O1 + T0 + T1 | Opus | klart | – |
+| S1–S4 (i följd) | Sonnet | 30–40 $ | 4–5 h |
+| S5 | Sonnet | 3 $ | 30 min |
+| **Kvar** | | **≈ 35–45 $** | **≈ 5 h (≈ 2 h om S1–S4 körs parallellt)** |
 | I1 bilder (valfri) | Sonnet + Higgsfield-krediter | 2–4 $ + krediter | 30 min |
 
 ## 7. Det som bara Anton kan ge (och när det behövs)
 
-| Vad | Behövs i |
+| Vad | Behövs |
 | --- | --- |
-| Godkänn den här planen | före O1 |
-| Merga O1-PR:en i mallen | före T0 |
-| VenderCRM-nyckel + tenant (`config.php`, inte i git) | T1 (annars loggfilsreserv) |
-| Telefonnummer (för klickbar `tel:`) | när det finns, en rad i `site.php` |
-| Bekräftade priser och certifiering (SBR/KIWA-nummer) | före lansering |
-| Personuppgiftsansvarig (namn/org.nr) för integritetspolicyn | S4 (annars en platshållare och `noindex` tills det är klart) |
-| Cloudflare: DNS för båda domänerna, Email Routing (`kontakt@`, `leads@`) och Sending (`no-reply@`) | efter L |
-| Hostinger: domän + uppladdning av deploy-zip | efter L |
-| Foton på besiktningsmannen/utrustning | valfritt, I1 |
+| Merga PR:en i mallen och foundation-PR:en | klart när CI är grön |
+| Starta `prompts/sonnet-run-all.md` i en Sonnet-session | nu |
+| VenderCRM-nyckel + URL (`config.php` på servern, inte i git) | vid deploy (annars loggfil) |
+| Telefonnummer | när det finns, en rad i `content/site.php` |
+| Bekräftade priser, certifiering och org.nr | före marknadsföring (`docs/facts-to-verify.md`) |
+| Cloudflare: DNS, Email Routing (`kontakt@`, `leads@`), Email Sending (`no-reply@`) | vid deploy (`docs/DEPLOY.md`) |
+| Hostinger: webbplats + alias + uppladdning av zip | vid deploy (`docs/DEPLOY.md`) |
 
 ## 8. Öppna affärsfrågor (inte byggarbete)
 
-1. **Underhållsplan för BRF** (1 140 sök/mån, CPC upp till 147 kr) och **takbesiktning** (260): erbjuder vännen
-   dem? Ja → lägg till dem som tjänster i S1. Nej → parkerade.
-2. **Google Business Profile:** en GBP kräver en verklig verksamhet med kunder i området. Profilen ska tillhöra
-   den som utför uppdragen, inte leadvarumärket. Avgör om vännen vill lansera Besiktningsmannen som ett eget varumärke (då
-   kan det ha en egen GBP) eller om sajten bara ska ge leads (då ingen GBP, och lokal SEO byggs med sajten och citations).
-3. **Ersättningsmodell** mellan Anton och vännen (per lead/per uppdrag), och om leads kan säljas vidare till
-   andra besiktningsmän utanför vännens område (påverkar integritetstexten).
+1. Ersättningsmodell mellan Anton och vännen (per lead/per uppdrag). Påverkar inte koden.
+2. Google Business Profile: ingen i v1. Profilen ska tillhöra den som utför uppdragen. Tas upp igen om
+   Besiktningsmannen blir vännens eget varumärke.
 
 ## 9. Bygglogg
 
 | Fas | PR | Logg |
 | --- | --- | --- |
-| – | – | – |
+| O1 (mall) | antonmarklundcom/php-site-template#3 | – |
+| T0 + T1 | foundation-PR (se GitHub) | `docs/log/T1.md` |
 
 ## 10. Backlog
 
