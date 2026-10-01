@@ -77,7 +77,7 @@ return [
                 'Ha adressen, objektsbeskrivningen och eventuell säljarbesiktning redo.',
             ],
             'crmTag'       => 'overlatelsebesiktning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/priser/kalkylator/', 'label' => 'Räkna på priset'],
         ],
         'statusbesiktning' => [
             'menuLabel'    => 'Statusbesiktning',
@@ -89,7 +89,7 @@ return [
                 'Ha byggår, boyta och kända åtgärder redo.',
             ],
             'crmTag'       => 'statusbesiktning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/priser/kalkylator/', 'label' => 'Räkna på priset'],
         ],
         'badrumsbesiktning' => [
             'menuLabel'    => 'Badrumsbesiktning',
@@ -101,7 +101,7 @@ return [
                 'Ha våtrumsintyg eller kvalitetsdokument redo om badrummet är nyrenoverat.',
             ],
             'crmTag'       => 'badrumsbesiktning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/guider/fuktskada-badrum/', 'label' => 'Läs: fuktskada i badrum'],
         ],
         'fuktutredning' => [
             'menuLabel'    => 'Fuktutredning / skadeutredning',
@@ -113,7 +113,7 @@ return [
                 'Ta gärna foton på det du har sett och notera när det började.',
             ],
             'crmTag'       => 'fuktutredning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/guider/mogel-i-hus/', 'label' => 'Läs: mögel i hus'],
         ],
         'slutbesiktning' => [
             'menuLabel'    => 'Slutbesiktning',
@@ -125,7 +125,7 @@ return [
                 'Ha avtalet med entreprenören och planerat datum för färdigställande redo.',
             ],
             'crmTag'       => 'slutbesiktning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/guider/tvist-med-hantverkare/', 'label' => 'Läs: tvist med hantverkare'],
         ],
         'entreprenadbesiktning' => [
             'menuLabel'    => 'Entreprenadbesiktning',
@@ -137,7 +137,7 @@ return [
                 'Ha kontrakt, standardavtal (AB 04/ABT 06/ABS 18) och tidplan redo.',
             ],
             'crmTag'       => 'entreprenadbesiktning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/guider/tvist-med-hantverkare/', 'label' => 'Läs: tvist med hantverkare'],
         ],
         'garantibesiktning' => [
             'menuLabel'    => 'Garantibesiktning',
@@ -149,7 +149,7 @@ return [
                 'Ha slutbesiktningsutlåtandet och en lista över kända fel redo.',
             ],
             'crmTag'       => 'garantibesiktning',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/guider/tvist-med-hantverkare/', 'label' => 'Läs: tvist med hantverkare'],
         ],
         'brf' => [
             'menuLabel'    => 'Besiktning för BRF',
@@ -161,7 +161,7 @@ return [
                 'Ha föreningens namn, fastighetens storlek och underhållsplan redo om den finns.',
             ],
             'crmTag'       => 'brf',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/priser/', 'label' => 'Se priser'],
         ],
         'underhallsplan' => [
             'menuLabel'    => 'Underhållsplan för BRF',
@@ -173,7 +173,7 @@ return [
                 'Ha antal lägenheter, byggår och befintlig underhållsplan redo.',
             ],
             'crmTag'       => 'underhallsplan',
-            'nextLink'     => null,
+            'nextLink'     => ['path' => '/priser/', 'label' => 'Se priser'],
         ],
     ],
 
