@@ -154,6 +154,7 @@ parallella sessioner (en prompt var). S5 körs sist.
 | T0 + T1 | foundation-PR (se GitHub) | `docs/log/T1.md` |
 | S1 Tjänster | phase/S1 | `docs/log/S1.md` |
 | S2 Priser + kalkylator | phase/S2 | `docs/log/S2.md` |
+| S3 Guider | phase/S3 | `docs/log/S3.md` |
 
 ## 10. Backlog
 

@@ -73,3 +73,37 @@ Alla fasers poster listas här; varje fas lägger till sitt eget avsnitt.
 - [ ] Priser: "Över 300 m² enligt offert" och "reseersättning utanför länet enligt offert" – bekräfta.
 - [ ] Priser: ROT-avdrag gäller inte besiktning – bekräfta mot Skatteverket.
 - [ ] Priser: betalningsvillkor och faktura – bekräfta hur utföraren fakturerar.
+
+## S3 – Guider
+
+- [ ] Guide mögel i hus: Hänvisningen till Folkhälsomyndighetens information om fukt och mögel i bostäder – kontrollera att länk/formulering stämmer innan publicering.
+- [ ] Guide mögel i hus: Att fuktutredningsrapporten kan användas mot försäkringsbolag/entreprenör – bekräfta med besiktningsmannen.
+- [ ] Guide fuktskada badrum: Att en renovering som inte följer branschens regler för våtrum kan ge fuktskador efter flera år – bekräfta formuleringen och om vi ska nämna någon särskild branschregel vid namn.
+- [ ] Guide fuktskada badrum: Att silikonfogar inte räknas som tätskikt utan som skydd som behöver kontrolleras och bytas – bekräfta med besiktningsmannen.
+- [ ] Guide fuktskada badrum: Att fuktmätning i konstruktionen ofta kräver mätning via små hål och att ytmätare inte kan användas mot kakel – bekräfta med besiktningsmannen vilka metoder som används.
+- [ ] Guide fuktskada badrum: Att rapporten kan användas som underlag mot försäkringsbolag/entreprenör – bekräfta med besiktningsmannen.
+- [ ] Guide fuktskada badrum: Skillnaden mellan badrumsbesiktning och fuktutredning, och att en oberoende besiktning kan göras av nyrenoverat badrum innan slutbetalning – bekräfta att tjänsterna erbjuds så.
+- [ ] Guide fuktskada badrum: Att bostadsrättsföreningen kan behöva kontaktas vid vattenskada i bostadsrätt – bekräfta vad som gäller ansvarsmässigt innan publicering.
+- [ ] Guide fuktskada parkett: Att skador på laminat och massivt trä sällan går tillbaka efter uttorkning – bekräfta formuleringen med besiktningsmannen.
+- [ ] Guide fuktskada parkett: Att fukt underifrån (nylagd betong, markfukt, krypgrund) är en vanlig orsak och att golvbyte inte löser det – bekräfta med besiktningsmannen.
+- [ ] Guide fuktskada parkett: Att fuktmätning i golv och underlag ofta görs på flera ställen och ibland över längre tid – bekräfta vilka metoder som används.
+- [ ] Guide fuktskada parkett: Att utredaren är oberoende och inte själv utför åtgärder – bekräfta att det stämmer för utföraren.
+- [ ] Guide fuktskada parkett: Att försäkringsbolag eller bostadsrättsförening ska kontaktas vid vattenskada och att försäkringens omfattning beror på villkoren – bekräfta formuleringen.
+- [ ] Guide fuktskada källare: Att vi inte utför fuktsanering eller andra åtgärder utan bara utredning – bekräfta att det stämmer för utföraren och att formuleringen om oberoende är korrekt.
+- [ ] Guide fuktskada källare: Att vita avlagringar (salpeter/utfällningar) kan visa att vatten passerat genom materialet – bekräfta formuleringen med besiktningsmannen.
+- [ ] Guide fuktskada källare: Att fuktspärrande färg och avfuktare sällan löser problemet om vatten tränger in utifrån – bekräfta med besiktningsmannen.
+- [ ] Guide fuktskada källare: Beskrivningen av hur en utredning går till (genomgång, fuktmätning på flera ställen, ev. temperatur-/luftfuktighetsloggning, rapport med åtgärdsförslag) – bekräfta vilka moment som faktiskt ingår.
+- [ ] Guide fuktskada källare: Att rapporten kan användas som underlag mot hantverkare, försäkringsbolag och tidigare ägare – bekräfta med besiktningsmannen.
+- [ ] Guide fuktskada källare: Att källaren bör ingå i överlåtelsebesiktning vid husköp – bekräfta att det ingår i tjänsten.
+- [ ] Guide fuktskada källare: Rådet att inte vädra med fuktig sommarluft på grund av risk för kondens – bekräfta formuleringen.
+- [ ] Guide fuktmätning betong: Beskrivningen av RBK som branschmetod och auktorisation för fuktmätning i betong (Rådet för Byggkompetens) – bekräfta att formuleringen och namnet stämmer och vilken auktorisation besiktningsmannen eventuellt har.
+- [ ] Guide fuktmätning betong: Att tillförlitlig mätning normalt görs som relativ fuktighet i borrhål i betongen med givare, efter en inställningstid – bekräfta med besiktningsmannen att beskrivningen överensstämmer med den metod som används.
+- [ ] Guide fuktmätning betong: Att golvtillverkare/entreprenör ofta ställer krav på dokumenterad fukthalt före tätt ytskikt – bekräfta formulering.
+- [ ] Guide fuktmätning betong: Prissidans uppgift om fast pris i offert innan bokning – bekräfta att fuktmätning erbjuds och prissätts så.
+- [ ] Guide fuktmätning betong: Att besiktningsmannen utför fuktmätning i betong (och eventuell RBK-mätning) som del av fuktutredning – bekräfta tjänsteutbud och ev. auktorisation innan publicering.
+- [ ] Guide tvist med hantverkare: Att konsumenttjänstlagen gäller hantverkartjänster som företagare utför åt privatpersoner och reglerar fel och reklamation – bekräfta att den allmänna beskrivningen stämmer, ev. med hänvisning till Konsumentverket.
+- [ ] Guide tvist med hantverkare: Att reklamation ska ske inom viss tid efter att felet upptäckts (eller borde ha upptäckts) och att en yttre tidsgräns finns – bekräfta formulering och att texten med flit inte anger antal år/dagar.
+- [ ] Guide tvist med hantverkare: Att ARN prövar tvister mellan konsumenter och företag, lämnar en icke-bindande rekommendation och normalt kräver att konsumenten först framfört kravet till företaget – bekräfta aktuella regler på arn.se.
+- [ ] Guide tvist med hantverkare: Att konsumenten kan ha rätt att hålla inne betalning motsvarande felet, med villkor – bekräfta försiktig formulering med jurist/Konsumentverket.
+- [ ] Guide tvist med hantverkare: Att en oberoende besiktningsrapport kan användas som underlag mot hantverkare, försäkringsbolag eller i en prövning hos ARN – bekräfta med besiktningsmannen och att rapporten inte avgör tvisten.
+- [ ] Guide tvist med hantverkare: Hänvisning till Konsumentverket/kommunal konsumentvägledning och hemförsäkringens rättsskydd som väg för juridisk rådgivning – bekräfta att dessa instanser finns och är rätt att hänvisa till.
