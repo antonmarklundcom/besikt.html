@@ -32,6 +32,40 @@ return [
                        . 'badrumsbesiktning, fuktutredning, slutbesiktning och BRF. Begär offert.',
         'h1'          => 'Besiktningsman i Stockholm',
         'lead'        => '',
+        // Startsidans FAQ: renderas av index.php och blir FAQPage JSON-LD.
+        'faq'         => [
+            [
+                'q' => 'Vad kostar en besiktning av hus?',
+                'a' => 'Priset beror på husets storlek, byggår och vad som ska undersökas. Du får alltid '
+                     . 'ett fast pris i offerten innan något bokas. Se ungefärliga priser på prissidan.',
+            ],
+            [
+                'q' => 'Vem brukar beställa besiktningen vid ett husköp?',
+                'a' => 'Oftast köparen, eftersom köparen har undersökningsplikt. Säljaren kan också '
+                     . 'beställa en överlåtelsebesiktning före försäljningen och visa den för spekulanter.',
+            ],
+            [
+                'q' => 'Vad är skillnaden mellan överlåtelsebesiktning och statusbesiktning?',
+                'a' => 'En överlåtelsebesiktning görs i samband med köp eller försäljning och är kopplad '
+                     . 'till undersökningsplikten. En statusbesiktning är en genomgång av skicket när du '
+                     . 'vill planera underhåll eller veta hur huset mår.',
+            ],
+            [
+                'q' => 'Hur lång tid tar besiktningen?',
+                'a' => 'För en villa några timmar på plats, beroende på storlek och vad som ska '
+                     . 'undersökas. Protokollet med foton skickas därefter.',
+            ],
+            [
+                'q' => 'Tar ni uppdrag utanför Stockholm?',
+                'a' => 'Vi tar uppdrag i hela Stockholms län och utgår från Stockholm och Nynäshamn. '
+                     . 'Uppdrag i övriga Sverige tar vi efter överenskommelse, med resekostnad i offerten.',
+            ],
+            [
+                'q' => 'Är besiktningsmannen certifierad?',
+                'a' => 'Ja. Uppdragen utförs av en certifierad besiktningsman (SBR/KIWA) som är oberoende '
+                     . 'av mäklare, säljare och entreprenörer.',
+            ],
+        ],
         'stub'        => false,
         'changefreq'  => 'weekly',
         'priority'    => '1.0',

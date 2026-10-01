@@ -45,7 +45,7 @@ require ROOT_DIR . '/partials/header.php';
     </div>
   </section>
 
-  <section class="section" id="solicitar">
+  <section class="section" id="offert">
     <div class="container split split--top">
 
       <div class="stack">
@@ -72,6 +72,20 @@ require ROOT_DIR . '/partials/header.php';
             <li>
               <span class="contact-list__label"><?= e(ui('contact.email')) ?></span>
               <a href="mailto:<?= e(site('email')) ?>"><?= e(site('email')) ?></a>
+            </li>
+          <?php endif; ?>
+          <?php
+          /* E-postadressen finns inte i HTML-källan (spam): JS sätter ihop den.
+             Utan JS visas den i läsbar men inte maskinläsbar form. */
+          $contactMail = (string) (site('publicEmail') ?? '');
+          ?>
+          <?php if (!site('email') && str_contains($contactMail, '@')): ?>
+            <?php [$contactMailUser, $contactMailDomain] = explode('@', $contactMail, 2); ?>
+            <li>
+              <span class="contact-list__label"><?= e(ui('contact.email')) ?></span>
+              <span data-mail data-u="<?= e(strrev($contactMailUser)) ?>" data-d="<?= e(strrev($contactMailDomain)) ?>">
+                <?= e($contactMailUser) ?> (at) <?= e($contactMailDomain) ?>
+              </span>
             </li>
           <?php endif; ?>
           <?php if (site('street') || site('city')): ?>
@@ -106,7 +120,7 @@ require ROOT_DIR . '/partials/header.php';
 
       <div>
         <?php
-        $formId = 'contacto';
+        $formId = 'kontakt';
         require ROOT_DIR . '/partials/lead-form.php';
         ?>
       </div>
@@ -116,4 +130,13 @@ require ROOT_DIR . '/partials/header.php';
 
   <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>
+<script>
+  document.querySelectorAll('[data-mail]').forEach(function (el) {
+    var r = function (s) { return s.split('').reverse().join(''); };
+    var a = document.createElement('a');
+    a.href = 'mailto:' + r(el.dataset.u) + '@' + r(el.dataset.d);
+    a.textContent = r(el.dataset.u) + '@' + r(el.dataset.d);
+    el.replaceWith(a);
+  });
+</script>
 <?php require ROOT_DIR . '/partials/footer.php'; ?>

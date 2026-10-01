@@ -1,3 +1,17 @@
+# besiktningsmannen.se
+
+Leadsajt för fastighetsbesiktning i Stockholms län, byggd från
+[php-site-template](https://github.com/antonmarklundcom/php-site-template) (HTML + PHP, ingen databas).
+
+- Plan och beslut: [`plan.md`](plan.md) · Sökord: [`docs/SEO-SOKORDSPLAN.md`](docs/SEO-SOKORDSPLAN.md)
+- Bygget fortsätter med: `Read prompts/sonnet-run-all.md in this repo and execute it.`
+- Deploy: [`docs/DEPLOY.md`](docs/DEPLOY.md)
+- Lokalt: `php -S localhost:8080 router.php` · grind: `./verify.sh`
+
+Mallens README följer nedan.
+
+---
+
 # php-site-template
 
 A GitHub template for local-business sites — brochure pages, calculators, guides and a

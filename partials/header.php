@@ -76,21 +76,29 @@ $navLeadSlug    = current_lead_slug() ?? '';
       </ul>
 
       <div class="nav-drawer-cta">
-        <a class="btn btn--whatsapp" href="<?= e($navWhatsapp ?? site_path('contact')) ?>"
-           <?= $navWhatsapp ? 'rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"' : '' ?>
-           data-service="<?= e($navLeadSlug) ?>">
-          <?= e($navWhatsapp ? ui('cta.whatsapp_long') : ui('cta.contact')) ?>
-        </a>
+        <?php if ($navWhatsapp): ?>
+          <a class="btn btn--whatsapp" href="<?= e($navWhatsapp) ?>"
+             rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"
+             data-service="<?= e($navLeadSlug) ?>"><?= e(ui('cta.whatsapp_long')) ?></a>
+        <?php elseif (site('phone')): ?>
+          <a class="btn btn--secondary" href="tel:+<?= e(phone_digits(site('phone'))) ?>" data-call>
+            <?= e(ui('cta.call') . ' ' . site('phone')) ?>
+          </a>
+        <?php endif; ?>
         <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
       </div>
     </div>
 
     <div class="site-header__actions">
-      <a class="btn btn--secondary" href="<?= e($navWhatsapp ?? site_path('contact')) ?>"
-         <?= $navWhatsapp ? 'rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"' : '' ?>
-         data-service="<?= e($navLeadSlug) ?>">
-        <?= e($navWhatsapp ? ui('cta.whatsapp') : ui('cta.contact')) ?>
-      </a>
+      <?php if (site('phone') && !$navWhatsapp): ?>
+        <a class="btn btn--secondary" href="tel:+<?= e(phone_digits(site('phone'))) ?>" data-call>
+          <?= e(site('phone')) ?>
+        </a>
+      <?php elseif ($navWhatsapp): ?>
+        <a class="btn btn--secondary" href="<?= e($navWhatsapp) ?>"
+           rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"
+           data-service="<?= e($navLeadSlug) ?>"><?= e(ui('cta.whatsapp')) ?></a>
+      <?php endif; ?>
       <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
     </div>
 

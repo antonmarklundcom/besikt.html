@@ -167,23 +167,24 @@ function log_lead(array $payload, string $outcome): void
 }
 
 /**
- * Email the lead to the firm through Resend, when configured. Runs after the
+ * E-posta leaden till LEAD_NOTIFY_TO via Cloudflare eller Resend, när det är konfigurerat. Runs after the
  * CRM decision and never changes the visitor's outcome: a failure is logged
  * and the visitor still sees success — the lead is already in leads.log.
  */
 function notify_by_email(array $payload, string $outcome): void
 {
-    $apiKey = cfg('RESEND_API_KEY');
-    $to     = cfg('LEAD_NOTIFY_TO');
-    $from   = cfg('LEAD_FROM');
+    $to   = cfg('LEAD_NOTIFY_TO');
+    $from = cfg('LEAD_FROM');
 
-    if ($apiKey === null || $to === null || $from === null || !function_exists('curl_init')) {
+    $hasSender = cfg('RESEND_API_KEY') !== null
+        || (cfg('CF_ACCOUNT_ID') !== null && cfg('CF_EMAIL_TOKEN') !== null);
+    if (!$hasSender || $to === null || $from === null) {
         return;
     }
 
     $lines = [];
-    foreach (['name' => 'Nombre', 'phone' => 'Teléfono', 'email' => 'Email', 'message' => 'Mensaje',
-              'source' => 'Formulario', 'page_url' => 'Página'] as $key => $label) {
+    foreach (['name' => 'Namn', 'phone' => 'Telefon', 'email' => 'E-post', 'message' => 'Meddelande',
+              'source' => 'Formulär', 'page_url' => 'Sida'] as $key => $label) {
         if (!empty($payload[$key])) {
             $lines[] = $label . ': ' . $payload[$key];
         }
@@ -191,58 +192,110 @@ function notify_by_email(array $payload, string $outcome): void
     /* fields keys are lower-case identifiers; ucfirst() alone would put
        "Resultado_herramienta" in an email a person reads. */
     $fieldLabels = [
-        'valor'                 => 'Tier',
-        'servicio'              => 'Servicio',
-        'necesita'              => 'Necesita',
-        'empresa'               => 'Empresa',
-        'resultado_herramienta' => 'Resultado de la herramienta',
-        'etiqueta'              => 'Etiqueta',
-        'formulario'            => 'Formulario',
+        'valor'                 => 'Nivå',
+        'servicio'              => 'Tjänst',
+        'necesita'              => 'Gäller',
+        'empresa'               => 'Förening/företag',
+        'ort'                   => 'Ort',
+        'bostadstyp'            => 'Bostadstyp',
+        'onskat_datum'          => 'Önskat datum',
+        'resultado_herramienta' => 'Kalkylatorresultat',
+        'etiqueta'              => 'Etikett',
+        'formulario'            => 'Formulär',
     ];
     foreach (($payload['fields'] ?? []) as $key => $value) {
         $lines[] = ($fieldLabels[$key] ?? ucfirst((string) $key)) . ': ' . $value;
     }
     $lines[] = '';
-    $lines[] = 'Estado CRM: ' . $outcome;
-    $lines[] = 'Recibido: ' . gmdate('Y-m-d H:i') . ' UTC';
+    $lines[] = 'CRM-status: ' . $outcome;
+    $lines[] = 'Mottagen: ' . gmdate('Y-m-d H:i') . ' UTC';
 
     /* "[Tier A] Nuevo contacto: Abrir una EAS — María": the two
        things that decide whether this one gets answered first are the tier and
        the service, so both go in the subject line. */
-    $who      = $payload['name'] ?? $payload['phone'] ?? 'sin nombre';
+    $who      = $payload['name'] ?? $payload['phone'] ?? 'utan namn';
     $tier     = $payload['fields']['valor'] ?? '';
     $servicio = $payload['fields']['servicio'] ?? '';
-    $subject  = ($tier !== '' ? '[Tier ' . $tier . '] ' : '')
-              . 'Nuevo contacto: '
+    $ort      = $payload['fields']['ort'] ?? '';
+    $subject  = ($tier !== '' ? '[' . $tier . '] ' : '')
+              . 'Ny förfrågan: '
               . ($servicio !== '' ? $servicio . ' — ' : '')
+              . ($ort !== '' ? $ort . ' — ' : '')
               . $who;
-    $body    = json_encode(array_filter([
-        'from'     => $from,
-        'to'       => [$to],
-        'reply_to' => $payload['email'] ?? null,
-        'subject'  => mb_substr($subject, 0, 150),
-        'text'     => implode("\n", $lines),
-    ]), JSON_UNESCAPED_UNICODE);
 
-    $ch = curl_init('https://api.resend.com/emails');
+    send_lead_email((string) $to, (string) $from, mb_substr($subject, 0, 150), implode("\n", $lines),
+        $payload['email'] ?? null);
+}
+
+/**
+ * Skicka notisen. Cloudflare Email Sending när CF_ACCOUNT_ID + CF_EMAIL_TOKEN
+ * finns i config.php, annars Resend när RESEND_API_KEY finns. Kastar aldrig:
+ * ett fel loggas och besökaren ser ändå ett lyckat svar (leaden ligger i
+ * logs/leads.log).
+ *
+ * Cloudflare Email Service är i beta: kontrollera fältnamnen mot aktuell
+ * dokumentation (POST /accounts/{id}/email/sending/send) innan lansering.
+ */
+function send_lead_email(string $to, string $from, string $subject, string $text, ?string $replyTo): void
+{
+    if (!function_exists('curl_init')) {
+        return;
+    }
+
+    $cfAccount = cfg('CF_ACCOUNT_ID');
+    $cfToken   = cfg('CF_EMAIL_TOKEN');
+    $resendKey = cfg('RESEND_API_KEY');
+
+    /* 'Namn <adress>' → [namn, adress] för API:er som vill ha dem separat. */
+    $fromName  = '';
+    $fromEmail = $from;
+    if (preg_match('/^\s*(.*?)\s*<([^>]+)>\s*$/', $from, $m)) {
+        [$fromName, $fromEmail] = [trim($m[1], " \"'"), $m[2]];
+    }
+
+    if ($cfAccount !== null && $cfToken !== null) {
+        $url     = 'https://api.cloudflare.com/client/v4/accounts/' . rawurlencode($cfAccount)
+                 . '/email/sending/send';
+        $headers = ['Content-Type: application/json', 'Authorization: Bearer ' . $cfToken];
+        $body    = array_filter([
+            'from'    => array_filter(['email' => $fromEmail, 'name' => $fromName]),
+            'to'      => [$to],
+            'subject' => $subject,
+            'text'    => $text,
+            'replyTo' => $replyTo,
+        ]);
+        $label = 'Cloudflare';
+    } elseif ($resendKey !== null) {
+        $url     = 'https://api.resend.com/emails';
+        $headers = ['Content-Type: application/json', 'Authorization: Bearer ' . $resendKey];
+        $body    = array_filter([
+            'from'     => $from,
+            'to'       => [$to],
+            'reply_to' => $replyTo,
+            'subject'  => $subject,
+            'text'     => $text,
+        ]);
+        $label = 'Resend';
+    } else {
+        return;
+    }
+
+    $ch = curl_init($url);
     curl_setopt_array($ch, [
         CURLOPT_POST           => true,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT        => 8,
         CURLOPT_CONNECTTIMEOUT => 5,
-        CURLOPT_HTTPHEADER     => [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $apiKey,
-        ],
-        CURLOPT_POSTFIELDS => $body,
+        CURLOPT_HTTPHEADER     => $headers,
+        CURLOPT_POSTFIELDS     => json_encode($body, JSON_UNESCAPED_UNICODE),
     ]);
     $response = curl_exec($ch);
     $status   = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $curlErr  = curl_error($ch);
     curl_close($ch);
 
-    if ($status !== 200) {
-        error_log(sprintf('Resend notification failed [%d] %s %s', $status, (string) $response, $curlErr));
+    if ($status < 200 || $status >= 300) {
+        error_log(sprintf('%s notification failed [%d] %s %s', $label, $status, (string) $response, $curlErr));
     }
 }
 
@@ -314,10 +367,21 @@ foreach (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
 // --- 6. Build the VenderCRM payload -----------------------------------------
 // Never send pipeline, stage, owner or tag: routing lives on the site record in
 // the CRM so it can be changed without a code deploy.
-$formId     = field('form_id', 60) ?: 'contacto';
+$formId     = field('form_id', 60) ?: 'kontakt';
 $sourcePage = field('source_page', 2000) ?: '/';
 $need       = field('need', 100);
 $company    = field('company', 200);
+
+/* besiktningsmannen.se: var, vad och när. Typen valideras mot listan i
+   content/ui.php så att CRM:et bara får kända värden. */
+$location      = field('location', 100);
+$propertyTypes = (array) (content('ui')['form']['property_types'] ?? []);
+$propertyKey   = field('property_type', 40);
+$propertyType  = isset($propertyTypes[$propertyKey]) ? (string) $propertyTypes[$propertyKey] : '';
+$preferredDate = field('preferred_date', 10);
+if ($preferredDate !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $preferredDate)) {
+    $preferredDate = '';
+}
 
 /* A stable key so a double-click or a network retry replays the same lead
    instead of creating a duplicate. The form supplies one per render; the
@@ -335,7 +399,7 @@ if (strlen($idempotencyKey) < 8) {
 $service    = field('service', 80);
 $toolResult = field('tool_result', 500);
 
-$lead = $service !== '' ? lead_value($service) : lead_value_for_need($need ?: 'otro');
+$lead = $service !== '' ? lead_value($service) : lead_value_for_need($need ?: 'annat');
 if ($lead['slug'] === null) {
     $service = '';   // unknown slug: keep the lead, drop the claim
 }
@@ -349,6 +413,9 @@ $serviceLabel = $service !== ''
 $fields = array_filter([
     'necesita'              => $need !== '' ? lead_need_label($need) : '',
     'empresa'               => $company,
+    'ort'                   => $location,
+    'bostadstyp'            => $propertyType,
+    'onskat_datum'          => $preferredDate,
     'formulario'            => $formId,
     'servicio'              => $serviceLabel,
     'valor'                 => (string) $lead['tier'],
@@ -383,7 +450,7 @@ $payload = array_filter([
     'name'            => field('name', 200),
     'email'           => $email,
     'message'         => field('message', 5000),
-    'source'          => 'formulario-' . $formId,
+    'source'          => 'formular-' . $formId,
     'page_url'        => str_starts_with($sourcePage, 'http') ? $sourcePage : url($sourcePage),
     'referrer'        => (string) ($attr['referrer'] ?? ''),
     'idempotency_key' => $idempotencyKey,

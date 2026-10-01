@@ -40,7 +40,7 @@ $formHeading = $formHeading ?? ui('form.legend');
    chip the visitor picks — enviar.php resolves that server-side, and
    assets/js/lead-form.js reads it from the chip's data-tier for the event. */
 $formService = $formService ?? (current_lead_slug() ?? '');
-$formLead    = $formService !== '' ? lead_value($formService) : lead_value_for_need($formNeed ?: 'otro');
+$formLead    = $formService !== '' ? lead_value($formService) : lead_value_for_need($formNeed ?: 'annat');
 $formTier    = (string) $formLead['tier'];
 
 $formToolResult = mb_substr((string) ($formToolResult ?? ''), 0, 500);
@@ -61,29 +61,9 @@ $utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content
     <h2 class="card-title"><?= e($formHeading) ?></h2>
   <?php endif; ?>
 
-  <div class="lead-form__row">
-    <label class="field">
-      <span><?= e(ui('form.name')) ?></span>
-      <input type="text" name="name" autocomplete="name" required>
-    </label>
-    <label class="field">
-      <span><?= e(ui('form.company')) ?></span>
-      <input type="text" name="company" autocomplete="organization">
-    </label>
-  </div>
-
-  <div class="lead-form__row">
-    <label class="field">
-      <span><?= e(ui('form.phone')) ?></span>
-      <input type="tel" name="phone" inputmode="tel" autocomplete="tel"
-             placeholder="<?= e(ui('form.phone_hint')) ?>" required>
-    </label>
-    <label class="field">
-      <span><?= e(ui('form.email')) ?></span>
-      <input type="email" name="email" autocomplete="email">
-    </label>
-  </div>
-
+  <?php /* besiktningsmannen.se: ärendet först (knappar), sedan var och vad,
+     sist kontaktuppgifterna. Telefon och ort är obligatoriska — besiktnings-
+     mannen ringer upp och behöver veta avståndet. */ ?>
   <fieldset class="field">
     <legend><?= e(ui('form.need')) ?></legend>
     <div class="chip-row">
@@ -97,10 +77,50 @@ $utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content
     </div>
   </fieldset>
 
+  <div class="lead-form__row">
+    <label class="field">
+      <span><?= e(ui('form.location')) ?></span>
+      <input type="text" name="location" autocomplete="address-level2"
+             placeholder="<?= e(ui('form.location_hint')) ?>" maxlength="100" required>
+    </label>
+    <label class="field">
+      <span><?= e(ui('form.property')) ?></span>
+      <select name="property_type">
+        <option value=""><?= e(ui('form.property_none')) ?></option>
+        <?php foreach ((array) (content('ui')['form']['property_types'] ?? []) as $propKey => $propLabel): ?>
+          <option value="<?= e($propKey) ?>"><?= e($propLabel) ?></option>
+        <?php endforeach; ?>
+      </select>
+    </label>
+  </div>
+
   <label class="field">
     <span><?= e(ui('form.message')) ?></span>
-    <textarea name="message" rows="3" placeholder="<?= e(ui('form.message_hint')) ?>"></textarea>
+    <textarea name="message" rows="3" maxlength="3000" placeholder="<?= e(ui('form.message_hint')) ?>"></textarea>
   </label>
+
+  <div class="lead-form__row">
+    <label class="field">
+      <span><?= e(ui('form.name')) ?></span>
+      <input type="text" name="name" autocomplete="name" maxlength="200" required>
+    </label>
+    <label class="field">
+      <span><?= e(ui('form.phone')) ?></span>
+      <input type="tel" name="phone" inputmode="tel" autocomplete="tel"
+             placeholder="<?= e(ui('form.phone_hint')) ?>" required>
+    </label>
+  </div>
+
+  <div class="lead-form__row">
+    <label class="field">
+      <span><?= e(ui('form.email')) ?></span>
+      <input type="email" name="email" autocomplete="email" required>
+    </label>
+    <label class="field">
+      <span><?= e(ui('form.date')) ?></span>
+      <input type="date" name="preferred_date" min="<?= e(date('Y-m-d')) ?>">
+    </label>
+  </div>
 
   <!-- Honeypot: bots fill it, humans never see it. -->
   <div class="honeypot" aria-hidden="true">
@@ -153,5 +173,5 @@ $utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content
 unset(
     $formId, $formNeed, $formHeading, $formService, $formLead, $formTier,
     $formToolResult, $formSourcePage, $sourcePage, $whatsapp, $idempotencyKey,
-    $utmKeys, $key, $label
+    $utmKeys, $key, $label, $propKey, $propLabel
 );

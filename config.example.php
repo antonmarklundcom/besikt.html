@@ -14,7 +14,7 @@ declare(strict_types=1);
 return [
     // Absolute origin, no trailing slash. Used for canonical URLs, OG tags and
     // the sitemap. Falls back to the request host when empty.
-    'SITE_URL' => '',
+    'SITE_URL' => '',                             // 'https://besiktningsmannen.se'
 
     // VenderCRM (Sitios → this site). Without both values the lead form runs in
     // degraded mode: submissions are appended to logs/leads.log and the visitor
@@ -22,13 +22,18 @@ return [
     'VENDERCRM_URL'     => '',
     'VENDERCRM_API_KEY' => '',
 
-    // Lead notification email through Resend (https://resend.com). Optional and
-    // independent of VenderCRM: when both values are set, every accepted lead is
-    // also emailed to LEAD_NOTIFY_TO. LEAD_FROM must be an address on a domain
-    // verified in the Resend dashboard (SPF + DKIM records in Hostinger DNS).
+    // E-postnotis per lead (valfritt, oberoende av VenderCRM). Två sändare:
+    //  1. Cloudflare Email Sending (förstahand): CF_ACCOUNT_ID + en API-token med
+    //     behörighet för Email Sending. Domänen måste vara onboardad i Email
+    //     Sending (SPF/DKIM/DMARC). Tjänsten är i beta — verifiera API-fälten.
+    //  2. Resend: RESEND_API_KEY, används bara om Cloudflare-värdena saknas.
+    // LEAD_NOTIFY_TO är en OPUBLICERAD adress (leads@…) som Email Routing
+    // vidarebefordrar till rätt inkorg. LEAD_FROM skickar som no-reply@.
+    'CF_ACCOUNT_ID'  => '',
+    'CF_EMAIL_TOKEN' => '',
     'RESEND_API_KEY' => '',
-    'LEAD_NOTIFY_TO' => '',                       // e.g. 'contacto@example.com'
-    'LEAD_FROM'      => '',                       // e.g. 'Example S.A. <no-reply@example.com>'
+    'LEAD_NOTIFY_TO' => '',                       // t.ex. 'leads@besiktningsmannen.se'
+    'LEAD_FROM'      => '',                       // t.ex. 'Besiktningsmannen <no-reply@besiktningsmannen.se>'
 
     // Analytics. assets/js/analytics.js is a no-op until GA4_ID is set.
     'GA4_ID' => '',
