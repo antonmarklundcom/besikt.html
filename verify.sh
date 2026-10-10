@@ -76,6 +76,36 @@ while IFS= read -r file; do
 done < <(find "$SITE_ROOT" -name '*.php' -not -path '*/tests/node_modules/*' -not -path '*/dist/*' | sort)
 [ "$LINT_FAILED" -eq 0 ] && ok "all PHP files parse"
 
+# Reject unsourced review branding/schema without matching record/recovery words.
+step "content claim guard"
+if command -v rg >/dev/null; then
+  claims_out=$(rg -n -i '\breco\b|\baggregateRating\b' "$SITE_ROOT" \
+    --glob '*.php' --glob '!**/docs/**' --glob '!**/tests/**' --glob '!**/dist/**' \
+    --glob '!**/node_modules/**' --glob '!**/logs/**' --glob '!**/config.php' 2>&1)
+  claims_status=$?
+else
+  # PHP is already required; keep CI usable where ripgrep is not installed.
+  claims_out=$(php -r '
+    $root = rtrim($argv[1], "/"); $found = false;
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root, FilesystemIterator::SKIP_DOTS)) as $file) {
+      $rel = substr(str_replace("\\", "/", $file->getPathname()), strlen($root) + 1);
+      if (!$file->isFile() || $file->getExtension() !== "php" || $file->getFilename() === "config.php"
+          || preg_match("~^(docs|tests|dist|logs|[.]git|node_modules)/|/node_modules/~", $rel)) { continue; }
+      $src = file_get_contents($file->getPathname());
+      if ($src === false) { exit(2); }
+      if (preg_match("~\\breco\\b|\\baggregateRating\\b~i", $src)) { echo $rel, "\n"; $found = true; }
+    }
+    exit($found ? 0 : 1);
+  ' "$SITE_ROOT" 2>&1)
+  claims_status=$?
+fi
+if [ "$claims_status" -eq 1 ]; then
+  ok "no unsupported review branding or aggregate rating schema"
+else
+  fail "unsupported review claim or source scan error"
+  echo "$claims_out" | sed 's/^/        /'
+fi
+
 # ---------------------------------------------------------- 2. market module --
 step "market module"
 market_out=$(php -r '

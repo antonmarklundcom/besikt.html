@@ -21,7 +21,7 @@ Anton authorized finishing the entire site while asleep, including imagery with 
 15. **Seven practical guides and template:** house preparation, maintenance, moisture signs, final inspection, bathroom records, complaints and comparing quotes; consistent 18-column maintenance CSV with blank planning examples.
 16. **Price/quote copy:** factors, inclusions, VAT/travel/testing questions and comparing scopes, without invented numerical prices/calculator.
 17. **Phone/form journey:** +46 73 633 38 75 everywhere, no public company email, service prefill, early contact form, mobile Ring/Begär offert, keyboard navigation and native success confirmation.
-18. **On-page SEO:** unique metadata, one H1, canonicals, breadcrumbs and relevant Organization/Service/Article/HowTo data. No fabricated review schema or rich-result promise.
+18. **On-page SEO:** unique metadata, one H1, canonicals, breadcrumbs and relevant Organization/Service/Article/HowTo data. A permanent verification guard rejects unsupported Reco branding/aggregate rating schema without matching record/recovery words. No rich-result promise.
 19. **Internal links and redirects:** content-derived navigation/sitemap, related links and 12 query-preserving relevant legacy 301s. No city/service doorway grid or unrelated redirect for unknown OVK/energy scope.
 20. **Performance and protected leads:** responsive AVIF/WebP, dimensions/lazy loading, local fonts, minified CSS, phone/origin/rate validation, atomic private ledger, retry deduplication, retention cleanup and spreadsheet-safe export for the later CRM.
 
