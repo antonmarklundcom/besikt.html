@@ -35,6 +35,9 @@ jobs:
       - name: Isolated lead contract and CRM failure cases
         run: node tests/lead-foundation.mjs
 
+      - name: Private ledger retention and export
+        run: php tests/lead-ledger.php
+
       - name: Deploy zip builds and passes the same checks
         run: |
           ./deploy/make-zip.sh

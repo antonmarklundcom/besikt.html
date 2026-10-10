@@ -158,21 +158,9 @@ function rate_limited(string $ip): bool
  */
 function log_lead(array $payload, string $outcome): bool
 {
-    $dir = lead_storage_dir();
-    if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
-        error_log('Lead storage directory is unavailable.');
-        return false;
-    }
-
-    $line = json_encode(
-        ['at' => gmdate('c'), 'outcome' => $outcome] + $payload,
-        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-    );
-
-    $saved = @file_put_contents($dir . '/leads.log', $line . "\n", FILE_APPEND | LOCK_EX) !== false;
-    if (!$saved) {
-        error_log('Lead could not be saved to the fallback log.');
-    }
+    require_once ROOT_DIR . '/lib/lead-ledger.php';
+    $saved = lead_ledger_write(lead_storage_dir(), $payload, $outcome);
+    if (!$saved) { error_log('Private lead ledger write failed.'); }
     return $saved;
 }
 
@@ -344,8 +332,18 @@ $digits = preg_replace('/\D+/', '', $phone) ?? '';
 /* Deliberately loose: local numbers run 7–10 digits and international ones up
    to 15 (E.164). VenderCRM normalises the format; we only reject what plainly
    cannot be a phone number. */
-if (strlen($digits) < 7 || strlen($digits) > 15) {
+if (!preg_match('/^[+0-9().\\s-]+$/', $phone) || strlen($digits) < 7 || strlen($digits) > 15) {
     respond(false, false, 'phone');
+}
+
+if (str_starts_with($digits, '00')) {
+    $phone = '+' . substr($digits, 2);
+} elseif (market_id() === 'se' && strlen($digits) === 10 && str_starts_with($digits, '0')) {
+    $phone = '+46' . substr($digits, 1);
+} elseif (str_starts_with(trim($phone), '+')) {
+    $phone = '+' . $digits;
+} else {
+    $phone = $digits;
 }
 
 $email = field('email', 320);

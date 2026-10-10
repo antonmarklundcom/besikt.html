@@ -93,7 +93,7 @@ try {
     assert.equal(r.data.value_tier, 'A', 'Posted tier must not override server routing');
     const sent = (await requests()).at(-1);
     assert.equal(sent.method, 'POST'); assert.equal(sent.key, 'test-key-not-a-secret');
-    assert.equal(sent.payload.source, 'web'); assert.equal(sent.payload.phone, fixture.phone);
+    assert.equal(sent.payload.source, 'web'); assert.equal(sent.payload.phone, '+46700000000');
     assert.equal(sent.payload.idempotency_key, 'same-submission-key');
     assert.equal(sent.payload.fields.ort, fixture.location); assert.equal(sent.payload.fields.valor, 'A');
     assert.equal(sent.payload.fields.necesita, 'Köpa eller sälja');

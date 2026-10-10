@@ -79,6 +79,7 @@ $rows     = [];
 $columns  = array_fill_keys(LEAD_CSV_LEADING, true);
 $skipped  = 0;
 $lineNo   = 0;
+$seen = [];
 
 $handle = fopen($source, 'rb');
 if ($handle === false) {
@@ -103,6 +104,9 @@ while (($line = fgets($handle)) !== false) {
     }
 
     $flat = flatten($decoded);
+    $key = $flat['idempotency_key'] ?? '';
+    if ($key !== '' && isset($seen[$key])) { continue; }
+    if ($key !== '') { $seen[$key] = true; }
 
     if ($tier !== null && ($flat['fields.valor'] ?? '') !== $tier) {
         continue;
@@ -124,7 +128,10 @@ fwrite($out, "\xEF\xBB\xBF");
 fputcsv($out, $header);
 
 foreach ($rows as $row) {
-    fputcsv($out, array_map(static fn (string $key) => $row[$key] ?? '', $header));
+    fputcsv($out, array_map(static function (string $key) use ($row): string {
+        $value = $row[$key] ?? '';
+        return preg_match('/^[\s]*[=+@-]/u', $value) ? "'" . $value : $value;
+    }, $header), ',', '"', '');
 }
 fclose($out);
 
