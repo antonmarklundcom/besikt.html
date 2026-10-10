@@ -1,7 +1,7 @@
 <?php
 /** Practical Swedish guides. Last-reviewed means source and editorial review, not a named expert certification. */
 declare(strict_types=1);
-return [
+return array_merge(require __DIR__ . '/legacy-guides.php', [
     'infor-husbesiktning' => [
         'path' => '/guider/infor-husbesiktning/',
         'title' => 'Checklista inför husbesiktning',
@@ -523,4 +523,4 @@ return [
         ],
         'example' => false,
     ],
-];
+]);

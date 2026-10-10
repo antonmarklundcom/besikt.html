@@ -14,5 +14,6 @@ return [
     '/orter/stockholm/' => '/',
     '/tips-rad/' => '/guider/',
     '/anvandarvillkor/' => '/villkor/',
+    '/priser/kalkylator/' => '/priser/',
 ];
 

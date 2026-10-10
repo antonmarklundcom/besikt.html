@@ -162,6 +162,7 @@ return [
             [
                 'h2' => 'Utföraren och uppdraget',
                 'body' => [
+                    'Besiktningsuppdrag förmedlas till en SBR/KIWA-certifierad samarbetspartner. Be om aktuellt certifikat och kontrollera vilken typ av besiktning det omfattar. KA-uppdrag och andra konsultuppdrag behöver rätt kompetens för sin särskilda roll.',
                     'Kontrollera utförarens erfarenhet, relevanta behörigheter och ansvarsförsäkring inför beställningen. Offerten ska beskriva uppdragets omfattning, pris och villkor.',
                 ],
             ],
