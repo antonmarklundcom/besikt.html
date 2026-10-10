@@ -46,7 +46,7 @@ $tierValues = [
 
 $needLabels = [];
 
-return [
+$model = [
 
     'tierValues' => $tierValues,
     'needLabels' => $needLabels,
@@ -202,3 +202,16 @@ return [
         'annat'      => ['tier' => 'C', 'crmTag' => 'allman-forfragan', 'service' => null],
     ],
 ];
+
+$serviceRecords = require __DIR__ . '/services.php';
+$extraNeeds = ['lagenhetsbesiktning' => 'kop', 'fuktmatning' => 'fukt', 'takbesiktning' => 'kop', 'kontrollansvarig' => 'renovering', 'byggprojektledning' => 'brf'];
+foreach ($serviceRecords as $slug => $svc) {
+    if (!isset($model['services'][$slug])) {
+        $model['services'][$slug] = ['need' => $extraNeeds[$slug], 'tier' => in_array($slug, ['kontrollansvarig', 'byggprojektledning'], true) ? 'A' : 'B', 'crmTag' => $slug];
+    }
+    $model['services'][$slug]['menuLabel'] = $svc['title'];
+    $model['services'][$slug]['whatsappText'] = 'Hej, jag vill begära offert på ' . $svc['title'] . '.';
+    $model['services'][$slug]['nextStep'] = ['Vi går igenom din förfrågan och stämmer av uppdraget.', 'Ha gärna följande redo: ' . $svc['weNeed'][0] . '.'];
+    $model['services'][$slug]['nextLink'] = ['path' => '/guider/' . $svc['guides'][0] . '/', 'label' => 'Förbered dig med vår guide'];
+}
+return $model;

@@ -13,6 +13,7 @@ require __DIR__ . '/../lib/bootstrap.php';
 
 $meta = page_meta(site_path('contact'));
 $page = [
+    'quotePath' => '#offert',
     'title'       => $meta['title'],
     'description' => $meta['description'],
     'path'        => site_path('contact'),
@@ -47,7 +48,7 @@ require ROOT_DIR . '/partials/header.php';
   </section>
 
   <section class="section" id="offert">
-    <div class="container split split--top">
+    <div class="container split split--top contact-grid">
 
       <div class="stack">
         <?php if ($sent): ?>
@@ -73,20 +74,6 @@ require ROOT_DIR . '/partials/header.php';
             <li>
               <span class="contact-list__label"><?= e(ui('contact.email')) ?></span>
               <a href="mailto:<?= e(site('email')) ?>"><?= e(site('email')) ?></a>
-            </li>
-          <?php endif; ?>
-          <?php
-          /* E-postadressen finns inte i HTML-källan (spam): JS sätter ihop den.
-             Utan JS visas den i läsbar men inte maskinläsbar form. */
-          $contactMail = (string) (site('publicEmail') ?? '');
-          ?>
-          <?php if (!site('email') && str_contains($contactMail, '@')): ?>
-            <?php [$contactMailUser, $contactMailDomain] = explode('@', $contactMail, 2); ?>
-            <li>
-              <span class="contact-list__label"><?= e(ui('contact.email')) ?></span>
-              <span data-mail data-u="<?= e(strrev($contactMailUser)) ?>" data-d="<?= e(strrev($contactMailDomain)) ?>">
-                <?= e($contactMailUser) ?> (at) <?= e($contactMailDomain) ?>
-              </span>
             </li>
           <?php endif; ?>
           <?php if (site('street') || site('city')): ?>
@@ -119,25 +106,18 @@ require ROOT_DIR . '/partials/header.php';
         </ul>
       </div>
 
-      <div>
+      <?php if (!$sent): ?><div>
         <?php
         $formId = 'kontakt';
+        $requestedService = isset($_GET['tjanst']) && is_string($_GET['tjanst']) ? $_GET['tjanst'] : '';
+        $formService = services($requestedService) !== null ? $requestedService : null;
         require ROOT_DIR . '/partials/lead-form.php';
         ?>
-      </div>
+      </div><?php endif; ?>
 
     </div>
   </section>
 
   <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>
-<script>
-  document.querySelectorAll('[data-mail]').forEach(function (el) {
-    var r = function (s) { return s.split('').reverse().join(''); };
-    var a = document.createElement('a');
-    a.href = 'mailto:' + r(el.dataset.u) + '@' + r(el.dataset.d);
-    a.textContent = r(el.dataset.u) + '@' + r(el.dataset.d);
-    el.replaceWith(a);
-  });
-</script>
 <?php require ROOT_DIR . '/partials/footer.php'; ?>

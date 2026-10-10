@@ -56,6 +56,8 @@ $routes['/sitemap.xml'] = 200;
    //   $routes['/wp-sitemap.xml'] = 301;
    //   $routes['/?page_id=3'] = 301;                                        */
 
+foreach (array_keys(content('redirects')) as $path) { $routes[$path] = 301; }
+
 /* A path that does not exist must be a 404, not a soft 200. */
 $routes['/esta-pagina-no-existe/'] = 404;
 

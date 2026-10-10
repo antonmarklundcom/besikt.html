@@ -25,9 +25,11 @@ if ($meta === []) {
 }
 
 $page = [
+    'quotePath' => $path === site_path('prices') ? '#offert' : site_path('contact'),
     'title'       => $meta['title'],
     'description' => $meta['description'],
     'path'        => $path,
+    'faq'         => $meta['faq'] ?? [],
     'breadcrumbs' => [['label' => $meta['title'], 'path' => $path]],
     'noindex'     => !empty($meta['noindex']) || isset($_GET['enviado']) || isset($_GET['error']),
 ];
@@ -44,6 +46,7 @@ require ROOT_DIR . '/partials/header.php';
         <?php if (!empty($meta['lead'])): ?>
           <p class="lead"><?= e($meta['lead']) ?></p>
         <?php endif; ?>
+        <?php if ($path === site_path('prices')): ?><div class="btn-row mt-4"><a class="btn btn--primary" href="#offert"><?= e(ui('cta.quote')) ?></a></div><?php endif; ?>
       </div>
     </div>
   </section>
@@ -59,12 +62,21 @@ require ROOT_DIR . '/partials/header.php';
             <?php foreach ($pageBlock['body'] ?? [] as $pageParagraph): ?>
               <p><?= e($pageParagraph) ?></p>
             <?php endforeach; ?>
+            <?php if (!empty($pageBlock['links'])): ?>
+              <ul class="context-links">
+                <?php foreach ($pageBlock['links'] as $pageLink): ?>
+                  <li><a href="<?= e($pageLink['path']) ?>"><?= e($pageLink['label']) ?></a></li>
+                <?php endforeach; ?>
+              </ul>
+            <?php endif; ?>
           </div>
         <?php endforeach; ?>
       </div>
     </section>
   <?php endif; ?>
 
+  <?php if (!empty($meta['faq'])): ?><section class="section section--surface"><div class="container"><?php $faqItems = $meta['faq']; require ROOT_DIR . '/partials/faq.php'; ?></div></section><?php endif; ?>
+  <?php if ($path === site_path('prices')): ?><section class="section" id="offert"><div class="container container--narrow"><?php $formId = 'priser'; require ROOT_DIR . '/partials/lead-form.php'; ?></div></section><?php $ctaContactPath = '#offert'; endif; ?>
   <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>
 <?php require ROOT_DIR . '/partials/footer.php'; ?>

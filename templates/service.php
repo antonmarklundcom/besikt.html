@@ -31,9 +31,11 @@ if (!empty($service['parent']) && ($parent = services($service['parent'])) !== n
 $breadcrumbs[] = ['label' => $service['title'], 'path' => $service['path']];
 
 $page = [
+    'quotePath' => '#offert',
     'title'       => $service['seoTitle'] !== '' ? $service['seoTitle'] : $service['title'],
     'description' => $service['metaDescription'],
     'path'        => $service['path'],
+    'ogImage'     => '/assets/img/services/' . (content('imagery')[$slug]['slot'] ?? 'villa') . '-960.webp',
     'breadcrumbs' => $breadcrumbs,
     'faq'         => $service['faq'],
     /* Names this page in the lead value model: the WhatsApp menu,
@@ -86,6 +88,14 @@ require ROOT_DIR . '/partials/header.php';
     </div>
   </section>
 
+  <nav class="content-nav container" aria-label="<?= e(ui('content_nav.title')) ?>">
+    <a href="#omfattning"><?= e(ui('content_nav.scope')) ?></a>
+    <?php foreach ($service['sections'] as $blockIndex => $block): ?>
+      <a href="#avsnitt-<?= (int) $blockIndex ?>"><?= e($block['h2']) ?></a>
+    <?php endforeach; ?>
+    <a href="#fragor"><?= e(ui('content_nav.questions')) ?></a>
+  </nav>
+
   <section class="section section--surface">
     <div class="container container--narrow">
       <?php $illustrationSlug = $slug; $illustrationWide = true; require ROOT_DIR . '/partials/service-image.php'; ?>
@@ -99,7 +109,7 @@ require ROOT_DIR . '/partials/header.php';
   <?php if ($service['includes'] !== [] || $svcExcludes !== [] || $svcWeNeed !== []): ?>
     <section class="section">
       <div class="container">
-        <div class="checklist-grid">
+        <div class="checklist-grid" id="omfattning">
           <?php if ($service['includes'] !== []): ?>
             <div>
               <h2><?= e(ui('service.includes')) ?></h2>
@@ -138,9 +148,9 @@ require ROOT_DIR . '/partials/header.php';
   <?php if ($service['sections'] !== []): ?>
     <section class="section section--surface">
       <div class="container stack">
-        <?php foreach ($service['sections'] as $block): ?>
+        <?php foreach ($service['sections'] as $blockIndex => $block): ?>
           <div class="prose">
-            <h2><?= e($block['h2'] ?? '') ?></h2>
+            <h2 id="avsnitt-<?= (int) $blockIndex ?>"><?= e($block['h2'] ?? '') ?></h2>
             <?php foreach ($block['body'] ?? [] as $paragraph): ?>
               <p><?= e($paragraph) ?></p>
             <?php endforeach; ?>
@@ -195,6 +205,7 @@ require ROOT_DIR . '/partials/header.php';
   <?php if ($service['faq'] !== []): ?>
     <section class="section section--surface">
       <div class="container">
+        <div id="fragor"></div>
         <?php $faqItems = $service['faq']; ?>
         <?php require ROOT_DIR . '/partials/faq.php'; ?>
       </div>
@@ -266,6 +277,7 @@ require ROOT_DIR . '/partials/header.php';
     </section>
   <?php endif; ?>
 
+  <?php $referenceContent = $service; require ROOT_DIR . '/partials/content-references.php'; ?>
   <?php $ctaContactPath = '#offert'; ?>
   <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>

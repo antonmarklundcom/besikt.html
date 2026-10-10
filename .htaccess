@@ -35,6 +35,19 @@ DirectoryIndex index.php index.html
   #   RewriteRule ^$ /integritetspolicy/? [R=301,L]
   #   RewriteRule ^wp-sitemap\.xml$ /sitemap.xml [R=301,L]
 
+  RewriteRule ^tjanster/overlatelsebesiktning/?$ /overlatelsebesiktning/ [R=301,L]
+  RewriteRule ^tjanster/statusbesiktning/?$ /statusbesiktning/ [R=301,L]
+  RewriteRule ^tjanster/entreprenadbesiktning/?$ /entreprenadbesiktning/ [R=301,L]
+  RewriteRule ^tjanster/slutbesiktning/?$ /slutbesiktning/ [R=301,L]
+  RewriteRule ^tjanster/badrumsbesiktning/?$ /badrumsbesiktning/ [R=301,L]
+  RewriteRule ^tjanster/fuktutredning/?$ /fuktutredning/ [R=301,L]
+  RewriteRule ^tjanster/garantibesiktning/?$ /garantibesiktning/ [R=301,L]
+  RewriteRule ^tjanster/lagenhetsbesiktning/?$ /lagenhetsbesiktning/ [R=301,L]
+  RewriteRule ^begar-offert/?$ /kontakt/ [R=301,L]
+  RewriteRule ^orter/stockholm/?$ / [R=301,L]
+  RewriteRule ^tips-rad/?$ /guider/ [R=301,L]
+  RewriteRule ^anvandarvillkor/?$ /villkor/ [R=301,L]
+
   # --- generated text endpoints -------------------------------------------
   RewriteRule ^sitemap\.xml$ /sitemap.php [L]
   RewriteRule ^robots\.txt$  /robots.php  [L]
@@ -94,4 +107,6 @@ RedirectMatch 404 ^/\.git(/|$)
 
 <IfModule mod_mime.c>
   AddType font/woff2 .woff2
+  AddType image/avif .avif
+  AddType image/webp .webp
 </IfModule>

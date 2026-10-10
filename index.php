@@ -17,6 +17,7 @@ require __DIR__ . '/lib/bootstrap.php';
 $meta = page_meta('/');
 $homeFaq = (array) ($meta['faq'] ?? []);
 $page = [
+    'quotePath' => '#offert',
     'title'       => $meta['title'],
     'description' => $meta['description'],
     'path'        => '/',
@@ -100,7 +101,7 @@ require ROOT_DIR . '/partials/header.php';
 
       <?php
       /* Alla tjänster utom undersidor (underhållsplanen ligger under BRF). */
-      $gridSlugs = array_keys(array_filter(services(), static fn ($s) => empty($s['parent'])));
+      $gridSlugs = ['overlatelsebesiktning', 'lagenhetsbesiktning', 'badrumsbesiktning', 'fuktutredning', 'slutbesiktning', 'brf', 'underhallsplan', 'takbesiktning'];
       $gridNumbered = true;
       require ROOT_DIR . '/partials/service-card-grid.php';
       ?>
@@ -132,7 +133,7 @@ require ROOT_DIR . '/partials/header.php';
         <p><a href="/om-oss/"><?= e(ui('nav.about')) ?> &rarr;</a></p>
       </div>
       <div class="home-protocol">
-        <?php $illustrationSlug = 'overlatelsebesiktning'; require ROOT_DIR . '/partials/service-image.php'; ?>
+        <?php $illustrationSlug = 'home'; require ROOT_DIR . '/partials/service-image.php'; ?>
       </div>
     </div>
   </section>
@@ -171,6 +172,22 @@ require ROOT_DIR . '/partials/header.php';
           <a class="btn btn--secondary" href="#offert"><?= e(ui('cta.quote')) ?></a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container">
+      <div class="section-head"><h2><?= e(ui('content_nav.guides')) ?></h2></div>
+      <div class="grid grid--3">
+        <?php foreach (['infor-husbesiktning', 'underhallsplan-checklista', 'jamfora-besiktningsoffert'] as $homeGuideSlug): ?>
+          <?php $homeGuide = content('guias')[$homeGuideSlug]; ?>
+          <a class="card card--link" href="<?= e($homeGuide['path']) ?>">
+            <h3 class="card-title"><?= e($homeGuide['title']) ?></h3>
+            <p><?= e($homeGuide['hero']['lead']) ?></p>
+          </a>
+        <?php endforeach; ?>
+      </div>
+      <p class="mt-4"><a href="/guider/">Se alla guider &rarr;</a></p>
     </div>
   </section>
 

@@ -33,6 +33,13 @@ $halt = static function (int $status, string $body = ''): void {
 // A rebuild of an existing site lists its 410s here and in .htaccess; both must
 // agree, or local preview and production disagree about a URL Google already
 // has. Same for redirects: every RewriteRule there gets a branch here.
+$redirects = require $root . '/content/redirects.php';
+$legacyPath = rtrim($path, '/') . '/';
+if (isset($redirects[$legacyPath])) {
+    http_response_code(301);
+    header('Location: ' . $redirects[$legacyPath] . ($query !== '' ? '?' . $query : ''));
+    return true;
+}
 $gone = [];
 if ($gone !== [] && in_array(rtrim($path, '/') . '/', $gone, true)) {
     $halt(410, '<h1>410 Gone</h1>');

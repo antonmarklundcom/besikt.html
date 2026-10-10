@@ -50,6 +50,7 @@ $howTo = [
 ];
 
 $page = [
+    'quotePath' => '#delegar',
     'title'       => $guide['seoTitle'] !== '' ? $guide['seoTitle'] : $guide['title'],
     'description' => $guide['metaDescription'],
     'path'        => $guide['path'],
@@ -60,6 +61,8 @@ $page = [
     'faq'      => $guide['faq'],
     'leadSlug' => $delegateSlug,
     'jsonld'   => [$howTo],
+    'ogType'   => 'article',
+    'article'  => ['headline' => $guide['hero']['h1'], 'dateModified' => $guide['lastReviewed'], 'image' => url('/assets/img/og-default.png')],
 ];
 
 require ROOT_DIR . '/partials/head.php';
@@ -93,6 +96,13 @@ require ROOT_DIR . '/partials/header.php';
         </div>
       <?php endif; ?>
 
+      <?php if (!empty($guide['download'])): ?>
+        <div class="download-card">
+          <a class="btn btn--primary" href="<?= e($guide['download']['path']) ?>" download><?= e($guide['download']['label']) ?></a>
+          <p class="note"><?= e($guide['download']['text']) ?></p>
+        </div>
+      <?php endif; ?>
+      <div class="btn-row"><a class="btn btn--secondary" href="<?= e(services($delegateSlug)['path']) ?>"><?= e(services($delegateSlug)['title']) ?></a><a class="btn btn--primary" href="#delegar"><?= e(ui('cta.quote')) ?></a></div>
       <?php if ($guide['steps'] !== []): ?>
         <ol class="steps mt-4">
           <?php foreach ($guide['steps'] as $guideStep): ?>
@@ -182,6 +192,7 @@ require ROOT_DIR . '/partials/header.php';
     </section>
   <?php endif; ?>
 
-  <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
+  <?php $referenceContent = $guide; require ROOT_DIR . '/partials/content-references.php'; ?>
+  <?php $ctaContactPath = '#delegar'; require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>
 <?php require ROOT_DIR . '/partials/footer.php'; ?>

@@ -134,7 +134,7 @@ return [
             ],
             [
                 'title' => 'Besiktning på plats',
-                'text'  => 'Besiktningsmannen går igenom bostaden, mäter fukt där det behövs och fotograferar.',
+                'text'  => 'Utföraren genomför de kontroller som beställts och dokumenterar iakttagelserna.',
             ],
             [
                 'title' => 'Protokoll och genomgång',
@@ -167,13 +167,13 @@ return [
         'title'        => 'Besiktningar för hus, bostadsrätt och BRF.',
         'lead'         => 'Välj tjänst och beskriv vad du vill ha undersökt.',
         'unsure_title' => 'Osäker på vilken besiktning du behöver?',
-        'unsure_text'  => 'Beskriv ärendet så föreslår vi rätt tjänst och ett fast pris.',
+        'unsure_text'  => 'Beskriv ärendet så hjälper vi dig att avgränsa förfrågan.',
         'unsure_cta'   => 'Begär offert',
     ],
 
     'cta_band' => [
         'eyebrow' => 'Offert',
-        'title'   => 'Beskriv ditt ärende – få ett fast pris.',
+        'title'   => 'Få en offert för ditt uppdrag.',
         'lead'    => 'Ange tjänst och kommun. Förfrågan innebär ingen bokning.',
     ],
 
@@ -192,7 +192,7 @@ return [
             'origin' => 'Ladda om sidan och försök igen.',
             'rate' => 'Du har skickat flera förfrågningar. Vänta en stund och försök igen.',
             'storage' => 'Förfrågan kunde inte sparas. Försök igen eller använd kontaktsidan.',
-            'failed' => 'Försök igen om en stund, eller mejla oss via kontaktsidan.',
+            'failed' => 'Försök igen om en stund, eller ring +46 73 633 38 75.',
         ],
         'company'         => 'Förening eller företag (valfritt)',
         'location'        => 'Ort eller kommun',
@@ -221,7 +221,7 @@ return [
         'success_title'   => 'Tack! Vi har fått din förfrågan.',
         'success_text'    => 'Vi följer upp förfrågan och stämmer av vad du behöver.',
         'error_title'     => 'Förfrågan kunde inte skickas.',
-        'error_text'      => 'Försök igen om en stund, eller mejla oss via kontaktsidan.',
+        'error_text'      => 'Försök igen om en stund, eller ring +46 73 633 38 75.',
         'error_phone'     => 'Ange ett telefonnummer så att vi kan nå dig.',
         'required'        => 'obligatoriskt',
         'thanks_next'     => 'Nästa steg',
@@ -260,6 +260,8 @@ return [
         ],
     ],
 
+    'content_nav' => ['title' => 'På den här sidan', 'scope' => 'Omfattning', 'questions' => 'Vanliga frågor', 'sources' => 'Källor och vidare läsning', 'source_note' => 'Allmän information. Uppdragets avtal och fastighetens förutsättningar styr den konkreta bedömningen.', 'guides' => 'Förbered dig med våra guider', 'updated' => 'Uppdaterad'],
+
     'service' => [
         'includes'     => 'Exempel på moment – omfattning enligt offert',
         'excludes'     => 'Det här ingår inte',
@@ -292,7 +294,7 @@ return [
     ],
 
     'guide' => [
-        'reviewed_prefix'       => 'Granskad',
+        'reviewed_prefix'       => 'Redaktionellt uppdaterad',
         'orientativo'           => 'Guiden är allmän information. Ditt hus kan kräva en besiktning på plats.',
         'delegate_eyebrow'      => 'Besiktning',
         'delegate_title'        => 'Vill du att en besiktningsman tittar på det?',

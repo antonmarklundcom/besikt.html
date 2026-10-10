@@ -34,7 +34,7 @@ return [
         'blog'    => '/artiklar/',          // ingen blogg i v1 (plan.md §1.10)
         'prices'  => '/priser/',
         'privacy' => '/integritetspolicy/',
-        'terms'   => '/integritetspolicy/', // inga separata villkor i v1
+        'terms'   => '/villkor/', // inga separata villkor i v1
     ],
 
     // Den som driver sajten och är personuppgiftsansvarig (integritetspolicyn).
@@ -46,11 +46,11 @@ return [
     // --- contact ------------------------------------------------------------
     // Telefon: internationellt format, t.ex. '+46 8 123 456 78'. Medan den är
     // null visas ingen tel:-länk. WhatsApp används inte på den här sajten.
-    'phone'    => null,
+    'phone'    => '+46 73 633 38 75',
     'whatsapp' => null,
     // Visas INTE i sidfoten (spam). /kontakt/ skriver ut kontakt@… med JS.
     'email'    => null,
-    'publicEmail' => 'kontakt@besiktningsmannen.se',
+    'publicEmail' => null,
 
     // --- address ------------------------------------------------------------
     // Ingen gatuadress publiceras (ingen GBP, plan.md §8.2).
