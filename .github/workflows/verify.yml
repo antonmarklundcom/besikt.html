@@ -28,6 +28,13 @@ jobs:
       - name: verify.sh
         run: ./verify.sh
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Isolated lead contract and CRM failure cases
+        run: node tests/lead-foundation.mjs
+
       - name: Deploy zip builds and passes the same checks
         run: |
           ./deploy/make-zip.sh

@@ -1,0 +1,29 @@
+# Lead generation and SEO plan — 9 October 2026
+
+This is the current numbered decision list. Anton authorized the foundation work on 9 October. Detailed service copy, new landing pages and keyword priorities wait for fresh KWP. Reply with numbers, for example `8 yes, 11 no`.
+
+1. **Positioning — implemented.** Keep the existing Stockholm focus and make the operator's enquiry-broker role clear. State coverage, qualifications and availability only when verified; remove unsupported certification, rating and response-time claims.
+2. **Short form — implemented.** Service, municipality, name, phone, optional email and short message. Beside the headline on desktop and near the top on mobile. Primary: Begär offert. Secondary: Se priser. Preserve the selected service on service pages.
+3. **Reliable lead capture — implemented.** Keep VenderCRM POST `/api/v1/leads` and `X-Api-Key`. Phone identity, source `web`, one key for retries and a fresh key for a new enquiry. Preserve leads on CRM failure; show an error if fallback storage also fails.
+4. **Confirmation and measurement — implemented.** Useful next steps without a deadline or confirmation-email promise. Distinguish CRM delivery (`lead_submit`) and local fallback (`lead_saved`). IDs stay unset pending real setup/privacy decisions.
+5. **SEO foundation — implemented.** Retain repository routes, unique metadata, canonicals, breadcrumbs and Service broker schema. Keep thank-you/B2B draft out of the index. Remove automatic daily sitemap lastmod values. Reconcile the different live URL inventory before release.
+6. **Visuals — completed.** Eight Higgsfield Nano Banana 2.1 high/2k illustrations. 8 × 2 = 16 of 50 credits. AVIF/WebP at 480/960px, dimensions, lazy loading below the form and AI captions. Verified people/cases/qualifications need real material.
+7. **Basic pages — implemented.** A short price-factor page and operator/about page without invented prices. Unlinked noindex B2B draft with `[B2B_TITLE]` and commercial terms TBD.
+8. **Prioritize intent after KWP.** Combine the 70 seed phrases, fresh volume/bid data, Search Console impressions, actual service relevance and job value. Investigate relevant low/zero-volume terms; do not automatically discard them. Do not add close-variant volumes as independent demand.
+9. **Cover the competitor's service range after KWP.** House/apartment inspection, bathrooms, moisture/damage investigation, final/contract/guarantee inspections, BRF, maintenance plans, control officer and construction project management. Existing nine service records are the foundation. Decide whether apartment, damage, control officer and project management require separate landing pages; group new-build/renovation synonyms by intent. [Service reference](https://entreprenadkonsulterna.se/).
+10. **Strengthen each approved service page.** Clear H1, concise definition, who needs it, deliverables/exclusions, documents, process, price factors, specific FAQs, related services and a direct form. Use verified technical sources and practitioner review; write to answer the question, without an arbitrary word-count target. This pass retains short seeded service content.
+11. **Improve local pages selectively.** Preserve live city URLs through an approved migration inventory. Choose places with real coverage/demand, add concrete local usefulness and link relevant services. Avoid mass city × service duplicate pages. Stockholm/Nynäshamn/Haninge are research seeds, not new coverage promises.
+12. **Answer price intent with approved numbers.** Explain inclusions, VAT, travel and optional testing. Add a calculator only with a real price model. Existing internal Ads tier weights are not customer prices, revenue or B2B lead prices.
+13. **Add evidence.** Verified provider experience, qualifications, insurance, permissioned cases and attributable reviews. No invented stars, aggregate rating, partner count or customer photographs.
+14. **Small useful guide library.** Practical questions supported by KWP and actual enquiries, linked to the relevant services. Avoid empty navigation and unreviewed legal/technical answers. FAQs are useful page content; Google removed FAQ rich results in May 2026, so no rich-result promise. [Google updates](https://developers.google.com/search/updates).
+15. **Settle B2B terms.** Title, cost per lead, recipients, exclusivity, geography, acceptance/credit rules and customer disclosure. Do not turn the draft into a live purchase flow before those facts exist.
+16. **Measure qualified jobs.** Authorized Search Console/analytics setup, baseline impressions/non-brand clicks/form starts/saved-delivered enquiries/qualified jobs by service. Review lead quality alongside ranking. A proposed review cadence is not an automation.
+17. **Stage and release.** Reconcile live routes/canonicals, privately verify Hostinger PHP/cURL/CRM/settings/storage/email/privacy, then a disposable acceptance enquiry and artifact/staging checks. No PR, push, production deployment or hosting change in this pass.
+
+## KWP intake
+
+`KWP-SEEDS-70.txt` has exactly 70 distinct research seeds, not a verified popularity ranking. Return the phrase, monthly volume/range, competition, low/high top-of-page bid, geography, language and date range. Use Sweden/Swedish for the first comparison; a separate Stockholm-area export can clarify local demand.
+
+Historical evidence is retained: `SEO-SOKORDSPLAN.md`, `sokord-fastighet.csv` (417 retained phrases), `sokord-borttagna.csv` (224 excluded), from 1 October 2026. The live SPA and PHP repo have different service/city paths; this PHP repo has no city collection. No existing live city route has been deleted. Deployment must preserve or intentionally map it.
+
+Ranking leadership is an objective, not a demonstrated result or guarantee. See [lead operations](LEADS-RUNBOOK.md), [open decisions](OPEN-QUESTIONS.md) and [validation](FOUNDATION-STATUS.md).

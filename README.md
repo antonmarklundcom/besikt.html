@@ -1,3 +1,6 @@
+<!-- lead-foundation-20261009 -->
+Current work: `codex/lead-gen-pass`, 9 October 2026. Foundation implemented; fresh KWP, live URL mapping and private staging acceptance precede expansion/release. See [numbered plan](docs/LEAD-GEN-PLAN.md), [lead runbook](docs/LEADS-RUNBOOK.md), [open decisions](docs/OPEN-QUESTIONS.md) and [validation](docs/FOUNDATION-STATUS.md). No production deployment or PR.
+
 # besiktningsmannen.se
 
 Leadsajt för fastighetsbesiktning i Stockholms län, byggd från
