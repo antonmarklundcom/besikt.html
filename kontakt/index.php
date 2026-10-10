@@ -40,8 +40,9 @@ require ROOT_DIR . '/partials/header.php';
     <div class="container">
       <?php require ROOT_DIR . '/partials/breadcrumbs.php'; ?>
       <div class="page-hero__inner">
+        <?php if ($hasError): ?><p class="form-status form-status--error" role="alert"><strong><?= e(ui('form.error_title')) ?></strong> <?= e(ui('form.error_text')) ?></p><?php endif; ?>
         <p class="eyebrow"><?= e(ui('contact.eyebrow')) ?></p>
-        <h1><?= e(ui('contact.title')) ?></h1>
+        <h1><?= e($sent ? ui('form.success_title') : ui('contact.title')) ?></h1>
         <p class="lead"><?= e(ui('contact.lead')) ?></p>
       </div>
     </div>
@@ -56,11 +57,6 @@ require ROOT_DIR . '/partials/header.php';
             $thanksLead = $sentLead;
             require ROOT_DIR . '/partials/lead-thanks.php';
           ?>
-        <?php elseif ($hasError): ?>
-          <p class="form-status form-status--error" role="alert">
-            <strong><?= e(ui('form.error_title')) ?></strong>
-            <?= e(ui('form.error_text')) ?>
-          </p>
         <?php endif; ?>
 
         <ul class="contact-list">

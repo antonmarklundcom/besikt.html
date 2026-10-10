@@ -66,6 +66,8 @@ try {
   }
   const sitemap=await get('/sitemap.xml');for(const path of paths)assert.ok(sitemap.body.includes(base+path),`sitemap missing ${path}`);
   assert.ok(!sitemap.body.includes('/for-besiktningsforetag/'));
+  const csv=(await readFile(join(root,'assets/downloads/underhallsplan-brf-mall.csv'),'utf8')).replace(/^\uFEFF/,'').trimEnd().split(/\r?\n/);
+  assert.ok(csv.every(row=>row.split(';').length===18),'maintenance CSV columns');
   const out=process.env.BESIKT_QA_OUTPUT;
   if(out) await mkdir(out,{recursive:true});
   const layouts=[];
@@ -75,7 +77,7 @@ try {
       await page.goto(base+path);
       const layout=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,formTop:document.querySelector('.lead-form')?.getBoundingClientRect().top}));
       assert.equal(layout.overflow,false,`${width}px ${path}: overflow`); layouts.push({width,path,...layout});
-      if(width===390&&(path==='/'||path==='/overlatelsebesiktning/'))assert.ok(layout.formTop<650,`${path}: form too low ${layout.formTop}`);
+      if(width===390&&['/','/overlatelsebesiktning/','/kontakt/'].includes(path))assert.ok(layout.formTop<650,`${path}: form too low ${layout.formTop}`);
       if(out&&((width===390&&['/','/overlatelsebesiktning/','/guider/underhallsplan-checklista/'].includes(path))||(width===1440&&path==='/')))await page.screenshot({path:join(out,`${width}-${path==='/'?'home':path.replaceAll('/','-')}.png`),fullPage:false});
     }
   }
