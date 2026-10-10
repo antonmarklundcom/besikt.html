@@ -46,6 +46,11 @@ const LEAD_CRM_TIMEOUT  = 10;    // seconds
 
 $wantsJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
 
+function lead_storage_dir(): string
+{
+    return verification_dir() ?? ROOT_DIR . '/logs';
+}
+
 /**
  * Answer and stop: JSON for the fetch() path, a redirect for the plain form.
  */
@@ -109,7 +114,7 @@ function client_ip(): string
  */
 function rate_limited(string $ip): bool
 {
-    $dir = ROOT_DIR . '/logs/rate';
+    $dir = lead_storage_dir() . '/rate';
     if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
         return false;   // cannot track it — never block a real lead over this
     }
@@ -151,11 +156,12 @@ function rate_limited(string $ip): bool
  * Append the lead to logs/leads.log. Always called, so there is a local record
  * even when the CRM accepted it.
  */
-function log_lead(array $payload, string $outcome): void
+function log_lead(array $payload, string $outcome): bool
 {
-    $dir = ROOT_DIR . '/logs';
+    $dir = lead_storage_dir();
     if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
-        return;
+        error_log('Lead storage directory is unavailable.');
+        return false;
     }
 
     $line = json_encode(
@@ -163,7 +169,11 @@ function log_lead(array $payload, string $outcome): void
         JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
     );
 
-    @file_put_contents($dir . '/leads.log', $line . "\n", FILE_APPEND | LOCK_EX);
+    $saved = @file_put_contents($dir . '/leads.log', $line . "\n", FILE_APPEND | LOCK_EX) !== false;
+    if (!$saved) {
+        error_log('Lead could not be saved to the fallback log.');
+    }
+    return $saved;
 }
 
 /**
@@ -295,7 +305,7 @@ function send_lead_email(string $to, string $from, string $subject, string $text
     curl_close($ch);
 
     if ($status < 200 || $status >= 300) {
-        error_log(sprintf('%s notification failed [%d] %s %s', $label, $status, (string) $response, $curlErr));
+        error_log(sprintf('%s notification failed [HTTP %d].', $label, $status));
     }
 }
 
@@ -303,7 +313,8 @@ function send_lead_email(string $to, string $from, string $subject, string $text
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     http_response_code(405);
     header('Allow: POST');
-    header('Location: ' . site_path('contact'), true, 303);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo 'Metoden stöds inte.';
     exit;
 }
 
@@ -321,7 +332,7 @@ if ($origin !== '') {
     $originHost  = parse_url($origin, PHP_URL_HOST);
     $requestHost = parse_url(site_origin(), PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? '');
 
-    if ($originHost !== null && strcasecmp($originHost, (string) $requestHost) !== 0) {
+    if (!is_string($originHost) || strcasecmp($originHost, (string) $requestHost) !== 0) {
         respond(false, false, 'origin');
     }
 }
@@ -340,6 +351,13 @@ if (strlen($digits) < 7 || strlen($digits) > 15) {
 $email = field('email', 320);
 if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(false, false, 'email');
+}
+
+if (field('name', 200) === '') {
+    respond(false, false, 'name');
+}
+if (field('location', 100) === '') {
+    respond(false, false, 'location');
 }
 
 if (rate_limited(client_ip())) {
@@ -383,26 +401,33 @@ if ($preferredDate !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $preferredDate
     $preferredDate = '';
 }
 
-/* A stable key so a double-click or a network retry replays the same lead
-   instead of creating a duplicate. The form supplies one per render; the
-   phone-plus-hour fallback covers callers that do not. */
+/* Keep a submission's key for retries. Separate enquiries from the same phone
+   must remain separate, including when a caller omits the rendered key. */
 $idempotencyKey = field('idempotency_key', 100);
 if (strlen($idempotencyKey) < 8) {
-    $idempotencyKey = hash('sha256', $digits . '|' . gmdate('Y-m-d-H'));
+    $idempotencyKey = bin2hex(random_bytes(16));
 }
 
 /* --- The lead value model ---------------
    The page names its service; the tier, the CRM tag and the thank-you copy all
    come from content/lead-values.php. A `service` we do not recognise is
-   dropped rather than trusted, and a lead with no service takes the tier of its
+   rejected rather than trusted, and a lead with no service takes the tier of its
    chip — so a posted value_tier can never inflate a lead's worth. */
 $service    = field('service', 80);
 $toolResult = field('tool_result', 500);
+
+if ($service === 'annat') {
+    $service = '';
+    $need = 'annat';
+} elseif ($service !== '' && lead_value($service)['slug'] === null) {
+    respond(false, false, 'service');
+}
 
 $lead = $service !== '' ? lead_value($service) : lead_value_for_need($need ?: 'annat');
 if ($lead['slug'] === null) {
     $service = '';   // unknown slug: keep the lead, drop the claim
 }
+$need = $service !== '' ? (string) $lead['need'] : $need;
 
 /* On a /contacto/ lead the chip is what the visitor told us, so the label names
    the need; on a service or tool page it names the page they were reading. */
@@ -450,7 +475,7 @@ $payload = array_filter([
     'name'            => field('name', 200),
     'email'           => $email,
     'message'         => field('message', 5000),
-    'source'          => 'formular-' . $formId,
+    'source'          => 'web',
     'page_url'        => str_starts_with($sourcePage, 'http') ? $sourcePage : url($sourcePage),
     'referrer'        => (string) ($attr['referrer'] ?? ''),
     'idempotency_key' => $idempotencyKey,
@@ -466,7 +491,9 @@ $crmUrl = cfg('VENDERCRM_URL');
 $apiKey = cfg('VENDERCRM_API_KEY');
 
 if ($crmUrl === null || $apiKey === null || !function_exists('curl_init')) {
-    log_lead($payload, 'degraded:not-configured');
+    if (!log_lead($payload, 'degraded:not-configured')) {
+        respond(false, true, 'storage');
+    }
     notify_by_email($payload, 'degraded:not-configured');
     respond(true, true, null, $leadResult);
 }
@@ -497,9 +524,11 @@ if ($status === 201 || $status === 200) {
 }
 
 /* Anything else is our problem, not the visitor's. The body names the failing
-   field on a 422 and the misconfiguration on a 401/403, so log all of it. */
-error_log(sprintf('VenderCRM lead failed [%d] %s %s', $status, (string) $response, $curlErr));
-log_lead($payload, 'degraded:crm-' . ($status ?: 'unreachable'));
+   field on a 422 and the misconfiguration on a 401/403; record the status only. */
+error_log(sprintf('VenderCRM lead failed [HTTP %d].', $status));
+if (!log_lead($payload, 'degraded:crm-' . ($status ?: 'unreachable'))) {
+    respond(false, true, 'storage');
+}
 notify_by_email($payload, 'degraded:crm-' . ($status ?: 'unreachable'));
 
 respond(true, true, null, $leadResult);

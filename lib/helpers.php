@@ -26,9 +26,12 @@ function site_origin(): string
     }
 
     $https  = ($_SERVER['HTTPS'] ?? '') === 'on' || ($_SERVER['SERVER_PORT'] ?? '') === '443';
-    $host   = $_SERVER['HTTP_HOST'] ?? (string) site('domain');
-
-    return ($https ? 'https://' : 'http://') . $host;
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+    $hostname = parse_url('http://' . $host, PHP_URL_HOST);
+    if (in_array($hostname, ['localhost', '127.0.0.1', '[::1]'], true)) {
+        return ($https ? 'https://' : 'http://') . $host;
+    }
+    return 'https://' . (string) site('domain');
 }
 
 /**

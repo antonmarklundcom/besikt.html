@@ -16,6 +16,14 @@ if (defined('ROOT_DIR')) {
 
 define('ROOT_DIR', dirname(__DIR__));
 
+/** Verification uses disposable state and never reads the server's secrets. */
+function verification_dir(): ?string
+{
+    $dir = getenv('SITE_VERIFY_DIR');
+    return in_array(PHP_SAPI, ['cli', 'cli-server'], true)
+        && is_string($dir) && $dir !== '' && is_dir($dir) ? $dir : null;
+}
+
 /**
  * A configuration value, or $default when unset or blank.
  */
@@ -25,7 +33,9 @@ function cfg(string $key, ?string $default = null): ?string
 
     if ($config === null) {
         $defaults = require ROOT_DIR . '/config.example.php';
-        $local    = is_file(ROOT_DIR . '/config.php') ? require ROOT_DIR . '/config.php' : [];
+        $verify = verification_dir();
+        $localPath = $verify !== null ? $verify . '/settings.php' : ROOT_DIR . '/config.php';
+        $local = is_file($localPath) ? require $localPath : [];
         $config   = array_merge($defaults, is_array($local) ? $local : []);
     }
 

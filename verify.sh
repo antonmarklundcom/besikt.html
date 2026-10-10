@@ -38,8 +38,19 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+if command -v cygpath >/dev/null; then
+  ROOT="$(cygpath -m "$ROOT")"
+  SITE_ROOT="$(cygpath -m "$SITE_ROOT")"
+fi
 BASE="http://127.0.0.1:${PORT}"
-LOG="$(mktemp)"
+STATE="$(mktemp -d "${TMPDIR:-/tmp}/besikt-verify.XXXXXXXX")" || exit 2
+STATE_PARENT="$(cd "$(dirname "$STATE")" && pwd -P)"
+STATE="$(cd "$STATE" && pwd -P)"
+export SITE_VERIFY_DIR="$STATE"
+command -v cygpath >/dev/null && export SITE_VERIFY_DIR="$(cygpath -m "$STATE")"
+LOG="$STATE/server.log"
+echo "Verification uses isolated synthetic data; production config.php is not loaded."
+if [ ! -f "$SITE_ROOT/config.php" ]; then echo "WARNING: config.php is absent; production CRM configuration must be checked before release."; fi
 FAILURES=0
 
 red()   { printf '\033[31m%s\033[0m\n' "$*"; }
@@ -50,7 +61,7 @@ ok()    { printf '  ok    %s\n' "$*"; }
 
 cleanup() {
   [ -n "${SERVER_PID:-}" ] && kill "$SERVER_PID" 2>/dev/null
-  rm -f "$LOG"
+  case "$STATE" in "$STATE_PARENT"/besikt-verify.*) rm -rf -- "$STATE" ;; *) echo "Refusing cleanup outside isolated verification directory." >&2 ;; esac
 }
 trap cleanup EXIT
 
@@ -155,7 +166,7 @@ fi
 
 # --------------------------------------------- 6. unique title + description --
 step "metadata"
-META=$(mktemp)
+META="$STATE/metadata.tsv"
 while IFS=$'\t' read -r path expected; do
   [ "$expected" = "200" ] || continue
   case "$path" in /robots.txt|/sitemap.xml) continue ;; esac
@@ -222,7 +233,7 @@ json_says() {   # json_says <json> <key=value> ...
 
 response=$(curl -s -X POST "$BASE/enviar.php" \
   -H 'Accept: application/json' -H "Origin: $BASE" \
-  -d "name=Verify&phone=0981000999&need=${FIXTURE_NEED}&source_page=${CONTACT_PATH}&idempotency_key=verify-sh-fixture")
+  -d "name=Verify&location=Stockholm&phone=0981000999&need=${FIXTURE_NEED}&source_page=${CONTACT_PATH}&idempotency_key=verify-sh-fixture")
 
 if why=$(json_says "$response" ok=true degraded=true); then
   ok 'degraded mode returns ok + degraded with no CRM key'
@@ -231,7 +242,7 @@ else
 fi
 
 nojs=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' -X POST "$BASE/enviar.php" \
-  -H "Origin: $BASE" -d "name=Verify&phone=0981000998&service=${FIXTURE_SLUG}")
+  -H "Origin: $BASE" -d "name=Verify&location=Stockholm&phone=0981000998&service=${FIXTURE_SLUG}")
 case "$nojs" in
   "303 ${BASE}${CONTACT_PATH}?enviado=1&s=${FIXTURE_SLUG}") ok "no-JS POST redirects to ${CONTACT_PATH}?enviado=1&s=<slug>" ;;
   *) fail "no-JS POST returned: $nojs" ;;
@@ -304,10 +315,10 @@ else
   echo "$model_out" | sed 's/^/        /'
 fi
 
-rm -f "$SITE_ROOT/logs/leads.log"
+rm -f "$STATE/leads.log"
 tiera=$(curl -s -X POST "$BASE/enviar.php" \
   -H 'Accept: application/json' -H "Origin: $BASE" \
-  -d "name=Verify&phone=0981000996&service=${FIXTURE_SLUG}&source_page=${FIXTURE_PATH}&idempotency_key=verify-sh-service&tool_result=fixture")
+  -d "name=Verify&location=Stockholm&phone=0981000996&service=${FIXTURE_SLUG}&source_page=${FIXTURE_PATH}&idempotency_key=verify-sh-service&tool_result=fixture")
 
 if why=$(json_says "$tiera" ok=true "service=${FIXTURE_SLUG}" "value_tier=${FIXTURE_TIER}" \
                    "value=${FIXTURE_VALUE}" "currency=${FIXTURE_CURRENCY}"); then
@@ -316,7 +327,7 @@ else
   fail "service=${FIXTURE_SLUG}: $why"
 fi
 
-logline=$(tail -1 "$SITE_ROOT/logs/leads.log" 2>/dev/null)
+logline=$(tail -1 "$STATE/leads.log" 2>/dev/null)
 if [ -z "$logline" ]; then
   fail "nothing was written to logs/leads.log"
 else
@@ -329,7 +340,7 @@ else
       || fail "leads.log line has no fields.$want: $logline"
   done
 fi
-rm -f "$SITE_ROOT/logs/leads.log"
+rm -f "$STATE/leads.log"
 
 # Every service page's own form must name that service, or the lead arrives
 # untagged and nothing downstream can route it.
@@ -381,7 +392,7 @@ while IFS=$'\t' read -r path expected; do
 done <<< "$ROUTE_LIST"
 [ "$generic" -eq 0 ] && ok "no wa.me link on the site carries a generic message"
 
-rm -rf "$SITE_ROOT/logs/rate" "$SITE_ROOT/logs/leads.log"
+# Test state is removed by the guarded cleanup trap; real logs are untouched.
 
 # ------------------------------------------ 9. content referential integrity --
 # Every slug one content array points at must exist in the array that owns it.
