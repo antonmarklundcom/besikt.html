@@ -181,6 +181,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keep navigation and native form submission usable without JavaScript. */
+html:not(.js) { scroll-behavior: auto; }
+.site-nav__fallback { display: none !important; }
+html:not(.js) .site-nav__fallback { display: inline-flex !important; }
+html:not(.js) [data-mega-toggle],
+html:not(.js) .mega,
+html:not(.js) .nav-toggle,
+html:not(.js) .nav-drawer-cta { display: none; }
+html:not(.js) .site-header { position: static; }
+html:not(.js) .site-header__bar { flex-wrap: wrap; gap: 16px; }
+html:not(.js) .site-header__nav {
+  position: static; inset: auto; padding: 0; overflow: visible;
+  width: 100%; order: 3;
+}
+html:not(.js) .site-nav {
+  flex-direction: row; flex-wrap: wrap; gap: 12px 24px; font-size: 14px;
+}
+html:not(.js) .site-nav > li { border: 0; }
+html:not(.js) .site-nav a { width: auto; padding: 4px 0; }
+
 body {
   margin: 0;
   background: var(--bg);

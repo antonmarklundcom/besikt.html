@@ -86,10 +86,24 @@ try {
   await page.locator('.nav-drawer-cta .btn--primary').click();assert.equal(await page.locator('[data-nav-toggle]').getAttribute('aria-expanded'),'false');
   await page.locator('[name="name"]').focus();assert.ok(await page.locator('body').evaluate(b=>b.classList.contains('form-focus')));
   await page.goto(base+'/kontakt/?tjanst=takbesiktning');assert.equal(await page.locator('input[name="service"]').inputValue(),'takbesiktning');
-  const nojs=await browser.newContext({javaScriptEnabled:false});const p=await nojs.newPage();await p.goto(base+'/kontakt/');
+  const nojs=await browser.newContext({javaScriptEnabled:false});const p=await nojs.newPage();
+  for(const width of [320,390,1280]) {
+    await p.setViewportSize({width,height:900});await p.goto(base+'/kontakt/');
+    assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`no-JS ${width}px overflow`);
+    assert.equal(await p.locator('.mega').isVisible(),false,'no-JS navigation overlays contact form');
+    assert.equal(await p.locator('.site-nav__fallback').isVisible(),true,'no-JS service navigation missing');
+  }
   await p.locator('[name="name"]').fill('Synthetic browser QA');await p.locator('[name="phone"]').fill('0700000011');await p.locator('[name="location"]').fill('Stockholm');await p.locator('select[name="service"]').selectOption('takbesiktning');
-  await Promise.all([p.waitForURL('**/kontakt/?enviado=1&s=takbesiktning'),p.locator('.lead-form button[type="submit"]').click()]);
-  assert.ok((await p.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'));await nojs.close();
+  try {
+    await p.locator('.lead-form button[type="submit"]').click({timeout:10000});
+    await p.waitForURL('**/kontakt/?enviado=1&s=takbesiktning',{waitUntil:'domcontentloaded',timeout:10000});
+  } catch(e) {
+    if(out)await p.screenshot({path:join(out,'nojs-diagnostic.png'),fullPage:false});
+    console.error('No-JS diagnostic:',p.url(),await p.locator('main').innerText(),diagnostics.slice(-1200));
+    throw e;
+  }
+  assert.ok((await p.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'));
+  assert.equal(await p.locator('.lead-form').count(),0,'no-JS success should replace the form');await nojs.close();
   assert.equal(errors.length,0,errors.join('\n'));
   assert.ok(!/PHP (Warning|Notice|Fatal error|Deprecated)/.test(diagnostics),diagnostics);
   const result={date:'2026-10-10',pages:paths.length,internalPaths:links.size,redirects:Object.keys(model.redirects).length,viewports:[320,390,768,1024,1440],layouts,status:'PASS'};

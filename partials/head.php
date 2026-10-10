@@ -25,6 +25,7 @@ $htmlLang    = $page['lang'] ?? market_locale();
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
 <title><?= e(seo_title($page)) ?></title>
 <?php if (!empty($page['description'])): ?>
 <meta name="description" content="<?= e($page['description']) ?>">

@@ -41,6 +41,7 @@ $navLeadSlug    = current_lead_slug() ?? '';
         <?php foreach (nav('primary') as $navItem): ?>
           <?php if (!empty($navItem['mega'])): ?>
             <li>
+              <a class="site-nav__fallback" href="<?= e($navItem['path']) ?>"><?= e($navItem['label']) ?></a>
               <button type="button" data-mega-toggle aria-expanded="true" aria-controls="mega-servicios">
                 <?= e($navItem['label']) ?>
                 <span class="site-nav__caret" aria-hidden="true"></span>
@@ -99,7 +100,7 @@ $navLeadSlug    = current_lead_slug() ?? '';
            rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"
            data-service="<?= e($navLeadSlug) ?>"><?= e(ui('cta.whatsapp')) ?></a>
       <?php endif; ?>
-      <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
+      <a class="btn btn--primary" href="<?= e($page['quotePath'] ?? site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
     </div>
 
   </div>
