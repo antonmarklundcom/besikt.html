@@ -1,8 +1,8 @@
-# Open decisions — 9 October 2026
+# Open decisions — updated 10 October 2026
 
 Local foundation work can continue; dependent content/release work needs these facts.
 
-1. Fresh KWP for the 70 seeds, with geography/language/date. The 1 October files remain historical.
+1. Fresh KWP received: fourth export, Sweden/Swedish, 1,012 unique phrases; current planning is in [KWP-SEO-PLAN.md](KWP-SEO-PLAN.md). The detailed export omits 32 distinct searches and does not specify the historical date range. An uncapped export and Stockholm-area/Search Console evidence can refine the plan. The 1 October files remain historical. Anton's content go-ahead is pending.
 2. Actual coverage, travel and availability. Existing Stockholm targeting is not proof of every municipal/nationwide service.
 3. Publishable provider qualifications, insurance, experience and review/case permissions. No new certification/rating/count/deadline claims.
 4. The user confirmed competitor service capability. Present control officer/project management and separate apartment/damage intents after KWP; verify relevant qualifications before credential-dependent claims. Existing live OVK/energy-declaration URLs also need scope/migration decisions.

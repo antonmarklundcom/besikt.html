@@ -1,6 +1,6 @@
 # Lead generation and SEO plan — 9 October 2026
 
-This is the current numbered decision list. Anton authorized the foundation work on 9 October. Detailed service copy, new landing pages and keyword priorities wait for fresh KWP. Reply with numbers, for example `8 yes, 11 no`.
+This records the foundation decisions. Anton authorized the foundation work on 9 October. Fresh KWP arrived on 10 October; use the new [21-point KWP content plan](KWP-SEO-PLAN.md) for the next content decisions and numeric replies. Detailed service copy and new routes await Anton's requested go-ahead.
 
 1. **Positioning — implemented.** Keep the existing Stockholm focus and make the operator's enquiry-broker role clear. State coverage, qualifications and availability only when verified; remove unsupported certification, rating and response-time claims.
 2. **Short form — implemented.** Service, municipality, name, phone, optional email and short message. Beside the headline on desktop and near the top on mobile. Primary: Begär offert. Secondary: Se priser. Preserve the selected service on service pages.
@@ -21,6 +21,8 @@ This is the current numbered decision list. Anton authorized the foundation work
 17. **Stage and release.** Reconcile live routes/canonicals, privately verify Hostinger PHP/cURL/CRM/settings/storage/email/privacy, then a disposable acceptance enquiry and artifact/staging checks. No PR, push, production deployment or hosting change in this pass.
 
 ## KWP intake
+
+Update 10 October: the fourth export confirms all six latest imports, 1,012 total unique phrases and 909 detailed numeric rows. [The current content plan](KWP-SEO-PLAN.md) documents priorities, group/vehicle/brand caveats and proposed titles/H1s; [parsed evidence](kwp/2026-10-10.json) is versioned locally. The capped export omits 32 distinct searches; the reported overall volume is not a property-only market total.
 
 `KWP-SEEDS-70.txt` has exactly 70 distinct research seeds, not a verified popularity ranking. Return the phrase, monthly volume/range, competition, low/high top-of-page bid, geography, language and date range. Use Sweden/Swedish for the first comparison; a separate Stockholm-area export can clarify local demand.
 

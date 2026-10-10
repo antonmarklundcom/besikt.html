@@ -1,3 +1,6 @@
+<!-- kwp-plan-20261010 -->
+Fresh KWP planning, 10 October 2026: [21 numbered content decisions](docs/KWP-SEO-PLAN.md) and [parsed keyword evidence](docs/kwp/2026-10-10.json). All six latest imports confirmed (+198 unique phrases; 1,012 total). Deep copy/new routes await the requested content go-ahead; current plan includes titles/H1s, service intent and live URL safeguards.
+
 <!-- lead-foundation-20261009 -->
 Current work: `codex/lead-gen-pass`, 9 October 2026. Foundation implemented; fresh KWP, live URL mapping and private staging acceptance precede expansion/release. See [numbered plan](docs/LEAD-GEN-PLAN.md), [lead runbook](docs/LEADS-RUNBOOK.md), [open decisions](docs/OPEN-QUESTIONS.md) and [validation](docs/FOUNDATION-STATUS.md). No production deployment or PR.
 
