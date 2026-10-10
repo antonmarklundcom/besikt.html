@@ -2657,7 +2657,6 @@ h1, h2, h3, .card-title {
   .lead-form textarea { min-height: 62px; }
   .lead-form { gap: 10px; }
   .lead-form .note { font-size: 12px; line-height: 1.4; }
-  .service-hero-grid .page-hero__inner > .lead:last-of-type { display: none; }
   .page-hero--service { padding-block: 24px 32px; }
   .service-hero-grid h1 { font-size: clamp(28px, 7.6vw, 34px); }
   .service-hero-grid .lead { font-size: 16px; line-height: 1.5; }
@@ -2665,3 +2664,23 @@ h1, h2, h3, .card-title {
   .service-hero-grid .page-hero__inner .btn--primary { display: none; }
 }
 @media (max-width: 350px) { .lead-form__row { grid-template-columns: 1fr; } }
+
+/* Navigation and practical resource blocks. */
+.content-nav { display:flex; flex-wrap:wrap; gap:10px 22px; padding-block:24px; border-bottom:1px solid var(--border); font-size:14px; }
+.content-nav a { text-underline-offset:4px; }
+.context-links { padding-left:22px; margin-top:18px; }
+.context-links li + li { margin-top:10px; }
+.source-note { border-left:3px solid var(--accent); padding-left:24px; }
+.source-note h2 { font-size:var(--t-h3); }
+.download-card { padding:24px; border:1px solid var(--border); border-radius:var(--r-card); background:var(--surface); }
+.download-card .note { margin-top:14px; }
+h2[id], #omfattning, #fragor, #delegar { scroll-margin-top:100px; }
+@media print { .site-header,.site-footer,.lead-form,.cta-band,.wa-fab,.nav-toggle,.btn-row { display:none!important; } .section { padding-block:18px; } .steps__item { break-inside:avoid; } body { color:#000;background:#fff; } a { color:inherit; } }
+
+@media (min-width:901px) and (max-width:1200px) { .site-header__actions > .btn--secondary { display:none; } }
+
+.mobile-lead-actions { display:none; }
+@media (max-width:768px) { body { padding-bottom:76px; } .wa-fab--quote { display:none; } .mobile-lead-actions { position:fixed; inset:auto 0 0; z-index:90; display:grid; grid-template-columns:1fr 1.4fr; gap:10px; padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:var(--bg); border-top:1px solid var(--border); box-shadow:0 -4px 18px rgba(16,38,58,.08); } .mobile-lead-actions .btn { min-height:44px; } .form-focus .mobile-lead-actions { display:none; } }
+@media print { .mobile-lead-actions { display:none!important; } }
+
+@media (max-width:960px) { .contact-grid > div:last-child { order:-1; } }

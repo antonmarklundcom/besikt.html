@@ -67,6 +67,12 @@
   });
 
   document.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" && !desktop.matches && drawer && !drawer.hidden) {
+      var controls = Array.from(header.querySelectorAll('a[href], button')).filter(function (el) { return el.getClientRects().length; });
+      var first = controls[0], last = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
     if (e.key !== "Escape") {
       return;
     }
@@ -77,6 +83,16 @@
       setMega(false);
       megaButton.focus();
     }
+  });
+
+  if (drawer) drawer.addEventListener("click", function (e) {
+    if (!desktop.matches && e.target.closest('a[href]')) setDrawer(false);
+  });
+  document.addEventListener("focusin", function (e) {
+    document.body.classList.toggle("form-focus", Boolean(e.target.closest('.lead-form')));
+  });
+  document.addEventListener("focusout", function () {
+    setTimeout(function () { document.body.classList.toggle("form-focus", Boolean(document.activeElement.closest('.lead-form'))); }, 0);
   });
 
   /* Crossing the breakpoint resets both, so a drawer left open on a phone does

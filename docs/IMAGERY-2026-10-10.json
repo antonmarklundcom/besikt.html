@@ -1,0 +1,72 @@
+{
+  "budgetCap": 80,
+  "previousCredits": 16,
+  "newCredits": 12,
+  "totalCredits": 28,
+  "artifactDirectory": "E:/ai work/Artifacts/besikt.html/2026-10-10/imagery",
+  "model": "nano_banana_2_1",
+  "resolution": "2k",
+  "thinkingLevel": "high",
+  "images": [
+    {
+      "slot": "apartment",
+      "jobId": "bbbca0d1-e95f-40ae-8ae3-11e1c7e92335",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_349VrHjTFIpx9q71lpfpAXcLXvR/hf_20261010_052830_bbbca0d1-e95f-40ae-8ae3-11e1c7e92335.png",
+      "model": "nano_banana_2_1",
+      "prompt": "Create a photorealistic editorial architectural illustration for a Swedish building inspection website. Scandinavian natural daylight, restrained warm stone and muted terracotta colour palette, authentic Swedish construction details, clean composition, high photographic detail. No people, no company branding, no text, no logos, no watermark. This is a generic illustration, never a real customer case. A light Swedish apartment living room with oak parquet, a balcony door and a discreet detail of the adjoining kitchen. Lived-in but tidy, reveal surfaces and construction junctions rather than luxury furniture.",
+      "resolution": "2k",
+      "thinkingLevel": "high",
+      "credits": 2
+    },
+    {
+      "slot": "roof",
+      "jobId": "cae1e7c2-5918-4ca9-934d-314208ff2513",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_349VrHjTFIpx9q71lpfpAXcLXvR/hf_20261010_052830_cae1e7c2-5918-4ca9-934d-314208ff2513.png",
+      "model": "nano_banana_2_1",
+      "prompt": "Create a photorealistic editorial architectural illustration for a Swedish building inspection website. Scandinavian natural daylight, restrained warm stone and muted terracotta colour palette, authentic Swedish construction details, clean composition, high photographic detail. No people, no company branding, no text, no logos, no watermark. This is a generic illustration, never a real customer case. Close architectural view of a Swedish villa roof with red clay roof tiles, metal flashing around a chimney and a rain gutter. Safe ground-level telephoto viewpoint, realistic weathering and autumn light.",
+      "resolution": "2k",
+      "thinkingLevel": "high",
+      "credits": 2
+    },
+    {
+      "slot": "project",
+      "jobId": "acc907f8-1ff8-4e9d-b029-738fef0b429d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_349VrHjTFIpx9q71lpfpAXcLXvR/hf_20261010_052829_acc907f8-1ff8-4e9d-b029-738fef0b429d.png",
+      "model": "nano_banana_2_1",
+      "prompt": "Create a photorealistic editorial architectural illustration for a Swedish building inspection website. Scandinavian natural daylight, restrained warm stone and muted terracotta colour palette, authentic Swedish construction details, clean composition, high photographic detail. No people, no company branding, no text, no logos, no watermark. This is a generic illustration, never a real customer case. A Swedish small residential renovation in progress, with exposed wall framing, neatly stacked materials and a folded blank architectural plan on a work table. No readable text or markings. Orderly construction rather than a hazardous scene.",
+      "resolution": "2k",
+      "thinkingLevel": "high",
+      "credits": 2
+    },
+    {
+      "slot": "control",
+      "jobId": "6c4c6f9c-1683-4e41-a443-89307b6df4a4",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_349VrHjTFIpx9q71lpfpAXcLXvR/hf_20261010_052830_6c4c6f9c-1683-4e41-a443-89307b6df4a4.png",
+      "model": "nano_banana_2_1",
+      "prompt": "Create a photorealistic editorial architectural illustration for a Swedish building inspection website. Scandinavian natural daylight, restrained warm stone and muted terracotta colour palette, authentic Swedish construction details, clean composition, high photographic detail. No people, no company branding, no text, no logos, no watermark. This is a generic illustration, never a real customer case. An unfinished Swedish villa interior showing insulated wall framing, window connections and concrete slab, with an unmarked clipboard and rolled blank drawings in foreground. Architectural documentation theme, no person or certification badges.",
+      "resolution": "2k",
+      "thinkingLevel": "high",
+      "credits": 2
+    },
+    {
+      "slot": "measurement",
+      "jobId": "fdbde894-a4bc-4cb7-af17-aba94a2df12c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_349VrHjTFIpx9q71lpfpAXcLXvR/hf_20261010_052829_fdbde894-a4bc-4cb7-af17-aba94a2df12c.png",
+      "model": "nano_banana_2_1",
+      "prompt": "Create a photorealistic editorial architectural illustration for a Swedish building inspection website. Scandinavian natural daylight, restrained warm stone and muted terracotta colour palette, authentic Swedish construction details, clean composition, high photographic detail. No people, no company branding, no text, no logos, no watermark. This is a generic illustration, never a real customer case. Close view of an unbranded handheld moisture meter resting beside a timber skirting board on a concrete floor in a Swedish house. Display blank or unlit. Realistic tool proportions, no invented measurement result.",
+      "resolution": "2k",
+      "thinkingLevel": "high",
+      "credits": 2
+    },
+    {
+      "slot": "home",
+      "jobId": "3ca0f8db-c2e9-4fb2-ab35-1b18a9244c54",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_349VrHjTFIpx9q71lpfpAXcLXvR/hf_20261010_052830_3ca0f8db-c2e9-4fb2-ab35-1b18a9244c54.png",
+      "model": "nano_banana_2_1",
+      "prompt": "Create a photorealistic editorial architectural illustration for a Swedish building inspection website. Scandinavian natural daylight, restrained warm stone and muted terracotta colour palette, authentic Swedish construction details, clean composition, high photographic detail. No people, no company branding, no text, no logos, no watermark. This is a generic illustration, never a real customer case. A modest well-maintained detached Swedish house with light rendered walls, red tiled roof, timber entrance door and garden path in soft morning light. A wide, calm architectural view with generous negative space. No signage, vehicles or people.",
+      "resolution": "2k",
+      "thinkingLevel": "high",
+      "credits": 2
+    }
+  ]
+}

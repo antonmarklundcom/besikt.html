@@ -85,7 +85,7 @@ $navLeadSlug    = current_lead_slug() ?? '';
             <?= e(ui('cta.call') . ' ' . site('phone')) ?>
           </a>
         <?php endif; ?>
-        <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
+        <a class="btn btn--primary" href="<?= e($page['quotePath'] ?? site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
       </div>
     </div>
 

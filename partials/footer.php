@@ -83,10 +83,16 @@ $footSocials = nav('socials');
 </footer>
 
 <?php require ROOT_DIR . '/partials/whatsapp-fab.php'; ?>
+<?php if (site('phone') && !site('whatsapp')): ?>
+<div class="mobile-lead-actions" aria-label="<?= e(ui('nav.contact')) ?>">
+  <a class="btn btn--secondary" href="tel:+<?= e(phone_digits(site('phone'))) ?>" data-call><?= e(ui('cta.call')) ?></a>
+  <a class="btn btn--primary" href="<?= e($page['quotePath'] ?? site_path('contact')) ?>"><?= e(ui('cta.quote')) ?></a>
+</div>
+<?php endif; ?>
 
 <script src="<?= e(asset('/assets/js/analytics.js')) ?>" defer></script>
 <script src="<?= e(asset('/assets/js/site.js')) ?>" defer></script>
-<script src="<?= e(asset('/assets/js/whatsapp-menu.js')) ?>" defer></script>
+<?php if (site('whatsapp')): ?><script src="<?= e(asset('/assets/js/whatsapp-menu.js')) ?>" defer></script><?php endif; ?>
 <script src="<?= e(asset('/assets/js/lead-form.js')) ?>" defer></script>
 </body>
 </html>

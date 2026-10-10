@@ -28,7 +28,7 @@ const srcDir = resolve(process.argv[2] || resolve(root, "deploy/imagery-src"));
 // One entry per image slot the site has. Example shape — replace with this
 // site's own slots (a service icon per service, the two homepage figures):
 const MANIFEST = [
-  ...["villa", "attic", "bathroom", "moisture", "final", "construction", "brf", "maintenance"]
+  ...["villa", "attic", "bathroom", "moisture", "final", "construction", "brf", "maintenance", "apartment", "roof", "project", "control", "measurement", "home"]
     .map(slot => ({ slot, src: `${slot}.png`, out: `services/${slot}`, widths: [480, 960] })),
 ];
 
