@@ -70,17 +70,11 @@ return [
     ],
 
     'home' => [
-        'eyebrow'   => 'Stockholms län · Certifierad besiktningsman',
+        'eyebrow'   => 'Besiktning av hus, badrum och BRF',
         'h1_lead'   => 'Besiktningsman ',
         'h1_accent' => 'i Stockholm',
-        'lead'      => 'Överlåtelsebesiktning, badrumsbesiktning, fuktutredning och slutbesiktning '
-                     . 'för villa, bostadsrätt och BRF. Beskriv ditt ärende så får du en offert.',
-        'trust' => [
-            'Certifierad besiktningsman (SBR/KIWA)',
-            'Oberoende – inga band till mäklare eller hantverkare',
-            'Skriftligt protokoll med foton',
-            'Uppdrag i hela Stockholms län',
-        ],
+        'lead'      => 'Hus, badrum, fukt och BRF. Beskriv ditt ärende och begär offert på besiktning.',
+        'trust' => ['Beskriv ärendet och önskat område', 'Ta ställning till offert innan du bokar'],
 
         'services_eyebrow' => 'Tjänster',
         'services_title'   => 'Vad behöver besiktigas?',
@@ -91,20 +85,18 @@ return [
         'unsure_text'  => 'Beskriv bostaden och vad som har hänt. Vi svarar med ett förslag och ett pris.',
 
         'area_eyebrow' => 'Område',
-        'area_title'   => 'Besiktningsman i hela Stockholms län',
-        'area_text'    => 'Vi utgår från Stockholm och Nynäshamn och tar uppdrag i alla kommuner i '
-                        . 'länet. Större uppdrag i övriga Sverige tar vi efter överenskommelse – då '
-                        . 'tillkommer resekostnad enligt offert.',
+        'area_title'   => 'Besiktning i ditt område',
+        'area_text' => 'Ange ort eller kommun i förfrågan. Vi stämmer av vem som kan ta uppdraget och vilka resevillkor som gäller innan du bokar.',
 
         'prices_eyebrow' => 'Priser',
-        'prices_title'   => 'Fast pris i offerten',
+        'prices_title'   => 'Pris utifrån ditt uppdrag',
         'prices_text'    => 'Priset beror på bostadens storlek, typ och vad som ska undersökas. '
-                          . 'Du får alltid ett fast pris innan uppdraget bokas.',
+                          . 'Be om omfattning, pris och eventuella tillägg i offerten.',
         'prices_cta'     => 'Se priser',
 
         'faq_title' => 'Vanliga frågor om besiktning',
         'form_title' => 'Begär offert',
-        'form_lead'  => 'Svar inom en arbetsdag. Kostnadsfritt och utan förpliktelser.',
+        'form_lead' => 'Beskriv ärendet. Förfrågan innebär ingen bokning.',
     ],
 
     'panel' => [
@@ -121,17 +113,11 @@ return [
 
     'about' => [
         'eyebrow' => 'Varför oss',
-        'title'   => 'En oberoende besiktningsman som skriver så att du förstår.',
-        'text'    => 'Besiktningen görs av en certifierad besiktningsman som arbetar med '
-                   . 'småhus, bostadsrätter och entreprenader. Du får ett skriftligt protokoll med '
-                   . 'foton och en genomgång av vad som är viktigt och vad som kan vänta.',
-        'credentials' => [
-            'Certifierad besiktningsman (SBR/KIWA)',
-            'Oberoende av mäklare, säljare och entreprenörer',
-            'Fast pris i skriftlig offert innan uppdraget bokas',
-        ],
+        'title'   => 'Ett tydligt underlag för din besiktning.',
+        'text' => 'Besiktningsmannen.se förmedlar förfrågningar. Uppdragets omfattning, utförare och villkor ska framgå av offerten innan du beställer.',
+        'credentials' => ['Tydlig beskrivning av uppdraget', 'Offertens omfattning och villkor före bokning'],
         'badge_note'     => 'i branschen',
-        'badge_fallback' => 'Certifierad',
+        'badge_fallback' => 'Besiktning',
     ],
 
     'process' => [
@@ -144,7 +130,7 @@ return [
             ],
             [
                 'title' => 'Du får en offert',
-                'text'  => 'Fast pris och förslag på tid, oftast inom en arbetsdag.',
+                'text'  => 'Omfattning, pris och möjlig tid stäms av i offerten.',
             ],
             [
                 'title' => 'Besiktning på plats',
@@ -179,7 +165,7 @@ return [
     'services_hub' => [
         'eyebrow'      => 'Tjänster',
         'title'        => 'Besiktningar för hus, bostadsrätt och BRF.',
-        'lead'         => 'Alla uppdrag utförs av en certifierad besiktningsman i Stockholms län.',
+        'lead'         => 'Välj tjänst och beskriv vad du vill ha undersökt.',
         'unsure_title' => 'Osäker på vilken besiktning du behöver?',
         'unsure_text'  => 'Beskriv ärendet så föreslår vi rätt tjänst och ett fast pris.',
         'unsure_cta'   => 'Begär offert',
@@ -188,12 +174,26 @@ return [
     'cta_band' => [
         'eyebrow' => 'Offert',
         'title'   => 'Beskriv ditt ärende – få ett fast pris.',
-        'lead'    => 'Kostnadsfritt och utan förpliktelser. Vi svarar inom en arbetsdag.',
+        'lead'    => 'Ange tjänst och kommun. Förfrågan innebär ingen bokning.',
     ],
 
     'form' => [
         'legend'          => 'Begär offert',
         'name'            => 'Namn',
+        'service' => 'Vad behöver du hjälp med?',
+        'service_hint' => 'Välj tjänst',
+        'service_other' => 'Annat / hjälp att välja',
+        'errors' => [
+            'phone' => 'Ange ett giltigt telefonnummer.',
+            'email' => 'Kontrollera e-postadressen eller lämna fältet tomt.',
+            'name' => 'Ange ditt namn.',
+            'location' => 'Ange ort eller kommun.',
+            'service' => 'Välj en tjänst eller Annat.',
+            'origin' => 'Ladda om sidan och försök igen.',
+            'rate' => 'Du har skickat flera förfrågningar. Vänta en stund och försök igen.',
+            'storage' => 'Förfrågan kunde inte sparas. Försök igen eller använd kontaktsidan.',
+            'failed' => 'Försök igen om en stund, eller mejla oss via kontaktsidan.',
+        ],
         'company'         => 'Förening eller företag (valfritt)',
         'location'        => 'Ort eller kommun',
         'location_hint'   => 'T.ex. Nynäshamn',
@@ -210,22 +210,22 @@ return [
         'date'            => 'Önskat datum (valfritt)',
         'phone'           => 'Telefon',
         'phone_hint'      => 'T.ex. 070-123 45 67',
-        'email'           => 'E-post',
+        'email'           => 'E-post (valfritt)',
         'need'            => 'Vad gäller det?',
-        'message'         => 'Beskriv ärendet',
+        'message'         => 'Kort beskrivning (valfritt)',
         'message_hint'    => 'T.ex. adress eller område, byggår, boyta och vad du vill ha undersökt …',
-        'submit'          => 'Skicka förfrågan',
+        'submit'          => 'Begär offert',
         'sending'         => 'Skickar …',
         'privacy_note'    => 'Vi använder dina uppgifter för att besvara förfrågan och lämnar dem till '
-                           . 'den certifierade besiktningsman som utför uppdraget. Läs mer i vår',
+                           . 'en besiktningsman för att hantera din offertförfrågan. Läs mer i vår',
         'success_title'   => 'Tack! Vi har fått din förfrågan.',
-        'success_text'    => 'Vi återkommer med offert inom en arbetsdag.',
+        'success_text'    => 'Vi följer upp förfrågan och stämmer av vad du behöver.',
         'error_title'     => 'Förfrågan kunde inte skickas.',
         'error_text'      => 'Försök igen om en stund, eller mejla oss via kontaktsidan.',
         'error_phone'     => 'Ange ett telefonnummer så att vi kan nå dig.',
         'required'        => 'obligatoriskt',
         'thanks_next'     => 'Nästa steg',
-        'thanks_whatsapp' => 'Vill du komplettera? Svara på bekräftelsen eller ring oss.',
+        'thanks_whatsapp' => 'Vill du komplettera? Använd kontaktsidan.',
         'remind_title'    => 'Påminnelse',
         'remind_text'     => 'Vi påminner dig när det är dags.',
         'remind_phone'    => 'Telefon',
@@ -247,21 +247,21 @@ return [
     'contact' => [
         'eyebrow' => 'Kontakt',
         'title'   => 'Beskriv ditt ärende.',
-        'lead'    => 'Fyll i formuläret så återkommer vi med offert inom en arbetsdag.',
+        'lead'    => 'Ange tjänst, kommun och kontaktuppgifter för en offertförfrågan.',
         'address' => 'Adress',
         'hours'   => 'Öppettider',
         'phone'   => 'Telefon',
         'email'   => 'E-post',
         'expect'  => 'Så går det till',
         'steps'   => [
-            'Vi svarar inom en arbetsdag.',
-            'Du får ett fast pris och förslag på tid för besiktningen.',
-            'Efter besiktningen får du ett skriftligt protokoll med foton.',
+            'Vi går igenom förfrågan och stämmer av uppdraget.',
+            'Utförare, pris, omfattning och tid ska framgå innan du bokar.',
+            'Avtala hur resultatet ska dokumenteras och gås igenom.',
         ],
     ],
 
     'service' => [
-        'includes'     => 'Det här ingår',
+        'includes'     => 'Exempel på moment – omfattning enligt offert',
         'excludes'     => 'Det här ingår inte',
         'we_need'      => 'Bra att ha till besiktningen',
         'benefits'     => 'Därför lönar det sig',
@@ -270,7 +270,7 @@ return [
         'guides'       => 'Läs mer i guiden',
         'articles'     => 'Relaterad artikel',
         'form_eyebrow' => 'Offert',
-        'form_lead'    => 'Beskriv ärendet så får du ett fast pris. Svar inom en arbetsdag.',
+        'form_lead'    => 'Beskriv ärendet och ange kommun för att begära offert.',
         'breadcrumb'   => 'Brödsmulor',
     ],
 
@@ -297,7 +297,7 @@ return [
         'delegate_eyebrow'      => 'Besiktning',
         'delegate_title'        => 'Vill du att en besiktningsman tittar på det?',
         'delegate_lead'         => 'Beskriv vad du har sett så återkommer vi med förslag och fast pris '
-                                 . 'inom en arbetsdag.',
+                                 . 'utifrån ditt uppdrag.',
         'delegate_form_heading' => 'Begär offert',
         'related'               => 'Fler guider',
     ],

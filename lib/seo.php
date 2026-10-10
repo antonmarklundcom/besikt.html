@@ -94,7 +94,6 @@ function jsonld_organization(): array
         'name'       => (string) site('name'),
         'url'        => url('/'),
         'image'      => url('/assets/img/og-default.png'),
-        'areaServed' => ['@type' => 'Country', 'name' => site('country') ?? market_country()],
     ];
 
     /* A business that serves a region rather than a whole country lists it in
@@ -125,7 +124,7 @@ function jsonld_organization(): array
         'addressLocality' => site('city'),
         'addressCountry'  => site('country'),
     ]);
-    if ($address !== []) {
+    if (site('street') || site('city')) {
         $data['address'] = ['@type' => 'PostalAddress'] + $address;
     }
 
@@ -140,6 +139,25 @@ function jsonld_organization(): array
     }
 
     return $data;
+}
+
+/** The operator acts as broker; an unnamed inspector is not invented. */
+function jsonld_service(array $service): array
+{
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'Service',
+        '@id' => url($service['path']) . '#service',
+        'name' => $service['title'],
+        'serviceType' => $service['title'],
+        'description' => $service['hero']['lead'] ?: $service['metaDescription'],
+        'url' => url($service['path']),
+        'broker' => ['@id' => url('/') . '#organization'],
+        'areaServed' => array_map(
+            static fn (string $area): array => ['@type' => 'AdministrativeArea', 'name' => $area],
+            (array) site('areaServed')
+        ),
+    ];
 }
 
 /**

@@ -16,6 +16,7 @@ $page = [
     'title'       => $meta['title'],
     'description' => $meta['description'],
     'path'        => site_path('contact'),
+    'noindex'     => isset($_GET['enviado']) || isset($_GET['error']),
     'breadcrumbs' => [['label' => ui('nav.contact'), 'path' => site_path('contact')]],
 ];
 

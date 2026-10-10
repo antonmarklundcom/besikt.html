@@ -59,7 +59,7 @@ return [
             'tier'         => 'C',
             'whatsappText' => 'Hej, jag har en fråga om besiktning.',
             'nextStep'     => [
-                'Vi återkommer inom en arbetsdag.',
+                'Vi återkommer.',
                 'Beskriv gärna bostaden och vad du vill ha hjälp med.',
             ],
             'crmTag'       => 'allman-forfragan',
@@ -73,7 +73,7 @@ return [
             'tier'         => 'A',
             'whatsappText' => 'Hej, jag vill ha offert på en överlåtelsebesiktning av ett hus.',
             'nextStep'     => [
-                'Vi återkommer med offert och förslag på tid inom en arbetsdag.',
+                'Vi stämmer av omfattning, pris och möjlig tid.',
                 'Ha adressen, objektsbeskrivningen och eventuell säljarbesiktning redo.',
             ],
             'crmTag'       => 'overlatelsebesiktning',
@@ -85,7 +85,7 @@ return [
             'tier'         => 'B',
             'whatsappText' => 'Hej, jag vill ha offert på en statusbesiktning.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha byggår, boyta och kända åtgärder redo.',
             ],
             'crmTag'       => 'statusbesiktning',
@@ -97,7 +97,7 @@ return [
             'tier'         => 'B',
             'whatsappText' => 'Hej, jag vill ha offert på en badrumsbesiktning.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha våtrumsintyg eller kvalitetsdokument redo om badrummet är nyrenoverat.',
             ],
             'crmTag'       => 'badrumsbesiktning',
@@ -109,7 +109,7 @@ return [
             'tier'         => 'A',
             'whatsappText' => 'Hej, jag misstänker en fuktskada och vill ha en fuktutredning.',
             'nextStep'     => [
-                'Vi återkommer inom en arbetsdag.',
+                'Vi återkommer.',
                 'Ta gärna foton på det du har sett och notera när det började.',
             ],
             'crmTag'       => 'fuktutredning',
@@ -121,7 +121,7 @@ return [
             'tier'         => 'A',
             'whatsappText' => 'Hej, jag vill ha offert på en slutbesiktning.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha avtalet med entreprenören och planerat datum för färdigställande redo.',
             ],
             'crmTag'       => 'slutbesiktning',
@@ -133,7 +133,7 @@ return [
             'tier'         => 'A',
             'whatsappText' => 'Hej, vi behöver en besiktningsförrättare för en entreprenad.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha kontrakt, standardavtal (AB 04/ABT 06/ABS 18) och tidplan redo.',
             ],
             'crmTag'       => 'entreprenadbesiktning',
@@ -145,7 +145,7 @@ return [
             'tier'         => 'B',
             'whatsappText' => 'Hej, jag vill ha offert på en garantibesiktning.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha slutbesiktningsutlåtandet och en lista över kända fel redo.',
             ],
             'crmTag'       => 'garantibesiktning',
@@ -157,7 +157,7 @@ return [
             'tier'         => 'A',
             'whatsappText' => 'Hej, vi är en bostadsrättsförening och behöver en besiktningsman.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha föreningens namn, fastighetens storlek och underhållsplan redo om den finns.',
             ],
             'crmTag'       => 'brf',
@@ -169,7 +169,7 @@ return [
             'tier'         => 'A',
             'whatsappText' => 'Hej, vår förening behöver en underhållsplan.',
             'nextStep'     => [
-                'Vi återkommer med offert inom en arbetsdag.',
+                'Vi återkommer med offert.',
                 'Ha antal lägenheter, byggår och befintlig underhållsplan redo.',
             ],
             'crmTag'       => 'underhallsplan',
@@ -185,7 +185,7 @@ return [
                 'tier'         => 'C',
                 'whatsappText' => 'Hej, jag har räknat på priset och vill ha en offert.',
                 'nextStep'     => [
-                    'Vi återkommer med fast pris inom en arbetsdag.',
+                    'Vi följer upp förfrågan.',
                     'Spara det du räknade fram – vi utgår från det i offerten.',
                 ],
                 'crmTag'       => 'priskalkylator',

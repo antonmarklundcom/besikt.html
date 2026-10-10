@@ -57,6 +57,7 @@
     var error = form.querySelector("[data-form-error]");
     var label = button ? button.textContent : "";
     var sending = false;
+    var messages = JSON.parse(form.querySelector("[data-form-messages]").textContent);
 
     form.addEventListener("submit", function (e) {
       if (sending) {
@@ -88,13 +89,17 @@
           if (!data || !data.ok) {
             throw new Error(data && data.error ? data.error : "failed");
           }
-          form.querySelectorAll("input:not([type=hidden]), textarea").forEach(function (field) {
+          form.querySelectorAll("input:not([type=hidden]), textarea, select").forEach(function (field) {
             if (field.type === "radio") {
               field.checked = false;
             } else {
               field.value = "";
             }
           });
+          var key = form.querySelector("[name=idempotency_key]");
+          if (key && window.crypto && window.crypto.getRandomValues) {
+            key.value = Array.from(window.crypto.getRandomValues(new Uint8Array(16))).map(function (n) { return n.toString(16).padStart(2, "0"); }).join("");
+          } else if (key) { key.value = ""; }
           if (ok) {
             renderThanks(ok, data.thanks);
             ok.hidden = false;
@@ -103,18 +108,21 @@
           if (window.siteAnalytics) {
             /* value + currency are what Google Ads bids on, so
                they are reported exactly as the handler resolved them. */
-            window.siteAnalytics.track("lead_submit", {
+            window.siteAnalytics.track(data.degraded ? "lead_saved" : "lead_submit", {
               form_id: (form.querySelector("[name=form_id]") || {}).value || "",
               service: data.service || "",
               value_tier: data.value_tier || "",
               value: data.value || 0,
-              currency: data.currency || "PYG",
+              currency: data.currency || "SEK",
               degraded: !!data.degraded
             });
           }
         })
-        .catch(function () {
-          if (error) error.hidden = false;
+        .catch(function (failure) {
+          if (error) {
+            error.querySelector("[data-error-message]").textContent = messages[failure.message] || messages.failed;
+            error.hidden = false;
+          }
         })
         .finally(function () {
           sending = false;

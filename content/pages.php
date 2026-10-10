@@ -27,44 +27,15 @@ declare(strict_types=1);
 
 return [
     '/' => [
-        'title'       => 'Certifierad besiktningsman i Stockholm',
-        'description' => 'Certifierad besiktningsman i Stockholms län: överlåtelsebesiktning, '
-                       . 'badrumsbesiktning, fuktutredning, slutbesiktning och BRF. Begär offert.',
+        'title'       => 'Besiktningsman i Stockholm',
+        'description' => 'Begär offert på överlåtelsebesiktning, badrum, fuktutredning, slutbesiktning eller BRF i Stockholm. Ange tjänst och kommun i formuläret.',
         'h1'          => 'Besiktningsman i Stockholm',
         'lead'        => '',
         // Startsidans FAQ: renderas av index.php och blir FAQPage JSON-LD.
-        'faq'         => [
-            [
-                'q' => 'Vad kostar en besiktning av hus?',
-                'a' => 'Priset beror på husets storlek, byggår och vad som ska undersökas. Du får alltid '
-                     . 'ett fast pris i offerten innan något bokas. Se ungefärliga priser på prissidan.',
-            ],
-            [
-                'q' => 'Vem brukar beställa besiktningen vid ett husköp?',
-                'a' => 'Oftast köparen, eftersom köparen har undersökningsplikt. Säljaren kan också '
-                     . 'beställa en överlåtelsebesiktning före försäljningen och visa den för spekulanter.',
-            ],
-            [
-                'q' => 'Vad är skillnaden mellan överlåtelsebesiktning och statusbesiktning?',
-                'a' => 'En överlåtelsebesiktning görs i samband med köp eller försäljning och är kopplad '
-                     . 'till undersökningsplikten. En statusbesiktning är en genomgång av skicket när du '
-                     . 'vill planera underhåll eller veta hur huset mår.',
-            ],
-            [
-                'q' => 'Hur lång tid tar besiktningen?',
-                'a' => 'För en villa några timmar på plats, beroende på storlek och vad som ska '
-                     . 'undersökas. Protokollet med foton skickas därefter.',
-            ],
-            [
-                'q' => 'Tar ni uppdrag utanför Stockholm?',
-                'a' => 'Vi tar uppdrag i hela Stockholms län och utgår från Stockholm och Nynäshamn. '
-                     . 'Uppdrag i övriga Sverige tar vi efter överenskommelse, med resekostnad i offerten.',
-            ],
-            [
-                'q' => 'Är besiktningsmannen certifierad?',
-                'a' => 'Ja. Uppdragen utförs av en certifierad besiktningsman (SBR/KIWA) som är oberoende '
-                     . 'av mäklare, säljare och entreprenörer.',
-            ],
+        'faq' => [
+            ['q' => 'Vad avgör priset på en besiktning?', 'a' => 'Typ av uppdrag, fastighetens storlek, underlag och resor påverkar offerten. Be om omfattning och eventuella tillägg innan du bokar.'],
+            ['q' => 'Vad behöver jag ange för att begära offert?', 'a' => 'Välj tjänst och ange kommun, namn och telefon. Du kan även lämna e-post och en kort beskrivning av ärendet.'],
+            ['q' => 'Blir besiktningen bokad när jag skickar formuläret?', 'a' => 'Nej. Formuläret är en offertförfrågan. Omfattning, utförare, tid och villkor behöver stämmas av innan du beställer.'],
         ],
         'stub'        => false,
         'changefreq'  => 'weekly',
@@ -84,14 +55,16 @@ return [
 
     // Fas S2 skriver sidan (prislista + kalkylator) och sätter stub => false.
     '/priser/' => [
-        'title'       => 'Vad kostar besiktning av hus? Priser',
-        'description' => 'Priser för besiktning av hus, bostadsrätt, badrum och fukt i Stockholms '
-                       . 'län. Se ungefärligt pris och begär en offert med fast pris.',
-        'h1'          => 'Pris på besiktning av hus',
-        'lead'        => 'Från-priser inklusive moms för privatpersoner. Fast pris i offerten.',
-        'stub'        => true,
-        'changefreq'  => 'monthly',
-        'priority'    => '0.8',
+        'title' => 'Pris på besiktning – begär offert',
+        'description' => 'Vad påverkar priset på besiktning av hus, badrum eller BRF? Se vilka uppgifter offerten behöver och begär pris för ditt uppdrag.',
+        'h1' => 'Vad kostar en besiktning?',
+        'lead' => 'Priset behöver anpassas till uppdragets omfattning. Begär en offert för ditt ärende.',
+        'sections' => [
+            ['h2' => 'Det här påverkar offerten', 'body' => ['Typ av besiktning, fastighetens storlek och skick, tillgängliga handlingar och resor påverkar arbetet. Mätningar eller andra tillägg ska specificeras.']],
+            ['h2' => 'Beskriv uppdraget', 'body' => ['Ange tjänst och kommun. Lägg gärna till byggår, ungefärlig yta och vad du vill undersöka. För en BRF är fastighetens storlek och tillgängligt underlag relevant.']],
+            ['h2' => 'Stäm av innan du bokar', 'body' => ['Be om ett skriftligt pris med omfattning, moms, eventuella tillägg och resor. Kontrollera även vem som utför uppdraget och hur resultatet dokumenteras.']],
+        ],
+        'stub' => false, 'changefreq' => 'monthly', 'priority' => '0.8',
     ],
 
     '/guider/' => [
@@ -107,20 +80,22 @@ return [
 
     // Fas S4 skriver sidan och sätter stub => false.
     '/om-oss/' => [
-        'title'       => 'Certifierad och oberoende besiktningsman',
-        'description' => 'Om Besiktningsmannen: certifierade besiktningsmän (SBR/KIWA) i Stockholms '
-                       . 'län, oberoende av mäklare och entreprenörer. Så arbetar vi.',
-        'h1'          => 'Certifierad och oberoende besiktningsman',
-        'lead'        => '',
-        'stub'        => true,
-        'changefreq'  => 'yearly',
-        'priority'    => '0.6',
+        'title' => 'Om Besiktningsmannen – offertförmedling',
+        'description' => 'Besiktningsmannen.se förmedlar offertförfrågningar om besiktning. Läs om sajtens operatör och vad du bör stämma av innan du beställer ett uppdrag.',
+        'h1' => 'Om Besiktningsmannen',
+        'lead' => 'En väg till en offert på besiktning av hus, badrum, entreprenad eller BRF.',
+        'sections' => [
+            ['h2' => 'Så fungerar sajten', 'body' => ['Besiktningsmannen.se drivs av Marklund Sales & Marketing AB och förmedlar offertförfrågningar. Ange vilken hjälp du söker och i vilken kommun.']],
+            ['h2' => 'Utföraren och uppdraget', 'body' => ['Kontrollera utförarens erfarenhet, relevanta behörigheter och ansvarsförsäkring inför beställningen. Offerten ska beskriva uppdragets omfattning, pris och villkor.']],
+            ['h2' => 'Kontakt och personuppgifter', 'body' => ['Du når oss via kontaktsidan. Integritetspolicyn beskriver hur uppgifter från en offertförfrågan hanteras.']],
+        ],
+        'stub' => false, 'changefreq' => 'yearly', 'priority' => '0.6',
     ],
 
     '/kontakt/' => [
         'title'       => 'Kontakt – begär offert på besiktning',
         'description' => 'Begär offert på besiktning i Stockholms län. Beskriv ditt ärende i formuläret '
-                       . 'så återkommer vi med fast pris inom en arbetsdag.',
+                       . 'och ange tjänst, kommun och kontaktuppgifter för ditt uppdrag.',
         'h1'          => '',
         'lead'        => '',
         'stub'        => false,
@@ -163,7 +138,7 @@ return [
             [
                 'h2'   => 'Vem som får del av uppgifterna',
                 'body' => [
-                    'Förfrågan lämnas till den certifierade besiktningsman som ska utföra uppdraget. '
+                    'Förfrågan lämnas till en besiktningsman för att hantera ditt ärende. '
                         . 'Besiktningsmannen blir självständigt personuppgiftsansvarig för uppgifter '
                         . 'som behövs för uppdraget.',
                     'Vi använder också leverantörer som behandlar uppgifter för vår räkning, till '
@@ -198,6 +173,18 @@ return [
         'stub'        => false,
         'changefreq'  => 'yearly',
         'priority'    => '0.3',
+    ],
+
+    '/for-besiktningsforetag/' => [
+        'title' => '[B2B_TITLE]',
+        'description' => 'Utkast till information för besiktningsföretag om förfrågningar från Besiktningsmannen. Upplägg, pris och fördelning behöver beslutas före publicering.',
+        'h1' => '[B2B_TITLE]',
+        'lead' => 'Utkast för granskning. Inte ett erbjudande eller en beställningssida.',
+        'sections' => [
+            ['h2' => 'Förfrågningar om besiktning', 'body' => ['Förslaget är att förmedla förfrågningar med angiven tjänst, kommun och kontaktuppgifter till lämpliga besiktningsföretag.']],
+            ['h2' => 'Beslut som återstår', 'body' => ['Pris per förfrågan: TBD. Antal mottagare: TBD. Exklusivitet: TBD. Godkännande, kreditering och vilka områden som erbjuds behöver fastställas.']],
+        ],
+        'stub' => false, 'noindex' => true,
     ],
 
     '/404' => [

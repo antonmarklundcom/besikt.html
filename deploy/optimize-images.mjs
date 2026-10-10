@@ -12,7 +12,9 @@
  *
  * Idempotent: re-running only touches files whose source changed.
  */
-import sharp from "sharp";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const sharp = require(process.env.SHARP_MODULE || "sharp");
 import { existsSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -20,15 +22,14 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
-const srcDir = resolve(root, "deploy/imagery-src");
+const srcDir = resolve(process.argv[2] || resolve(root, "deploy/imagery-src"));
 
 // slot, source filename, destination (relative to assets/img/), pixel widths.
 // One entry per image slot the site has. Example shape — replace with this
 // site's own slots (a service icon per service, the two homepage figures):
 const MANIFEST = [
-  // { slot: "icon-<service>", src: "icon-<service>.png", out: "services/<service>", widths: [128] },
-  { slot: "hero-portrait", src: "hero-portrait.png", out: "team/portrait", widths: [420, 840] },
-  { slot: "team-office",   src: "team-office.png",   out: "team/office",   widths: [420, 840] },
+  ...["villa", "attic", "bathroom", "moisture", "final", "construction", "brf", "maintenance"]
+    .map(slot => ({ slot, src: `${slot}.png`, out: `services/${slot}`, widths: [480, 960] })),
 ];
 
 // The OG image stays a plain flattened PNG at a fixed size (Open Graph
@@ -46,10 +47,11 @@ async function convertOne({ slot, src, out, widths }) {
   const base = resolve(root, "assets/img", out);
 
   const image = sharp(srcPath);
-  const width = Math.max(...widths);
-  await image.clone().resize({ width }).avif({ quality: 62 }).toFile(`${base}.avif`);
-  await image.clone().resize({ width }).webp({ quality: 72 }).toFile(`${base}.webp`);
-  console.log(`wrote ${out}.avif + .webp (${width}px)`);
+  for (const width of widths) {
+    await image.clone().resize({ width, height: width * 9 / 16, fit: "cover" }).avif({ quality: 50 }).toFile(`${base}-${width}.avif`);
+    await image.clone().resize({ width, height: width * 9 / 16, fit: "cover" }).webp({ quality: 76 }).toFile(`${base}-${width}.webp`);
+  }
+  console.log(`wrote ${out} AVIF/WebP (${widths.join(" / ")}px)`);
 }
 
 async function convertOg() {

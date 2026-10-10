@@ -39,6 +39,7 @@ $page = [
     /* Names this page in the lead value model: the WhatsApp menu,
        the CTA band, the lead form and the thank-you all resolve from it. */
     'leadSlug'    => $slug,
+    'jsonld'      => [jsonld_service($service)],
 ];
 
 $hero        = $service['hero'];
@@ -49,10 +50,10 @@ require ROOT_DIR . '/partials/header.php';
 ?>
 <main id="main">
 
-  <section class="page-hero">
+  <section class="page-hero page-hero--service">
     <div class="container">
       <?php require ROOT_DIR . '/partials/breadcrumbs.php'; ?>
-      <div class="page-hero__inner">
+      <div class="service-hero-grid"><div class="page-hero__inner">
         <p class="eyebrow"><?= e($hero['eyebrow'] !== '' ? $hero['eyebrow'] : $clusterLabel) ?></p>
         <h1><?= e($hero['h1'] !== '' ? $hero['h1'] : $service['title']) ?></h1>
         <?php if ($hero['h2'] !== ''): ?>
@@ -64,14 +65,30 @@ require ROOT_DIR . '/partials/header.php';
           <p class="lead"><?= e($service['metaDescription']) ?></p>
         <?php endif; ?>
         <div class="btn-row">
-          <a class="btn btn--primary" href="<?= e(site_path('contact')) ?>">
+          <a class="btn btn--primary" href="#offert">
             <?= e($service['cta']['label'] !== '' ? $service['cta']['label'] : ui('cta.consult')) ?>
           </a>
+          <a class="btn btn--secondary" href="<?= e(site_path('prices')) ?>"><?= e(ui('home.prices_cta')) ?></a>
           <?php if (($wa = whatsapp_link($ctaWhatsapp)) !== null): ?>
             <a class="btn btn--secondary" href="<?= e($wa) ?>" rel="noopener"><?= e(ui('cta.whatsapp')) ?></a>
           <?php endif; ?>
         </div>
       </div>
+      <div id="offert" class="hero__form">
+        <?php
+        $formId = $slug;
+        $formService = $slug;
+        $formNeed = lead_value($slug)['need'];
+        $formHeading = ui('form.legend');
+        require ROOT_DIR . '/partials/lead-form.php';
+        ?>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container container--narrow">
+      <?php $illustrationSlug = $slug; $illustrationWide = true; require ROOT_DIR . '/partials/service-image.php'; ?>
     </div>
   </section>
 
@@ -249,35 +266,7 @@ require ROOT_DIR . '/partials/header.php';
     </section>
   <?php endif; ?>
 
-  <!-- Solicitar: the service's own lead form. Every service page
-       needs one, because a lead is only worth routing if it arrives carrying
-       the service it came from — the CTA band above sends people to WhatsApp,
-       this sends the ones who would rather write. -->
-  <section class="section section--surface" id="solicitar">
-    <div class="container split split--top">
-      <div class="stack">
-        <p class="eyebrow"><?= e(ui('service.form_eyebrow')) ?></p>
-        <h2><?= e($service['cta']['label'] !== '' ? $service['cta']['label'] : ui('form.legend')) ?></h2>
-        <p class="lead"><?= e(ui('service.form_lead')) ?></p>
-        <ul class="checklist">
-          <?php foreach (content('ui')['contact']['steps'] as $svcStep): ?>
-            <li><span><?= e($svcStep) ?></span></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-
-      <div>
-        <?php
-        $formId      = $slug;
-        $formService = $slug;
-        $formNeed    = lead_value($slug)['need'];
-        $formHeading = '';
-        require ROOT_DIR . '/partials/lead-form.php';
-        ?>
-      </div>
-    </div>
-  </section>
-
+  <?php $ctaContactPath = '#offert'; ?>
   <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>
 <?php require ROOT_DIR . '/partials/footer.php'; ?>

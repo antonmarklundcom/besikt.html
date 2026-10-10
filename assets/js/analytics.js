@@ -25,6 +25,10 @@
     if (!enabled || !event) {
       return;
     }
+    if (typeof window.gtag === "function") {
+      window.gtag("event", event, params || {});
+      return;
+    }
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(
       Object.assign({ event: event }, params || {})

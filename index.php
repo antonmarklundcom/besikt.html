@@ -71,7 +71,7 @@ require ROOT_DIR . '/partials/header.php';
               <?= e(ui('cta.call') . ' ' . $homePhone) ?>
             </a>
           <?php endif; ?>
-          <a class="btn btn--secondary" href="#tjanster"><?= e(ui('cta.see_included')) ?></a>
+          <a class="btn btn--secondary" href="<?= e(site_path('prices')) ?>"><?= e(ui('home.prices_cta')) ?></a>
         </div>
       </div>
 
@@ -132,7 +132,7 @@ require ROOT_DIR . '/partials/header.php';
         <p><a href="/om-oss/"><?= e(ui('nav.about')) ?> &rarr;</a></p>
       </div>
       <div class="home-protocol">
-        <?php require ROOT_DIR . '/partials/status-panel.php'; ?>
+        <?php $illustrationSlug = 'overlatelsebesiktning'; require ROOT_DIR . '/partials/service-image.php'; ?>
       </div>
     </div>
   </section>

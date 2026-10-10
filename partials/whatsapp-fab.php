@@ -25,7 +25,8 @@ $leadSlug = current_lead_slug() ?? '';
    "Ring" när ett telefonnummer finns) — samma form, ingen WhatsApp-ikon. */
 $fabPhone = !$link && site('phone') ? 'tel:+' . phone_digits(site('phone')) : null;
 $label    = $link ? ui('cta.whatsapp_long') : ($fabPhone ? ui('cta.call') : ui('cta.quote'));
-$fabHref  = $link ?? $fabPhone ?? ((($page['path'] ?? '') === '/') ? '#offert' : site_path('contact') . '#offert');
+$hasPageForm = ($page['path'] ?? '') === '/' || services($leadSlug) !== null;
+$fabHref  = $link ?? $fabPhone ?? ($hasPageForm ? '#offert' : site_path('contact') . '#offert');
 ?>
 <a class="wa-fab<?= $link ? '' : ' wa-fab--quote' ?>" href="<?= e($fabHref) ?>"
    <?= $link ? 'rel="noopener" data-wa-trigger aria-controls="wa-menu" aria-expanded="false"' : '' ?>

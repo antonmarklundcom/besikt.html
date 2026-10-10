@@ -49,8 +49,8 @@ return [
         'cluster'         => 'kop',
         'parent'          => null,
         'seoTitle'        => 'Överlåtelsebesiktning av hus och villa',
-        'metaDescription' => 'Besiktning av hus inför köp eller försäljning i Stockholms län. Certifierad '
-                           . 'besiktningsman, skriftligt protokoll med foton och fast pris i offerten.',
+        'metaDescription' => 'Begär offert på besiktning av hus inför köp eller försäljning i Stockholms '
+                           . 'län. Beskriv huset, ange kommun och stäm av omfattningen innan du bokar.',
         'hero' => [
             'eyebrow' => 'Köpa eller sälja hus',
             'h1'      => 'Besiktning av hus inför köp – överlåtelsebesiktning',
@@ -91,7 +91,7 @@ return [
         'parent'          => null,
         'seoTitle'        => 'Statusbesiktning av hus och lägenhet',
         'metaDescription' => 'Statusbesiktning av villa, lägenhet eller fastighet: en genomgång av skicket '
-                           . 'och vad som behöver åtgärdas. Certifierad besiktningsman i Stockholms län.',
+                           . 'och vad som behöver åtgärdas. Begär offert i Stockholms län.',
         'hero' => [
             'eyebrow' => 'Skick och underhåll',
             'h1'      => 'Statusbesiktning av hus, lägenhet och fastighet',
@@ -161,7 +161,7 @@ return [
         'parent'          => null,
         'seoTitle'        => 'Fuktskada? Fuktutredning i Stockholm',
         'metaDescription' => 'Misstänkt fuktskada eller mögel? Fuktutredning och skadeutredning med '
-                           . 'fuktmätning och skriftlig rapport, av certifierad besiktningsman.',
+                           . 'fuktmätning och skriftlig rapport, av besiktningsman.',
         'hero' => [
             'eyebrow' => 'Fukt, mögel och skador',
             'h1'      => 'Fuktskada i huset – fuktutredning och skadeutredning',

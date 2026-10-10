@@ -22,7 +22,7 @@ return [
     'slug'   => 'besiktningsmannen',
     'market' => 'se',
 
-    'schemaType' => ['HomeAndConstructionBusiness'],
+    'schemaType' => ['Organization'],
 
     // Tjänster ligger på rotnivå (/overlatelsebesiktning/); hubben listar dem.
     'servicesHub' => '/tjanster/',
@@ -40,8 +40,8 @@ return [
     // Den som driver sajten och är personuppgiftsansvarig (integritetspolicyn).
     'legalName'   => 'Marklund Sales & Marketing AB',
     'orgNumber'   => null,                       // org.nr — fylls i när Anton bekräftar
-    'description' => 'Besiktningsman i Stockholms län: överlåtelsebesiktning, badrumsbesiktning, '
-                   . 'fuktutredning, slutbesiktning och besiktning för BRF.',
+    'description' => 'Besiktningsmannen förmedlar offertförfrågningar om husbesiktning, badrum, '
+                   . 'fukt, entreprenader och BRF i Stockholms län.',
 
     // --- contact ------------------------------------------------------------
     // Telefon: internationellt format, t.ex. '+46 8 123 456 78'. Medan den är
@@ -59,11 +59,7 @@ return [
     'country' => 'Sverige',
     'hours'   => null,
 
-    'areaServed' => [
-        'Stockholms län', 'Stockholm', 'Nynäshamn', 'Haninge', 'Nacka', 'Huddinge',
-        'Botkyrka', 'Södertälje', 'Tyresö', 'Värmdö', 'Lidingö', 'Danderyd', 'Täby',
-        'Sollentuna', 'Järfälla', 'Solna', 'Sundbyberg', 'Upplands Väsby', 'Norrtälje',
-    ],
+    'areaServed' => ['Stockholms län'],
 
     'openingHours' => [],
 

@@ -29,6 +29,7 @@ $page = [
     'description' => $meta['description'],
     'path'        => $path,
     'breadcrumbs' => [['label' => $meta['title'], 'path' => $path]],
+    'noindex'     => !empty($meta['noindex']) || isset($_GET['enviado']) || isset($_GET['error']),
 ];
 
 require ROOT_DIR . '/partials/head.php';

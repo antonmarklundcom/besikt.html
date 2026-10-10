@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/lib/bootstrap.php';
 
-$today = date('Y-m-d');
 $urls  = [];
 
 foreach (content('pages') as $path => $meta) {
@@ -65,7 +64,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>', "\n";
 <?php foreach ($urls as $url): ?>
   <url>
     <loc><?= e($url['loc']) ?></loc>
-    <lastmod><?= e($url['lastmod'] ?? $today) ?></lastmod>
+    <?php if (!empty($url['lastmod'])): ?><lastmod><?= e($url['lastmod']) ?></lastmod><?php endif; ?>
     <changefreq><?= e($url['changefreq']) ?></changefreq>
     <priority><?= e($url['priority']) ?></priority>
   </url>
