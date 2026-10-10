@@ -1,5 +1,7 @@
 # Completed SEO and lead release — 10 October 2026
 
+**Historical pre-merge report:** the [main integration report](MAIN-RELEASE-2026-10-10.md) supersedes the branch/publication status, page counts and package below. It preserves all 20 improvements and adds six retained guide URLs. Use the newer main ZIP for deployment.
+
 Anton authorized finishing the entire site while asleep, including imagery with an 80-credit cap. Earlier content approval gates are superseded. Runtime source: `ee94679` on `codex/lead-gen-pass`; later commits document the release. **Finished/tested locally, not deployed.** Hostinger MCP reads did not return hosting-account details; production acceptance remains unverified.
 
 ## Top 20 improvements completed

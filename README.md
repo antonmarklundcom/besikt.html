@@ -2,7 +2,7 @@
 
 Swedish inspection enquiry site, plain PHP/static assets, intended for Hostinger PHP 8.2/Apache. No production database or Node runtime is required.
 
-**10 October 2026:** the authorized SEO/content build is complete locally on `codex/lead-gen-pass`: 14 services, seven guides, 29 indexable pages and 12 relevant legacy redirects. It has not been deployed or merged. See the [20 completed improvements and release evidence](docs/SEO-RELEASE-2026-10-10.md).
+**10 October 2026:** the completed SEO/content build is integrated with `main`: 14 services, 13 guides, 35 indexable pages and 13 relevant legacy redirects. Anton handles Hostinger deployment. See the [main release and current package](docs/MAIN-RELEASE-2026-10-10.md) and the [20 completed improvements](docs/SEO-RELEASE-2026-10-10.md).
 
 Phone: **+46 73 633 38 75**. Public contact is phone/form; no company contact email is displayed. Visitor email is optional. Pixels/GTM are not connected. Enquiries save privately when the optional CRM is unconfigured; Anton will supply the Swedish CRM later.
 
@@ -10,7 +10,7 @@ Phone: **+46 73 633 38 75**. Public contact is phone/form; no company contact em
 
 Reuse `C:/dev/besikt.html`; consult `C:/operation manuals/besikt.html/README.md` and the live storage register before creating copies. New non-secret media/QA/packages go to `E:/ai work/Artifacts/besikt.html/<date>`. No clone or dependency installation was needed.
 
-Edit `content/services.php`, `content/guias.php`, `content/pages.php`, `content/ui.php`. Each service also needs a route and `content/lead-values.php` record. Navigation/sitemap derive from content. Business facts belong in `content/site.php`; private settings belong in ignored server-only `config.php`.
+Edit `content/services.php`, `content/guias.php`, `content/legacy-guides.php`, `content/pages.php`, `content/ui.php`. Each service also needs a route and `content/lead-values.php` record. Navigation/sitemap derive from content. Business facts belong in `content/site.php`; private settings belong in ignored server-only `config.php`.
 
 Do not invent qualifications, cases, reviews, prices, deadlines or coverage. AI illustrations are labelled. Overlapping keyword variants share useful pages. [KWP evidence](docs/kwp/2026-10-10.json) and [decision rationale](docs/KWP-SEO-PLAN.md) are reference research, not a traffic forecast.
 

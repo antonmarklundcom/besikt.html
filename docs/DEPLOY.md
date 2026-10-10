@@ -1,6 +1,6 @@
 # Deployment — 10 October 2026
 
-The authorized build is finished locally. **Not deployed.** Hostinger MCP reads did not return account details. No hosting/DNS/subscription/credential/live-file changes occurred. Target: Hostinger PHP 8.2/Apache; local tests: PHP 8.3.33.
+The authorized build is integrated with `main`. **Not deployed to Hostinger; Anton will deploy it.** See the [current main package and verification](MAIN-RELEASE-2026-10-10.md). No hosting/DNS/subscription/credential/live-file changes occurred. Target: Hostinger PHP 8.2/Apache; local tests: PHP 8.3.33.
 
 ## Package and validate
 
@@ -8,7 +8,7 @@ The authorized build is finished locally. **Not deployed.** Hostinger MCP reads 
 & 'C:\Program Files\nodejs\node.exe' deploy/build-release.mjs
 ```
 
-Run from canonical `C:/dev/besikt.html`. A fresh dated package goes to `E:/ai work/Artifacts/besikt.html/2026-10-10/releases`, with SHA256 manifest. The ZIP includes 156 runtime files, minified CSS, protected empty logs and config.example.php. Secrets/customer logs/Git/tests/docs/dependencies/CLI admin tools are excluded; candidates are not overwritten/deleted.
+Run from canonical `C:/dev/besikt.html`. A fresh dated package goes to `E:/ai work/Artifacts/besikt.html/2026-10-10/releases`, with SHA256 manifest. The current main ZIP includes 164 runtime files, minified CSS, protected empty logs and config.example.php. Secrets/customer logs/Git/tests/docs/dependencies/CLI admin tools are excluded; candidates are not overwritten/deleted.
 
 Use the README's process-only PATH/temp settings:
 
@@ -19,7 +19,7 @@ $env:BESIKT_QA_OUTPUT = 'E:/ai work/Artifacts/besikt.html/<date>/qa-release'
 & 'C:\Program Files\nodejs\node.exe' tests/seo-release.mjs
 ```
 
-The final 10 October candidate passed both; extracted archive files were compared against the per-file manifest. Exact evidence/package: [release report](SEO-RELEASE-2026-10-10.md).
+The final main candidate passed both; extracted archive files were compared against the per-file manifest. Exact evidence/package: [main release report](MAIN-RELEASE-2026-10-10.md).
 
 ## Publish when hosting is accessible
 
