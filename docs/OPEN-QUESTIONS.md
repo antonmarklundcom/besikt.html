@@ -1,15 +1,16 @@
-# Open decisions — updated 10 October 2026
+# External facts and access — 10 October 2026
 
-Local foundation work can continue; dependent content/release work needs these facts.
+Anton authorized finishing the site/content/imagery while asleep without another approval round. Former wait-for-go gates are closed. The [release report](SEO-RELEASE-2026-10-10.md) records completed implementation/checks.
 
-1. Fresh KWP received: fourth export, Sweden/Swedish, 1,012 unique phrases; current planning is in [KWP-SEO-PLAN.md](KWP-SEO-PLAN.md). The detailed export omits 32 distinct searches and does not specify the historical date range. An uncapped export and Stockholm-area/Search Console evidence can refine the plan. The 1 October files remain historical. Anton's content go-ahead is pending.
-2. Actual coverage, travel and availability. Existing Stockholm targeting is not proof of every municipal/nationwide service.
-3. Publishable provider qualifications, insurance, experience and review/case permissions. No new certification/rating/count/deadline claims.
-4. The user confirmed competitor service capability. Present control officer/project management and separate apartment/damage intents after KWP; verify relevant qualifications before credential-dependent claims. Existing live OVK/energy-declaration URLs also need scope/migration decisions.
-5. Approved consumer prices, VAT, inclusions, travel and optional testing. No invented numeric prices/calculator.
-6. B2B `[B2B_TITLE]`, cost per lead, recipients, exclusivity, service areas and acceptance/credit rules: TBD. Draft remains unlinked/noindex/out of sitemap.
-7. Customer disclosure, provider data responsibilities, recipients and implemented retention/deletion. Reconcile the inherited privacy text about not selling data with the final B2B model before launch.
-8. Private CRM site/key/routing/sender/contact setup, plus analytics consent/disclosure and IDs. No production settings read/changed.
-9. Freeze live city/service URLs, get sitemap/Search Console/backlink evidence and approve a canonical/redirect map. Live SPA and PHP routes differ. Do not deploy over existing city pages yet.
-10. Finish KWP copy, URL map, private setup and staging acceptance before production replacement. No PR, push or deployment in this pass.
-11. Changes are local commits, not a verified remote backup. Originals are on E:, optimized assets in this checkout. Confirm independent recovery/private-config procedures. Portable manuals are deliberate captures, not automatic sync.
+These depend on external facts/access rather than additional local coding:
+
+1. **Hosting:** Hostinger MCP website-list reads did not return account details. No live files/accounts/DNS changed; the package is locally validated, not deployed.
+2. **Live URL inventory:** 12 relevant redirects are implemented. Additional historical city/OVK/energy paths lack current sitemap/Search Console/backlink evidence. Do not map them to unrelated services or silently remove unique live content when publishing.
+3. **Provider evidence:** actual coverage/availability, qualifications/insurance, named reviewers and permitted cases/reviews. No fabricated credentials, ratings, counts, response deadlines or broad municipal coverage. KA assignments require the appropriate qualified provider.
+4. **Prices:** approved VAT/scope/travel/testing facts. Copy explains factors and requests quotes; CPC/lead weights are not prices.
+5. **Swedish CRM:** supplied later. Private storage/export are ready. Destination schema, credentials, recipients, routing and import/replay acceptance need actual evidence; no production CRM/sender was connected.
+6. **Production protection/retention:** verify Apache denial/private permissions. Cleanup works on writes or CLI; no scheduled cleanup/private-data backup was installed. Review malformed legacy rows privately.
+7. **Measurement:** Search Console and uncapped/local KWP can refine priorities later. Current evidence is sufficient: 1,012 phrases, 941 reported searches, 909 printed numeric rows, 32 omitted searches. National volumes are not traffic forecasts. Pixels/GTM were outside the requested work.
+8. **Independent recovery:** branch locally committed, unmerged/unpushed. One-device source/media is not an independent backup. Portable manuals are deliberate captures, not live synchronization. No relocation/broad backup/deletion occurred.
+
+B2B commercial terms are not advertised: supplier page is unlinked/noindex/out of sitemap. Privacy/terms disclose mediation and potential provider forwarding, without invented lead prices, exclusivity or guarantees.

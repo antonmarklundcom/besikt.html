@@ -1,46 +1,61 @@
-# Lead operations — 9 October 2026
+# Lead operations — 10 October 2026
 
-## Contract and private data
+## Intake and current state
 
-Forms POST to `enviar.php`. Name, phone and municipality are validated server-side; email is optional. A known service determines its need/tier on the server. JSON success is for the enhanced form; plain forms redirect 303 to `/kontakt/?enviado=1&s=<service>`. Thank-you URLs are noindex and do not themselves prove CRM delivery.
+Phone: +46 73 633 38 75. No company contact email is displayed. Forms collect service, municipality, name, phone, optional visitor email and message. The server validates fields and derives need/tier; lead weights are not consumer prices. Swedish leading-zero phones normalize to +46; international 00 becomes +.
 
-CRM: POST `<VENDERCRM_URL>/api/v1/leads`, JSON, `X-Api-Key`. Phone is the contact identity, source is `web`. Preserve `page_url`, campaign fields and the existing structured field keys: `ort`, `formulario`, `servicio`, `necesita`, `valor`, `etiqueta` and optional legacy fields. No pipeline/stage/owner/top-level tags are sent. The submitted value tier never controls routing.
+Enhanced forms receive JSON; native forms redirect 303 to `/kontakt/?enviado=1&s=<service>` and replace the form with confirmation. Thank-you URLs are noindex. Success means CRM acceptance or private storage, not a booking/deadline/email promise. The Swedish CRM is not connected; with no credentials, accepted enquiries save privately. No external CRM/sender/analytics configuration was created or tested.
 
-Each form gets a random 32-character key. Retry retains it; JavaScript rotates it after success. Requests without a usable key get a fresh random server key. Separate enquiries from the same phone remain separate; the same request key allows CRM replay.
+## Private ledger and retention
 
-`logs/leads.log` stores private newline-delimited enquiry payloads, time and outcome. `logs/rate/` has IP-hash counters (five valid submissions per ten minutes). Do not commit/copy these customer records into manuals or general artifact folders. Existing HTTP-denial rules protect logs; verify actual Apache denial on staging/production. Proxy/IP-header trust requires provider verification.
+`logs/leads.log` contains newline-delimited JSON: `at`, `outcome`, submission key and payload. `logs/leads.lock` coordinates atomic replacement. Retries with the same key/payload update one outcome. Conflicting content with the same key is rejected. A new key permits a separate job from the same phone; do not deduplicate jobs solely by telephone.
 
-## Outcomes
+Valid dated records older than 12 months are removed during ledger writes. A CLI cleanup is implemented:
 
-| CRM status | Visitor result | Operator action |
+```bash
+php deploy/purge-leads.php /private/path/to/site/logs
+```
+
+No scheduler is connected. Run cleanup periodically on quiet sites; write-time cleanup does not establish a scheduled retention process. Malformed/undated legacy records are preserved for private review. Do not run this deletion command as a casual test against real records.
+
+`logs/rate/` stores IP-hash counters (five valid submissions/ten minutes). Apache rules deny HTTP access to private config/logs; the development router also denies them. Actual host denial, writable permissions and proxy/IP-header trust require production verification. No customer data belongs in Git, manuals or general artifacts.
+
+## Optional existing CRM protocol
+
+The retained adapter POSTs JSON to `<VENDERCRM_URL>/api/v1/leads`, `X-Api-Key`. Phone is contact identity, source `web`. Structured keys: `ort`, `formulario`, `servicio`, `necesita`, `valor`, `etiqueta`; origin/campaign fields are retained. No pipeline/stage/owner/top-level tags are sent. Compatibility with the future Swedish CRM is not assumed.
+
+| Result | Visitor outcome | Operator action |
 | --- | --- | --- |
-| 201 / 200 | Delivered, accepted | New lead or valid idempotency replay |
-| 401 | Saved locally if writable | Check private base URL/key validity |
-| 403 | Saved locally if writable | Check CRM site/key permissions |
-| 422 | Saved locally if writable | Inspect the private payload/contract; fix before replay |
-| 429 | Saved locally if writable | Wait for CRM rate window; replay original key |
-| Unreachable / other status | Saved locally if writable | Restore connectivity/configuration, inspect saved enquiries |
-| Missing CRM config / cURL | Saved locally if writable | Configuration/acceptance is required before release |
-| Fallback unwritable | Error, browser fields retained | Restore space/permissions and retry; no false success |
+| CRM 201 / 200 | Accepted; private copy attempted | Delivered or valid replay |
+| 401 / 403 | Saved if ledger writable | Check private key/site permissions |
+| 422 | Saved if ledger writable | Check schema before replay |
+| 429 | Saved if ledger writable | Wait, replay original key |
+| Unreachable / missing configuration | Saved if ledger writable | Use protected records until connected |
+| CRM unavailable and ledger unwritable | Error; fields retained | Restore storage and retry |
 
-Diagnostics record HTTP status without raw response bodies, API keys or payloads. The private lead log intentionally retains enquiry details. Review degraded records promptly. No automatic replay or retention job exists. Replay approved records through the server-side contract with the original key; duplicate fallback rows do not automatically mean duplicate CRM leads.
+Accepted CRM responses remain success if the redundant local copy fails. Neither destination accepting/saving yields an error. Diagnostics omit raw response bodies, credentials and customer payloads. Review degraded outcomes promptly. No automatic replay is implemented.
 
-## Configuration and notifications
+## Export and future CRM
 
-`config.php` is server-only, git-ignored and excluded from archives. This pass did not create it or read private values. Setting names are in `config.example.php`: privately validate `VENDERCRM_URL`, `VENDERCRM_API_KEY`, canonical `SITE_URL` and intended CRM routing. Use a CRM base URL, not an appended endpoint.
+Use a trusted admin checkout; these tools are excluded from the public package:
 
-Operator email uses the existing `LEAD_NOTIFY_TO`/`LEAD_FROM` plus Resend or Cloudflare sender credentials when configured. A notification failure does not undo an accepted/saved lead. Visitor confirmation emails are not implemented; external senders were not tested.
+```bash
+php deploy/leads-to-csv.php /private/path/to/leads.log > /protected/export/leads.csv
+php deploy/leads-to-csv.php /private/path/to/leads.log --tier=A > /protected/export/tier-a.csv
+```
 
-GA4 is disabled with no ID. `lead_submit` means CRM accepted; `lead_saved` means fallback stored. Do not configure them as equivalent conversions without an explicit measurement decision. Tier values are optimization weights. Configure analytics and consent/disclosure before enabling tags. Real phone/WhatsApp links only appear when configured.
+CSV has a UTF-8 BOM, flattened fields and one row/key. Formula-leading values (`=`, `+`, `-`, `@`) receive an apostrophe for spreadsheet safety; + telephone numbers therefore export as text. Map this explicit prefix for CRM import, or use the original protected JSON with a proper adapter. Keep exports outside the public root/Git/manuals/general artifact folders.
 
-## Safe verification
+When Anton supplies the CRM, map name, normalized phone, optional email/message, municipality, service, origin/campaign and original key. Treat `valor` as a weight. Verify a labelled synthetic enquiry and replay/import semantics before migrating records; preserve separate jobs and disclosure facts.
 
-`verify.sh` creates disposable synthetic state, never loads real `config.php` and no longer deletes real lead logs. It warns if local configuration is absent. `SITE_VERIFY_DIR` is honored only by CLI/CLI-server PHP; production web SAPIs ignore it. Its temporary `settings.php` is a fake fixture.
+## Configuration and checks
 
-`node tests/lead-foundation.mjs` starts two loopback servers with synthetic contacts/fake API key, covers success/failure contracts and removes only its checked temporary directory. Use `PHP_BINARY=C:/dev/php/php.exe` and process-only `BESIKT_TEST_TEMP=E:/ai work/Temp` on this PC. No external CRM request occurs.
+Ignored, excluded server-only `config.php` uses `SITE_URL` and optional `VENDERCRM_URL` / `VENDERCRM_API_KEY`. Existing optional notification settings include `LEAD_NOTIFY_TO`, `LEAD_FROM` and Resend/Cloudflare credentials. No visitor email confirmation is implemented. Sender failure does not undo an accepted/saved enquiry. No credential values were read/created/documented.
 
-Before release, privately check settings/storage, authorize a clearly identified disposable acceptance enquiry and verify one CRM lead/intended notification. Validate no-JS and failure paths on staging. Do not use real customer records as tests.
+GA4/Ads stay inactive without IDs; no Meta/GTM connection was added. Existing `lead_submit` and `lead_saved` distinguish CRM acceptance from fallback storage. Consent/disclosure and measurement decisions precede enabling tags.
+
+PASS synthetic checks: `verify.sh`, `tests/lead-foundation.mjs`, `tests/lead-ledger.php`, `tests/seo-release.mjs`. These cover validation, origin/rate/honeypot, CRM errors, failed storage, retries, retention, CSV safety, prefill, native success and responsive navigation. They do not verify the future CRM or production Apache/PHP 8.2.
 
 ## Recovery
 
-No database or migration exists for this site. Keep private configuration and lead recovery exports outside Git/manuals. Confirm an actual protected backup/retention procedure; the inherited policy's 12-month statement needs an operational deletion process. Retain prior served files/private config for rollback; a source rollback alone cannot restore lost logs. Do not replace/delete production files from this draft.
+No database/migration exists. Protect server settings and lead exports separately from source. Preserve prior served files/private settings for production rollback while retaining enquiries; source rollback cannot restore lost records. No independent private-data backup, scheduler or restore test was implemented. Consult the owner backup/storage register before recovery operations.

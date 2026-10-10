@@ -1,57 +1,39 @@
-# Deploy – besiktningsmannen.se (Hostinger shared hosting + Cloudflare)
+# Deployment — 10 October 2026
 
-Sajten är statisk PHP 8.2 utan databas. Allt nedan görs av Anton. Ingen session rör DNS, Cloudflare
-eller Hostinger.
+The authorized build is finished locally. **Not deployed.** Hostinger MCP reads did not return account details. No hosting/DNS/subscription/credential/live-file changes occurred. Target: Hostinger PHP 8.2/Apache; local tests: PHP 8.3.33.
 
-## 1. Bygg zip-filen (lokalt eller i en session)
+## Package and validate
 
-```bash
-./verify.sh
-./deploy/make-zip.sh          # → dist/besiktningsmannen-<datum>.zip
-./verify.sh --root dist/besiktningsmannen-<datum>
+```powershell
+& 'C:\Program Files\nodejs\node.exe' deploy/build-release.mjs
 ```
 
-## 2. Hostinger
+Run from canonical `C:/dev/besikt.html`. A fresh dated package goes to `E:/ai work/Artifacts/besikt.html/2026-10-10/releases`, with SHA256 manifest. The ZIP includes 156 runtime files, minified CSS, protected empty logs and config.example.php. Secrets/customer logs/Git/tests/docs/dependencies/CLI admin tools are excluded; candidates are not overwritten/deleted.
 
-1. Lägg till `besiktningsmannen.se` som webbplats. Lägg till aliaset `besiktningsmännen.se` som
-   **parkerad domän/alias** på samma webbplats. I DNS heter det `xn--besiktningsmnnen-6nb.se`.
-   `.htaccess` skickar www, aliaset och http med 301 till `https://besiktningsmannen.se` och behåller
-   sökvägen.
-2. Packa upp zip-filen i `public_html/`.
-3. Skapa `public_html/config.php` (kopiera `config.example.php`) och fyll i:
-   - `SITE_URL` = `https://besiktningsmannen.se`
-   - `VENDERCRM_URL`, `VENDERCRM_API_KEY` (VenderCRM → Sitios → den här sajten)
-   - e-post (se 4): `CF_ACCOUNT_ID`, `CF_EMAIL_TOKEN`, `LEAD_NOTIFY_TO`, `LEAD_FROM`
-4. Aktivera SSL för båda domänerna.
+Use the README's process-only PATH/temp settings:
 
-Utan VenderCRM-nyckel fungerar formuläret ändå. Leads hamnar i `logs/leads.log`, och
-`php deploy/leads-to-csv.php` gör en CSV av dem.
+```powershell
+& 'C:\Program Files\Git\usr\bin\bash.exe' verify.sh --root '<packaged-root>' --port 8739
+$env:BESIKT_SITE_ROOT = '<packaged-root>'
+$env:BESIKT_QA_OUTPUT = 'E:/ai work/Artifacts/besikt.html/<date>/qa-release'
+& 'C:\Program Files\nodejs\node.exe' tests/seo-release.mjs
+```
 
-## 3. Cloudflare DNS (om domänerna ligger där)
+The final 10 October candidate passed both; extracted archive files were compared against the per-file manifest. Exact evidence/package: [release report](SEO-RELEASE-2026-10-10.md).
 
-- `besiktningsmannen.se`: A/CNAME till Hostinger enligt hPanel.
-- `xn--besiktningsmnnen-6nb.se`: samma mål. Alternativt en Cloudflare Redirect Rule
-  (301 till `https://besiktningsmannen.se/${path}`), då behövs inget Hostinger-alias.
+## Publish when hosting is accessible
 
-## 4. E-post (Cloudflare Email Service)
+1. Resolve the existing document root/account. Inspect current served files/settings/live URLs; reuse hosting rather than create subscriptions/domains from historical assumptions.
+2. Preserve prior served files/private settings using protected provider backup/export facilities. Preserve real enquiries separately; package empty logs must never replace customer records.
+3. Stage runtime files, retaining private configuration/logs. Keep ZIP/manifest/admin scripts outside public access. Verify writable logs and HTTP denial of private paths/config/dotfiles.
+4. Use canonical `SITE_URL=https://besiktningsmannen.se`. Verify HTTPS/Apache/PHP behavior. Optional CRM settings can stay empty until Anton supplies the Swedish CRM; no public contact email is needed.
+5. Check routes/live redirects/canonical host/query preservation/sitemap/image headers, and a labelled synthetic enquiry with JavaScript and native submission. Confirm protected storage before publishing without CRM.
+6. Publish staged files after checks; verify the actually served version. Queued upload success is not proof of a live release. Submit sitemap when Search Console access is available; pixels/GTM are not prerequisites.
 
-| Adress | Roll | Publik? |
-| --- | --- | --- |
-| `kontakt@besiktningsmannen.se` | allmän kontakt. Visas bara på /kontakt/ och sätts ihop med JS | ja |
-| `leads@besiktningsmannen.se` | tar emot formulärnotiser (`LEAD_NOTIFY_TO`) | nej |
-| `no-reply@besiktningsmannen.se` | avsändare (`LEAD_FROM`) | nej |
+No alias/domain/SSL/email setup is prescribed without actual account inspection. The supplied phone is already present; do not add dummy credentials/public email.
 
-1. Email Routing: vidarebefordra `kontakt@` och `leads@` till inkorgen. Lägg ingen catch-all
-   (det ger mindre spam).
-2. Email Sending: onboarda apex-domänen (SPF/DKIM/DMARC, börja med `p=none`). Skapa en API-token för
-   Email Sending och lägg den i `CF_EMAIL_TOKEN`.
-3. Tjänsten är i beta. Skicka en testlead och kontrollera att notisen kommer fram. Om Cloudflare
-   svarar med fel står det i Hostingers felogg (`Cloudflare notification failed …`). Resend är
-   reserv: sätt `RESEND_API_KEY` i stället.
+## Administration and rollback
 
-## 5. Efter lansering
+Run source checkout `deploy/leads-to-csv.php` and `deploy/purge-leads.php` as CLI-only tools against protected data, per [lead operations](LEADS-RUNBOOK.md). They do not ship publicly. No automatic replay/cleanup/production backup job is connected.
 
-- Google Search Console: lägg till domänegendomen och skicka in `https://besiktningsmannen.se/sitemap.xml`.
-- Telefonnummer: fyll i `phone` i `content/site.php`. Då visas klickbar `tel:` i sidhuvudet,
-  på startsidan och i den fasta knappen.
-- Gå igenom `docs/facts-to-verify.md` (priser, certifiering, org.nr) innan sajten marknadsförs.
+Rollback restores the previous served version and compatible private settings while retaining enquiries. Source/ZIP recovery is distinct from private-data recovery; no production restore test was performed.

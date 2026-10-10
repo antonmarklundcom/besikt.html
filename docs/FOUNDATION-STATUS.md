@@ -1,5 +1,7 @@
 # Foundation status — 9 October 2026
 
+Historical snapshot. The complete 10 October implementation, package checks and current limitations are in [SEO-RELEASE-2026-10-10.md](SEO-RELEASE-2026-10-10.md), superseding pending-content/package statements below.
+
 Checkout: `C:/dev/besikt.html`. Repo: [antonmarklundcom/besikt.html](https://github.com/antonmarklundcom/besikt.html). Branch `codex/lead-gen-pass`, from `76f009e` on the verified remote default branch. Existing untracked `docs/live-site-comparison.md` is owner material and is excluded from these changes.
 
 Implemented compact forms/service forms, validated intake, retry/new-submission keys, source web, server-derived routing, sanitized CRM diagnostics and fallback write checks. GET returns 405; malformed/cross-host Origins fail. Verification isolates real config/logs and uses a synthetic mock CRM.

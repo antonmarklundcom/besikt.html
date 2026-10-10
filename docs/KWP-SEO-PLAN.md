@@ -1,6 +1,6 @@
 # KWP-based SEO decisions — 10 October 2026
 
-This is the current content decision list, based on Anton's fourth Keyword Library export. Reply with these numbers, for example `3 yes, 14 no`, or approve the plan with `go`. The earlier [foundation plan](LEAD-GEN-PLAN.md) records completed technical work; its numbers are a separate historical list. This document proposes pages, titles, H1s and content scope. It does not implement or publish them.
+This numbered decision rationale uses Anton's fourth Keyword Library export. Anton subsequently authorized completing the site while asleep, without another approval round. Service copy, five new service routes, seven practical guides, quote UX and technical SEO are implemented/tested; see the [completed release](SEO-RELEASE-2026-10-10.md). Original proposals below remain research rationale, not outstanding approval gates. Publication has not occurred; external facts/access are distinguished from completed local implementation.
 
 ## Evidence and limits
 
@@ -59,7 +59,7 @@ Titles below are the proposed title portion before the existing site-name suffix
 
 21. **Measure qualified enquiries and stage the release.** Establish Search Console and analytics access/consent before enabling IDs. Track non-brand impressions/clicks, enquiry starts, delivered versus fallback-saved enquiries and actual qualified jobs by service. Validate rendering/routes/metadata/canonicals/structured data/internal links/mobile forms and applicable mock CRM cases after implementation. Reconcile live URLs and private Hostinger/CRM/storage/email setup, then review a staging package and disposable acceptance enquiry. Content approval does not establish that private production setup or the live migration is verified.
 
-## Delivery order after approval
+## Original delivery order (historical plan)
 
 - Wave 1: decisions 1–6 and 16, then 12–14, then 7–11. Reuse and improve current pages; apartment/BRF separation and maintenance content are early priorities. The unchanged technical foundation has already passed its local checks.
 - Wave 2: decision 15, selected guides in 17 and any justified local page in 18. Move a service earlier if actual profitable enquiry data warrants it.
@@ -78,4 +78,4 @@ The current export is enough for the first page plan; another broad seed batch i
 - [Google: URL changes and site moves](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes): URL inventory, relevant mapping, redirects, canonical and sitemap checks.
 - These Google references were checked 10 October 2026. Swedish technical/regulatory/legal sources will be checked for the specific approved copy; this plan provides no legal/medical advice or technical inspection instructions.
 
-**Status:** planning and keyword evidence only. Production page copy, new routes, credential/price claims and deployment remain pending Anton's requested content go-ahead and the relevant factual/release checks.
+**Current status:** authorized implementation/local package checks complete. No fabricated credentials/prices/reviews. External coverage/provider/live URL/hosting/CRM evidence remains necessary; see the release report. Final imagery spend is 28/80 including earlier work; the planning-pass 16/50 figure above is historical.
