@@ -4,8 +4,8 @@
  *
  * Formuläret först: offertformuläret ligger i hjälten (#offert), så en besökare
  * på mobilen når det direkt under rubriken. Därefter tjänsterna, varför oss
- * (med protokoll-panelen i stället för foton — det finns inga riktiga foton och
- * inga AI-bilder på personer, plan.md §1.9), arbetsgången, vad vi besiktigar,
+ * (med protokoll-panelen i stället för foton — det finns inga riktiga foton än,
+ * plan.md §1.9), arbetsgången, vad vi besiktigar,
  * område, priser och FAQ.
  *
  * Allt som sägs om verksamheten kommer från content/site.php och content/ui.php.

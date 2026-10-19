@@ -32,9 +32,10 @@ Status: **Godkänd 2026-10-01. Opus-fasen (O1 + T0/T1) är klar. Resten körs me
    loggfil som reserv.
 8. **Skydd mot spam** (i mallen): honeypot, en gräns per IP (5 per 10 min) och validering på servern. Cloudflare
    Turnstile läggs bara till om spam faktiskt dyker upp (Backlog).
-9. **Bilder:** inga AI-bilder på personer. Riktiga foton av besiktningsmannen tas om möjligt in. Higgsfield används bara för
-   detaljbilder utan personer (fuktmätare mot kakel, vindsbjälklag, takfot) och **bara när Anton skriver
-   "Generate image"**. Bildplatserna definieras i T1 och fylls i fas I1 (§6).
+9. **Bilder:** AI-bilder får visa personer (t.ex. en besiktningsman i arbete) och ska vara verklighetstrogna foton, inte
+   ikoner. De märks som AI-genererade och får inte utges för att vara riktiga medarbetare, kunder eller uppdrag.
+   Riktiga foton tas in när de finns. Higgsfield används **bara när Anton ber om bilder** (t.ex. "Generate image").
+   Bildplatserna definieras i T1 och fylls i fas I1 (§6). (Ändrat 2026-10-19 på Antons begäran.)
 10. **URL:er:** svenska, utan å, ä och ö. Tjänster ligger på rotnivå (`/overlatelsebesiktning/`). Hubbar heter
     `/tjanster/`, `/guider/`, `/priser/`, `/kontakt/`, `/om-oss/`, `/integritetspolicy/`. Ingen blogg i v1
     (guiderna fångar informationssökningarna).

@@ -69,7 +69,7 @@ return [
     'teamSize'     => null,
 
     // --- imagery ------------------------------------------------------------
-    // Inga riktiga foton än; inga AI-bilder på personer (plan.md §1.9).
+    // Inga riktiga foton än. AI-bilder får visa personer men märks som AI (plan.md §1.9).
     'photos' => [
         'portrait' => null,
         'team'     => null,
