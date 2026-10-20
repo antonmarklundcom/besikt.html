@@ -51,6 +51,10 @@ require ROOT_DIR . '/partials/header.php';
     </div>
   </section>
 
+  <?php if (!empty($meta['priceList'])): ?>
+    <?php require ROOT_DIR . '/partials/price-list.php'; ?>
+  <?php endif; ?>
+
   <?php if (!empty($meta['sections'])): ?>
     <section class="section">
       <div class="container stack">

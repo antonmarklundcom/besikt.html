@@ -1,8 +1,117 @@
 <?php
-/** Swedish service content; each record owns one search intent. No invented provider credentials or prices. */
+/** Swedish service content; each record owns one search intent. No invented provider credentials. Estimated price ranges live in content/precios.php. */
 declare(strict_types=1);
 
 return [
+    'husbesiktning' => [
+        'path' => '/husbesiktning/',
+        'title' => 'Husbesiktning',
+        'navLabel' => 'Husbesiktning',
+        'cluster' => 'kop',
+        'parent' => null,
+        'seoTitle' => 'Husbesiktning i Stockholm',
+        'metaDescription' => 'Husbesiktning i Stockholm: se vilken besiktning av hus du behöver, vad den kostar och vad som ingår. Få offert från upp till tre besiktningsmän.',
+        'hero' => [
+            'eyebrow' => 'Besiktning av hus i Stockholms län',
+            'h1' => 'Husbesiktning i Stockholm',
+            'h2' => '',
+            'lead' => 'Ska du köpa, sälja, renovera eller bara veta hur huset mår? Här ser du vilken besiktning av hus som passar, ungefär vad den kostar och hur du får offerter att jämföra.',
+        ],
+        'includes' => [
+            'Hjälp att välja rätt typ av besiktning för ditt hus och ditt syfte',
+            'Förfrågan till upp till tre besiktningsmän som tar uppdrag i din kommun',
+            'Offerter där omfattning, pris och leverans av protokoll framgår',
+        ],
+        'excludes' => [
+            'En besiktning är ingen garanti mot dolda fel',
+            'Fuktmätning, radon, el och energideklaration ingår bara om det avtalas',
+            'Ingrepp i konstruktionen görs bara efter ägarens medgivande',
+        ],
+        'weNeed' => [
+            'Kommun, byggår och ungefärlig boyta',
+            'Syftet: köp, försäljning, renovering eller en allmän genomgång',
+            'Om huset har krypgrund, källare eller platta på mark',
+        ],
+        'sections' => [
+            [
+                'h2' => 'Besiktning av hus: vilken besiktning behöver du?',
+                'body' => [
+                    'Husbesiktning är ett samlingsnamn. Vilken besiktning du behöver beror på varför du vill ha huset undersökt. Vid köp och försäljning är det oftast en överlåtelsebesiktning. Äger du redan huset och planerar underhåll passar en statusbesiktning bättre.',
+                    'Har du ett avgränsat problem, som fukt, mögellukt eller ett tak som läcker, är det oftast mer träffsäkert att beställa just den undersökningen.',
+                ],
+                'items' => [
+                    ['title' => 'Inför köp eller försäljning', 'text' => 'Överlåtelsebesiktning: husets synliga skick och riskkonstruktioner dokumenteras i ett protokoll.'],
+                    ['title' => 'När du redan äger huset', 'text' => 'Statusbesiktning: en samlad bild av skicket inför renovering eller underhåll.'],
+                    ['title' => 'Fukt, lukt eller mögel', 'text' => 'Fuktmätning eller fuktutredning när du vill veta om och varför det är fuktigt.'],
+                    ['title' => 'Tak och badrum', 'text' => 'Takbesiktning och badrumsbesiktning när frågan gäller en viss del av huset.'],
+                ],
+            ],
+            [
+                'h2' => 'Husbesiktning inför köp',
+                'body' => [
+                    'Som köpare har du en undersökningsplikt. En husbesiktning inför köp hjälper dig att se husets synliga skick och vilka delar som kan behöva undersökas mer. Den görs oftast som en överlåtelsebesiktning och kan kompletteras med fuktmätning om huset har krypgrund, källare eller annan riskkonstruktion.',
+                    'Boka gärna innan kontraktet skrivs, eller avtala om en besiktningsklausul. Då hinner du läsa protokollet och ställa frågor innan du bestämmer dig.',
+                ],
+            ],
+            [
+                'h2' => 'Besiktningsman för hus i hela Stockholms län',
+                'body' => [
+                    'Ange kommun, hustyp och vad du vill ha undersökt i formuläret. Förfrågan går till upp till tre besiktningsmän som tar uppdrag där huset ligger. Du jämför offerterna och väljer själv.',
+                    'Fråga varje besiktningsman om certifiering, ansvarsförsäkring, vad som ingår och när protokollet levereras. Då blir offerterna jämförbara.',
+                ],
+            ],
+        ],
+        'benefits' => [
+
+        ],
+        'faq' => [
+            [
+                'q' => 'Vad är skillnaden mellan husbesiktning och överlåtelsebesiktning?',
+                'a' => 'Husbesiktning är ett vardagligt samlingsnamn. Överlåtelsebesiktning är den typ av husbesiktning som görs vid köp eller försäljning.',
+            ],
+            [
+                'q' => 'Hur lång tid tar en husbesiktning?',
+                'a' => 'Det beror på husets storlek och vad som ingår. Fråga besiktningsmannen om tiden på plats och när du får protokollet.',
+            ],
+            [
+                'q' => 'Behöver jag vara med?',
+                'a' => 'Det är inte alltid ett krav, men det gör det lättare att förstå iakttagelserna och ställa frågor direkt.',
+            ],
+            [
+                'q' => 'Vem betalar husbesiktningen?',
+                'a' => 'Den som beställer besiktningen betalar. Vid husköp är det oftast köparen, men säljaren kan också låta besiktiga huset före försäljningen.',
+            ],
+        ],
+        'cta' => [
+            'label' => 'Få offerter på husbesiktning',
+        ],
+        'related' => [
+            'overlatelsebesiktning',
+            'statusbesiktning',
+            'fuktutredning',
+        ],
+        'guides' => [
+            'infor-husbesiktning',
+            'jamfora-besiktningsoffert',
+        ],
+        'articles' => [
+
+        ],
+        'toolLinks' => [
+            [
+                'path' => '/priser/',
+                'label' => 'Se alla priser på besiktning',
+                'text' => 'Ungefärliga prisnivåer för alla typer av besiktning i Stockholms län.',
+            ],
+        ],
+        'lastReviewed' => '2026-10-20',
+        'sources' => [
+            [
+                'label' => 'Konsumentverket: mäklarens skyldigheter och undersökningsplikt',
+                'url' => 'https://www.konsumentverket.se/varor-och-tjanster/maklarens-skyldigheter/',
+            ],
+        ],
+    ],
     'overlatelsebesiktning' => [
         'path' => '/overlatelsebesiktning/',
         'title' => 'Överlåtelsebesiktning',
@@ -41,6 +150,13 @@ return [
                 ],
             ],
             [
+                'h2' => 'Husbesiktning och besiktning av hus inför köp',
+                'body' => [
+                    'När man pratar om husbesiktning eller besiktning av hus inför ett köp menar man oftast en överlåtelsebesiktning. Den görs för att köparen ska kunna fullgöra sin undersökningsplikt och för att säljaren ska kunna visa husets skick.',
+                    'Äger du redan huset, eller gäller frågan bara fukt, tak eller badrum, kan en annan besiktning passa bättre. Se översikten över olika typer av husbesiktning.',
+                ],
+            ],
+            [
                 'h2' => 'Besiktning av villa, radhus och fritidshus',
                 'body' => [
                     'Husets konstruktion och tillgänglighet styr uppdraget. För en villa kan exempelvis vind, källare och grund vara viktiga. För ett radhus behöver gränsen mot gemensamma byggnadsdelar redas ut. Ett fritidshus kan ha andra förutsättningar för uppvärmning, vatten och användning under året.',
@@ -60,8 +176,8 @@ return [
         ],
         'faq' => [
             [
-                'q' => 'Vad kostar en husbesiktning?',
-                'a' => 'Priset beror på husets storlek, konstruktion, åtkomlighet och vilka tillägg du beställer. Ange byggår, ungefärlig yta och kommun för att få en jämförbar offert.',
+                'q' => 'Vad påverkar priset på en överlåtelsebesiktning?',
+                'a' => 'Husets storlek, konstruktion, åtkomlighet och vilka tillägg du beställer, till exempel fuktmätning. Ange byggår, ungefärlig yta och kommun för att få jämförbara offerter.',
             ],
             [
                 'q' => 'Ingår fuktmätning?',
@@ -80,6 +196,7 @@ return [
             'label' => 'Begär offert',
         ],
         'related' => [
+            'husbesiktning',
             'lagenhetsbesiktning',
             'fuktutredning',
             'takbesiktning',
@@ -92,6 +209,11 @@ return [
 
         ],
         'toolLinks' => [
+            [
+                'path' => '/husbesiktning/',
+                'label' => 'Vilken husbesiktning behöver du?',
+                'text' => 'Översikt över besiktning av hus: köp, status, fukt, tak och badrum.',
+            ],
             [
                 'path' => '/priser/',
                 'label' => 'Vad påverkar priset?',
@@ -112,11 +234,11 @@ return [
         'navLabel' => 'Lägenhetsbesiktning',
         'cluster' => 'kop',
         'parent' => null,
-        'seoTitle' => 'Lägenhetsbesiktning i Stockholm',
+        'seoTitle' => 'Lägenhetsbesiktning av bostadsrätt',
         'metaDescription' => 'Besiktning av lägenhet eller bostadsrätt i Stockholm inför köp och efter renovering. Se vad som kan granskas och begär offert för din lägenhet.',
         'hero' => [
             'eyebrow' => 'Besiktning i Stockholms län',
-            'h1' => 'Lägenhetsbesiktning i Stockholm',
+            'h1' => 'Lägenhetsbesiktning av bostadsrätt i Stockholm',
             'h2' => '',
             'lead' => 'För dig som ska köpa en bostadsrätt eller vill kontrollera en renoverad lägenhet. Få synliga brister och frågor om badrum, kök och ytskikt tydligt dokumenterade.',
         ],
@@ -408,11 +530,11 @@ return [
         'navLabel' => 'Fuktutredning',
         'cluster' => 'fukt',
         'parent' => null,
-        'seoTitle' => 'Fuktutredning i Stockholm',
-        'metaDescription' => 'Fuktutredning i Stockholm vid lukt, missfärgning eller misstänkt fuktskada. Läs om skadeorsak, mätning och utredning i hus och BRF. Begär offert.',
+        'seoTitle' => 'Fuktutredning vid fuktskada i Stockholm',
+        'metaDescription' => 'Fuktutredning vid fuktskada i Stockholm: lukt, missfärgning eller mögel. Läs om orsak, mätning, pris och utredning i hus och BRF. Begär offert.',
         'hero' => [
             'eyebrow' => 'Besiktning i Stockholms län',
-            'h1' => 'Fuktutredning i Stockholm',
+            'h1' => 'Fuktutredning vid fuktskada i Stockholm',
             'h2' => '',
             'lead' => 'När fukten återkommer eller orsaken är oklar behöver frågan utredas. Beskriv vad du ser, var det finns och när problemet började.',
         ],
@@ -1278,6 +1400,111 @@ return [
             ],
         ],
     ],
+    'byggkonsult' => [
+        'path' => '/byggkonsult/',
+        'title' => 'Byggkonsult',
+        'navLabel' => 'Byggkonsult',
+        'cluster' => 'bygg',
+        'parent' => null,
+        'seoTitle' => 'Byggkonsult i Stockholm',
+        'metaDescription' => 'Byggkonsult i Stockholm för villaägare, BRF och fastighetsägare. Se vad en byggkonsult gör, vad det kostar och få offert från upp till tre konsulter.',
+        'hero' => [
+            'eyebrow' => 'Bygg och renovering i Stockholms län',
+            'h1' => 'Byggkonsult i Stockholm',
+            'h2' => '',
+            'lead' => 'Behöver du teknisk hjälp med ett bygg- eller renoveringsprojekt? Beskriv projektet, så går förfrågan till upp till tre byggkonsulter som tar den typen av uppdrag.',
+        ],
+        'includes' => [
+            'Hjälp att avgränsa vilken konsultroll projektet behöver',
+            'Förfrågan till upp till tre konsulter i ditt område',
+            'Offerter där uppdrag, prisform och rapportering framgår',
+        ],
+        'excludes' => [
+            'Konsulten utför inte själva byggarbetet',
+            'Projektering, konstruktionsberäkningar och myndighetskontakter ingår bara om de avtalas',
+            'Juridisk rådgivning ingår inte',
+        ],
+        'weNeed' => [
+            'Vad projektet gäller och i vilket skede det är',
+            'Befintliga ritningar, beslut och eventuella offerter',
+            'Om du är privatperson, BRF eller fastighetsägare',
+        ],
+        'sections' => [
+            [
+                'h2' => 'Vad gör en byggkonsult?',
+                'body' => [
+                    'Byggkonsult är ett brett begrepp för den som ger teknisk rådgivning och stöd i bygg- och renoveringsprojekt. Det kan handla om att ta fram underlag, jämföra entreprenörers offerter, leda projektet, kontrollera arbetet eller hjälpa till med bygglovsprocessen.',
+                    'Börja med att beskriva vad du behöver hjälp med. Då blir det tydligt vilken roll som passar och vad offerten ska innehålla.',
+                ],
+                'items' => [
+                    ['title' => 'Projektledning och byggledning', 'text' => 'Planering, upphandling och uppföljning av tid, ekonomi och beslut.'],
+                    ['title' => 'Kontrollansvarig (KA)', 'text' => 'När kommunen kräver en certifierad KA för bygglov eller anmälan.'],
+                    ['title' => 'Besiktning', 'text' => 'Entreprenad-, slut- och garantibesiktning av utfört arbete.'],
+                    ['title' => 'Underlag och upphandling', 'text' => 'Beskrivningar, förfrågningsunderlag och jämförelse av offerter.'],
+                ],
+            ],
+            [
+                'h2' => 'Byggkonsult för villaägare, BRF och fastighetsägare',
+                'body' => [
+                    'En villaägare kan behöva stöd inför en tillbyggnad, ett takbyte eller en större renovering. En bostadsrättsförening behöver ofta hjälp när styrelsen ska upphandla och följa upp ett större underhållsprojekt.',
+                    'Bestäm tidigt vem som fattar beslut, vem som får beställa tillägg och hur konsulten rapporterar. Det gör samarbetet enklare och priset lättare att förutse.',
+                ],
+            ],
+            [
+                'h2' => 'Byggledare eller projektledare?',
+                'body' => [
+                    'En byggledare följer arbetet på plats och samordnar entreprenörer. En projektledare har ofta ett bredare ansvar för helheten, från behov och budget till överlämning. I mindre projekt kan samma person ha båda rollerna.',
+                    'Läs mer på sidan om byggprojektledning om du vill ha hjälp att hålla ihop ett helt projekt.',
+                ],
+            ],
+        ],
+        'benefits' => [
+
+        ],
+        'faq' => [
+            [
+                'q' => 'Vad kostar en byggkonsult?',
+                'a' => 'De flesta byggkonsulter tar betalt per timme eller ett fast pris för ett avgränsat uppdrag. Be om prisform, uppskattat antal timmar och vad som räknas som tillägg.',
+            ],
+            [
+                'q' => 'Behöver jag en byggkonsult för en mindre renovering?',
+                'a' => 'Inte alltid. Ett avgränsat stöd, till exempel en genomgång av offerter eller en slutbesiktning, räcker ofta i mindre projekt.',
+            ],
+            [
+                'q' => 'Kan en byggkonsult vara kontrollansvarig?',
+                'a' => 'Ja, om personen är certifierad kontrollansvarig. Rollerna ska ändå hållas isär i avtalet.',
+            ],
+        ],
+        'cta' => [
+            'label' => 'Få offerter från byggkonsulter',
+        ],
+        'related' => [
+            'byggprojektledning',
+            'kontrollansvarig',
+            'entreprenadbesiktning',
+        ],
+        'guides' => [
+            'jamfora-besiktningsoffert',
+            'reklamera-renovering',
+        ],
+        'articles' => [
+
+        ],
+        'toolLinks' => [
+            [
+                'path' => '/priser/',
+                'label' => 'Se alla priser',
+                'text' => 'Ungefärliga prisnivåer för besiktning och byggkonsulttjänster.',
+            ],
+        ],
+        'lastReviewed' => '2026-10-20',
+        'sources' => [
+            [
+                'label' => 'Boverket: kontrollansvariga',
+                'url' => 'https://www.boverket.se/sv/PBL-kunskapsbanken/lov--byggande/byggprocessen/kontrollansvariga/',
+            ],
+        ],
+    ],
     'byggprojektledning' => [
         'path' => '/byggprojektledning/',
         'title' => 'Byggprojektledning',
@@ -1316,7 +1543,7 @@ return [
                 ],
             ],
             [
-                'h2' => 'Byggkonsult och projektledare för BRF',
+                'h2' => 'Projektledare och byggledare för BRF',
                 'body' => [
                     'Styrelser kan behöva stöd när en åtgärd kräver mer teknisk tid än det löpande föreningsarbetet medger. Exempel är planering inför takbyte, fasadarbeten eller ombyggnad av gemensamma utrymmen. Projektledaren kan hjälpa styrelsen att dokumentera alternativ och beslut.',
                     'Bestäm vem som får beställa tillägg, hur ändringar godkänns och hur ekonomin rapporteras. Skilj mellan styrelsens mandat, konsultens uppdrag och entreprenörens ansvar.',
@@ -1355,6 +1582,7 @@ return [
             'label' => 'Begär offert',
         ],
         'related' => [
+            'byggkonsult',
             'brf',
             'kontrollansvarig',
             'entreprenadbesiktning',

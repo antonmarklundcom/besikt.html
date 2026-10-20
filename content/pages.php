@@ -42,13 +42,14 @@ return [
         'priority' => '0.9',
     ],
     '/priser/' => [
-        'title' => 'Pris på besiktning – begär offert',
-        'description' => 'Vad påverkar priset på besiktning av hus, badrum eller BRF? Se vilka uppgifter offerten behöver och begär pris för ditt uppdrag.',
+        'title' => 'Vad kostar en besiktning? Prislista',
+        'description' => 'Ungefärliga priser på husbesiktning, lägenhet, badrum, fukt, tak och BRF i Stockholm. Jämför prisnivåer och få offert från upp till 3 besiktningsmän.',
         'h1' => 'Vad kostar en besiktning?',
-        'lead' => 'Priset behöver anpassas till uppdragets omfattning. Begär en offert för ditt ärende.',
+        'lead' => 'Här ser du ungefärliga prisnivåer för varje typ av besiktning i Stockholms län, inklusive moms. Ditt exakta pris får du i offerterna.',
+        'priceList' => true,
         'sections' => [
             [
-                'h2' => 'Pris på husbesiktning och lägenhetsbesiktning',
+                'h2' => 'Vad påverkar priset på husbesiktning och lägenhetsbesiktning?',
                 'body' => [
                     'Yta, byggnadstyp, konstruktion och tillgänglighet påverkar arbetsinsatsen. Ange om det gäller villa, radhus, fritidshus eller bostadsrätt. För ett hus är åtkomst till vind och grund relevant; för en lägenhet kan antal våtrum och renoveringshistorik påverka omfattningen.',
                     'Be om ett skriftligt pris för just den kontroll du behöver. Fuktmätning, specialistundersökningar och en köpargenomgång ska specificeras när de är aktuella.',
@@ -65,7 +66,7 @@ return [
                 ],
             ],
             [
-                'h2' => 'Badrum, fuktmätning och fuktutredning',
+                'h2' => 'Vad påverkar priset på badrum, fuktmätning och fuktutredning?',
                 'body' => [
                     'En okulär badrumskontroll, en mätning och en skadeutredning besvarar olika frågor. Antal utrymmen, metod, underlag och eventuell öppning av konstruktion påverkar priset. Beskriv därför observationen och vad du vill kunna besluta efter undersökningen.',
                     'Fråga om mätmetod, rapport, återbesök och återställning ingår. Ett billigare uppdrag blir inte jämförbart om det saknar den undersökning du faktiskt behöver.',
@@ -86,7 +87,7 @@ return [
                 ],
             ],
             [
-                'h2' => 'Entreprenad, BRF och underhållsplan',
+                'h2' => 'Vad påverkar priset på entreprenad, BRF och underhållsplan?',
                 'body' => [
                     'Projektets storlek, antal byggnader, dokumentgenomgång och uppföljning behöver ingå i prisbeskrivningen. En BRF bör ange syfte, antal byggnader och ungefärlig storlek. För en entreprenad behövs avtal, skede och önskad tidpunkt.',
                     'För byggprojektledning och kontrollansvarig behöver även möten, platsbesök, prisform och villkor för tillägg framgå. En underhållsplan har en annan leverans än en besiktningslista.',
@@ -118,7 +119,7 @@ return [
                 'h2' => 'Jämför hela offerten före bokning',
                 'body' => [
                     'Kontrollera omfattning, namngiven utförare, dokumentation, moms, resor och eventuella tillägg. Fråga hur priset påverkas om underlaget eller tillträdet ändras och hur extra arbete ska godkännas.',
-                    'Vi publicerar inga generella frånpriser som saknar en bekräftad omfattning. Ange tjänst, kommun, ungefärlig yta och ditt syfte i formuläret för att begära en konkret offert. Förfrågan innebär ingen bokning.',
+                    'Prisnivåerna på den här sidan är ungefärliga och hjälper dig att se om en offert ligger rimligt. Ange tjänst, kommun, ungefärlig yta och ditt syfte i formuläret, så får du offerter från upp till tre besiktningsmän att jämföra. Förfrågan innebär ingen bokning.',
                 ],
                 'links' => [
                     [
@@ -133,8 +134,12 @@ return [
         'priority' => '0.8',
         'faq' => [
             [
-                'q' => 'Varför finns ingen generell prislista?',
-                'a' => 'Olika uppdrag kan ha samma namn men olika omfattning. Ett konkret pris behöver kopplas till byggnaden, kontrollen, utföraren och villkoren.',
+                'q' => 'Varför är priserna intervall?',
+                'a' => 'Olika uppdrag kan ha samma namn men olika omfattning. Det exakta priset beror på byggnaden, kontrollen och besiktningsmannen, och framgår av offerten.',
+            ],
+            [
+                'q' => 'Ingår moms i priserna?',
+                'a' => 'Ja. Prisnivåerna gäller privatpersoner och anges inklusive moms. Resor och tillägg kan tillkomma enligt offerten.',
             ],
             [
                 'q' => 'Är förfrågan en bokning?',

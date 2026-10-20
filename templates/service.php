@@ -88,8 +88,10 @@ require ROOT_DIR . '/partials/header.php';
     </div>
   </section>
 
+  <?php $svcPrice = content('precios')['services'][$slug] ?? null; ?>
   <nav class="content-nav container" aria-label="<?= e(ui('content_nav.title')) ?>">
     <a href="#omfattning"><?= e(ui('content_nav.scope')) ?></a>
+    <?php if ($svcPrice !== null): ?><a href="#pris"><?= e(ui('content_nav.price')) ?></a><?php endif; ?>
     <?php foreach ($service['sections'] as $blockIndex => $block): ?>
       <a href="#avsnitt-<?= (int) $blockIndex ?>"><?= e($block['h2']) ?></a>
     <?php endforeach; ?>
@@ -143,6 +145,10 @@ require ROOT_DIR . '/partials/header.php';
         </div>
       </div>
     </section>
+  <?php endif; ?>
+
+  <?php if ($svcPrice !== null): ?>
+    <?php $priceBlock = $svcPrice; require ROOT_DIR . '/partials/price-block.php'; ?>
   <?php endif; ?>
 
   <?php if ($service['sections'] !== []): ?>

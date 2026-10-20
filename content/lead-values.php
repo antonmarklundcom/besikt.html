@@ -204,10 +204,10 @@ $model = [
 ];
 
 $serviceRecords = require __DIR__ . '/services.php';
-$extraNeeds = ['lagenhetsbesiktning' => 'kop', 'fuktmatning' => 'fukt', 'takbesiktning' => 'kop', 'kontrollansvarig' => 'renovering', 'byggprojektledning' => 'brf'];
+$extraNeeds = ['husbesiktning' => 'kop', 'byggkonsult' => 'brf', 'lagenhetsbesiktning' => 'kop', 'fuktmatning' => 'fukt', 'takbesiktning' => 'kop', 'kontrollansvarig' => 'renovering', 'byggprojektledning' => 'brf'];
 foreach ($serviceRecords as $slug => $svc) {
     if (!isset($model['services'][$slug])) {
-        $model['services'][$slug] = ['need' => $extraNeeds[$slug], 'tier' => in_array($slug, ['kontrollansvarig', 'byggprojektledning'], true) ? 'A' : 'B', 'crmTag' => $slug];
+        $model['services'][$slug] = ['need' => $extraNeeds[$slug], 'tier' => in_array($slug, ['husbesiktning', 'kontrollansvarig', 'byggprojektledning', 'byggkonsult'], true) ? 'A' : 'B', 'crmTag' => $slug];
     }
     $model['services'][$slug]['menuLabel'] = $svc['title'];
     $model['services'][$slug]['whatsappText'] = 'Hej, jag vill begära offert på ' . $svc['title'] . '.';

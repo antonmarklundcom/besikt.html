@@ -31,7 +31,7 @@ $homePhone = site('phone');
 $homeImages = content('imagery');
 
 /* Åtta tjänster med foto, resten som länkar under korten. */
-$homeCards = ['overlatelsebesiktning', 'lagenhetsbesiktning', 'badrumsbesiktning', 'fuktutredning', 'fuktmatning', 'takbesiktning', 'statusbesiktning', 'brf'];
+$homeCards = ['husbesiktning', 'overlatelsebesiktning', 'lagenhetsbesiktning', 'badrumsbesiktning', 'fuktutredning', 'takbesiktning', 'statusbesiktning', 'brf'];
 $homeMore  = array_values(array_diff(array_keys(services()), $homeCards));
 
 /** One <picture> from the services image set (16:9, 480/960, plus 1440 for the hero). */
@@ -165,7 +165,7 @@ require ROOT_DIR . '/partials/header.php';
         <?php endif; ?>
       </div>
       <div class="compare__media">
-        <?= $homePicture('home', '(max-width: 900px) 100vw, 560px', false) ?>
+        <?= $homePicture('inspector', '(max-width: 900px) 100vw, 560px', false) ?>
       </div>
     </div>
   </section>

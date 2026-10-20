@@ -9,6 +9,8 @@ $images = [
     'slutbesiktning' => ['slot' => 'final', 'alt' => 'Illustration av en färdigställd bostadsinteriör'],
     'entreprenadbesiktning' => ['slot' => 'construction', 'alt' => 'Illustration av en byggnad under uppförande'],
     'garantibesiktning' => ['slot' => 'final', 'alt' => 'Illustration av en bostadsinteriör inför kontroll'],
+    'husbesiktning' => ['slot' => 'home', 'alt' => 'Ljusgrå villa med besiktningsprotokoll och fuktmätare på trappan'],
+    'byggkonsult' => ['slot' => 'construction', 'alt' => 'Illustration av en byggnad under uppförande'],
     'brf' => ['slot' => 'brf', 'alt' => 'Nybyggt flerbostadshus med balkonger och innergård'],
     'underhallsplan' => ['slot' => 'maintenance', 'alt' => 'Illustration av byggnadsritningar och anteckningsmaterial'],
 ];

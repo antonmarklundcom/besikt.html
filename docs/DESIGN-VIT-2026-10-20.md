@@ -29,9 +29,20 @@ Anton chose design A ("Besiktningsmännen Vit") from `designs/2026-10-19/`. It i
   - the "Om oss" H1;
   - the brand in every title suffix.
 
+## Added later on 20 October: prices and new pages
+
+- **Estimated prices.** Anton asked for these on 20 October. Each service page now has a "Vad kostar …?" H2, a short answer and a table of price ranges. The figures come from `content/precios.php` and are rendered by `partials/price-block.php` and `partials/price-table.php`. `/priser/` lists every service by cluster (`partials/price-list.php`). The title is "Vad kostar en besiktning? Prislista". The ranges include VAT, are labelled as estimates, and start from the provisional figures in plan.md §3.3, checked against published price guides in October 2026. Each inspector sets the real price in their quote.
+- **`/husbesiktning/`:** a new overview page for "husbesiktning" and "besiktning hus" (it explains which kind of house inspection to choose). One page targets both phrases because they mean the same thing; two pages would compete with each other. `/overlatelsebesiktning/` keeps its own intent. It now has an H2 "Husbesiktning och besiktning av hus inför köp" and a link card to the new page, and its price FAQ asks about överlåtelsebesiktning so it does not compete.
+- **`/byggkonsult/`:** a new page for "byggkonsult" (590 searches a month). It is broader than project management and links on to byggprojektledning, kontrollansvarig and entreprenadbesiktning. On `/byggprojektledning/`, the H2 "Byggkonsult och projektledare för BRF" became "Projektledare och byggledare för BRF".
+- **New titles:**
+  - `/lagenhetsbesiktning/`: "Lägenhetsbesiktning av bostadsrätt". The H1 adds "… i Stockholm".
+  - `/fuktutredning/`: "Fuktutredning vid fuktskada i Stockholm".
+- **Homepage:** Husbesiktning is the first photo card. Fuktmätning moved to the links below the cards.
+- **Sitemap:** 37 indexable pages, all tests pass.
+
 ## SEO: next steps (ranked)
 
-1. **Retitle the pages for the biggest search terms.** Titles have about 40 characters before the " | Besiktningsmännen" suffix (60 in total).
+1. ~~Retitle the pages for the biggest search terms~~ (done on 20 October, see above). Original note: Titles have about 40 characters before the " | Besiktningsmännen" suffix (60 in total).
    - `/overlatelsebesiktning/`: also target "husbesiktning" (590) and "besiktning hus" (720), e.g. "Husbesiktning & överlåtelsebesiktning".
    - `/lagenhetsbesiktning/`: add "bostadsrätt" (480 + 210).
    - `/fuktutredning/`: add "fuktskada" (480).

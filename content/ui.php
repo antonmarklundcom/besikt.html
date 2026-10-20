@@ -90,6 +90,7 @@ return [
         'services_more'    => 'Fler tjänster',
         'services_go'      => 'Läs mer',
         'cards' => [
+            'husbesiktning'         => 'Vilken besiktning av hus behöver du? Översikt, priser och offerter.',
             'overlatelsebesiktning' => 'Inför köp eller försäljning av hus. Husets synliga skick och risker dokumenteras.',
             'lagenhetsbesiktning'   => 'För dig som köper bostadsrätt eller vill kontrollera en renoverad lägenhet.',
             'badrumsbesiktning'     => 'Kontroll av nyrenoverat badrum eller våtrum inför köp.',
@@ -328,10 +329,14 @@ return [
         ],
     ],
 
-    'content_nav' => ['title' => 'På den här sidan', 'scope' => 'Omfattning', 'questions' => 'Vanliga frågor', 'sources' => 'Källor och vidare läsning', 'source_note' => 'Allmän information. Uppdragets avtal och fastighetens förutsättningar styr den konkreta bedömningen.', 'guides' => 'Förbered dig med våra guider', 'updated' => 'Uppdaterad'],
+    'content_nav' => ['title' => 'På den här sidan', 'scope' => 'Omfattning', 'price' => 'Pris', 'questions' => 'Vanliga frågor', 'sources' => 'Källor och vidare läsning', 'source_note' => 'Allmän information. Uppdragets avtal och fastighetens förutsättningar styr den konkreta bedömningen.', 'guides' => 'Förbered dig med våra guider', 'updated' => 'Uppdaterad'],
 
     'service' => [
         'includes'     => 'Exempel på moment – omfattning enligt offert',
+        'price_all'    => 'Se priser för alla tjänster',
+        'price_cta'    => 'Få offerter och jämför',
+        'price_col_what'  => 'Uppdrag',
+        'price_col_price' => 'Ungefärligt pris',
         'excludes'     => 'Det här ingår inte',
         'we_need'      => 'Bra att ha till besiktningen',
         'benefits'     => 'Därför lönar det sig',

@@ -14,7 +14,7 @@ Reuse `C:/dev/besikt.html`; consult `C:/operation manuals/besikt.html/README.md`
 
 Edit `content/services.php`, `content/guias.php`, `content/legacy-guides.php`, `content/pages.php`, `content/ui.php`. Each service also needs a route and `content/lead-values.php` record. Navigation/sitemap derive from content. Business facts belong in `content/site.php`; private settings belong in ignored server-only `config.php`.
 
-Do not invent qualifications, cases, reviews, prices, deadlines or coverage. AI illustrations are labelled. Overlapping keyword variants share useful pages. [KWP evidence](docs/kwp/2026-10-10.json) and [decision rationale](docs/KWP-SEO-PLAN.md) are reference research, not a traffic forecast.
+Do not invent qualifications, cases, reviews, deadlines or coverage. Prices are only the estimated ranges in `content/precios.php` (requested by Anton on 2026-10-20 and labelled as estimates). AI illustrations are labelled. Overlapping keyword variants share useful pages. [KWP evidence](docs/kwp/2026-10-10.json) and [decision rationale](docs/KWP-SEO-PLAN.md) are reference research, not a traffic forecast.
 
 ## Verify on this PC
 
