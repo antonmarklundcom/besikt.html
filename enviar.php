@@ -197,6 +197,7 @@ function notify_by_email(array $payload, string $outcome): void
         'ort'                   => 'Ort',
         'bostadstyp'            => 'Bostadstyp',
         'onskat_datum'          => 'Önskat datum',
+        'nar'                   => 'När',
         'resultado_herramienta' => 'Kalkylatorresultat',
         'etiqueta'              => 'Etikett',
         'formulario'            => 'Formulär',
@@ -398,6 +399,9 @@ $preferredDate = field('preferred_date', 10);
 if ($preferredDate !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $preferredDate)) {
     $preferredDate = '';
 }
+$timingOptions = (array) (content('ui')['form']['timing_options'] ?? []);
+$timingKey     = field('timing', 20);
+$timing        = isset($timingOptions[$timingKey]) ? (string) $timingOptions[$timingKey] : '';
 
 /* Keep a submission's key for retries. Separate enquiries from the same phone
    must remain separate, including when a caller omits the rendered key. */
@@ -439,6 +443,7 @@ $fields = array_filter([
     'ort'                   => $location,
     'bostadstyp'            => $propertyType,
     'onskat_datum'          => $preferredDate,
+    'nar'                   => $timing,
     'formulario'            => $formId,
     'servicio'              => $serviceLabel,
     'valor'                 => (string) $lead['tier'],

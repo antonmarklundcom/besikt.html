@@ -33,7 +33,7 @@ LATIN="U+0020-007E,U+00A1,U+00B0,U+00B7,U+00BF,U+00C0-00D6,U+00D8-00F6,U+00F8-00
 # (Vietnamese, IPA, historic Latin) is genuinely unused here.
 LATIN_EXT="U+20B2,U+2192"
 
-for family in bricolage-grotesque onest; do
+for family in schibsted-grotesk source-sans-3; do
   pyftsubset "$FONTS/${family}-latin.woff2" \
     --output-file="$FONTS/${family}-latin.woff2" \
     --flavor=woff2 --unicodes="$LATIN" \

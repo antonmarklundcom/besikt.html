@@ -3,6 +3,8 @@
 Två fristående skisser för en ny startsida med budskapet "få offert från upp till 3 besiktningsmän".
 Samma bilder i båda. Skisserna ingår inte i release-paketet (mappen saknar `index.php`).
 
+**2026-10-20:** Anton valde design A (Vit). Den är inbyggd i sajten; se `docs/DESIGN-VIT-2026-10-20.md`.
+
 - `design-a-vit.html` – vit bakgrund, blå logga, grön CTA. Rubriker Schibsted Grotesk, brödtext Source Sans 3.
 - `design-b-salvia.html` – ljus salviagrön bas, mörkgrön logga, gul/orange CTA. Rubriker Archivo, brödtext Public Sans.
 

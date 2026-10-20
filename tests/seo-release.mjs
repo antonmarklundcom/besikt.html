@@ -84,6 +84,9 @@ try {
   await page.setViewportSize({width:390,height:900});await page.goto(base+'/');
   await page.locator('[data-nav-toggle]').click();assert.equal(await page.locator('[data-nav-toggle]').getAttribute('aria-expanded'),'true');
   await page.locator('.nav-drawer-cta .btn--primary').click();assert.equal(await page.locator('[data-nav-toggle]').getAttribute('aria-expanded'),'false');
+  // Homepage form has three steps: pick a service, give a place, then contact details.
+  await page.locator('.tile').first().click();await page.locator('[name="location"]').fill('Stockholm');
+  await page.locator('[data-step]:not([hidden]) [data-step-next]').click();
   await page.locator('[name="name"]').focus();assert.ok(await page.locator('body').evaluate(b=>b.classList.contains('form-focus')));
   await page.goto(base+'/kontakt/?tjanst=takbesiktning');assert.equal(await page.locator('input[name="service"]').inputValue(),'takbesiktning');
   const nojs=await browser.newContext({javaScriptEnabled:false});const p=await nojs.newPage();

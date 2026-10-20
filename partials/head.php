@@ -49,12 +49,12 @@ $htmlLang    = $page['lang'] ?? market_locale();
 <meta property="og:image" content="<?= e(seo_og_image($page)) ?>">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Keep in step with --ink in assets/css/site.css. -->
-<meta name="theme-color" content="#10263A">
+<!-- Keep in step with --bg in assets/css/site.css (white header). -->
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="<?= e(asset('/assets/img/favicon.svg')) ?>" type="image/svg+xml">
 
-<link rel="preload" href="<?= e(asset('/assets/fonts/onest-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?= e(asset('/assets/fonts/bricolage-grotesque-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= e(asset('/assets/fonts/source-sans-3-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= e(asset('/assets/fonts/schibsted-grotesk-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="<?= e(asset('/assets/css/site.css')) ?>">
 
 <?php foreach (seo_jsonld($page) as $block): ?>

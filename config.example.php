@@ -33,7 +33,7 @@ return [
     'CF_EMAIL_TOKEN' => '',
     'RESEND_API_KEY' => '',
     'LEAD_NOTIFY_TO' => '',                       // t.ex. 'leads@besiktningsmannen.se'
-    'LEAD_FROM'      => '',                       // t.ex. 'Besiktningsmannen <no-reply@besiktningsmannen.se>'
+    'LEAD_FROM'      => '',                       // t.ex. 'Besiktningsmännen <no-reply@besiktningsmannen.se>'
 
     // Analytics. assets/js/analytics.js is a no-op until GA4_ID is set.
     'GA4_ID' => '',

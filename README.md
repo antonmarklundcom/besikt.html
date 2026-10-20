@@ -4,6 +4,8 @@ Swedish inspection enquiry site, plain PHP/static assets, intended for Hostinger
 
 **10 October 2026:** the completed SEO/content build is integrated with `main`: 14 services, 13 guides, 35 indexable pages and 13 relevant legacy redirects. Anton handles Hostinger deployment. See the [main release and current package](docs/MAIN-RELEASE-2026-10-10.md) and the [20 completed improvements](docs/SEO-RELEASE-2026-10-10.md).
 
+**20 October 2026:** brand is **Besiktningsmännen** (domain unchanged) and the site uses design "Vit": white header and light page heroes, green action colour, Schibsted Grotesk + Source Sans 3 (self-hosted), realistic AI photos labelled as AI, and a three-step quote form on the homepage (`partials/lead-steps.php`, `assets/js/lead-steps.js`). All 35 indexable URLs are unchanged. See [design and SEO notes](docs/DESIGN-VIT-2026-10-20.md).
+
 Phone: **+46 73 633 38 75**. Public contact is phone/form; no company contact email is displayed. Visitor email is optional. Pixels/GTM are not connected. Enquiries save privately when the optional CRM is unconfigured; Anton will supply the Swedish CRM later.
 
 ## Source and content

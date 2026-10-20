@@ -2,11 +2,19 @@
 declare(strict_types=1);
 return [
     '/' => [
-        'title' => 'Besiktningsman i Stockholm',
-        'description' => 'Begär offert på överlåtelsebesiktning, badrum, fuktutredning, slutbesiktning eller BRF i Stockholm. Ange tjänst och kommun i formuläret.',
-        'h1' => 'Besiktningsman i Stockholm',
+        'title' => 'Besiktningsman i Stockholm – 3 offerter | Besiktningsmännen',
+        'description' => 'Få offert från upp till 3 besiktningsmän i Stockholm. Husbesiktning, lägenhet, badrum, fukt och BRF. Kostnadsfritt och utan förpliktelse.',
+        'h1' => 'Få offert från upp till 3 besiktningsmän i Stockholm',
         'lead' => '',
         'faq' => [
+            [
+                'q' => 'Kostar det något att begära offert?',
+                'a' => 'Nej. Det är kostnadsfritt att skicka en förfrågan och du förbinder dig inte till något.',
+            ],
+            [
+                'q' => 'Hur många besiktningsmän hör av sig?',
+                'a' => 'Upp till tre, beroende på vilken typ av uppdrag det är och var bostaden ligger. Du jämför offerterna och väljer själv om du vill boka.',
+            ],
             [
                 'q' => 'Vad avgör priset på en besiktning?',
                 'a' => 'Typ av uppdrag, fastighetens storlek, underlag och resor påverkar offerten. Be om omfattning och eventuella tillägg innan du bokar.',
@@ -148,21 +156,21 @@ return [
         'priority' => '0.7',
     ],
     '/om-oss/' => [
-        'title' => 'Om Besiktningsmannen – offertförmedling',
-        'description' => 'Besiktningsmannen.se förmedlar offertförfrågningar om besiktning. Läs om sajtens operatör och vad du bör stämma av innan du beställer ett uppdrag.',
-        'h1' => 'Om Besiktningsmannen',
-        'lead' => 'En väg till en offert på besiktning av hus, badrum, entreprenad eller BRF.',
+        'title' => 'Om Besiktningsmännen – offerter från besiktningsmän',
+        'description' => 'Besiktningsmännen matchar din förfrågan med upp till tre besiktningsmän. Läs om sajtens operatör och vad du bör stämma av innan du beställer.',
+        'h1' => 'Om Besiktningsmännen',
+        'lead' => 'En förfrågan, upp till tre offerter på besiktning av hus, badrum, entreprenad eller BRF.',
         'sections' => [
             [
                 'h2' => 'Så fungerar sajten',
                 'body' => [
-                    'Besiktningsmannen.se drivs av Marklund Sales & Marketing AB och förmedlar offertförfrågningar. Ange vilken hjälp du söker och i vilken kommun.',
+                    'Besiktningsmännen (besiktningsmannen.se) drivs av Marklund Sales & Marketing AB. Du beskriver ditt ärende en gång, och vi förmedlar förfrågan till upp till tre besiktningsmän som tar den typen av uppdrag i ditt område. Du jämför offerterna och väljer själv.',
                 ],
             ],
             [
                 'h2' => 'Utföraren och uppdraget',
                 'body' => [
-                    'Besiktningsuppdrag förmedlas till en SBR/KIWA-certifierad samarbetspartner. Be om aktuellt certifikat och kontrollera vilken typ av besiktning det omfattar. KA-uppdrag och andra konsultuppdrag behöver rätt kompetens för sin särskilda roll.',
+                    'Besiktningsuppdrag förmedlas till samarbetande besiktningsmän och besiktningsföretag. Be varje utförare om aktuellt certifikat och kontrollera vilken typ av besiktning det omfattar. KA-uppdrag och andra konsultuppdrag behöver rätt kompetens för sin särskilda roll.',
                     'Kontrollera utförarens erfarenhet, relevanta behörigheter och ansvarsförsäkring inför beställningen. Offerten ska beskriva uppdragets omfattning, pris och villkor.',
                 ],
             ],
@@ -188,14 +196,14 @@ return [
     ],
     '/integritetspolicy/' => [
         'title' => 'Integritetspolicy',
-        'description' => 'Så behandlar Besiktningsmannen personuppgifterna du lämnar i formuläret, vem som får del av dem och hur du begär utdrag, rättelse eller radering.',
+        'description' => 'Så behandlar Besiktningsmännen personuppgifterna du lämnar i formuläret, vem som får del av dem och hur du begär utdrag, rättelse eller radering.',
         'h1' => 'Integritetspolicy',
         'lead' => 'Gäller personuppgifter som lämnas via besiktningsmannen.se.',
         'sections' => [
             [
                 'h2' => 'Personuppgiftsansvarig',
                 'body' => [
-                    'Besiktningsmannen.se drivs av Marklund Sales & Marketing AB, som är personuppgiftsansvarig för de uppgifter du lämnar på webbplatsen.',
+                    'Besiktningsmännen (besiktningsmannen.se) drivs av Marklund Sales & Marketing AB, som är personuppgiftsansvarig för de uppgifter du lämnar på webbplatsen.',
                 ],
             ],
             [
@@ -214,7 +222,7 @@ return [
             [
                 'h2' => 'Vem som får del av uppgifterna',
                 'body' => [
-                    'Uppgifter som behövs för förfrågan kan lämnas till en relevant utförare för kontakt och offert. Förmedlingen kan vara en del av ett kommersiellt samarbete. Utföraren ansvarar för sin fortsatta behandling enligt sina villkor.',
+                    'Uppgifter som behövs för förfrågan lämnas till upp till tre relevanta utförare för kontakt och offert. Förmedlingen kan vara en del av ett kommersiellt samarbete. Utföraren ansvarar för sin fortsatta behandling enligt sina villkor.',
                     'Hosting och eventuella senare administrativa system behandlar uppgifter enligt sina roller. Förfrågningar sparas i ett skyddat register på webbservern tills ett kundregister är anslutet. Uppgifterna används inte för fristående marknadsföring genom denna webbplats.',
                 ],
             ],
@@ -253,14 +261,14 @@ return [
     ],
     '/for-besiktningsforetag/' => [
         'title' => 'För besiktningsföretag',
-        'description' => 'Är du besiktningsman eller byggkonsult? Lämna en kontaktförfrågan till Besiktningsmannen om tjänster och områden. Samarbetsvillkor avtalas separat.',
+        'description' => 'Är du besiktningsman eller byggkonsult? Lämna en kontaktförfrågan till Besiktningsmännen om tjänster och områden. Samarbetsvillkor avtalas separat.',
         'h1' => 'För besiktningsföretag',
         'lead' => 'Beskriv era tjänster, erfarenhet och geografiska områden via kontaktformuläret.',
         'sections' => [
             [
                 'h2' => 'Kontakt om samarbete',
                 'body' => [
-                    'Besiktningsmannen.se förmedlar offertförfrågningar. Beskriv vilka typer av uppdrag ert företag tar, arbetsområde och relevant kompetens. Ett samarbete behöver avtalas separat; sidan är ingen beställning av förfrågningar.',
+                    'Besiktningsmännen förmedlar offertförfrågningar till upp till tre utförare per ärende. Beskriv vilka typer av uppdrag ert företag tar, arbetsområde och relevant kompetens. Ett samarbete behöver avtalas separat; sidan är ingen beställning av förfrågningar.',
                 ],
                 'links' => [
                     [
@@ -285,14 +293,14 @@ return [
     ],
     '/villkor/' => [
         'title' => 'Villkor för offertförfrågan',
-        'description' => 'Villkor för att begära offert via Besiktningsmannen. Förfrågan innebär ingen bokning. Utförare, pris, omfattning och avtal stäms av före beställning.',
+        'description' => 'Villkor för att begära offert via Besiktningsmännen. Förfrågan innebär ingen bokning. Utförare, pris, omfattning och avtal stäms av före beställning.',
         'h1' => 'Villkor för offertförfrågan',
         'lead' => 'Du beställer inget uppdrag genom att skicka webbformuläret.',
         'sections' => [
             [
                 'h2' => 'Förfrågan och förmedling',
                 'body' => [
-                    'Webbplatsen drivs av Marklund Sales & Marketing AB och förmedlar förfrågningar om besiktning och byggrelaterade konsultuppdrag. Du lämnar uppgifter så att ärendet kan stämmas av med en relevant utförare.',
+                    'Webbplatsen drivs av Marklund Sales & Marketing AB och förmedlar förfrågningar om besiktning och byggrelaterade konsultuppdrag. Du lämnar uppgifter så att ärendet kan stämmas av med upp till tre relevanta utförare.',
                 ],
                 'links' => [
                     [

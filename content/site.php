@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 return [
     // --- identity -----------------------------------------------------------
-    'name'   => 'Besiktningsmannen',
+    'name'   => 'Besiktningsmännen',
     'domain' => 'besiktningsmannen.se',
     'slug'   => 'besiktningsmannen',
     'market' => 'se',
@@ -40,7 +40,7 @@ return [
     // Den som driver sajten och är personuppgiftsansvarig (integritetspolicyn).
     'legalName'   => 'Marklund Sales & Marketing AB',
     'orgNumber'   => null,                       // org.nr — fylls i när Anton bekräftar
-    'description' => 'Besiktningsmannen förmedlar offertförfrågningar om husbesiktning, badrum, '
+    'description' => 'Besiktningsmännen matchar dig med upp till tre besiktningsmän för husbesiktning, badrum, '
                    . 'fukt, entreprenader och BRF i Stockholms län.',
 
     // --- contact ------------------------------------------------------------

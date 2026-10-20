@@ -14,3 +14,9 @@ These depend on external facts/access rather than additional local coding:
 8. **Independent recovery:** committed source is published to GitHub main, including optimized images. GitHub excludes private configuration, customer records and original media stored on E:. Those need their own protected recovery copies. Portable manuals are deliberate captures, not live synchronization. No relocation/broad backup/deletion occurred.
 
 B2B commercial terms are not advertised: supplier page is unlinked/noindex/out of sitemap. Privacy/terms disclose mediation and potential provider forwarding, without invented lead prices, exclusivity or guarantees.
+
+## Added 20 October 2026 (design "Vit", brand Besiktningsmännen)
+
+9. **Up to three providers:** the site now promises that a request goes to "upp till tre besiktningsmän". Privacy policy, terms, about page and form note say the same. Lead routing still delivers to one place (log/CRM), so forwarding to up to three providers, and agreements with them, must exist before launch. Each provider's certificate and insurance must be checked; the about page no longer claims one SBR/KIWA-certified partner for every assignment.
+10. **Free and no obligation:** "Kostnadsfritt" and "Utan förpliktelse" are shown in the hero, strip, FAQ and CTA band. Confirm both stay true for the visitor.
+11. **Brand name:** titles, schema and logo read "Besiktningsmännen" while the domain stays besiktningsmannen.se. Search Console and any future Google Business Profile should use the same name.

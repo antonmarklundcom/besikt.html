@@ -43,7 +43,7 @@ return [
         'open_menu'    => 'Öppna menyn',
         'close_menu'   => 'Stäng menyn',
         'skip'         => 'Hoppa till innehållet',
-        'firm'         => 'Besiktningsmannen',
+        'firm'         => 'Besiktningsmännen',
         'all_services' => 'Se alla tjänster',
     ],
 
@@ -70,23 +70,55 @@ return [
     ],
 
     'home' => [
-        'eyebrow'   => 'Besiktning av hus, badrum och BRF',
-        'h1_lead'   => 'Besiktningsman ',
-        'h1_accent' => 'i Stockholm',
-        'lead'      => 'Hus, badrum, fukt och BRF. Beskriv ditt ärende och begär offert på besiktning.',
-        'trust' => ['Beskriv ärendet och önskat område', 'Ta ställning till offert innan du bokar'],
+        'eyebrow'   => 'Besiktning i Stockholms län',
+        'lead'      => 'Berätta vad som ska besiktigas. Vi matchar dig med upp till tre besiktningsmän som tar uppdrag i ditt område, så jämför du pris och upplägg innan du bestämmer dig.',
+        'trust'     => ['Kostnadsfritt', 'Utan förpliktelse', 'Du väljer själv'],
+
+        'hero_note_title' => 'En förfrågan, upp till 3 offerter',
+        'hero_note_text'  => 'Jämför pris, omfattning och när protokollet levereras.',
+        'ai_label'        => 'AI-genererad bild',
+
+        'strip' => [
+            ['title' => 'Upp till 3 offerter', 'text' => 'Från besiktningsmän i ditt område'],
+            ['title' => 'Kostnadsfritt för dig', 'text' => 'Inga avgifter för att begära offert'],
+            ['title' => 'Hela Stockholms län', 'text' => 'Villa, bostadsrätt, BRF och nybygge'],
+        ],
 
         'services_eyebrow' => 'Tjänster',
-        'services_title'   => 'Vad behöver besiktigas?',
-        'services_lead'    => 'Välj det som liknar ditt ärende. Osäker? Skriv några rader i formuläret, '
-                            . 'så föreslår vi rätt typ av besiktning.',
+        'services_title'   => 'Vad behöver du hjälp med?',
+        'services_lead'    => 'Läs mer om varje typ av besiktning, eller välj direkt i formuläret ovan.',
+        'services_more'    => 'Fler tjänster',
+        'services_go'      => 'Läs mer',
+        'cards' => [
+            'overlatelsebesiktning' => 'Inför köp eller försäljning av hus. Husets synliga skick och risker dokumenteras.',
+            'lagenhetsbesiktning'   => 'För dig som köper bostadsrätt eller vill kontrollera en renoverad lägenhet.',
+            'badrumsbesiktning'     => 'Kontroll av nyrenoverat badrum eller våtrum inför köp.',
+            'fuktutredning'         => 'När fukt eller mögel återkommer eller orsaken är oklar.',
+            'fuktmatning'           => 'Mätning av fukt i ett visst material eller utrymme.',
+            'takbesiktning'         => 'Takets skick inför underhåll eller takbyte.',
+            'statusbesiktning'      => 'En samlad bild av husets skick innan du planerar renovering.',
+            'brf'                   => 'Tekniskt underlag för styrelser och förvaltare.',
+        ],
 
         'unsure_title' => 'Vet du inte vilken besiktning du behöver?',
-        'unsure_text'  => 'Beskriv bostaden och vad som har hänt. Vi svarar med ett förslag och ett pris.',
+        'unsure_text'  => 'Välj "Något annat" i formuläret och beskriv bostaden och vad som har hänt. Vi hjälper dig att hitta rätt typ av besiktning.',
+
+        'compare_eyebrow' => 'Jämför rätt',
+        'compare_title'   => 'Fem saker att jämföra i offerterna',
+        'compare_lead'    => 'Priset säger lite om du inte vet vad som ingår. Ställ offerterna bredvid varandra och titta på det här.',
+        'compare_items'   => [
+            ['title' => 'Omfattning', 'text' => 'Vilka utrymmen ingår, till exempel vind, krypgrund och tak.'],
+            ['title' => 'Metod', 'text' => 'Okulär besiktning eller även fuktmätning och provtagning.'],
+            ['title' => 'Protokoll', 'text' => 'Hur utlåtandet ser ut och när du får det.'],
+            ['title' => 'Behörighet och försäkring', 'text' => 'Fråga efter certifiering och ansvarsförsäkring.'],
+            ['title' => 'Totalpris', 'text' => 'Inklusive moms, resa och eventuella tillägg.'],
+        ],
+        'compare_cta'     => 'Få offerter att jämföra',
+        'compare_guide'   => 'Läs guiden: så jämför du besiktningsofferter',
 
         'area_eyebrow' => 'Område',
-        'area_title'   => 'Besiktning i ditt område',
-        'area_text' => 'Ange ort eller kommun i förfrågan. Vi stämmer av vem som kan ta uppdraget och vilka resevillkor som gäller innan du bokar.',
+        'area_title'   => 'Besiktning i hela Stockholms län',
+        'area_text' => 'Ange ort eller kommun i förfrågan, så går den till besiktningsmän som tar uppdrag där. Resevillkor ska framgå av offerten innan du bokar.',
 
         'prices_eyebrow' => 'Priser',
         'prices_title'   => 'Pris utifrån ditt uppdrag',
@@ -94,9 +126,38 @@ return [
                           . 'Be om omfattning, pris och eventuella tillägg i offerten.',
         'prices_cta'     => 'Se priser',
 
-        'faq_title' => 'Vanliga frågor om besiktning',
-        'form_title' => 'Begär offert',
-        'form_lead' => 'Beskriv ärendet. Förfrågan innebär ingen bokning.',
+        'guides_eyebrow' => 'Guider',
+        'faq_title' => 'Vanliga frågor',
+        'final_title' => 'Redo att jämföra?',
+        'final_text'  => 'En förfrågan, upp till 3 offerter. Kostnadsfritt och utan förpliktelse.',
+        'final_cta'   => 'Få offerter nu',
+        'mobile_cta'  => 'Få offerter',
+
+        /* Flerstegsformuläret i hjälten (partials/lead-steps.php). */
+        'form' => [
+            'title'      => 'Begär offerter',
+            'step_label' => 'Steg %d av %d',
+            'step1'      => 'Vad behöver besiktigas?',
+            'step2'      => 'Var och när?',
+            'step3'      => 'Vart ska offerterna skickas?',
+            'options'    => [
+                'overlatelsebesiktning' => 'Hus inför köp eller försäljning',
+                'lagenhetsbesiktning'   => 'Lägenhet / bostadsrätt',
+                'badrumsbesiktning'     => 'Badrum eller våtrum',
+                'fuktutredning'         => 'Fukt eller mögel',
+                'takbesiktning'         => 'Tak',
+                'statusbesiktning'      => 'Husets skick (status)',
+                'slutbesiktning'        => 'Nybygge eller renovering',
+                'brf'                   => 'BRF eller fastighet',
+                'annat'                 => 'Något annat',
+            ],
+            'next'       => 'Fortsätt',
+            'back'       => 'Tillbaka',
+            'submit'     => 'Skicka och få offerter',
+            'micro'      => 'Tar ungefär en minut · Kostnadsfritt',
+            'location_hint' => 'T.ex. Nacka',
+            'message_hint'  => 'T.ex. 1970-talsvilla, tillträde i maj',
+        ],
     ],
 
     'panel' => [
@@ -114,31 +175,31 @@ return [
     'about' => [
         'eyebrow' => 'Varför oss',
         'title'   => 'Ett tydligt underlag för din besiktning.',
-        'text' => 'Besiktningsmannen.se förmedlar förfrågningar. Uppdragets omfattning, utförare och villkor ska framgå av offerten innan du beställer.',
+        'text' => 'Besiktningsmännen förmedlar din förfrågan till upp till tre besiktningsmän. Uppdragets omfattning, utförare och villkor ska framgå av offerten innan du beställer.',
         'credentials' => ['Tydlig beskrivning av uppdraget', 'Offertens omfattning och villkor före bokning'],
         'badge_note'     => 'i branschen',
         'badge_fallback' => 'Besiktning',
     ],
 
     'process' => [
-        'eyebrow' => 'Så går det till',
-        'title'   => 'Från förfrågan till protokoll – fyra steg.',
+        'eyebrow' => 'Så funkar det',
+        'title'   => 'Från förfrågan till protokoll',
         'steps'   => [
             [
                 'title' => 'Du beskriver ärendet',
-                'text'  => 'Fyll i formuläret: vad som ska besiktigas, var och när.',
+                'text'  => 'Vad som ska besiktigas, var bostaden ligger och hur vi når dig. Det tar ungefär en minut.',
             ],
             [
-                'title' => 'Du får en offert',
-                'text'  => 'Omfattning, pris och möjlig tid stäms av i offerten.',
+                'title' => 'Vi matchar dig',
+                'text'  => 'Förfrågan går till upp till tre besiktningsmän som tar den typen av uppdrag i ditt område.',
             ],
             [
-                'title' => 'Besiktning på plats',
-                'text'  => 'Utföraren genomför de kontroller som beställts och dokumenterar iakttagelserna.',
+                'title' => 'Du jämför och väljer',
+                'text'  => 'Omfattning, pris och tid framgår av offerterna. Du bestämmer själv om och vem du anlitar.',
             ],
             [
-                'title' => 'Protokoll och genomgång',
-                'text'  => 'Du får ett skriftligt protokoll och kan ställa frågor om resultatet.',
+                'title' => 'Besiktning och protokoll',
+                'text'  => 'Utföraren gör de kontroller du beställt och dokumenterar iakttagelserna i ett protokoll.',
             ],
         ],
     ],
@@ -173,8 +234,8 @@ return [
 
     'cta_band' => [
         'eyebrow' => 'Offert',
-        'title'   => 'Få en offert för ditt uppdrag.',
-        'lead'    => 'Ange tjänst och kommun. Förfrågan innebär ingen bokning.',
+        'title'   => 'Få offert från upp till tre besiktningsmän.',
+        'lead'    => 'Ange tjänst och kommun. Kostnadsfritt, och förfrågan innebär ingen bokning.',
     ],
 
     'form' => [
@@ -208,6 +269,13 @@ return [
             'annat'       => 'Annat',
         ],
         'date'            => 'Önskat datum (valfritt)',
+        'timing'          => 'När?',
+        'timing_options'  => [
+            'snarast'   => 'Så snart som möjligt',
+            '2-veckor'  => 'Inom 2 veckor',
+            'manad'     => 'Inom en månad',
+            'flexibel'  => 'Jag är flexibel',
+        ],
         'phone'           => 'Telefon',
         'phone_hint'      => 'T.ex. 070-123 45 67',
         'email'           => 'E-post (valfritt)',
@@ -217,7 +285,7 @@ return [
         'submit'          => 'Begär offert',
         'sending'         => 'Skickar …',
         'privacy_note'    => 'Vi använder dina uppgifter för att besvara förfrågan och lämnar dem till '
-                           . 'en besiktningsman för att hantera din offertförfrågan. Läs mer i vår',
+                           . 'upp till tre besiktningsmän som kan lämna offert. Läs mer i vår',
         'success_title'   => 'Tack! Vi har fått din förfrågan.',
         'success_text'    => 'Vi följer upp förfrågan och stämmer av vad du behöver.',
         'error_title'     => 'Förfrågan kunde inte skickas.',

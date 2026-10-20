@@ -1,0 +1,92 @@
+# Keyword Planner seeds, 2026-10-20 (Besiktningsmännen)
+#
+# Where: Google Ads > Tools > Keyword Planner > "Get search volume and forecasts"
+#        (paste these exact phrases; not "Discover new keywords").
+# Run A: location Sweden. Run B: location Stockholms län. Run both with everything else the same.
+# Language: Swedish. Network: Google Search only.
+# Date range: the last 12 complete months, compared with the previous year.
+# Export: "Historical metrics" CSV with the monthly breakdown on. It should have
+#   Avg. monthly searches, the 12 monthly columns, Three month change, YoY change,
+#   Competition, Competition (indexed value), and Top of page bid (low/high).
+# Use the same Ads account as last time, so volumes come out as exact numbers, not ranges.
+# Save the CSVs in docs/kwp/ with the date and the run (A or B) in the filename.
+
+# --- Local (Run B is the important one) ---
+besiktningsman nacka
+besiktningsman täby
+besiktningsman huddinge
+besiktningsman solna
+besiktningsman södertälje
+besiktningsman sollentuna
+besiktningsman järfälla
+besiktningsman lidingö
+besiktningsman danderyd
+besiktningsman värmdö
+besiktningsman tyresö
+besiktningsman haninge
+besiktningsman botkyrka
+besiktningsman österåker
+besiktningsman norrtälje
+besiktningsman upplands väsby
+besiktningsman bromma
+besiktningsman sundbyberg
+husbesiktning nacka
+husbesiktning täby
+husbesiktning huddinge
+husbesiktning solna
+husbesiktning södertälje
+husbesiktning sollentuna
+överlåtelsebesiktning nacka
+överlåtelsebesiktning täby
+överlåtelsebesiktning huddinge
+överlåtelsebesiktning solna
+överlåtelsebesiktning södertälje
+överlåtelsebesiktning sollentuna
+
+# --- Price ---
+överlåtelsebesiktning kostnad
+husbesiktning kostnad
+lägenhetsbesiktning pris
+badrumsbesiktning pris
+fuktutredning kostnad
+takbesiktning pris
+kontrollansvarig kostnad
+besiktning radhus pris
+besiktningsman timpris
+
+# --- Compare / quote (the "up to 3 quotes" pitch) ---
+besiktningsfirma
+besiktningsfirma stockholm
+besiktningsföretag stockholm
+besiktningsman offert
+offert husbesiktning
+jämför besiktning
+jämför besiktningsman
+flera offerter besiktning
+billig besiktningsman
+bästa besiktningsman
+besiktningsman omdömen
+
+# --- Brands (own and competitors) ---
+besiktningsmännen
+besiktningsmannen
+anticimex husbesiktning
+dekra husbesiktning
+offerta besiktning
+servicefinder besiktningsman
+
+# --- Questions ---
+vad ingår i en överlåtelsebesiktning
+hur lång tid tar en husbesiktning
+vem betalar besiktningen
+ska man besikta hus innan köp
+dolda fel hus
+undersökningsplikt köpare
+
+# --- Expansion (Run A only) ---
+besiktningsman uppsala
+besiktningsman göteborg
+besiktningsman malmö
+besiktningsman västerås
+husbesiktning göteborg
+husbesiktning malmö
