@@ -78,7 +78,7 @@ return [
                 'h2' => 'Besiktning av villa och fritidshus',
                 'body' => [
                     'Besiktning av villa, ofta kallad villabesiktning, utgår från husets byggår, grund och skick. Ett fritidshus har ofta andra förutsättningar, till exempel för uppvärmning, vatten och avlopp, så besiktning av fritidshus bör anpassas efter hur huset används.',
-                    'Gäller det besiktning gammalt hus tar äldre material och tidigare ombyggnader ofta mer tid att reda ut. Vill du gå djupare än en vanlig genomgång kan du fråga efter en utökad besiktning, där extra moment som fuktmätning avtalas i förväg.',
+                    'Vid besiktning av ett gammalt hus tar äldre material och tidigare ombyggnader ofta mer tid att reda ut. Vill du gå djupare än en vanlig genomgång kan du fråga efter en utökad besiktning, där extra moment som fuktmätning avtalas i förväg.',
                 ],
             ],
         ],
@@ -114,15 +114,32 @@ return [
         'guides' => [
             'infor-husbesiktning',
             'jamfora-besiktningsoffert',
+            'undersokningsplikt',
+            'dolda-fel-hus',
         ],
         'articles' => [
 
         ],
         'toolLinks' => [
             [
-                'path' => '/priser/',
-                'label' => 'Se alla priser på besiktning',
-                'text' => 'Ungefärliga prisnivåer för alla typer av besiktning i Stockholms län.',
+                'path' => '/husbesiktning/pris/',
+                'label' => 'Vad kostar en husbesiktning?',
+                'text' => 'Se ungefärliga prisnivåer för villa, radhus och fritidshus.',
+            ],
+            [
+                'path' => '/husbesiktning/uppsala/',
+                'label' => 'Husbesiktning i Uppsala',
+                'text' => 'Få offert från upp till tre besiktningsmän i Uppsala.',
+            ],
+            [
+                'path' => '/husbesiktning/goteborg/',
+                'label' => 'Husbesiktning i Göteborg',
+                'text' => 'Få offert från upp till tre besiktningsmän i Göteborg.',
+            ],
+            [
+                'path' => '/husbesiktning/malmo/',
+                'label' => 'Husbesiktning i Malmö',
+                'text' => 'Få offert från upp till tre besiktningsmän i Malmö.',
             ],
         ],
         'lastReviewed' => '2026-10-20',
@@ -232,6 +249,8 @@ return [
         'guides' => [
             'infor-husbesiktning',
             'jamfora-besiktningsoffert',
+            'besiktningsklausul',
+            'undersokningsplikt',
         ],
         'articles' => [
 
@@ -347,6 +366,7 @@ return [
         'guides' => [
             'infor-husbesiktning',
             'reklamera-renovering',
+            'undersokningsplikt',
         ],
         'articles' => [
 
@@ -443,6 +463,7 @@ return [
         ],
         'guides' => [
             'underhallsplan-checklista',
+            'dolda-fel-hus',
         ],
         'articles' => [
 
@@ -656,6 +677,7 @@ return [
         ],
         'guides' => [
             'tecken-pa-fukt',
+            'fukt-i-krypgrund',
         ],
         'articles' => [
 
@@ -759,6 +781,7 @@ return [
         ],
         'guides' => [
             'tecken-pa-fukt',
+            'fukt-i-krypgrund',
         ],
         'articles' => [
 

@@ -117,6 +117,216 @@ return [
         'changefreq' => 'monthly',
         'priority' => '0.8',
     ],
+    '/husbesiktning/uppsala/' => [
+        'title' => 'Husbesiktning i Uppsala',
+        'description' => 'Husbesiktning i Uppsala: beskriv huset i ett formulär och få offerter från upp till 3 besiktningsmän. Jämför och välj själv. Gratis att fråga.',
+        'h1' => 'Husbesiktning i Uppsala – jämför upp till 3 offerter',
+        'lead' => 'Ska du köpa eller sälja hus i Uppsala? Fyll i ett formulär så skickas din förfrågan till upp till tre besiktningsmän som tar uppdrag i området. Du jämför offerterna och väljer själv.',
+        'sections' => [
+            [
+                'h2' => 'Besiktningsman i Uppsala',
+                'body' => [
+                    'Du beskriver huset en gång: ort, byggnadstyp, ungefärlig storlek och när du vill ha besiktningen. Förfrågan går till upp till tre besiktningsmän som tar uppdrag i Uppsala, och de skickar var sin offert.',
+                    'Det är du som jämför. Läs vad varje offert omfattar, till exempel om grund, vind och våtrum ingår och hur rapporten redovisas, och välj den besiktningsman som passar dig. Du är inte bunden av att fråga.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning'],
+                ],
+            ],
+            [
+                'h2' => 'Hus och mark i Uppsala: det kan vara bra att känna till',
+                'body' => [
+                    'Runt Uppsala ligger staden på en lerslätt där berg- och moränkullar sticker upp, och SGU:s jordartskartor visar postglacial och glacial lera i stora delar av omgivningarna. I många områden består marken alltså av lera, i andra av morän eller sand och grus. Marktypen påverkar hur grunden är byggd och hur vatten tar sig runt huset.',
+                    'Krypgrund och källare finns i många äldre hus. Där kan fukt, ventilation och dränering vara viktiga punkter att få bedömda. Vilka frågor som är aktuella för just ditt hus beror på byggår, grund och skick, så beskriv gärna dessa när du ber om offert.',
+                ],
+            ],
+            [
+                'h2' => 'Vad kostar en husbesiktning i Uppsala?',
+                'body' => [
+                    'Priset beror bland annat på husets storlek, byggnadstyp och vad besiktningen ska omfatta. De prisnivåer vi visar på sajten är uppskattningar och inte fasta priser. Det pris som gäller är det som står i offerten du får från besiktningsmannen.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/pris/', 'label' => 'Vad kostar en husbesiktning?'],
+                ],
+            ],
+            [
+                'h2' => 'Besikta hus innan köp i Uppsala',
+                'body' => [
+                    'Som köpare har du enligt jordabalken en undersökningsplikt. Det innebär att du inte kan åberopa fel som du borde ha upptäckt vid en noggrann undersökning före köpet. En husbesiktning är ett vanligt sätt att göra den undersökningen, och den görs oftast efter att du har sett huset men innan du skriver på avtalet.',
+                    'Ta med dig besiktningsprotokollet i förhandlingen och i beslutet om du ska gå vidare. Är det mycket du behöver få bedömt kan du ange det i förfrågan.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning vid husköp'],
+                ],
+            ],
+            [
+                'h2' => 'Fukt, tak och badrum',
+                'body' => [
+                    'Vill du ha en mer inriktad undersökning finns fuktutredning, takbesiktning och badrumsbesiktning. De tjänsterna erbjuds i dag främst i Stockholms län, medan den här sidan handlar om husbesiktning i Uppsala.',
+                ],
+                'links' => [
+                    ['path' => '/fuktutredning/', 'label' => 'Fuktutredning'],
+                    ['path' => '/takbesiktning/', 'label' => 'Takbesiktning'],
+                    ['path' => '/badrumsbesiktning/', 'label' => 'Badrumsbesiktning'],
+                ],
+            ],
+        ],
+        'faq' => [
+            ['q' => 'Hur lång tid tar en husbesiktning i Uppsala?', 'a' => 'Det beror på husets storlek och skick. Besiktningsmannen kan i offerten berätta hur lång tid besöket brukar ta och när rapporten levereras.'],
+            ['q' => 'Vem betalar besiktningsmannen vid husköp?', 'a' => 'Oftast beställer och betalar köparen besiktningen, eftersom det är köparen som har undersökningsplikten. Vem som är beställare ska framgå av offerten.'],
+            ['q' => 'Kan jag vara med på besiktningen?', 'a' => 'Ja, det är vanligt och ofta en fördel. Då kan du ställa frågor på plats och få förklarat det som står i rapporten. Stäm av det med besiktningsmannen i förväg.'],
+        ],
+        'stub' => false,
+        'changefreq' => 'monthly',
+        'priority' => '0.7',
+        'leadForm' => true,
+        'priceService' => 'husbesiktning',
+        'breadcrumbs' => [
+            ['label' => 'Husbesiktning', 'path' => '/husbesiktning/'],
+            ['label' => 'Uppsala', 'path' => '/husbesiktning/uppsala/'],
+        ],
+    ],
+    '/husbesiktning/goteborg/' => [
+        'title' => 'Husbesiktning i Göteborg',
+        'description' => 'Husbesiktning i Göteborg: fyll i ett formulär och jämför offerter från upp till 3 besiktningsmän. Du väljer själv vem som besiktigar huset.',
+        'h1' => 'Husbesiktning i Göteborg – jämför upp till 3 offerter',
+        'lead' => 'Står du i begrepp att köpa hus i Göteborg? Beskriv huset en gång så går förfrågan till upp till tre besiktningsmän som tar uppdrag i området. Du jämför offerterna och bestämmer själv.',
+        'sections' => [
+            [
+                'h2' => 'Besiktningsman i Göteborg',
+                'body' => [
+                    'Du fyller i uppgifter om huset och när du vill ha besiktningen. Förfrågan skickas till upp till tre besiktningsmän som tar uppdrag i Göteborg, och var och en återkommer med en offert.',
+                    'Du jämför offerterna: vad som ingår, hur besiktningen genomförs och hur rapporten ser ut. Sedan väljer du. Att be om offerter förpliktar dig inte till något.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning'],
+                ],
+            ],
+            [
+                'h2' => 'Hus, lera och regn i Göteborg',
+                'body' => [
+                    'I stora delar av Göteborg, särskilt i älvdalen, ligger marken på lera som kan vara flera tiotals meter djup, enligt de geotekniska utredningar som staden och SGU:s jordartskartor bygger på. Lera kan sätta sig, till exempel om grundvattennivån sänks eller marken belastas. Hur det ser ut varierar mycket mellan områden, och många hus står på berg eller fast morän. Det går därför inte att säga något om ett enskilt hus utan att titta på det.',
+                    'Göteborg har ett fuktigt kustklimat med mycket nederbörd. Det ställer krav på fasad, tak, hängrännor och att vatten leds bort från huset. En besiktning går bland annat igenom hur fasad, tak och markavvattning ser ut vid besöket och om det finns tecken på fukt eller sprickor.',
+                ],
+                'links' => [
+                    ['path' => '/takbesiktning/', 'label' => 'Takbesiktning'],
+                ],
+            ],
+            [
+                'h2' => 'Vad kostar en husbesiktning i Göteborg?',
+                'body' => [
+                    'Priset påverkas av husets storlek, byggnadstyp och vad som ska ingå. De prisnivåer vi visar är uppskattningar. Det som gäller är priset i offerten du får, så läs den noga innan du väljer.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/pris/', 'label' => 'Vad kostar en husbesiktning?'],
+                ],
+            ],
+            [
+                'h2' => 'Besikta hus innan köp i Göteborg',
+                'body' => [
+                    'Vid husköp har du som köpare undersökningsplikt enligt jordabalken. Du kan alltså inte i efterhand göra gällande fel som du borde ha upptäckt vid en vanlig, noggrann undersökning före köpet. Husbesiktningen är ett sätt att uppfylla den plikten och att få en bild av husets skick innan du binder dig.',
+                    'Berätta i förfrågan om du är orolig för något särskilt, till exempel sprickor, fukt i källare eller skicket på taket.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning vid husköp'],
+                ],
+            ],
+            [
+                'h2' => 'Fukt, tak och badrum',
+                'body' => [
+                    'Fuktutredning, takbesiktning och badrumsbesiktning är mer inriktade undersökningar. De erbjuds i dag främst i Stockholms län, och den här sidan handlar om husbesiktning i Göteborg.',
+                ],
+                'links' => [
+                    ['path' => '/fuktutredning/', 'label' => 'Fuktutredning'],
+                    ['path' => '/takbesiktning/', 'label' => 'Takbesiktning'],
+                    ['path' => '/badrumsbesiktning/', 'label' => 'Badrumsbesiktning'],
+                ],
+            ],
+        ],
+        'faq' => [
+            ['q' => 'Hur lång tid tar en husbesiktning i Göteborg?', 'a' => 'Det varierar med husets storlek och skick. Fråga besiktningsmannen i offerten hur lång tid besöket tar och när du får rapporten.'],
+            ['q' => 'Vem betalar besiktningen när man köper hus?', 'a' => 'Vanligen betalar köparen, eftersom det är köparen som har undersökningsplikten. Det ska framgå av offerten vem som är beställare.'],
+            ['q' => 'Kan jag vara med vid besiktningen?', 'a' => 'Ja, det går oftast bra och kan vara värdefullt. Du kan ställa frågor på plats. Stäm av med besiktningsmannen innan.'],
+        ],
+        'stub' => false,
+        'changefreq' => 'monthly',
+        'priority' => '0.7',
+        'leadForm' => true,
+        'priceService' => 'husbesiktning',
+        'breadcrumbs' => [
+            ['label' => 'Husbesiktning', 'path' => '/husbesiktning/'],
+            ['label' => 'Göteborg', 'path' => '/husbesiktning/goteborg/'],
+        ],
+    ],
+    '/husbesiktning/malmo/' => [
+        'title' => 'Husbesiktning i Malmö',
+        'description' => 'Husbesiktning i Malmö: skicka en förfrågan och jämför offerter från upp till 3 besiktningsmän. Du väljer själv vem som besiktigar huset.',
+        'h1' => 'Husbesiktning i Malmö – jämför upp till 3 offerter',
+        'lead' => 'Funderar du på att köpa hus i Malmö? Fyll i ett formulär så går din förfrågan till upp till tre besiktningsmän som tar uppdrag i området. Du jämför offerterna och väljer själv.',
+        'sections' => [
+            [
+                'h2' => 'Besiktningsman i Malmö',
+                'body' => [
+                    'Du beskriver huset och när du önskar besiktning. Förfrågan skickas till upp till tre besiktningsmän som tar uppdrag i Malmö, och de skickar var sin offert.',
+                    'Du jämför offerterna och väljer. Titta på vad som ingår, till exempel källare, vind och rapportens utformning. Att fråga kostar ingenting och binder dig inte.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning'],
+                ],
+            ],
+            [
+                'h2' => 'Hus och mark i Malmö: platt landskap och äldre hus',
+                'body' => [
+                    'Marken i Malmö är enligt SGU:s beskrivningar i huvudsak uppbyggd av moränlera, ofta med inslag av sand och silt, och landskapet är platt. I sådan mark är det viktigt att regnvatten och markvatten leds bort från huset, så dränering, marklutning och fuktskydd i grunden är återkommande punkter vid en besiktning.',
+                    'Det finns många äldre hus, en del med källare. Äldre konstruktioner kan ha annorlunda uppbyggnad än nyare hus, och källare kräver särskild uppmärksamhet på fukt. Hur det ser ut i ett enskilt hus beror på byggår och underhåll, så ange gärna byggår när du ber om offert.',
+                ],
+            ],
+            [
+                'h2' => 'Vad kostar en husbesiktning i Malmö?',
+                'body' => [
+                    'Priset beror bland annat på storlek, byggnadstyp och omfattning. De prisnivåer vi visar är uppskattningar och inga fasta priser. Priset i offerten är det som gäller.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/pris/', 'label' => 'Vad kostar en husbesiktning?'],
+                ],
+            ],
+            [
+                'h2' => 'Besikta hus innan köp i Malmö',
+                'body' => [
+                    'Enligt jordabalken har du som köpare undersökningsplikt. Det betyder att du inte kan åberopa sådant som du borde ha sett vid en noggrann undersökning före köpet. Att låta en besiktningsman gå igenom huset är ett vanligt sätt att göra den undersökningen.',
+                    'Besiktningen görs normalt innan du skriver under köpeavtalet, så att du kan ta hänsyn till resultatet i ditt beslut och i prisförhandlingen.',
+                ],
+                'links' => [
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning vid husköp'],
+                ],
+            ],
+            [
+                'h2' => 'Fukt, tak och badrum',
+                'body' => [
+                    'Fuktutredning, takbesiktning och badrumsbesiktning är mer inriktade tjänster. De erbjuds i dag främst i Stockholms län, och den här sidan handlar om husbesiktning i Malmö.',
+                ],
+                'links' => [
+                    ['path' => '/fuktutredning/', 'label' => 'Fuktutredning'],
+                    ['path' => '/takbesiktning/', 'label' => 'Takbesiktning'],
+                    ['path' => '/badrumsbesiktning/', 'label' => 'Badrumsbesiktning'],
+                ],
+            ],
+        ],
+        'faq' => [
+            ['q' => 'Hur lång tid tar en husbesiktning i Malmö?', 'a' => 'Det beror på husets storlek och skick. Besiktningsmannen kan uppge ungefärlig tid för besöket och leverans av rapporten i offerten.'],
+            ['q' => 'Vem betalar besiktningen vid husköp?', 'a' => 'Oftast köparen, som har undersökningsplikten. Kontrollera i offerten vem som är beställare.'],
+            ['q' => 'Får jag vara med under besiktningen?', 'a' => 'Ja, det är vanligt. Då kan du ställa frågor på plats. Stäm av det med besiktningsmannen i förväg.'],
+        ],
+        'stub' => false,
+        'changefreq' => 'monthly',
+        'priority' => '0.7',
+        'leadForm' => true,
+        'priceService' => 'husbesiktning',
+        'breadcrumbs' => [
+            ['label' => 'Husbesiktning', 'path' => '/husbesiktning/'],
+            ['label' => 'Malmö', 'path' => '/husbesiktning/malmo/'],
+        ],
+    ],
     '/priser/' => [
         'title' => 'Vad kostar en besiktning? Prislista',
         'description' => 'Ungefärliga priser på husbesiktning, lägenhet, badrum, fukt, tak och BRF i Stockholm. Jämför prisnivåer och få offert från upp till 3 besiktningsmän.',

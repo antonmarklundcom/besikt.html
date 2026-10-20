@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 return [
     'updated' => '2026-10-20',
-    'note'    => 'Ungefärliga prisnivåer i Stockholms län, inklusive moms. Det faktiska priset sätts av varje besiktningsman och framgår av offerten.',
+    'note'    => 'Ungefärliga prisnivåer inklusive moms. Det faktiska priset sätts av varje besiktningsman och framgår av offerten.',
 
     'services' => [
         'husbesiktning' => [

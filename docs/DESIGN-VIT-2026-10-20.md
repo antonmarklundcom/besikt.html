@@ -70,3 +70,20 @@ We are missing:
 - Searches about comparing quotes and municipality-level searches.
 
 The seed list for the next run is in `docs/kwp/SEEDS-2026-10-20.txt`.
+
+## Keyword implementation, 20 October (later): KWP file "keywords-for-ai_5"
+
+Anton approved the plan built from his Keyword Planner export of 1,305 phrases in 54 meaning groups, national data. Opus split the work, Sonnet 5.5 and Haiku 5.5 sub-agents (medium effort) did most of it, and Opus reviewed and tested the result.
+
+- **Service pages:** the titles and H1s now match the main keyword of their group: husbesiktning ("besiktning av hus"), lägenhet, byggprojektledning and underhållsplan. Eighteen new H2s and several FAQs were added across the service pages.
+- **New pages:**
+  - `/husbesiktning/pris/` (group "besiktning av hus pris", 4,130/mo).
+  - Guides `/guider/undersokningsplikt/`, `/guider/dolda-fel-hus/`, `/guider/besiktningsklausul/`, `/guider/certifierad-besiktningsman/` and `/guider/fukt-i-krypgrund/`.
+  - City pages `/husbesiktning/uppsala/`, `/husbesiktning/goteborg/` and `/husbesiktning/malmo/`. Anton approved these; they need inspectors in those cities, see OPEN-QUESTIONS item 13.
+- **Existing guides:** mögel i hus (symptom) and fuktmätare betongplatta were retitled, and new H2s were added to the badrum, parkett and källare guides.
+- **Skipped on purpose:**
+  - "besiktningsprotokoll" on its own (2,400/mo) and the station names (Vinsta, Högdalen and others), which are car inspection.
+  - Competitor brands.
+  - Municipality pages within the county. Stockholm run B shows only Värmdö at 90/mo; see docs/kwp/2026-10-20-stockholm-hus.md.
+- **Facts:** where an agent could not reach a source, the text was hedged or removed. Krypgrund sources are Boverket. The certification guide says Kiwa (with SBR) certifies överlåtelsebesiktningsmän today; RISE appears only as the issuer on older certificates.
+- **Result:** 46 indexable pages. verify.sh and tests/seo-release.mjs pass, and there is no horizontal overflow at 320–430 px.
