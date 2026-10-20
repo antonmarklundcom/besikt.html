@@ -2,7 +2,7 @@
 declare(strict_types=1);
 return [
     '/' => [
-        'title' => 'Besiktningsman i Stockholm – 3 offerter | Besiktningsmännen',
+        'title' => 'Besiktningsman i Stockholm – få offerter',
         'description' => 'Få offert från upp till 3 besiktningsmän i Stockholm. Husbesiktning, lägenhet, badrum, fukt och BRF. Kostnadsfritt och utan förpliktelse.',
         'h1' => 'Få offert från upp till 3 besiktningsmän i Stockholm',
         'lead' => '',
@@ -13,7 +13,7 @@ return [
             ],
             [
                 'q' => 'Hur många besiktningsmän hör av sig?',
-                'a' => 'Upp till tre, beroende på vilken typ av uppdrag det är och var bostaden ligger. Du jämför offerterna och väljer själv om du vill boka.',
+                'a' => 'Upp till tre. Hur många som återkommer beror på uppdraget, var bostaden ligger och om de har tid. Det kan bli färre, och ibland kan ingen ta uppdraget. Du jämför de offerter du får och väljer själv.',
             ],
             [
                 'q' => 'Vad avgör priset på en besiktning?',
@@ -172,6 +172,10 @@ return [
             ],
         ],
         'faq' => [
+            [
+                'q' => 'Hur många offerter får jag i Uppsala?',
+                'a' => 'Upp till tre. Hur många som återkommer beror på uppdraget och vilka besiktningsmän som har möjlighet att ta det i Uppsala. Det kan bli färre, och ibland kan ingen ta uppdraget.',
+            ],
             ['q' => 'Hur lång tid tar en husbesiktning i Uppsala?', 'a' => 'Det beror på husets storlek och skick. Besiktningsmannen kan i offerten berätta hur lång tid besöket brukar ta och när rapporten levereras.'],
             ['q' => 'Vem betalar besiktningsmannen vid husköp?', 'a' => 'Oftast beställer och betalar köparen besiktningen, eftersom det är köparen som har undersökningsplikten. Vem som är beställare ska framgå av offerten.'],
             ['q' => 'Kan jag vara med på besiktningen?', 'a' => 'Ja, det är vanligt och ofta en fördel. Då kan du ställa frågor på plats och få förklarat det som står i rapporten. Stäm av det med besiktningsmannen i förväg.'],
@@ -244,6 +248,10 @@ return [
             ],
         ],
         'faq' => [
+            [
+                'q' => 'Hur många offerter får jag i Göteborg?',
+                'a' => 'Upp till tre. Hur många som återkommer beror på uppdraget och vilka besiktningsmän som har möjlighet att ta det i Göteborg. Det kan bli färre, och ibland kan ingen ta uppdraget.',
+            ],
             ['q' => 'Hur lång tid tar en husbesiktning i Göteborg?', 'a' => 'Det varierar med husets storlek och skick. Fråga besiktningsmannen i offerten hur lång tid besöket tar och när du får rapporten.'],
             ['q' => 'Vem betalar besiktningen när man köper hus?', 'a' => 'Vanligen betalar köparen, eftersom det är köparen som har undersökningsplikten. Det ska framgå av offerten vem som är beställare.'],
             ['q' => 'Kan jag vara med vid besiktningen?', 'a' => 'Ja, det går oftast bra och kan vara värdefullt. Du kan ställa frågor på plats. Stäm av med besiktningsmannen innan.'],
@@ -313,6 +321,10 @@ return [
             ],
         ],
         'faq' => [
+            [
+                'q' => 'Hur många offerter får jag i Malmö?',
+                'a' => 'Upp till tre. Hur många som återkommer beror på uppdraget och vilka besiktningsmän som har möjlighet att ta det i Malmö. Det kan bli färre, och ibland kan ingen ta uppdraget.',
+            ],
             ['q' => 'Hur lång tid tar en husbesiktning i Malmö?', 'a' => 'Det beror på husets storlek och skick. Besiktningsmannen kan uppge ungefärlig tid för besöket och leverans av rapporten i offerten.'],
             ['q' => 'Vem betalar besiktningen vid husköp?', 'a' => 'Oftast köparen, som har undersökningsplikten. Kontrollera i offerten vem som är beställare.'],
             ['q' => 'Får jag vara med under besiktningen?', 'a' => 'Ja, det är vanligt. Då kan du ställa frågor på plats. Stäm av det med besiktningsmannen i förväg.'],
