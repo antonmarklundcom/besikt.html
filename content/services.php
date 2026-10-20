@@ -9,11 +9,11 @@ return [
         'navLabel' => 'Husbesiktning',
         'cluster' => 'kop',
         'parent' => null,
-        'seoTitle' => 'Husbesiktning i Stockholm',
-        'metaDescription' => 'Husbesiktning i Stockholm: se vilken besiktning av hus du behöver, vad den kostar och vad som ingår. Få offert från upp till tre besiktningsmän.',
+        'seoTitle' => 'Husbesiktning – besiktning av hus',
+        'metaDescription' => 'Besiktning av hus i Stockholm: se vilken husbesiktning du behöver, vad den kostar och vad som ingår. Få offert från upp till tre besiktningsmän.',
         'hero' => [
             'eyebrow' => 'Besiktning av hus i Stockholms län',
-            'h1' => 'Husbesiktning i Stockholm',
+            'h1' => 'Husbesiktning – besiktning av hus i Stockholm',
             'h2' => '',
             'lead' => 'Ska du köpa, sälja, renovera eller bara veta hur huset mår? Här ser du vilken besiktning av hus som passar, ungefär vad den kostar och hur du får offerter att jämföra.',
         ],
@@ -47,17 +47,38 @@ return [
                 ],
             ],
             [
-                'h2' => 'Husbesiktning inför köp',
+                'h2' => 'Besikta hus innan köp',
                 'body' => [
-                    'Som köpare har du en undersökningsplikt. En husbesiktning inför köp hjälper dig att se husets synliga skick och vilka delar som kan behöva undersökas mer. Den görs oftast som en överlåtelsebesiktning och kan kompletteras med fuktmätning om huset har krypgrund, källare eller annan riskkonstruktion.',
-                    'Boka gärna innan kontraktet skrivs, eller avtala om en besiktningsklausul. Då hinner du läsa protokollet och ställa frågor innan du bestämmer dig.',
+                    'Som köpare har du en undersökningsplikt. Många söker efter besiktning hus innan köp eller besiktning vid köp av hus, och menar oftast en överlåtelsebesiktning. Den visar husets synliga skick och vilka delar som kan behöva undersökas mer, och kan kompletteras med fuktmätning om huset har krypgrund, källare eller annan riskkonstruktion.',
+                    'Boka gärna innan kontraktet skrivs, eller avtala om en besiktningsklausul. Då hinner du läsa protokollet och ställa frågor innan du bestämmer dig. Som säljare kan du beställa besiktning av hus vid försäljning för att visa husets skick, men köpare läser ofta ett sådant protokoll med kritisk blick.',
                 ],
             ],
             [
-                'h2' => 'Besiktningsman för hus i hela Stockholms län',
+                'h2' => 'Besiktningsman för hus i Stockholms län',
                 'body' => [
-                    'Ange kommun, hustyp och vad du vill ha undersökt i formuläret. Förfrågan går till upp till tre besiktningsmän som tar uppdrag där huset ligger. Du jämför offerterna och väljer själv.',
+                    'Ange kommun, hustyp och vad du vill ha undersökt i formuläret. Många frågar efter husbesiktning i till exempel Södertälje, Värmdö, Sollentuna, Huddinge, Nacka och Täby. Förfrågan går till upp till tre besiktningsmän som tar uppdrag där huset ligger. Du jämför offerterna och väljer själv.',
                     'Fråga varje besiktningsman om certifiering, ansvarsförsäkring, vad som ingår och när protokollet levereras. Då blir offerterna jämförbara.',
+                ],
+            ],
+            [
+                'h2' => 'Hur lång tid tar en husbesiktning?',
+                'body' => [
+                    'För en normal villa tar en husbesiktning ofta några timmar på plats. Tiden beror på husets storlek, hur komplicerad byggnaden är och hur lätt det är att komma åt vind, grund och källare.',
+                    'Fråga besiktningsmannen hur lång tid besiktningen på plats tar och när du får protokollet, så att du kan planera köpet efter det.',
+                ],
+            ],
+            [
+                'h2' => 'Besiktningsprotokoll för hus',
+                'body' => [
+                    'Ett besiktningsprotokoll för hus beskriver vanligen vad som har besiktigats, vilka iakttagelser som gjorts och vilka riskkonstruktioner som finns. Där ska det också framgå vad som inte kunde besiktigas och varför.',
+                    'Protokollet innehåller ofta rekommendationer om fortsatt undersökning, till exempel fuktmätning eller en utredning av en viss byggnadsdel. Läs det i lugn och ro och ställ frågor om det som är oklart.',
+                ],
+            ],
+            [
+                'h2' => 'Besiktning av villa och fritidshus',
+                'body' => [
+                    'Besiktning av villa, ofta kallad villabesiktning, utgår från husets byggår, grund och skick. Ett fritidshus har ofta andra förutsättningar, till exempel för uppvärmning, vatten och avlopp, så besiktning av fritidshus bör anpassas efter hur huset används.',
+                    'Gäller det besiktning gammalt hus tar äldre material och tidigare ombyggnader ofta mer tid att reda ut. Vill du gå djupare än en vanlig genomgång kan du fråga efter en utökad besiktning, där extra moment som fuktmätning avtalas i förväg.',
                 ],
             ],
         ],
@@ -70,8 +91,8 @@ return [
                 'a' => 'Husbesiktning är ett vardagligt samlingsnamn. Överlåtelsebesiktning är den typ av husbesiktning som görs vid köp eller försäljning.',
             ],
             [
-                'q' => 'Hur lång tid tar en husbesiktning?',
-                'a' => 'Det beror på husets storlek och vad som ingår. Fråga besiktningsmannen om tiden på plats och när du får protokollet.',
+                'q' => 'Kan man köpa hus utan besiktning?',
+                'a' => 'Ja, det är tillåtet, men som köpare har du ändå en undersökningsplikt. En besiktning hjälper dig att fullgöra den och ger dig ett bättre underlag.',
             ],
             [
                 'q' => 'Behöver jag vara med?',
@@ -170,6 +191,13 @@ return [
                     'Förfrågan är ingen bokning. I offerten behöver utförare, omfattning, pris, tillägg och leverans av protokoll framgå. Skriv gärna när ett eventuellt kontrakt ska tecknas; då kan tidsförutsättningarna stämmas av.',
                 ],
             ],
+            [
+                'h2' => 'Besiktning vid försäljning av hus',
+                'body' => [
+                    'Som säljare kan du beställa en överlåtelsebesiktning före försäljningen. Köpare kan då ta del av ett protokoll över husets skick, och du ser i förväg vad som kan komma upp i budgivning och förhandling.',
+                    'Köpare läser ofta en säljarbesiktning med kritisk blick, eftersom den beställts av säljaren. Fråga därför vad som ingick och vad som inte kunde kontrolleras, och överväg en egen besiktning om du är osäker.',
+                ],
+            ],
         ],
         'benefits' => [
 
@@ -234,13 +262,13 @@ return [
         'navLabel' => 'Lägenhetsbesiktning',
         'cluster' => 'kop',
         'parent' => null,
-        'seoTitle' => 'Lägenhetsbesiktning av bostadsrätt',
+        'seoTitle' => 'Besiktning av lägenhet och bostadsrätt',
         'metaDescription' => 'Besiktning av lägenhet eller bostadsrätt i Stockholm inför köp och efter renovering. Se vad som kan granskas och begär offert för din lägenhet.',
         'hero' => [
             'eyebrow' => 'Besiktning i Stockholms län',
-            'h1' => 'Lägenhetsbesiktning av bostadsrätt i Stockholm',
+            'h1' => 'Besiktning av lägenhet och bostadsrätt i Stockholm',
             'h2' => '',
-            'lead' => 'För dig som ska köpa en bostadsrätt eller vill kontrollera en renoverad lägenhet. Få synliga brister och frågor om badrum, kök och ytskikt tydligt dokumenterade.',
+            'lead' => 'För dig som ska köpa en bostadsrätt eller vill kontrollera en renoverad lägenhet. En lägenhetsbesiktning gör synliga brister och frågor om badrum, kök och ytskikt tydligt dokumenterade.',
         ],
         'includes' => [
             'Okulär genomgång av överenskomna rum och åtkomliga ytor',
@@ -259,7 +287,7 @@ return [
         ],
         'sections' => [
             [
-                'h2' => 'Besiktning av bostadsrätt inför köp',
+                'h2' => 'Besiktning vid köp av bostadsrätt',
                 'body' => [
                     'En lägenhetsbesiktning kan hjälpa dig att ställa mer konkreta frågor om bostaden. Uppdraget kan omfatta åtkomliga ytskikt, tecken på tidigare skador och synliga detaljer i kök och badrum. Det behöver vara tydligt vad besiktningsmannen ska undersöka och vilket underlag som finns.',
                     'För bostadsrätt är det viktigt att skilja lägenhetens skick från föreningens gemensamma fastighet. Kontrollera även föreningens information om planerat underhåll. En teknisk lägenhetsbesiktning ersätter inte en genomgång av årsredovisning, stadgar eller kommande avgiftsbeslut.',
@@ -277,6 +305,13 @@ return [
                 'body' => [
                     'Ange kommun, lägenhetens yta och om ärendet gäller köp, renovering eller ett särskilt problem. Beskriv vilka rum som ska granskas och om du har en tidsgräns inför kontrakt eller överlämning.',
                     'Be utföraren förklara vilka gemensamma delar som ligger utanför uppdraget. Fastighetsbesiktning för styrelsen har ett annat syfte och behandlas på vår BRF-sida.',
+                ],
+            ],
+            [
+                'h2' => 'Besiktning av lägenhet vid utflytt',
+                'body' => [
+                    'Vid utflytt kan lägenheten behöva besiktigas, till exempel när du lämnar en hyresrätt och hyresvärden vill kontrollera skicket. Beställer du själv en besiktning av lägenhet vid utflytt får du dokumenterat hur bostaden såg ut vid överlämningen.',
+                    'Ange vem som beställer, vilka rum som ska ingå och vilket avtal som gäller. En besiktning på uppdrag av dig ersätter inte hyresvärdens eller föreningens egen bedömning.',
                 ],
             ],
         ],
@@ -472,6 +507,13 @@ return [
                     'Ange badrummets ungefärliga ålder, kommun och syfte i formuläret. Bifoga inte känsliga uppgifter; dokument och foton kan efterfrågas i nästa steg.',
                 ],
             ],
+            [
+                'h2' => 'Våtrumsbesiktning och slutbesiktning av badrum',
+                'body' => [
+                    'En våtrumsbesiktning granskar badrummets åtkomliga delar och dokumentation. Besiktning av badrum kan avse hela entreprenaden eller bara en bestämd fråga, och omfattningen styrs av uppdraget.',
+                    'Efter en renovering kan en slutbesiktning av badrummet göras mot avtalet. Söker du en besiktningsman för badrum, ange vilka handlingar som finns, till exempel kvalitetsdokument, och vilket arbete som beställts.',
+                ],
+            ],
         ],
         'benefits' => [
 
@@ -575,6 +617,13 @@ return [
                     'Berätta om tidigare reparationer och om ärendet gäller en villa, lägenhet eller gemensamma delar i en BRF. För ett avgränsat mätbehov kan fuktmätning räcka; vid oklar orsak är utredningen ett annat uppdrag.',
                 ],
             ],
+            [
+                'h2' => 'Fuktskada – vad gör du först?',
+                'body' => [
+                    'Begränsa skadan först: stäng av vattnet om det läcker, torka upp och kontakta fastighetsägare eller försäkringsbolag. Fotografera och anteckna datum. Har du besvär som du tror hänger ihop med fukt eller mögel, kontakta 1177.',
+                    'Fuktskador i hus kan ha många orsaker. När orsaken är oklar kan du anlita en fuktkonsult för en skadeutredning som skiljer på vad som observerats, vad som mätts och vad som är osäkert.',
+                ],
+            ],
         ],
         'benefits' => [
 
@@ -671,6 +720,13 @@ return [
                     'Beskriv kommunen, byggnadsdelen och vad du ska använda resultatet till. Då blir det lättare att få ett pris på rätt insats och undvika att beställa en kontroll som inte besvarar din fråga.',
                 ],
             ],
+            [
+                'h2' => 'Fuktmätning i badrum',
+                'body' => [
+                    'I ett badrum kan fuktmätning bli aktuell efter en renovering, vid misstänkt läckage eller när det finns lukt eller synliga fuktskador. En mätning på ytan kan ge en indikation men visar inte hur tätskiktet bakom ytan ser ut.',
+                    'Be om redovisning av metod och mätpunkter. För en betongplatta, till exempel under golv, gäller andra metoder och krav än för badrummets väggar. Vill du få själva badrummet och dokumentationen granskade finns badrumsbesiktning.',
+                ],
+            ],
         ],
         'benefits' => [
 
@@ -765,6 +821,13 @@ return [
                 'body' => [
                     'För en villa behövs ofta en avgränsad skickbedömning. En BRF kan också behöva ett underlag för etappindelning, underhållsplan eller upphandling. Ange antal byggnader och ungefärlig takyta om den är känd.',
                     'Pris påverkas bland annat av takets omfattning, höjd, konstruktion, tillgängliga handlingar och åtkomst. Säkerhetslösning, eventuella hjälpmedel och dokumentation ska specificeras före beställning.',
+                ],
+            ],
+            [
+                'h2' => 'Slutbesiktning av tak efter takbyte',
+                'body' => [
+                    'Har du bytt tak kan en slutbesiktning av taket kontrollera det utförda arbetet mot avtal och beskrivning. Det är en besiktning av tak som utgår från entreprenaden, inte från takets ålder.',
+                    'En oberoende takbesiktning görs av någon som inte har utfört arbetet. Ta fram avtal, ritningar och garantihandlingar i förväg och avtala hur taket kan nås på ett säkert sätt.',
                 ],
             ],
         ],
@@ -864,6 +927,13 @@ return [
                     'Be offerten beskriva genomgång av handlingar, besiktning, utlåtande och eventuell uppföljning. Behöver du hjälp med upphandling och samordning under arbetet är byggprojektledning ett separat uppdrag.',
                 ],
             ],
+            [
+                'h2' => 'Förbesiktning',
+                'body' => [
+                    'Förbesiktning görs innan arbetet är klart, ofta innan ett moment byggs in eller täcks över. Då kan fel hittas medan de fortfarande går att åtgärda enkelt.',
+                    'Ibland kallas det byggbesiktning, särskilt när besiktningsmannen följer bygget i flera steg. Avtala i förväg vilka moment som ska kontrolleras och hur utlåtandet ska redovisas.',
+                ],
+            ],
         ],
         'benefits' => [
 
@@ -941,7 +1011,7 @@ return [
         ],
         'sections' => [
             [
-                'h2' => 'Slutbesiktning av hus, lägenhet och renovering',
+                'h2' => 'Slutbesiktning av hus och lägenhet',
                 'body' => [
                     'En slutbesiktning kan vara aktuell för ett nytt hus, en tillbyggnad eller en beställd renovering. Det centrala är att kontrollen utgår från det avtalade arbetet. Inför besiktningen behöver det vara tydligt vilka delar som är färdiga och vilka handlingar som saknas.',
                     'Vid ett lägenhetsköp är en allmän skickbedömning något annat än slutbesiktning av en entreprenad. Ange därför om du är köpare, beställare eller representant för en BRF och vilket projekt det gäller.',
@@ -959,6 +1029,13 @@ return [
                 'body' => [
                     'En besiktning av entreprenaden och byggnadsnämndens handläggning fyller olika funktioner. Kontrollansvarig, entreprenadbesiktningsman och kommun kan ha separata uppgifter i samma byggprojekt.',
                     'Ange projektets omfattning och önskad tidpunkt i förfrågan. Be om pris för både dokumentgenomgång, platsbesök, utlåtande och eventuell uppföljning för att kunna jämföra offerter.',
+                ],
+            ],
+            [
+                'h2' => 'Efterbesiktning och fortsatt slutbesiktning',
+                'body' => [
+                    'Efterbesiktning görs för att kontrollera att noterade fel har åtgärdats. Om slutbesiktningen inte kunde avslutas, till exempel för att arbetet inte var klart, kan en fortsatt slutbesiktning behövas.',
+                    'Hur många besiktningar som behövs och vem som beställer dem framgår av avtalet. Fråga i offerten om efterbesiktning ingår eller prissätts separat.',
                 ],
             ],
         ],
@@ -1038,9 +1115,9 @@ return [
         ],
         'sections' => [
             [
-                'h2' => 'Planera efter avtalet, inte en generell kalender',
+                'h2' => 'Garantibesiktning efter två och fem år',
                 'body' => [
-                    'Sökningar om tvåårsbesiktning och femårsbesiktning avser ofta olika avtalsupplägg. Rätt tidpunkt, omfattning och underrättelser behöver kontrolleras i det avtal som gäller för ditt projekt. Det finns inget enda schema som passar alla byggarbeten.',
+                    'Många söker garantibesiktning efter två år eller efter fem år. Tidpunkten följer vad som är avtalat, och standardavtal som ABS 18 och AB 04 kan skilja sig åt. Kontrollera därför tidpunkt, omfattning och underrättelser i det avtal som gäller för ditt projekt.',
                     'Ta fram färdigställandedatum och tidigare utlåtanden innan du begär offert. Skriv om det finns en känd tidsgräns så att möjlig tid kan stämmas av.',
                 ],
             ],
@@ -1176,6 +1253,10 @@ return [
                 'q' => 'Är sidan för lägenhetsköpare?',
                 'a' => 'Sidan avser styrelsens fastighetsuppdrag. För en enskild bostadsrätt finns tjänsten lägenhetsbesiktning.',
             ],
+            [
+                'q' => 'Vad är en 2-årsbesiktning och 5-årsbesiktning i en BRF?',
+                'a' => 'Det handlar om garantibesiktningar efter en nyproduktion eller en entreprenad. Tidpunkterna styrs av entreprenadavtalet, så kontrollera avtalet eller fråga entreprenören.',
+            ],
         ],
         'cta' => [
             'label' => 'Begär offert',
@@ -1208,13 +1289,13 @@ return [
         'navLabel' => 'Underhållsplan för BRF',
         'cluster' => 'bygg',
         'parent' => 'brf',
-        'seoTitle' => 'Underhållsplan BRF i Stockholm',
+        'seoTitle' => 'Underhållsplan för bostadsrättsförening',
         'metaDescription' => 'Underhållsplan för BRF i Stockholm med byggnadsdelar, åtgärder och prioriteringar. Läs om underlag, uppdatering och offert för bostadsrättsföreningen.',
         'hero' => [
             'eyebrow' => 'Besiktning i Stockholms län',
-            'h1' => 'Underhållsplan för BRF i Stockholm',
+            'h1' => 'Underhållsplan för BRF och bostadsrättsförening',
             'h2' => '',
-            'lead' => 'Gör fastighetens underhåll lättare att planera och följa upp. Få en plan utifrån föreningens byggnader, skick, befintliga handlingar och beslut.',
+            'lead' => 'Gör fastighetens underhåll lättare att planera och följa upp. En underhållsplan BRF bygger på föreningens byggnader, skick, befintliga handlingar och beslut.',
         ],
         'includes' => [
             'Inventering av avtalade byggnadsdelar och underlag',
@@ -1251,6 +1332,27 @@ return [
                 'body' => [
                     'Gå igenom planen i samband med föreningens budget och efter större åtgärder. Markera vad som faktiskt utförts, justera årtal och dokumentera nya beslut. Om fastighetens skick har förändrats kan en ny inventering behövas.',
                     'Priset på en underhållsplan påverkas av antal byggnader, dokumentens kvalitet, behovet av platsbesök och leveransens omfattning. Ange också om uppdraget gäller en helt ny plan eller uppdatering av en befintlig.',
+                ],
+            ],
+            [
+                'h2' => 'Krav på underhållsplan i BRF',
+                'body' => [
+                    'Reglerna för bostadsrättsföreningar har skärpts de senaste åren. Enligt branschkällor ska bland annat årsredovisningen uppge om föreningen har en aktuell underhållsplan, och en ekonomisk plan ska bygga på en teknisk bedömning av underhållsbehovet.',
+                    'Detta är allmän information och kan ha ändrats. Kontrollera gällande lagtext på riksdagen.se eller fråga föreningens revisor eller Bolagsverket vad som gäller just er förening.',
+                ],
+            ],
+            [
+                'h2' => 'Mall och exempel på underhållsplan',
+                'body' => [
+                    'En mall eller ett exempel på underhållsplan kan ge struktur, men byggnadsdelar, skick, mängder och åtgärder måste ändå anpassas till er fastighet.',
+                    'Vår guide om underhållsplan, med checklista och mall, hjälper er att komma igång och att veta vilket underlag som behövs.',
+                ],
+            ],
+            [
+                'h2' => 'Underhållsplan för liten BRF',
+                'body' => [
+                    'En liten BRF med en byggnad eller några få hus har samma behov av en underhållsplan som en större förening, men planen kan vara enklare. Den bör ändå visa byggnadsdelar, bedömt skick, planerade åtgärder och när de bör göras.',
+                    'Ofta sköter styrelsen underhållet själv, så en tydlig plan gör det lättare vid ett styrelsebyte. Ange antal hus och lägenheter när du begär offert.',
                 ],
             ],
         ],
@@ -1349,6 +1451,27 @@ return [
                     'Be offerten ange vilka möten, besök och dokument som omfattas samt hur ändringar och extra insatser debiteras. Det gör det lättare att jämföra erbjudanden som annars kan se lika ut.',
                 ],
             ],
+            [
+                'h2' => 'När behövs en kontrollansvarig?',
+                'body' => [
+                    'Enligt Boverket behövs en kontrollansvarig i regel för åtgärder som kräver bygglov. För åtgärder som bara kräver anmälan behövs normalt ingen, men byggnadsnämnden kan besluta annorlunda i det enskilda fallet.',
+                    'Det är nämnden som avgör i ditt ärende, så fråga kommunen innan du begär offerter.',
+                ],
+            ],
+            [
+                'h2' => 'Kontrollansvarig vid bygglov',
+                'body' => [
+                    'Ofta anges kontrollansvarig i samband med ansökan om bygglov eller före det tekniska samrådet. Kommunen berättar vad som gäller i ditt ärende.',
+                    'KA hjälper byggherren med förslag till kontrollplan och deltar i det tekniska samrådet. Beslut om bygglov, startbesked och slutbesked fattas av byggnadsnämnden, inte av KA.',
+                ],
+            ],
+            [
+                'h2' => 'Hitta en certifierad kontrollansvarig',
+                'body' => [
+                    'En kontrollansvarig måste vara certifierad. Certifieringen utfärdas av ackrediterade certifieringsorgan, och Boverket har en söktjänst eller ett register över certifierade kontrollansvariga där du kan kontrollera att personen är certifierad.',
+                    'Kontrollera också att certifikatet gäller för den typ av projekt du har och att det är giltigt när uppdraget ska utföras.',
+                ],
+            ],
         ],
         'benefits' => [
 
@@ -1369,6 +1492,14 @@ return [
             [
                 'q' => 'Vad påverkar priset?',
                 'a' => 'Projektets omfattning, antal möten och platsbesök, handlingar, tidplan och eventuella ändringar påverkar uppdraget.',
+            ],
+            [
+                'q' => 'Behövs kontrollansvarig för attefallshus?',
+                'a' => 'Normalt behövs ingen kontrollansvarig för åtgärder som bara kräver anmälan, men en kontrollplan behövs. Byggnadsnämnden avgör i ditt ärende, så kontrollera med kommunen och Boverket.',
+            ],
+            [
+                'q' => 'Vad är skillnaden mellan kontrollansvarig och kvalitetsansvarig?',
+                'a' => 'Kvalitetsansvarig var rollen enligt den äldre plan- och bygglagen. Den ersattes av kontrollansvarig när nuvarande PBL infördes 2011.',
             ],
         ],
         'cta' => [
@@ -1434,7 +1565,7 @@ return [
                 'h2' => 'Vad gör en byggkonsult?',
                 'body' => [
                     'Byggkonsult är ett brett begrepp för den som ger teknisk rådgivning och stöd i bygg- och renoveringsprojekt. Det kan handla om att ta fram underlag, jämföra entreprenörers offerter, leda projektet, kontrollera arbetet eller hjälpa till med bygglovsprocessen.',
-                    'Börja med att beskriva vad du behöver hjälp med. Då blir det tydligt vilken roll som passar och vad offerten ska innehålla.',
+                    'Många byggkonsulter är inriktade på en viss typ av uppdrag. Börja därför med att beskriva vad du behöver hjälp med. Då blir det tydligt vilken roll som passar och vad offerten ska innehålla.',
                 ],
                 'items' => [
                     ['title' => 'Projektledning och byggledning', 'text' => 'Planering, upphandling och uppföljning av tid, ekonomi och beslut.'],
@@ -1511,11 +1642,11 @@ return [
         'navLabel' => 'Byggprojektledning',
         'cluster' => 'bygg',
         'parent' => null,
-        'seoTitle' => 'Byggprojektledning i Stockholm',
+        'seoTitle' => 'Projektledning bygg och byggledare',
         'metaDescription' => 'Byggprojektledning i Stockholm för renovering, hus och BRF. Stöd med omfattning, upphandling, tidplan och uppföljning. Beskriv projektet för offert.',
         'hero' => [
             'eyebrow' => 'Besiktning i Stockholms län',
-            'h1' => 'Byggprojektledning i Stockholm',
+            'h1' => 'Byggprojektledning och byggledare i Stockholm',
             'h2' => '',
             'lead' => 'Få hjälp att hålla ihop ett byggprojekt från behov och upphandling till uppföljning. För styrelser, fastighetsägare och privata beställare.',
         ],
@@ -1538,7 +1669,7 @@ return [
             [
                 'h2' => 'Projektledning för bygg och renovering',
                 'body' => [
-                    'Byggprojektledning kan börja innan en entreprenör upphandlas. Först behöver behovet och omfattningen bli tydliga: vilka arbeten ska göras, vad finns för underlag och vem fattar beslut? Ett sådant förarbete gör offerter lättare att jämföra.',
+                    'Projektledning bygg, eller byggprojektledning, kan börja innan en entreprenör upphandlas. Först behöver behovet och omfattningen bli tydliga: vilka arbeten ska göras, vad finns för underlag och vem fattar beslut? Ett sådant förarbete gör offerter lättare att jämföra.',
                     'Uppdraget kan sedan omfatta upphandlingsstöd, planering, möten och uppföljning. Be om en tydlig ansvarsfördelning och hur rapporteringen ska ske. Rollen behöver anpassas till ett mindre husprojekt eller en större fastighetsrenovering.',
                 ],
             ],
@@ -1554,6 +1685,13 @@ return [
                 'body' => [
                     'Under genomförandet behöver tidplan, ändringar och dokumentation följas upp. När arbetet ska avslutas bör överlämning och eventuell besiktning planeras i tid. Dessa moment kan samordnas men behöver ha tydliga roller.',
                     'Ange projektets skede i formuläret: idé, upphandling, pågående bygge eller ett arbete som behöver avslutas. Be om prisform, omfattning, rapportering och hur extra insatser hanteras.',
+                ],
+            ],
+            [
+                'h2' => 'Byggledare och byggledning',
+                'body' => [
+                    'En byggledare följer arbetet på plats och samordnar entreprenörerna. Byggledning handlar om att hålla tidplanen, hantera ändringar och se till att arbetet följer det som är beställt.',
+                    'Projektledning är ofta bredare och kan börja redan vid behov och budget. Beskriv i förfrågan om du vill ha stöd under hela projektet eller bara under byggskedet.',
                 ],
             ],
         ],
