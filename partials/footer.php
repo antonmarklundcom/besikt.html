@@ -20,8 +20,8 @@ $footSocials = nav('socials');
 
       <div>
         <a class="wordmark wordmark--sm" href="/">
-          <span class="wordmark__mark" aria-hidden="true"></span>
-          <span class="wordmark__text"><?= e(site('domain') ?: site('name')) ?></span>
+          <svg class="wordmark__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" class="wordmark__tile"/><path d="M7 16.5 16 9l9 7.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="21.5" r="1.9" fill="#fff"/><circle cx="16" cy="21.5" r="1.9" fill="#fff"/><circle cx="21" cy="21.5" r="1.9" class="wordmark__dot"/></svg>
+          <span class="wordmark__text"><?= e(site('name') ?: site('domain')) ?></span>
         </a>
         <p class="site-footer__blurb mt-3"><?= e(ui('footer.blurb')) ?></p>
       </div>
@@ -94,5 +94,6 @@ $footSocials = nav('socials');
 <script src="<?= e(asset('/assets/js/site.js')) ?>" defer></script>
 <?php if (site('whatsapp')): ?><script src="<?= e(asset('/assets/js/whatsapp-menu.js')) ?>" defer></script><?php endif; ?>
 <script src="<?= e(asset('/assets/js/lead-form.js')) ?>" defer></script>
+<?php if (!empty($page['leadSteps'])): ?><script src="<?= e(asset('/assets/js/lead-steps.js')) ?>" defer></script><?php endif; ?>
 </body>
 </html>

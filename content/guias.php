@@ -71,6 +71,7 @@ return array_merge(require __DIR__ . '/legacy-guides.php', [
         'related' => [
             'jamfora-besiktningsoffert',
             'tecken-pa-fukt',
+            'undersokningsplikt',
         ],
         'example' => false,
     ],
@@ -220,6 +221,7 @@ return array_merge(require __DIR__ . '/legacy-guides.php', [
         'related' => [
             'badrumsrenovering-dokument',
             'infor-husbesiktning',
+            'fukt-i-krypgrund',
         ],
         'example' => false,
     ],
@@ -520,6 +522,466 @@ return array_merge(require __DIR__ . '/legacy-guides.php', [
         'related' => [
             'infor-husbesiktning',
             'underhallsplan-checklista',
+            'certifierad-besiktningsman',
+        ],
+        'example' => false,
+    ],
+    'undersokningsplikt' => [
+        'path' => '/guider/undersokningsplikt/',
+        'title' => 'Undersökningsplikt – vid köp av hus och bostadsrätt',
+        'navLabel' => 'Undersökningsplikt vid köp',
+        'seoTitle' => 'Undersökningsplikt vid köp av bostad',
+        'metaDescription' => 'Vad är undersökningsplikt vid köp av hus och bostadsrätt? Så fungerar köparens plikt, säljarens upplysningsplikt och vad en besiktning ger dig.',
+        'lastReviewed' => '2026-10-20',
+        'hero' => [
+            'eyebrow' => 'Besiktningsguiden',
+            'h1' => 'Undersökningsplikt – vid köp av hus och bostadsrätt',
+            'lead' => 'Som köpare förväntas du undersöka bostaden innan du köper. Här går vi igenom vad undersökningsplikten innebär för hus och för bostadsrätt.',
+        ],
+        'intro' => [
+            'Undersökningsplikten innebär att du som köpare inte i efterhand kan klaga på fel som du borde ha upptäckt vid en noggrann undersökning före köpet. Den gäller både vid husköp och vid köp av bostadsrätt, men reglerna och det som är viktigast att granska skiljer sig åt.',
+            'Texten är allmän information och ersätter inte juridisk rådgivning. Har du en konkret tvist bör du vända dig till konsumentvägledning, en jurist eller ditt rättsskydd.',
+        ],
+        'steps' => [
+            [
+                'title' => 'Det här är undersökningsplikt',
+                'body' => [
+                    'Undersökningsplikt är ett sätt att fördela ansvaret mellan säljare och köpare. Fel som du som köpare borde ha upptäckt vid en undersökning kan du normalt inte åberopa mot säljaren efter köpet. Det som du inte kunde upptäcka, ett så kallat dolt fel, kan du däremot i vissa fall rikta anspråk för.',
+                    'Hur långt plikten sträcker sig beror på bostaden, dess ålder och skick och på vad du fått veta under köpet. Det finns ingen färdig checklista i lagen; det handlar om vad en noggrann köpare rimligen hade sett.',
+                ],
+            ],
+            [
+                'title' => 'Undersökningsplikt vid husköp enligt jordabalken',
+                'body' => [
+                    'Vid köp av hus, alltså fastighet, gäller jordabalken. Enligt 4 kap. 19 § kan du som köpare inte göra gällande fel som du borde ha upptäckt vid en undersökning av fastigheten före köpet. Enligt Hallå konsument omfattar undersökningen hela fastigheten: tomten, byggnaderna och installationer som el, värme, vatten och avlopp. Du kan göra den själv eller anlita en sakkunnig.',
+                    'Plikten kan bli större om du fått uppgifter eller sett något som tyder på ett fel, till exempel en fuktfläck eller en anmärkning i ett tidigare protokoll. Då räcker det sällan att bara titta; misstanken behöver följas upp. Att säljaren har låtit besikta huset gör inte att din egen undersökningsplikt försvinner.',
+                ],
+            ],
+            [
+                'title' => 'Undersökningsplikt vid köp av bostadsrätt',
+                'body' => [
+                    'En bostadsrätt räknas som lös egendom, så här gäller köplagen i stället för jordabalken. Köplagen innehåller ingen generell undersökningsplikt, men du kan inte åberopa fel som du borde ha upptäckt om du undersökt bostaden eller om säljaren uppmanat dig att göra det. I praktiken är det därför klokt att undersöka lägenheten ordentligt.',
+                    'Fokus ligger på lägenheten, men även på föreningen. Läs årsredovisning, stadgar, underhållsplan och föreningens ekonomi, och fråga om planerade renoveringar och avgiftshöjningar. En bostadsrätt köps ofta i befintligt skick, och då kan du som köpare ha svårare att kräva något för fel som syntes eller borde ha setts.',
+                ],
+            ],
+            [
+                'title' => 'Säljarens upplysningsplikt',
+                'body' => [
+                    'Undersökningsplikten har sin motsvarighet i säljarens upplysningsplikt. Säljaren ska upplysa om sådant som hen känner till och som du rimligen kan förvänta dig att få veta, exempelvis en tidigare fuktskada eller en bristfällig renovering. Gäller det en bostadsrätt kan det även röra föreningens förhållanden, om säljaren känner till dem.',
+                    'Om säljaren hållit inne med eller lämnat felaktig information kan säljaren vara ansvarig även för fel som du annars hade kunnat upptäcka. Säg därför till om du ser att uppgifter i objektbeskrivning, säljarens frågelista eller på visningen inte stämmer med det du ser.',
+                ],
+            ],
+            [
+                'title' => 'Så hjälper en besiktning dig som köpare',
+                'body' => [
+                    'En husbesiktning före köpet gör att fler fel upptäcks i tid, när du fortfarande kan förhandla om priset eller avstå. Protokollet visar också vad som undersöktes och vad som inte gick att undersöka, vilket är användbart om en fråga uppstår senare. Besiktningen ersätter dock inte din egen granskning av handlingar och av bostaden.',
+                    'Läs protokollets begränsningar och fråga om sådant som kräver en fördjupad undersökning, till exempel fuktmätning eller kontroll av dolda konstruktioner. Det som protokollet pekar ut som en risk kan bli en del av din undersökningsplikt, så följ upp det innan du skriver på.',
+                ],
+            ],
+            [
+                'title' => 'Om du hittar ett fel efter köpet',
+                'body' => [
+                    'Dokumentera felet med bilder och anteckningar, och försök inte åtgärda det innan du pratat med någon som kan bedöma det, eftersom bevisen annars kan försvinna. Reklamera sedan skriftligt till säljaren inom skälig tid efter att du upptäckt felet eller borde ha upptäckt det. Vid husköp kan fel göras gällande upp till tio år efter tillträdet, men det hjälper inte om du väntar för länge med reklamationen.',
+                    'Behöver du hjälp kan kommunal konsumentvägledning, Hallå konsument eller ditt hemförsäkringsbolags rättsskydd ge stöd.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Gäller undersökningsplikten även bostadsrätt?',
+                'a' => 'Ja, i praktiken. Vid köp av bostadsrätt gäller köplagen, som inte har samma uttryckliga plikt som jordabalken. Du kan ändå inte åberopa fel som du borde ha upptäckt vid en undersökning.',
+            ],
+            [
+                'q' => 'Hur långt går undersökningsplikten vid husköp?',
+                'a' => 'Du ska undersöka hela fastigheten noggrant, och plikten blir större om du ser eller får veta något som tyder på ett fel. Det finns ingen fast lista, utan bedömningen görs i varje enskilt fall.',
+            ],
+            [
+                'q' => 'Räcker det att säljaren har låtit besikta huset?',
+                'a' => 'Nej. Din undersökningsplikt som köpare finns kvar även om säljaren har ett protokoll. Läs det noga, kontrollera vad det omfattar och vem det riktar sig till.',
+            ],
+            [
+                'q' => 'Vad är skillnaden mellan undersökningsplikt och upplysningsplikt?',
+                'a' => 'Undersökningsplikten gäller dig som köpare, upplysningsplikten gäller säljaren. Säljaren ska berätta det hen känner till och du rimligen kan förvänta dig få veta, medan du ska undersöka det som går att upptäcka.',
+            ],
+        ],
+        'relatedService' => 'husbesiktning',
+        'toolLink' => null,
+        'related' => [
+            'infor-husbesiktning',
+            'jamfora-besiktningsoffert',
+            'tecken-pa-fukt',
+            'dolda-fel-hus',
+        ],
+        'sources' => [
+            ['label' => 'Hallå konsument: Köpa hus', 'url' => 'https://www.hallakonsument.se/varor-och-tjanster/bra-att-veta-infor-huskop/'],
+            ['label' => 'Hallå konsument: Dolda fel i hus', 'url' => 'https://www.hallakonsument.se/varor-och-tjanster/fel-i-hus/'],
+            ['label' => 'Riksdagen: Jordabalk (1970:994)', 'url' => 'https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/jordabalk-1970994_sfs-1970-994/'],
+        ],
+        'example' => false,
+    ],
+    'dolda-fel-hus' => [
+        'path' => '/guider/dolda-fel-hus/',
+        'title' => 'Dolda fel i hus – ansvar, försäkring och besiktning',
+        'navLabel' => 'Dolda fel i hus',
+        'seoTitle' => 'Dolda fel i hus – ansvar och försäkring',
+        'metaDescription' => 'Dolda fel i hus: vad lagen menar, hur länge säljaren ansvarar, hur dolda fel-försäkring fungerar och hur du reklamerar. Så hjälper en besiktning.',
+        'lastReviewed' => '2026-10-20',
+        'hero' => [
+            'eyebrow' => 'Besiktningsguiden',
+            'h1' => 'Dolda fel i hus – ansvar, försäkring och besiktning',
+            'lead' => 'Ett dolt fel är ett fel du inte kunde upptäcka vid en noggrann undersökning. Här är vad som gäller för ansvar, försäkring och reklamation.',
+        ],
+        'intro' => [
+            'Dolda fel i hus är en av de vanligaste orsakerna till tvister efter husköp. Reglerna står i jordabalken och är samma för villa och andra småhus, men bedömningen beror på husets ålder, skick och på vad du kunde se före köpet.',
+            'Texten är allmän information och ersätter inte juridisk rådgivning. Vid en konkret tvist kan du få hjälp av konsumentvägledning, en jurist eller ditt rättsskydd.',
+        ],
+        'steps' => [
+            [
+                'title' => 'Vad är ett dolt fel?',
+                'body' => [
+                    'Ett dolt fel är ett fel i huset som fanns vid köpet, som du som köpare inte kunde upptäcka vid en noggrann undersökning och som du inte hade anledning att räkna med. Det räcker inte att något är trasigt eller dyrt; felet ska ha varit dolt. Att köparen har bevisbördan gör dokumentation viktig.',
+                    'Fel som du borde ha sett, eller som är förväntade med tanke på husets konstruktion, ålder och skick, räknas normalt inte som dolda. Därför hänger frågan nära ihop med din undersökningsplikt.',
+                ],
+            ],
+            [
+                'title' => 'Säljarens ansvar – hur länge gäller det?',
+                'body' => [
+                    'Enligt Hallå konsument kan du göra gällande ett dolt fel upp till tio år efter att du tillträdde huset. Tioårsfristen är den yttersta gränsen: du måste dessutom reklamera inom skälig tid efter att du upptäckt felet eller borde ha upptäckt det.',
+                    'Det är också den som påstår ett dolt fel som ska kunna visa att felet fanns vid köpet. Ju längre tid som gått, desto svårare är det oftast att visa att felet inte beror på slitage eller senare händelser.',
+                ],
+            ],
+            [
+                'title' => 'Dolda fel i gammalt hus',
+                'body' => [
+                    'I ett gammalt hus får du räkna med slitage och att material och konstruktioner motsvarar sin tid. Det som är normalt för husets ålder, till exempel gamla rör eller bristande isolering, är därför inte automatiskt ett dolt fel. Ett äldre hus kräver ofta också en mer ingående undersökning från köparens sida.',
+                    'Det kan ändå finnas fel som går utöver det du hade kunnat förvänta dig, till exempel en dold fuktskada i en konstruktion eller en renovering som utförts bristfälligt. En besiktning kan visa vad som är åldersrelaterat och vad som bör följas upp närmare.',
+                ],
+            ],
+            [
+                'title' => 'Dolda fel-försäkring för hus',
+                'body' => [
+                    'Det finns försäkringar som är kopplade till dolda fel vid husköp. Vanligast är att säljaren tecknar en säljaransvarsförsäkring, och köparen kan i vissa fall teckna en egen dolda fel-försäkring. En sådan försäkring kan typiskt hjälpa till med utredning och kostnader om någon gör gällande ett dolt fel, men omfattningen varierar.',
+                    'Villkoren skiljer sig mellan försäkringsbolag, till exempel vad som ingår, självrisk, högsta ersättning, giltighetstid och om det finns krav på besiktning. Jämför villkoren, läs undantagen och fråga hur försäkringen ser på äldre hus innan du förlitar dig på den. Vi rekommenderar inga enskilda bolag.',
+                ],
+            ],
+            [
+                'title' => 'Så anmäler du dolda fel',
+                'body' => [
+                    'Det finns inga formella krav på hur du reklamerar, men Hallå konsument rekommenderar att du kontaktar säljaren skriftligt. Beskriv felet, när du upptäckte det och vad du vill att säljaren ska göra, och bifoga bilder och eventuellt utlåtande. Spara allt du skickar. Har säljaren en försäkring bör hen också meddela försäkringsbolaget.',
+                    'Gör det snarast, eftersom en för sen reklamation kan göra att du förlorar rätten att kräva något. Vänta med reparationer tills felet dokumenterats, om det inte brådskar, så att du inte förstör bevis. Godtar inte säljaren kravet kan du få hjälp av konsumentvägledningen eller en jurist.',
+                ],
+            ],
+            [
+                'title' => 'Därför är en besiktning före köpet viktig',
+                'body' => [
+                    'En husbesiktning före köpet minskar risken för överraskningar. Det som besiktningsmannen hittar kan du ta upp i prisförhandlingen eller använda som underlag för att avstå, och protokollet visar vad du kände till vid köpet. Samtidigt gäller att det som protokollet nämner som en risk inte längre är dolt för dig.',
+                    'En besiktning är ingen garanti mot alla fel, eftersom dolda konstruktioner inte alltid går att undersöka. Läs därför begränsningarna i protokollet och följ upp det som kräver en fördjupad undersökning.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Hur länge kan jag klaga på dolda fel i ett hus?',
+                'a' => 'Du kan göra gällande dolda fel upp till tio år efter tillträdet, men du måste reklamera inom skälig tid efter att du upptäckt felet. Vänta därför inte.',
+            ],
+            [
+                'q' => 'Gäller dolda fel även i villa och i gammalt hus?',
+                'a' => 'Ja, reglerna är desamma för villa och andra småhus. I ett gammalt hus är det dock mer som anses förväntat, så det kan vara svårare att visa att ett fel är dolt.',
+            ],
+            [
+                'q' => 'Täcker en dolda fel-försäkring alla fel?',
+                'a' => 'Nej. Omfattning, självrisk, tid och undantag varierar mellan försäkringar. Läs villkoren noga och jämför innan du litar på skyddet.',
+            ],
+            [
+                'q' => 'Hur anmäler jag dolda fel till säljaren?',
+                'a' => 'Skicka en skriftlig reklamation till säljaren där du beskriver felet och när du upptäckte det, och bifoga bilder. Spara en kopia av allt.',
+            ],
+        ],
+        'relatedService' => 'husbesiktning',
+        'toolLink' => null,
+        'related' => [
+            'infor-husbesiktning',
+            'jamfora-besiktningsoffert',
+            'tecken-pa-fukt',
+            'mogel-i-hus',
+            'undersokningsplikt',
+        ],
+        'sources' => [
+            ['label' => 'Hallå konsument: Dolda fel i hus', 'url' => 'https://www.hallakonsument.se/varor-och-tjanster/fel-i-hus/'],
+            ['label' => 'Hallå konsument: Köpa hus', 'url' => 'https://www.hallakonsument.se/varor-och-tjanster/bra-att-veta-infor-huskop/'],
+            ['label' => 'Riksdagen: Jordabalk (1970:994)', 'url' => 'https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/jordabalk-1970994_sfs-1970-994/'],
+        ],
+        'example' => false,
+    ],
+    'besiktningsklausul' => [
+        'path' => '/guider/besiktningsklausul/',
+        'title' => 'Besiktningsklausul vid köp av hus',
+        'navLabel' => 'Besiktningsklausul vid köp av hus',
+        'seoTitle' => 'Besiktningsklausul – så fungerar den',
+        'metaDescription' => 'Vad är en besiktningsklausul i köpekontraktet för en villa? Öppen klausul, tidsfrister, undersökningsplikten och vad som gäller om besiktningen visar fel.',
+        'lastReviewed' => '2026-10-20',
+        'hero' => [
+            'eyebrow' => 'Besiktningsguiden',
+            'h1' => 'Besiktningsklausul vid köp av hus',
+            'lead' => 'En besiktningsklausul låter dig besikta huset efter att kontraktet är skrivet. Här går vi igenom hur den fungerar och vad du bör fråga mäklaren om.',
+        ],
+        'intro' => [
+            'En besiktningsklausul är ett villkor i köpekontraktet som kopplar köpets bestånd till resultatet av en besiktning. Med en besiktningsklausul för villa eller annat hus kan du som köpare låta en besiktningsman undersöka huset efter kontraktsskrivningen och därefter avgöra om köpet ska stå fast.',
+            'Texten är allmän information och ingen juridisk rådgivning. Exakt vad som gäller för ditt köp styrs av hur klausulen är formulerad i just ditt kontrakt. Är du osäker, fråga mäklaren eller en jurist innan du skriver under.',
+        ],
+        'steps' => [
+            [
+                'title' => 'Vad en besiktningsklausul är',
+                'body' => [
+                    'Klausulen är ett villkor som ska stå i själva köpehandlingen. Den anger vanligtvis att köparen får låta besikta huset inom en viss tid och vad som händer om besiktningen inte godtas. Överenskommelser vid sidan av kontraktet är en dålig grund att stå på.',
+                    'Enligt jordabalken får ett villkor för ett köps fullbordan eller bestånd inte gälla längre än två år från att köpehandlingen upprättades. I praktiken är tidsfristerna i en besiktningsklausul mycket kortare.',
+                ],
+            ],
+            [
+                'title' => 'Öppen besiktningsklausul eller klausul kopplad till vissa fel',
+                'body' => [
+                    'Med en öppen besiktningsklausul får köparen göra en besiktning och sedan välja om köpet ska gå tillbaka, utan att besiktningen behöver visa något särskilt fel. En klausul som är kopplad till vissa fel eller en viss kostnadsnivå ger i stället rätt att frångå köpet först när villkoret är uppfyllt.',
+                    'Skillnaden spelar roll, eftersom den avgör vad du behöver kunna visa. Be mäklaren förklara vilken sorts klausul som gäller för just ditt kontrakt och be att få se den exakta ordalydelsen.',
+                ],
+            ],
+            [
+                'title' => 'Tidsfrister i kontraktet',
+                'body' => [
+                    'Hur lång tid du har på dig, och hur du ska meddela säljaren, bestäms i kontraktet. Det brukar röra sig om ett slutdatum och ett krav på skriftligt besked. Missar du fristen kan klausulen förlora sin verkan.',
+                    'Boka därför besiktningsman direkt efter kontraktsskrivningen, och räkna in tid för protokollet. Läs gärna även om hur du förbereder dig i vår checklista inför husbesiktning.',
+                ],
+            ],
+            [
+                'title' => 'Klausulen och undersökningsplikten',
+                'body' => [
+                    'Som köpare av en fastighet har du en undersökningsplikt: ett fel som du borde ha upptäckt vid en lämplig undersökning kan du normalt inte åberopa i efterhand. En besiktningsklausul ersätter inte den plikten.',
+                    'Klausulen ger dig en avtalad möjlighet att backa från köpet, medan undersökningsplikten styr vilka fel du i efterhand kan klaga på. Tänk på dem som två olika saker.',
+                ],
+            ],
+            [
+                'title' => 'Om besiktningen visar fel: häva eller omförhandla',
+                'body' => [
+                    'Vad du kan göra när besiktningsprotokollet visar fel beror på klausulen. Är den öppen kan du begära att köpet går tillbaka. Är den knuten till vissa fel behöver villkoret vara uppfyllt. Du kan också välja att försöka omförhandla priset eller kräva att säljaren åtgärdar något, men det kräver att båda parter går med på det.',
+                    'Skriv ner överenskommelser och låt mäklaren hjälpa till att dokumentera dem. Ändringar i kontraktet bör göras skriftligt.',
+                ],
+            ],
+            [
+                'title' => 'Praktiska tips till dig som köpare',
+                'body' => [
+                    'Fråga mäklaren före kontraktsskrivningen om klausulen kan tas med och hur den ska formuleras. Be att få veta vilka frister som gäller, hur återgång begärs och vad som händer med handpenningen.',
+                    'Bestäm omfattning med besiktningsmannen i förväg, så att protokollet svarar på de frågor du har. Hur du jämför offerter finns i jämför besiktningsoffert.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Vad är en öppen besiktningsklausul?',
+                'a' => 'Det är en klausul som ger köparen rätt att besikta huset efter kontraktet och sedan välja om köpet ska stå fast. Exakt innebörd framgår av ordalydelsen i kontraktet.',
+            ],
+            [
+                'q' => 'Måste jag ha en besiktningsklausul när jag köper hus?',
+                'a' => 'Nej, men utan klausul binds du av köpet direkt när kontraktet är skrivet. Många köpare besiktar därför före kontraktet i stället, eller begär klausulen.',
+            ],
+            [
+                'q' => 'Gäller besiktningsklausulen även om jag har besiktat huset i förväg?',
+                'a' => 'Det beror på formuleringen. Fråga mäklaren hur klausulen ska lyda om du redan har ett protokoll.',
+            ],
+            [
+                'q' => 'Kan jag få juridisk hjälp med klausulen?',
+                'a' => 'Ja. Mäklaren kan förklara hur klausulen fungerar, men vid tveksamheter kan du vända dig till en jurist.',
+            ],
+        ],
+        'relatedService' => 'overlatelsebesiktning',
+        'toolLink' => null,
+        'related' => [
+            'infor-husbesiktning',
+            'jamfora-besiktningsoffert',
+        ],
+        'sources' => [
+            ['label' => 'Jordabalk (1970:994), Riksdagen', 'url' => 'https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/jordabalk-1970994_sfs-1970-994/'],
+            ['label' => 'Köparens undersökningsplikt, Fastighetsmäklarinspektionen', 'url' => 'https://fmi.se/vad-galler-vid-formedling/marknadsforing-och-visning/koparens-undersokningsplikt/'],
+        ],
+        'example' => false,
+    ],
+    'certifierad-besiktningsman' => [
+        'path' => '/guider/certifierad-besiktningsman/',
+        'title' => 'Certifierad besiktningsman – vad betyder SBR, Kiwa och RISE?',
+        'navLabel' => 'Certifierad besiktningsman',
+        'seoTitle' => 'Certifierad besiktningsman – SBR, Kiwa',
+        'metaDescription' => 'Vad betyder certifierad besiktningsman, SBR och Kiwa? Så förstår du certifiering, oberoende och ansvarsförsäkring innan du anlitar en besiktningsman.',
+        'lastReviewed' => '2026-10-20',
+        'hero' => [
+            'eyebrow' => 'Besiktningsguiden',
+            'h1' => 'Certifierad besiktningsman – vad betyder SBR, Kiwa och RISE?',
+            'lead' => 'Titeln besiktningsman är inte skyddad. Här förklarar vi vad certifiering innebär och vilka frågor du kan ställa innan du anlitar någon.',
+        ],
+        'intro' => [
+            'När du söker besiktningsman för ett hus möter du termer som certifierad besiktningsman, besiktningsman SBR och RISE-certifierad. De låter likartade men betyder inte exakt samma sak, och reglerna har ändrats över tid.',
+            'Den här guiden är allmän information. Be alltid den du överväger att anlita om intyg och dokumentation, eftersom vi inte kan intyga någon enskild persons behörighet åt dig.',
+        ],
+        'steps' => [
+            [
+                'title' => 'Vad certifiering betyder för en besiktningsman',
+                'body' => [
+                    'En certifiering visar att en fristående organisation har granskat personens utbildning, erfarenhet och kunskap enligt en kravspecifikation. Den ger dig ett underlag, men den är inget bevis för att just ditt uppdrag blir bra.',
+                    'För överlåtelsebesiktning, alltså besiktning vid husköp, finns en särskild certifiering för överlåtelsebesiktningsman. Certifikat gäller ofta en begränsad tid och kräver årlig uppföljning.',
+                ],
+            ],
+            [
+                'title' => 'SBR: vad står förkortningen för?',
+                'body' => [
+                    'SBR står för Svenska Byggingenjörers Riksförbund och är en branschorganisation för bland annat besiktningsmän. Begreppet besiktningsman SBR kan syfta på medlemskap, på en certifiering som tagits fram tillsammans med SBR eller på SBR:s eget godkännande.',
+                    'SBR har dessutom en egen behörighet, Av SBR godkänd besiktningsman. Den är något annat än en certifiering och är tidsbegränsad. Fråga därför vilket av dessa som personen faktiskt innehar.',
+                ],
+            ],
+            [
+                'title' => 'RISE och certifieringsorganen',
+                'body' => [
+                    'RISE, Research Institutes of Sweden, har certifierat besiktningsmän och för äldre certifikat kan du fortfarande se RISE som utfärdare. Enligt SBR har certifieringen tagits fram i samverkan mellan RISE och SBR.',
+                    'För närvarande anger SBR och Kiwa att Kiwa Certification är certifieringsorgan i samarbete med SBR sedan februari 2024. Vem som utfärdat ett certifikat beror alltså på när det gavs, så fråga efter certifikatet och kontrollera utfärdaren och giltighetstiden.',
+                ],
+            ],
+            [
+                'title' => 'Entreprenadbesiktning har egna krav',
+                'body' => [
+                    'Entreprenadbesiktning, till exempel slutbesiktning av en nybyggnation eller renovering, har en egen certifiering som entreprenadbesiktningsman. Den skiljer sig från certifieringen för överlåtelsebesiktning.',
+                    'Skilj därför på vad du ska besikta. Ett certifikat för ett område visar inte att personen är certifierad för det andra. Läs mer om slutbesiktning i checklistan inför slutbesiktning.',
+                ],
+            ],
+            [
+                'title' => 'Oberoende besiktningsman och ansvarsförsäkring',
+                'body' => [
+                    'En oberoende besiktningsman har inget ekonomiskt eller annat intresse i affären. Han eller hon ska alltså inte vara knuten till säljaren eller mäklaren, utan arbeta på uppdrag av den som beställer. Fråga vem som beställer och betalar uppdraget.',
+                    'Fråga även om ansvarsförsäkring. Be om försäkringsbevis och kontrollera vad försäkringen omfattar och vilka villkor och begränsningar som gäller för uppdraget.',
+                ],
+            ],
+            [
+                'title' => 'Frågor att ställa innan du bokar',
+                'body' => [
+                    'Be om certifikatets nummer, utfärdare och giltighetstid. Fråga om uppdragets omfattning, vad som ingår och inte ingår, och vilken försäkring som gäller. Be också att få se ett exempel på ett protokoll så att du ser hur iakttagelser och risker redovisas.',
+                    'Vill du jämföra flera offerter hittar du stöd i jämför besiktningsoffert. Be varje besiktningsman om sitt eget intyg.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Är titeln besiktningsman skyddad?',
+                'a' => 'Nej, i allmänhet kan vem som helst kalla sig besiktningsman. Därför är certifikat och dokumentation något du behöver fråga efter.',
+            ],
+            [
+                'q' => 'Vad betyder SBR-godkänd besiktningsman?',
+                'a' => 'Det kan syfta på Av SBR godkänd besiktningsman, en behörighet som SBR själv utfärdar och som är tidsbegränsad. Det är inte samma sak som en certifiering, så fråga vilket intyg som avses.',
+            ],
+            [
+                'q' => 'Behöver besiktningsmannen vara certifierad?',
+                'a' => 'Det finns inget lagkrav för överlåtelsebesiktning, men certifiering är ett sätt att få ett tecken på kompetens. Vissa uppdrag, till exempel i avtal, kan ställa krav.',
+            ],
+            [
+                'q' => 'Hur vet jag att besiktningsmannen är oberoende?',
+                'a' => 'Fråga vem som har beställt och betalar uppdraget och om personen har någon koppling till säljaren eller mäklaren. Be om svaret skriftligt.',
+            ],
+        ],
+        'relatedService' => 'husbesiktning',
+        'toolLink' => null,
+        'related' => [
+            'infor-husbesiktning',
+            'jamfora-besiktningsoffert',
+        ],
+        'sources' => [
+            ['label' => 'Överlåtelsebesiktning, SBR Byggingenjörerna', 'url' => 'https://sbr.se/blog/overlatelsebesiktning-av-fast-egendom/'],
+            ['label' => 'Kiwa blir ny partner till SBR', 'url' => 'https://kiwa.com/se/sv/media/nyheter/kiwa-blir-ny-partner-till-sbr'],
+            ['label' => 'Kiwa: Certifiering av överlåtelsebesiktningsman', 'url' => 'https://www.kiwa.com/se/sv/tjanster/certifiering/certifierad-overlatelsebesiktningsman/'],
+        ],
+        'example' => false,
+    ],
+    'fukt-i-krypgrund' => [
+        'path' => '/guider/fukt-i-krypgrund/',
+        'title' => 'Fukt i krypgrund – luftfuktighet, avfuktare och åtgärder',
+        'navLabel' => 'Fukt i krypgrund',
+        'seoTitle' => 'Fukt i krypgrund – avfuktare och åtgärd',
+        'metaDescription' => 'Fukt i krypgrund: så tolkar du luftfuktigheten, när en avfuktare kan behövas och hur en fuktutredning hjälper dig att välja rätt åtgärd.',
+        'lastReviewed' => '2026-10-20',
+        'hero' => [
+            'eyebrow' => 'Besiktningsguiden',
+            'h1' => 'Fukt i krypgrund – luftfuktighet, avfuktare och åtgärder',
+            'lead' => 'Många hus med krypgrund eller torpargrund har högre fukt under golvet än i resten av huset. Här går vi igenom varför, hur du mäter och vad du kan göra.',
+        ],
+        'intro' => [
+            'Fukt i krypgrund är vanligt, särskilt i äldre hus. Det betyder inte alltid att något är skadat, men förhöjd fukt över lång tid kan ge mögel på trä och lukt som kan följa med upp i bostaden.',
+            'Guiden är allmän information. Varje krypgrund är olika, och rätt åtgärd beror på orsaken. Börja därför med att ta reda på vad som faktiskt händer under huset innan du köper utrustning eller bygger om.',
+        ],
+        'steps' => [
+            [
+                'title' => 'Varför blir det fuktigt i en krypgrund?',
+                'body' => [
+                    'Många krypgrunder ventileras med utomhusluft. På sommaren kan varm och fuktig luft komma in och möta kalla ytor som marken, grundmuren och golvbjälklaget. Då stiger den relativa fuktigheten (RF) och fukt kan fälla ut på ytorna.',
+                    'Andra vanliga orsaker är fuktig mark, dålig dränering, regnvatten som leds mot huset, bevuxen mark och organiskt material under huset. Ofta samverkar flera orsaker.',
+                ],
+            ],
+            [
+                'title' => 'Luftfuktighet i krypgrund – vad är en acceptabel nivå?',
+                'body' => [
+                    'Ett vanligt riktvärde är att RF i krypgrunden inte bör ligga över cirka 75–80 % under längre tid, eftersom risken för mögel på trä ökar vid högre nivåer. Det är ett riktvärde och ingen garanti åt något håll: risken beror också på temperatur, hur länge fukten varit hög och materialet.',
+                    'Luftfuktigheten varierar med årstiden och är ofta högst under sommar och tidig höst. Ett enstaka värde säger därför lite om vad som är normalt för just din krypgrund.',
+                ],
+            ],
+            [
+                'title' => 'Mäta fukt i krypgrunden',
+                'body' => [
+                    'En enkel fuktmätare i krypgrund visar RF och temperatur just nu. Bättre är en logger som mäter över veckor eller månader, helst både under huset och utomhus, så att du ser samband och årstidsvariationer. Trä kan också mätas för sig, eftersom fukten i virket inte alltid följer luftens värden.',
+                    'En mätning på en dag kan inte visa orsaken, om fukten är på väg upp eller ned, eller om det finns dolda skador. Mätutrustning är därför ett underlag, inte en diagnos.',
+                ],
+            ],
+            [
+                'title' => 'Avfuktare i krypgrund – när behövs det?',
+                'body' => [
+                    'En avfuktare kan vara en del av lösningen när luften är fuktig trots att orsaken är avgränsad, till exempel efter åtgärder mot fuktig mark. De vanligaste typerna är kondensavfuktare och sorptionsavfuktare. Sorptionsavfuktare fungerar bättre vid låga temperaturer, medan kondensavfuktare används där det är varmare.',
+                    'Avfuktaren måste vara rätt dimensionerad och installerad, och krypgrunden behöver vara tillräckligt tät för att avfuktningen ska ge effekt. Den löser inte vattenläckor, dålig dränering eller fuktig mark. Vi säljer eller installerar inte avfuktare, men vi kan hjälpa dig att få fram vilken åtgärd som är motiverad.',
+                ],
+            ],
+            [
+                'title' => 'Mögel i krypgrund och torpargrund',
+                'body' => [
+                    'Tecken på mögel i krypgrund eller torpargrund är mörka eller vita fläckar på trä, fuktig och unken lukt, kondens på ytor och lukt som kan kännas inomhus, särskilt nära golvet. Skador syns inte alltid från luckan, så avsaknad av synligt mögel är ingen garanti.',
+                    'Går det att se mögel eller känna lukt är det rimligt att få en fuktutredning. Gå inte in i en trång eller mögelpåverkad krypgrund utan skydd, och fråga 1177 om du har symtom som du misstänker hänger ihop med inomhusmiljön.',
+                ],
+            ],
+            [
+                'title' => 'Åtgärder och kostnad vid fukt i krypgrund',
+                'body' => [
+                    'Åtgärderna delas ofta in i några kategorier: ändrad ventilation, markfuktskydd som plastfolie på marken, avfuktning, och åtgärder mot orsaken som förbättrad dränering. Ibland behöver skadat material också bytas eller saneras.',
+                    'Kostnaden för att åtgärda fukt i krypgrund beror helt på vilken lösning som krävs, så vi anger inga priser här. Gör du en fuktutredning eller fuktmätning först minskar du risken att betala för fel åtgärd. Fyll i formuläret så får du offerter på det från besiktningsmän i Stockholms län.',
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Hur hög luftfuktighet är för hög i en krypgrund?',
+                'a' => 'Som riktvärde ses RF över cirka 75–80 % under längre tid som en risk för mögel på trä. Värdet beror på temperatur och tid, så mät över en längre period och låt en fuktutredning bedöma resultatet.',
+            ],
+            [
+                'q' => 'Räcker det med en avfuktare?',
+                'a' => 'Bara om fuktkällan redan är åtgärdad eller begränsad. En avfuktare tar hand om fuktig luft men inte vattenläckor, fuktig mark eller dålig dränering.',
+            ],
+            [
+                'q' => 'Vad kostar det att åtgärda fukt i krypgrund?',
+                'a' => 'Det beror på orsak och lösning, till exempel ventilation, markfuktskydd, avfuktning eller dränering. En fuktutredning först hjälper dig att undvika fel åtgärd.',
+            ],
+            [
+                'q' => 'Kan jag mäta fukten själv?',
+                'a' => 'Du kan använda en fuktmätare eller logger för att få en första bild, men tolkningen och orsaken är svårare. Gå inte in i trånga utrymmen på ett osäkert sätt.',
+            ],
+        ],
+        'relatedService' => 'fuktutredning',
+        'toolLink' => null,
+        'related' => [
+            'tecken-pa-fukt',
+            'mogel-i-hus',
+            'fuktskada-kallare',
+        ],
+        'sources' => [
+            ['label' => 'Boverket: Risker med fukt från uteluft i krypgrund', 'url' => 'https://www.boverket.se/sv/byggande/forebygg-fel-brister-skador/risker-byggande/risker-fuktskador/fuktrisker-for-grund/krypgrund/risk-med-fukt-fran-uteluft-i-krypgrund/'],
+            ['label' => 'Boverket: Fuktrisker för grund', 'url' => 'https://www.boverket.se/sv/byggande/forebygg-fel-brister-skador/risker-byggande/risker-fuktskador/fuktrisker-for-grund/'],
         ],
         'example' => false,
     ],

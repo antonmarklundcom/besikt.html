@@ -30,13 +30,16 @@ const srcDir = resolve(process.argv[2] || resolve(root, "deploy/imagery-src"));
 const MANIFEST = [
   ...["villa", "attic", "bathroom", "moisture", "final", "construction", "brf", "maintenance", "apartment", "roof", "project", "control", "measurement", "home"]
     .map(slot => ({ slot, src: `${slot}.png`, out: `services/${slot}`, widths: [480, 960] })),
+  // The homepage hero (design "Vit", 2026-10-20) is shown half-width on desktop,
+  // so it gets a larger variant for high-density screens.
+  { slot: "inspector", src: "inspector.png", out: "services/inspector", widths: [480, 960, 1440], position: "top" },
 ];
 
 // The OG image stays a plain flattened PNG at a fixed size (Open Graph
 // consumers don't reliably support AVIF/WebP), so it is handled separately.
 const OG = { src: "og-default.png", out: "og-default.png", width: 1200, height: 630 };
 
-async function convertOne({ slot, src, out, widths }) {
+async function convertOne({ slot, src, out, widths, position = "centre" }) {
   const srcPath = resolve(srcDir, src);
   if (!existsSync(srcPath)) {
     console.warn(`skip ${slot}: ${src} not found in deploy/imagery-src/`);
@@ -48,8 +51,8 @@ async function convertOne({ slot, src, out, widths }) {
 
   const image = sharp(srcPath);
   for (const width of widths) {
-    await image.clone().resize({ width, height: width * 9 / 16, fit: "cover" }).avif({ quality: 50 }).toFile(`${base}-${width}.avif`);
-    await image.clone().resize({ width, height: width * 9 / 16, fit: "cover" }).webp({ quality: 76 }).toFile(`${base}-${width}.webp`);
+    await image.clone().resize({ width, height: width * 9 / 16, fit: "cover", position }).avif({ quality: 50 }).toFile(`${base}-${width}.avif`);
+    await image.clone().resize({ width, height: width * 9 / 16, fit: "cover", position }).webp({ quality: 76 }).toFile(`${base}-${width}.webp`);
   }
   console.log(`wrote ${out} AVIF/WebP (${widths.join(" / ")}px)`);
 }
@@ -63,7 +66,7 @@ async function convertOg() {
   const destPath = resolve(root, "assets/img", OG.out);
   await sharp(srcPath)
     .resize({ width: OG.width, height: OG.height, fit: "cover" })
-    .flatten({ background: "#0F1B2D" })
+    .flatten({ background: "#0F2233" })
     .png({ compressionLevel: 9 })
     .toFile(destPath);
   console.log(`wrote ${OG.out} (${OG.width}x${OG.height})`);

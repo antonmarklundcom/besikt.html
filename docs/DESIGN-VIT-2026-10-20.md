@@ -1,0 +1,89 @@
+# Design "Vit" and next SEO steps — 20 October 2026
+
+Anton chose design A ("Besiktningsmännen Vit") from `designs/2026-10-19/`. It is now built into the real PHP site.
+
+## What changed
+
+- **Brand:** `site.name` is "Besiktningsmännen". The title suffix, logo, footer, schema, about page, privacy policy and terms use it. The domain stays besiktningsmannen.se.
+- **Pitch:** a request goes to up to three inspectors, and the visitor compares the quotes. The privacy policy, terms and form note say the same. See `docs/OPEN-QUESTIONS.md` items 9–11 for what must be true before launch.
+- **Theme:** the token block in `assets/css/site.css` has a new palette: ink `#0F2233`, green action colour `#12814D` with white text, brand blue `#1C4E86`. A section headed "Vit (2026-10-20)" at the end of the file makes the header, heroes and mobile menu light. The footer stays dark.
+- **Fonts:** Schibsted Grotesk (display) and Source Sans 3 (body) are self-hosted and subset with `deploy/subset-fonts.sh`. Bricolage and Onest are removed.
+- **Homepage:** `index.php` has these sections:
+  - A three-step form in the hero (`partials/lead-steps.php` and `assets/js/lead-steps.js`). It posts to `enviar.php` with the same fields as before, plus `property_type` and a new `timing` field. Without JavaScript it works as one long form.
+  - A strip with three promises.
+  - Eight photo cards linking to the service pages, followed by links to the other six services.
+  - Process, the "Fem saker att jämföra" checklist, area and prices, guides, FAQ and the CTA band.
+- **Images:** the realistic Higgsfield (Nano Banana 2.1) photos replace these service slots: villa, apartment, bathroom, moisture, measurement, roof, attic, brf and home. The new `inspector` slot is the homepage hero, and `og-default.png` uses the same photo. The images are labelled "AI-genererad bild" or "Illustrationsbild, skapad med AI". Sources are listed in `designs/2026-10-19/README.md`.
+- **Schema:** the homepage now emits a `WebSite` block with `name` (the brand) and `alternateName` (the domain).
+- **Tests:**
+  - `verify.sh` now counts title length in characters instead of bytes. Before, å, ä, ö and the dash counted double.
+  - `tests/seo-release.mjs` steps through the homepage form before it checks the focus behaviour.
+
+## Checks run
+
+- `verify.sh` passes, both on the repository and on the release stage built by `deploy/build-release.mjs`. Only the Windows `tar.exe` zip step cannot run on Linux.
+- `tests/seo-release.mjs` passes: 35 indexable pages, 56 internal paths, metadata, schema, sitemap, redirects, 5 viewport widths, the mobile menu, prefill and the no-JS form.
+- `tests/lead-foundation.mjs` and `tests/lead-ledger.php` pass.
+- The same 35 sitemap URLs exist before and after the change. Canonicals, H1s and internal links are unchanged, except for:
+  - the homepage H1 and title;
+  - the "Om oss" H1;
+  - the brand in every title suffix.
+
+## Added later on 20 October: prices and new pages
+
+- **Estimated prices.** Anton asked for these on 20 October. Each service page now has a "Vad kostar …?" H2, a short answer and a table of price ranges. The figures come from `content/precios.php` and are rendered by `partials/price-block.php` and `partials/price-table.php`. `/priser/` lists every service by cluster (`partials/price-list.php`). The title is "Vad kostar en besiktning? Prislista". The ranges include VAT, are labelled as estimates, and start from the provisional figures in plan.md §3.3, checked against published price guides in October 2026. Each inspector sets the real price in their quote.
+- **`/husbesiktning/`:** a new overview page for "husbesiktning" and "besiktning hus" (it explains which kind of house inspection to choose). One page targets both phrases because they mean the same thing; two pages would compete with each other. `/overlatelsebesiktning/` keeps its own intent. It now has an H2 "Husbesiktning och besiktning av hus inför köp" and a link card to the new page, and its price FAQ asks about överlåtelsebesiktning so it does not compete.
+- **`/byggkonsult/`:** a new page for "byggkonsult" (590 searches a month). It is broader than project management and links on to byggprojektledning, kontrollansvarig and entreprenadbesiktning. On `/byggprojektledning/`, the H2 "Byggkonsult och projektledare för BRF" became "Projektledare och byggledare för BRF".
+- **New titles:**
+  - `/lagenhetsbesiktning/`: "Lägenhetsbesiktning av bostadsrätt". The H1 adds "… i Stockholm".
+  - `/fuktutredning/`: "Fuktutredning vid fuktskada i Stockholm".
+- **Homepage:** Husbesiktning is the first photo card. Fuktmätning moved to the links below the cards.
+- **Sitemap:** 37 indexable pages, all tests pass.
+
+## SEO: next steps (ranked)
+
+1. ~~Retitle the pages for the biggest search terms~~ (done on 20 October, see above). Original note: Titles have about 40 characters before the " | Besiktningsmännen" suffix (60 in total).
+   - `/overlatelsebesiktning/`: also target "husbesiktning" (590) and "besiktning hus" (720), e.g. "Husbesiktning & överlåtelsebesiktning".
+   - `/lagenhetsbesiktning/`: add "bostadsrätt" (480 + 210).
+   - `/fuktutredning/`: add "fuktskada" (480).
+   - `/byggprojektledning/`: add "byggkonsult" (590) and "byggledare" (210).
+2. **Set up Search Console.** It is the biggest data source still missing.
+3. **Put real prices on `/priser/`** once they are approved. About 1,800 searches a month are price questions.
+4. **Write a trust page.** Explain how inspectors are chosen (certification, insurance), add the org. number, and name a reviewer on each guide. This targets "besiktningsman sbr" (210) and "certifierad / oberoende besiktningsman" (90 + 110). Use only verified facts.
+5. **Add municipality coverage.** List the municipalities in `areaServed` and in a visible area section. Build local pages only for municipalities where the Stockholm KWP run or Search Console shows demand.
+6. **Add `lastmod` to the sitemap** for services and guides (`sitemap.php`), using `lastReviewed`.
+7. **Article schema:** use each guide's own image and add `datePublished`.
+
+## Keyword Planner data we have and what is missing
+
+We have `docs/kwp/2026-10-10.json`:
+
+- 1,012 phrases for **all of Sweden**, Swedish language.
+- Only average monthly searches and top-of-page bids.
+
+We are missing:
+
+- **Stockholms län** volumes.
+- Competition data.
+- 3-month and year-on-year trends.
+- The monthly breakdown (seasonality).
+- Searches about comparing quotes and municipality-level searches.
+
+The seed list for the next run is in `docs/kwp/SEEDS-2026-10-20.txt`.
+
+## Keyword implementation, 20 October (later): KWP file "keywords-for-ai_5"
+
+Anton approved the plan built from his Keyword Planner export of 1,305 phrases in 54 meaning groups, national data. Opus split the work, Sonnet 5.5 and Haiku 5.5 sub-agents (medium effort) did most of it, and Opus reviewed and tested the result.
+
+- **Service pages:** the titles and H1s now match the main keyword of their group: husbesiktning ("besiktning av hus"), lägenhet, byggprojektledning and underhållsplan. Eighteen new H2s and several FAQs were added across the service pages.
+- **New pages:**
+  - `/husbesiktning/pris/` (group "besiktning av hus pris", 4,130/mo).
+  - Guides `/guider/undersokningsplikt/`, `/guider/dolda-fel-hus/`, `/guider/besiktningsklausul/`, `/guider/certifierad-besiktningsman/` and `/guider/fukt-i-krypgrund/`.
+  - City pages `/husbesiktning/uppsala/`, `/husbesiktning/goteborg/` and `/husbesiktning/malmo/`. Anton approved these; they need inspectors in those cities, see OPEN-QUESTIONS item 13.
+- **Existing guides:** mögel i hus (symptom) and fuktmätare betongplatta were retitled, and new H2s were added to the badrum, parkett and källare guides.
+- **Skipped on purpose:**
+  - "besiktningsprotokoll" on its own (2,400/mo) and the station names (Vinsta, Högdalen and others), which are car inspection.
+  - Competitor brands.
+  - Municipality pages within the county. Stockholm run B shows only Värmdö at 90/mo; see docs/kwp/2026-10-20-stockholm-hus.md.
+- **Facts:** where an agent could not reach a source, the text was hedged or removed. Krypgrund sources are Boverket. The certification guide says Kiwa (with SBR) certifies överlåtelsebesiktningsmän today; RISE appears only as the issuer on older certificates.
+- **Result:** 46 indexable pages. verify.sh and tests/seo-release.mjs pass, and there is no horizontal overflow at 320–430 px.

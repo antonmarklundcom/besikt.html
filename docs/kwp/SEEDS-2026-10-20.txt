@@ -1,0 +1,189 @@
+# Keyword Planner seeds, 2026-10-20 (Besiktningsmännen)
+#
+# Where: Google Ads > Tools > Keyword Planner > "Get search volume and forecasts".
+#        Paste one block at a time.
+# Run A: location Sweden. Run B: location Stockholms län. Run every block in both,
+#        except blocks 10–13 (B only) and block 16 (A only).
+# Language: Swedish. Network: Google Search only.
+# Date range: the last 12 complete months, compared with the previous year.
+# Export: "Historical metrics" CSV with the monthly breakdown on. Include the
+#        competition, three-month change, year-on-year change and top-of-page
+#        bid (low/high) columns.
+# Save as docs/kwp/2026-MM-DD-<A|B>-<block>.csv
+#
+# At most 10 phrases per block.
+
+## 1. Husbesiktning och besiktning av hus
+husbesiktning
+besiktning hus
+husbesiktning stockholm
+besiktningsman hus
+besiktning av hus inför köp
+överlåtelsebesiktning
+överlåtelsebesiktning villa
+besiktning radhus
+besiktning fritidshus
+statusbesiktning hus
+
+## 2. Pris: hus och lägenhet
+husbesiktning pris
+besiktning hus pris
+vad kostar husbesiktning
+överlåtelsebesiktning kostnad
+överlåtelsebesiktning pris
+statusbesiktning pris
+lägenhetsbesiktning pris
+besiktning bostadsrätt pris
+besiktning radhus pris
+besiktningsman timpris
+
+## 3. Pris: fukt, tak, bygg och BRF
+fuktutredning kostnad
+fuktmätning pris
+badrumsbesiktning pris
+takbesiktning pris
+slutbesiktning pris
+garantibesiktning pris
+kontrollansvarig kostnad
+underhållsplan brf kostnad
+byggkonsult timpris
+byggprojektledning pris
+
+## 4. Lägenhet och bostadsrätt
+lägenhetsbesiktning
+besiktning av lägenhet
+besiktning av bostadsrätt
+besiktning bostadsrätt inför köp
+besiktning lägenhet stockholm
+besiktning badrum bostadsrätt
+statusbesiktning lägenhet
+besiktning efter renovering lägenhet
+
+## 5. Fukt och mögel
+fuktskada
+fuktutredning
+fuktmätning
+fuktskada badrum
+fuktskada källare
+fukt i krypgrund
+mögel i hus
+mögellukt i hus
+fuktmätning betong
+fuktskada stockholm
+
+## 6. Bygg, konsult och kontroll
+byggkonsult
+byggkonsult stockholm
+byggledare
+byggprojektledning
+projektledning bygg
+kontrollansvarig
+kontrollansvarig stockholm
+kontrollansvarig bygglov
+entreprenadbesiktning
+slutbesiktning
+
+## 7. BRF
+underhållsplan brf
+underhållsplan bostadsrättsförening
+statusbesiktning brf
+besiktning brf
+besiktning stambyte
+besiktning fasadrenovering
+byggkonsult brf
+projektledare brf
+
+## 8. Jämföra och offert (pitchen "upp till 3 offerter")
+besiktningsfirma
+besiktningsfirma stockholm
+besiktningsföretag stockholm
+besiktningsman offert
+offert husbesiktning
+jämför besiktning
+jämför besiktningsman
+flera offerter besiktning
+billig besiktningsman
+bästa besiktningsman
+
+## 9. Förtroende och certifiering
+certifierad besiktningsman
+besiktningsman sbr
+oberoende besiktningsman
+besiktningsman kiwa
+besiktningsman omdömen
+besiktningsman ansvarsförsäkring
+
+## 10. Lokalt: besiktningsman + kommun, del 1 (Run B)
+besiktningsman nacka
+besiktningsman täby
+besiktningsman huddinge
+besiktningsman solna
+besiktningsman södertälje
+besiktningsman sollentuna
+besiktningsman järfälla
+besiktningsman lidingö
+besiktningsman danderyd
+besiktningsman värmdö
+
+## 11. Lokalt: besiktningsman + kommun, del 2 (Run B)
+besiktningsman tyresö
+besiktningsman haninge
+besiktningsman botkyrka
+besiktningsman österåker
+besiktningsman norrtälje
+besiktningsman upplands väsby
+besiktningsman bromma
+besiktningsman sundbyberg
+besiktningsman vallentuna
+besiktningsman ekerö
+
+## 12. Lokalt: husbesiktning + kommun (Run B)
+husbesiktning nacka
+husbesiktning täby
+husbesiktning huddinge
+husbesiktning solna
+husbesiktning södertälje
+husbesiktning sollentuna
+husbesiktning järfälla
+husbesiktning lidingö
+husbesiktning danderyd
+husbesiktning värmdö
+
+## 13. Lokalt: överlåtelsebesiktning + kommun (Run B)
+överlåtelsebesiktning nacka
+överlåtelsebesiktning täby
+överlåtelsebesiktning huddinge
+överlåtelsebesiktning solna
+överlåtelsebesiktning södertälje
+överlåtelsebesiktning sollentuna
+
+## 14. Frågor
+vad ingår i en överlåtelsebesiktning
+hur lång tid tar en husbesiktning
+vem betalar besiktningen
+ska man besikta hus innan köp
+dolda fel hus
+undersökningsplikt köpare
+besiktningsklausul
+vad gör en byggkonsult
+vad gör en kontrollansvarig
+när behövs kontrollansvarig
+
+## 15. Varumärken (eget och konkurrenter)
+besiktningsmännen
+besiktningsmannen
+anticimex husbesiktning
+dekra husbesiktning
+offerta besiktning
+servicefinder besiktningsman
+
+## 16. Andra städer (Run A, för en eventuell utökning)
+besiktningsman uppsala
+besiktningsman göteborg
+besiktningsman malmö
+besiktningsman västerås
+besiktningsman örebro
+besiktningsman linköping
+husbesiktning göteborg
+husbesiktning malmö
+husbesiktning uppsala

@@ -3,11 +3,11 @@ declare(strict_types=1);
 /** Preserve guide URLs already on main with scoped copy and current references. */
 $legacyGuide = static function (string $slug, string $title, string $description, string $service, array $intro, array $steps, array $faq, array $related, array $references = []): array {
     $seoTitles = [
-        'mogel-i-hus' => 'Mögel i hus – tecken och fukt',
+        'mogel-i-hus' => 'Mögel i hus – symptom och tecken',
         'fuktskada-badrum' => 'Fuktskada i badrum',
         'fuktskada-parkett' => 'Fuktskada i parkett och trägolv',
         'fuktskada-kallare' => 'Fuktskada i källare',
-        'fuktmatning-betong' => 'Fuktmätning i betong',
+        'fuktmatning-betong' => 'Fuktmätare för betongplatta',
         'tvist-med-hantverkare' => 'Tvist med hantverkare',
     ];
     return [
@@ -20,7 +20,7 @@ $legacyGuide = static function (string $slug, string $title, string $description
     ];
 };
 return [
-    'mogel-i-hus' => $legacyGuide('mogel-i-hus', 'Mögel i hus – tecken och undersökning',
+    'mogel-i-hus' => $legacyGuide('mogel-i-hus', 'Mögel i hus: symptom, tecken och vad du gör',
         'Misstänker du mögel i huset? Dokumentera fläckar, lukt och fukthistorik. Läs vad en byggnadsteknisk undersökning kan ge och förbered en fuktutredning.', 'fuktutredning',
         ['Fläckar och lukt behöver undersökas i sitt sammanhang. Beskriv vad du har sett och var i huset det finns innan du väljer åtgärd.', 'Guiden handlar om byggnaden och hur du förbereder en undersökning. Den identifierar inte en mögelart och bedömer inte enskilda hälsobesvär.'],
         [
@@ -30,6 +30,8 @@ return [
             ['title' => 'Förbered åtkomst och dokumentation', 'body' => ['Beskriv vilka delar som är åtkomliga och vem som kan lämna tillträde. Gå inte in i riskfyllda eller svåråtkomliga utrymmen för att samla mer material.', 'Kom överens om eventuella ingrepp med ägaren och utföraren. Spara dina bilder innan något täcks, rivs eller ändras.']],
             ['title' => 'Be om en användbar rapport', 'body' => ['Rapporten bör skilja mellan observerade tecken, undersökta delar, möjliga förklaringar och sådant som inte har kunnat bedömas. Fråga vad som behöver följas upp.', 'Om underlaget ska användas i ett försäkringsärende eller en reklamation, tala om det redan när du beställer. Mottagaren avgör vilket ytterligare underlag den behöver.']],
             ['title' => 'Begär offert för rätt omfattning', 'body' => ['Ange hustyp, område, berörda rum och vad du vill få klarlagt. Beskriv tidigare åtgärder och bifoga handlingarna när utföraren efterfrågar dem.', 'Jämför undersökningens omfattning och leverans. En låg offert på en ytkontroll kan inte utan vidare jämföras med en utredning av bakomliggande konstruktioner.']],
+            ['title' => 'Mäta mögel i hus', 'body' => ['Mögel går inte att bekräfta enbart med ögat. Fläckar kan ha andra orsaker, och en lukt är inte heller en bekräftelse på mögel.', 'En professionell undersökning kan omfatta fuktmätning i konstruktionen och, om det avtalas, provtagning med laboratorieanalys. Hemmatester har begränsningar och ersätter inte en undersökning av orsaken. Be utföraren beskriva vilka metoder som ingår.']],
+            ['title' => 'Mögellukt i hus – vad betyder den?', 'body' => ['En instängd eller unken lukt kommer ofta från fukt någonstans i konstruktionen. Lukten visar dock inte var fukten finns eller hur omfattande den är.', 'Notera när och var det luktar, till exempel i ett visst rum, vid regn eller vid uppvärmning. Skriv också ned om något i huset har ändrats nyligen.']],
         ],
         [['q' => 'Kan ett hemmatest ersätta en fuktutredning?', 'a' => 'Det svarar inte på samma fråga. Be en utförare bedöma vilket underlag som behövs för att undersöka byggnadens problem och dess omfattning.'], ['q' => 'Kan ni avgöra vilken mögelart det är från ett foto?', 'a' => 'Nej. Fotot kan hjälpa till att beskriva ärendet, men identifiering och eventuell provtagning måste bedömas separat.']],
         ['tecken-pa-fukt', 'fuktskada-kallare', 'fuktskada-badrum']),
@@ -43,6 +45,7 @@ return [
             ['title' => 'Avtala om mätning och åtkomst', 'body' => ['Beskriv vilka ytor som kan nås och om ägaren eller föreningen behöver ordna tillträde. Mätmetod och eventuella ingrepp ska bestämmas för det aktuella uppdraget.', 'Be om besked om vad mätningen kan visa och vad som fortfarande kan vara dolt. Jämför inte värden från olika metoder som om de vore samma sak.']],
             ['title' => 'Klargör hur rapporten ska användas', 'body' => ['Berätta om du behöver underlag för underhåll, kontakt med entreprenören eller ett skadeärende. Det hjälper utföraren att föreslå rätt omfattning.', 'En teknisk rapport beskriver undersökningen. Ansvar, ersättning och försäkringsvillkor avgörs inte automatiskt genom besiktningen.']],
             ['title' => 'Skilj utredning från återställning', 'body' => ['Kontrollera om offerten gäller undersökning, provtagning eller annat avgränsat arbete. Torkning, sanering och återställning ska inte antas ingå.', 'Efter genomgång av rapporten kan du ta ställning till nästa steg och vilka ytterligare specialister som behövs.']],
+            ['title' => 'Fuktskada i vägg', 'body' => ['Lösa kakel, missfärgningar, svällda skivor eller flagnande färg intill badrummet kan vara tecken på fukt i väggen. Samma tecken kan ha flera orsaker, så de behöver undersökas innan en åtgärd väljs.', 'Notera var väggen finns, om den gränsar till dusch eller våtzon och när tecknen först syntes. Om badrumsväggen redan har lagats eller badrummet har varit fuktigt tidigare, skriv även det. Det hjälper utföraren att avgöra om det handlar om en fuktskadad vägg eller ett återkommande fuktigt badrum.']],
         ],
         [['q' => 'Ska jag beställa badrumsbesiktning eller fuktutredning?', 'a' => 'Badrumsbesiktning kan passa kontroll av ett utfört arbete. Vid frågor om skadans orsak och omfattning kan en fuktutredning behövas. Beskriv ärendet innan du väljer.'], ['q' => 'Behöver föreningen känna till undersökningen?', 'a' => 'Vid bostadsrätt behöver tillträde, möjliga ingrepp och berörda gemensamma delar stämmas av med rätt ansvarig. Kontrollera vad som gäller i föreningen.']],
         ['badrumsrenovering-dokument', 'mogel-i-hus', 'tecken-pa-fukt'],
@@ -57,6 +60,7 @@ return [
             ['title' => 'Avtala om åtkomst och ingrepp', 'body' => ['Undersökning av ett golv kan kräva åtkomst till underlaget. Utföraren ska förklara vilka moment som föreslås och vad ägaren behöver godkänna.', 'Ta inte bort golv eller lister för undersökning utan att ha stämt av metod och dokumentation, särskilt om ett skade- eller reklamationsärende pågår.']],
             ['title' => 'Bestäm rapportens frågor', 'body' => ['Be om tydlig redovisning av undersökta delar, metod, observationer och begränsningar. Fråga om en fortsatt undersökning behövs innan golvbyte.', 'Rapporten är ett tekniskt underlag. Den som ska hantera ett skadeärende kan efterfråga ytterligare uppgifter.']],
             ['title' => 'Begär offert innan återställning', 'body' => ['Ange golvtyp, område, berörd yta och vad du vill få klarlagt. Välj fuktutredning när orsaken behöver undersökas, snarare än att bara beställa ett golvbyte.', 'Kontrollera vad offerten inkluderar och vilka eventuella ingrepp, mätningar eller återställningsarbeten som beställs separat.']],
+            ['title' => 'Fuktskada i laminatgolv', 'body' => ['Laminatgolv reagerar på fukt på ett annat sätt än massivt trä. Kanter som sväller, skarvar som lyfter eller ett golv som ser deformerat ut kan vara tecken, men orsaken behöver fortfarande undersökas.', 'Dokumentera skadan med foton och spara produktuppgifter från golvet. Notera när problemet först syntes och om det finns tidigare läckage eller underlagsbyte att redovisa.']],
         ],
         [['q' => 'Visar ett upphöjt golv säkert att det finns fukt?', 'a' => 'Nej. Förändringen behöver bedömas tillsammans med golvets material, underlag och övriga omständigheter.'], ['q' => 'Ingår byte av parkett i utredningen?', 'a' => 'Inte om det inte uttryckligen avtalas. Undersökning och återställning är olika delar av ett ärende.']],
         ['fuktmatning-betong', 'tecken-pa-fukt', 'fuktskada-kallare']),
@@ -70,11 +74,12 @@ return [
             ['title' => 'Bestäm vilka delar som ska undersökas', 'body' => ['Be utföraren avgränsa uppdraget: endast ett rum, flera utrymmen eller en fråga om konstruktion och fukttransport. Klargör tillträde och åtkomst.', 'Mätning och eventuella öppningar av material ska överenskommas. Förutsätt inte att en okulär genomgång omfattar alla dolda byggnadsdelar.']],
             ['title' => 'Begär tydliga slutsatser och begränsningar', 'body' => ['Rapporten ska hjälpa dig skilja observationer från bedömningar och kvarstående frågor. Fråga vad som behöver undersökas före nästa åtgärd.', 'Beskriv om du behöver underlag för planerat underhåll, en försäljning eller ett skadeärende. Samma fråga kräver inte alltid samma omfattning.']],
             ['title' => 'Jämför offertens innehåll', 'body' => ['Ange fastighetstyp, område, berörda ytor och tillgängliga handlingar. Jämför metoder, leverans och behov av uppföljning.', 'Be om separat besked om åtgärdsarbete eller återställning. En utredning innebär inte automatiskt att dränering, sanering eller byggarbete ingår.']],
+            ['title' => 'Fuktsanering eller fuktutredning först?', 'body' => ['Innan en sanering påbörjas behöver orsaken till fukten vara klarlagd. Annars finns risk att ytan behandlas medan fukten kommer tillbaka från mark, grund eller ett läckage.', 'Vi utför inte sanering. Fuktutredningen syftar till att klargöra orsaken och ge ett underlag för nästa steg, som kan vara en åtgärd hos en annan entreprenör.']],
         ],
         [['q' => 'Behöver dräneringen alltid göras om?', 'a' => 'Det går inte att avgöra från en fläck eller lukt. Undersökningen behöver klarlägga orsaken innan en åtgärd väljs.'], ['q' => 'Vad behöver jag skicka inför en offert?', 'a' => 'Fastighetstyp, område, problemets placering och historik, tillgängliga bilder och uppgifter om tidigare arbeten.']],
         ['mogel-i-hus', 'fuktskada-parkett', 'tecken-pa-fukt'],
         [['label' => 'Boverket: fukttransport från mark', 'url' => 'https://www.boverket.se/sv/byggande/forebygg-fel-brister-skador/risker-byggande/risker-fuktskador/fuktrisker-for-grund/fuktrisker-med-kallare/risker-med-fukttransport/']]),
-    'fuktmatning-betong' => $legacyGuide('fuktmatning-betong', 'Fuktmätning i betong – metod och underlag',
+    'fuktmatning-betong' => $legacyGuide('fuktmatning-betong', 'Fuktmätare för betongplatta – så mäts fukt i betong',
         'Beställ rätt fuktmätning i betong inför golvläggning eller utredning. Läs om RF, metodkrav, dokumentation och vad du behöver ange för en offert.', 'fuktmatning',
         ['Syftet avgör vilken mätning du behöver. Ett underlag inför golvläggning är en annan fråga än att utreda ett misstänkt läckage.', 'Be om besked om metod, kompetens och rapport innan du beställer. Guiden är en beställningschecklista, inte en instruktion för egen borrning eller mätning.'],
         [
@@ -84,6 +89,7 @@ return [
             ['title' => 'Avtala om mätpunkter och åtkomst', 'body' => ['Utföraren ska föreslå metod och praktiska förutsättningar. Kom överens om tillträde, eventuella ingrepp och vem som godkänner dem.', 'Kontrollera om flera besök eller andra moment behöver planeras. Använd inte ett egenvalt ytvärde som ersättning för den dokumentation mottagaren kräver.']],
             ['title' => 'Be om rätt rapport', 'body' => ['Klargör att protokollet ska beskriva mätningen, förutsättningar och begränsningar. Fråga hur resultatet ska läsas och vem som bedömer det mot golvets krav.', 'Om du behöver förstå varför fukt finns där kan en bredare utredning krävas. En riktad mätning besvarar inte automatiskt orsaksfrågan.']],
             ['title' => 'Begär en avgränsad offert', 'body' => ['Ange område, platta, syfte och de metodkrav du redan fått. Beskriv befintligt golv och vilken åtkomst som kan ordnas.', 'Kontrollera vad offerten omfattar: besök, metod, dokumentation och eventuell uppföljning. Provtagning och återställning behöver avtalas när det är aktuellt.']],
+            ['title' => 'Därför räcker inte en enkel fuktmätare på betong', 'body' => ['Ytmätare och enkla handhållna mätare visar ett värde nära ytan och kan ge missvisande resultat på betong. Ett sådant värde säger inte nödvändigtvis något om fuktläget längre in i plattan.', 'Tillförlitlig RF-mätning i betong görs med en bestämd metod, till exempel borrhålsmätning, av en person med rätt kompetens. Fråga vilken metod som används och hur resultatet dokumenteras.']],
         ],
         [['q' => 'Är en RBK-mätning samma sak som en vanlig besiktning?', 'a' => 'Nej. RBK-mätning har ett särskilt system för metod, dokumentation och personlig auktorisation. Klargör vilket underlag uppdraget kräver.'], ['q' => 'Visar mätningen också varför betongen är fuktig?', 'a' => 'Inte automatiskt. Om orsaken behöver bedömas kan mätningen behöva ingå i en större fuktutredning.']],
         ['fuktskada-parkett', 'fuktskada-kallare', 'tecken-pa-fukt'],

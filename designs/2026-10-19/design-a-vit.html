@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Besiktningsmännen Vit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Få offert från upp till 3 besiktningsmän i Stockholms län. Kostnadsfritt och utan förpliktelse.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: vit, luftig split-hjälte där formuläret ÄR CTA:n; tjänster som fotokort; jämförelse-checklista som innehållsdetalj. */
+:root {
+  color-scheme: light;
+  --paper: #FFFFFF;
+  --mist: #F2F5F8;
+  --ink: #0F2233;
+  --ink-2: #4B5C6C;
+  --line: #DCE3EA;
+  --brand: #1C4E86;
+  --brand-soft: #E7EEF7;
+  --cta: #12814D;
+  --cta-hover: #0D6B3F;
+  --cta-ink: #FFFFFF;
+  --focus: #F2B33D;
+
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+
+  --radius: 12px;
+  --wrap: 1180px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+[hidden] { display: none !important; }
+a { color: var(--brand); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; letter-spacing: -0.015em; text-wrap: balance; margin: 0; color: var(--ink); }
+h1 { font-size: clamp(2rem, 4.2vw, 3.25rem); font-weight: 800; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 700; hyphens: auto; overflow-wrap: anywhere; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-family: var(--display); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .09em; color: var(--brand); }
+.muted { color: var(--ink-2); }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; min-width: 0; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; }
+.logo svg { width: 30px; height: 30px; flex: none; }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.nav a:hover { color: var(--brand); }
+.nav a.btn--cta, .nav a.btn--cta:hover { color: var(--cta-ink); }
+.nav .phone { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-weight: 600; font-variant-numeric: tabular-nums; }
+.btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; padding: 14px 22px; font: 700 1rem/1.1 var(--display); cursor: pointer; text-decoration: none; transition: background .15s, transform .15s; }
+.btn--cta { background: var(--cta); color: var(--cta-ink); }
+.btn--cta:hover { background: var(--cta-hover); }
+.btn--ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn--ghost:hover { border-color: var(--ink-2); }
+.btn--sm { padding: 10px 16px; font-size: .92rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 480px) {
+  .top .wrap { gap: 10px; }
+  .logo { font-size: 1rem; gap: 8px; }
+  .logo svg { width: 26px; height: 26px; }
+  .nav .btn--sm { padding: 9px 12px; font-size: .88rem; }
+}
+@media (max-width: 350px) { .logo { font-size: .9rem; } .nav .btn--sm { padding: 8px 10px; font-size: .82rem; } }
+
+/* Hero */
+.hero { padding-block: 40px 64px; background: var(--paper); }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.hero__copy { display: grid; gap: 18px; min-width: 0; padding-top: 8px; }
+.hero__lead { font-size: 1.15rem; color: var(--ink-2); max-width: 34em; }
+.ticks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-weight: 600; font-size: .98rem; }
+.ticks li { display: flex; align-items: center; gap: 8px; }
+.ticks svg { width: 18px; height: 18px; color: var(--cta); flex: none; }
+.hero__media { position: relative; min-width: 0; }
+.hero__media img { width: 100%; aspect-ratio: 4 / 3.3; object-fit: cover; border-radius: 18px; }
+.hero__note { position: absolute; right: 18px; bottom: 18px; left: 18px; margin-left: auto; max-width: 330px; background: var(--paper); border-radius: var(--radius); padding: 14px 16px; box-shadow: 0 10px 30px rgb(15 34 51 / .14); display: grid; gap: 4px; }
+.hero__note strong { font-family: var(--display); font-size: 1rem; }
+.hero__note span { font-size: .92rem; color: var(--ink-2); }
+.hero__media .ai { position: absolute; top: 12px; right: 12px; font-size: .72rem; background: rgb(255 255 255 / .85); color: var(--ink-2); padding: 3px 8px; border-radius: 99px; }
+
+/* Lead form */
+.lead { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 18px 50px rgb(15 34 51 / .10); padding: 22px; display: grid; gap: 16px; }
+.lead__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.lead__title { font-family: var(--display); font-weight: 700; font-size: 1.2rem; }
+.lead__step { font-size: .85rem; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.bar { height: 6px; background: var(--mist); border-radius: 99px; overflow: hidden; }
+.bar span { display: block; height: 100%; width: 33.333%; background: var(--cta); border-radius: inherit; transition: width .3s ease; }
+.step { border: 0; margin: 0; padding: 0; display: grid; gap: 14px; min-width: 0; }
+.step legend { padding: 0; font-family: var(--display); font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tile { position: relative; }
+.tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.tile span { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 10px; font-weight: 600; font-size: .96rem; line-height: 1.2; background: var(--paper); transition: border-color .15s, background .15s; }
+.tile span::before { content: ""; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line); flex: none; background: var(--paper); }
+.tile:hover span { border-color: var(--brand); }
+.tile input:checked + span { border-color: var(--cta); background: color-mix(in srgb, var(--cta) 7%, var(--paper)); }
+.tile input:checked + span::before { border-color: var(--cta); background: radial-gradient(circle, var(--cta) 45%, var(--paper) 50%); }
+.tile input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.field { display: grid; gap: 6px; font-weight: 600; font-size: .94rem; }
+.field small { font-weight: 400; color: var(--ink-2); }
+.row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+input[type="text"], input[type="tel"], input[type="email"], select, textarea { width: 100%; font: 500 1rem var(--body); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 13px; }
+textarea { resize: vertical; min-height: 76px; }
+input:focus, select:focus, textarea:focus { border-color: var(--brand); outline: none; box-shadow: 0 0 0 3px var(--brand-soft); }
+.actions { display: flex; gap: 10px; align-items: center; }
+.actions .btn--cta { flex: 1; padding-block: 16px; font-size: 1.05rem; }
+.micro { font-size: .84rem; color: var(--ink-2); text-align: center; }
+.micro a { color: inherit; }
+.hp { position: absolute; left: -9999px; }
+.done { text-align: center; display: grid; gap: 10px; padding: 18px 4px; }
+.done svg { width: 54px; height: 54px; margin: 0 auto; color: var(--cta); }
+@media (max-width: 960px) {
+  .hero { background: var(--paper); padding-block: 20px 40px; }
+  .hero__grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .hero__media { display: none; }
+  .hero__lead { font-size: 1.05rem; }
+}
+@media (max-width: 420px) { .row2 { grid-template-columns: minmax(0, 1fr); } .lead { padding: 16px; } }
+
+/* Trust strip */
+.strip { background: var(--mist); border-bottom: 1px solid var(--line); }
+.strip .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-block: 26px; }
+.strip div { display: grid; gap: 2px; }
+.strip strong { font-family: var(--display); font-size: 1.05rem; }
+.strip span { color: var(--ink-2); font-size: .95rem; }
+@media (max-width: 760px) { .strip .wrap { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+
+/* Sections */
+.section { padding-block: 80px; }
+.section--mist { background: var(--mist); }
+.section__head { display: grid; gap: 10px; max-width: 660px; margin-bottom: 36px; }
+.section__head p { color: var(--ink-2); font-size: 1.08rem; }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.svc { display: grid; grid-template-rows: auto 1fr; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .2s; }
+.svc:hover { box-shadow: 0 14px 34px rgb(15 34 51 / .12); transform: translateY(-2px); }
+.svc img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.svc__body { display: grid; grid-template-rows: auto 1fr auto; gap: 6px; padding: 16px 16px 18px; }
+.svc__body p { color: var(--ink-2); font-size: .95rem; }
+.svc__go { font-family: var(--display); font-weight: 700; font-size: .92rem; color: var(--cta); margin-top: 6px; }
+.more { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.more b { font-family: var(--display); margin-right: 6px; }
+.chip { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--paper); color: var(--ink); text-decoration: none; font-weight: 600; font-size: .92rem; }
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+@media (max-width: 1020px) { .services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .services { gap: 12px; } .svc__body { padding: 12px; } .svc__body p { display: none; } .svc h3 { font-size: .95rem; } }
+
+/* Process */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; gap: 10px; padding-top: 20px; border-top: 3px solid var(--ink); }
+.steps li::before { content: "Steg " counter(s); font-family: var(--display); font-weight: 700; font-size: .85rem; color: var(--brand); letter-spacing: .04em; text-transform: uppercase; }
+.steps p { color: var(--ink-2); }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); gap: 22px; } }
+
+/* Compare */
+.compare { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.compare__copy { display: grid; gap: 18px; min-width: 0; }
+.check { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+.check li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.check li:last-child { border-bottom: 0; }
+.check svg { width: 22px; height: 22px; color: var(--cta); margin-top: 2px; }
+.check strong { display: block; font-family: var(--display); font-size: 1rem; }
+.check span { color: var(--ink-2); font-size: .95rem; }
+.compare__img img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; }
+@media (max-width: 900px) { .compare { grid-template-columns: minmax(0, 1fr); gap: 28px; } .compare__img img { aspect-ratio: 16 / 10; } }
+
+/* FAQ */
+.faq { max-width: 780px; display: grid; gap: 10px; }
+.faq details { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 0 18px; }
+.faq summary { cursor: pointer; list-style: none; padding: 16px 0; font-family: var(--display); font-weight: 700; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--brand); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding-bottom: 16px; color: var(--ink-2); }
+
+/* Final CTA */
+.final { background: var(--brand); color: #FFFFFF; border-radius: 20px; padding: 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+.final h2 { color: #FFFFFF; }
+.final p { color: #D5E2F1; margin-top: 8px; }
+.final .btn--cta { padding: 18px 28px; font-size: 1.08rem; }
+@media (max-width: 760px) { .final { grid-template-columns: minmax(0, 1fr); padding: 30px 22px; } }
+
+/* Footer */
+.foot { border-top: 1px solid var(--line); padding-block: 36px 110px; font-size: .92rem; color: var(--ink-2); }
+.foot .wrap { display: grid; gap: 12px; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.foot a { color: var(--ink-2); }
+
+/* Sticky mobile CTA */
+.mcta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; background: var(--paper); border-top: 1px solid var(--line); padding: 12px max(20px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); display: none; box-shadow: 0 -6px 20px rgb(15 34 51 / .08); }
+.mcta .btn { width: 100%; white-space: normal; text-align: center; padding: 15px 24px; line-height: 1.25; }
+@media (max-width: 960px) { .mcta { display: block; } .mcta.is-hidden { display: none; } }
+@media (min-width: 961px) { .foot { padding-bottom: 40px; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Besiktningsmännen, till toppen">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1C4E86"/><path d="M7 16.5 16 9l9 7.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="21.5" r="1.9" fill="#FFFFFF"/><circle cx="16" cy="21.5" r="1.9" fill="#FFFFFF"/><circle cx="21" cy="21.5" r="1.9" fill="#F2B33D"/></svg>
+      Besiktningsmännen
+    </a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="#tjanster">Tjänster</a>
+      <a href="#sa-funkar-det">Så funkar det</a>
+      <a href="#fragor">Frågor</a>
+      <a class="phone" href="tel:+46736333875">073-633 38 75</a>
+      <a class="btn btn--cta btn--sm" href="#offert">Få offerter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Besiktning i Stockholms län</p>
+        <h1>Få offert från upp till 3 besiktningsmän</h1>
+        <p class="hero__lead">Berätta vad som ska besiktigas. Vi matchar dig med besiktningsmän som tar uppdrag i ditt område, så jämför du pris och upplägg innan du bestämmer dig.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Kostnadsfritt</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Utan förpliktelse</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Du väljer själv</li>
+        </ul>
+
+        <form class="lead" id="offert" action="/enviar.php" method="post" novalidate>
+          <div class="lead__head">
+            <span class="lead__title">Begär offerter</span>
+            <span class="lead__step" data-steplabel>Steg 1 av 3</span>
+          </div>
+          <div class="bar" aria-hidden="true"><span data-bar></span></div>
+
+          <fieldset class="step" data-step="0">
+            <legend>Vad behöver besiktigas?</legend>
+            <div class="tiles">
+              <label class="tile"><input type="radio" name="service" value="overlatelsebesiktning" required><span>Hus inför köp eller försäljning</span></label>
+              <label class="tile"><input type="radio" name="service" value="lagenhetsbesiktning"><span>Lägenhet / bostadsrätt</span></label>
+              <label class="tile"><input type="radio" name="service" value="badrumsbesiktning"><span>Badrum eller våtrum</span></label>
+              <label class="tile"><input type="radio" name="service" value="fuktutredning"><span>Fukt eller mögel</span></label>
+              <label class="tile"><input type="radio" name="service" value="takbesiktning"><span>Tak</span></label>
+              <label class="tile"><input type="radio" name="service" value="statusbesiktning"><span>Husets skick (status)</span></label>
+              <label class="tile"><input type="radio" name="service" value="slutbesiktning"><span>Nybygge eller renovering</span></label>
+              <label class="tile"><input type="radio" name="service" value="brf"><span>BRF eller fastighet</span></label>
+            </div>
+            <div class="actions"><button type="button" class="btn btn--cta" data-next>Fortsätt</button></div>
+            <p class="micro">Tar ungefär en minut · Kostnadsfritt</p>
+          </fieldset>
+
+          <fieldset class="step" data-step="1" hidden>
+            <legend>Var och när?</legend>
+            <label class="field" for="a-location">Ort eller kommun
+              <input id="a-location" type="text" name="location" autocomplete="address-level2" placeholder="t.ex. Nacka" required>
+            </label>
+            <div class="row2">
+              <label class="field" for="a-type">Typ av bostad
+                <select id="a-type" name="property">
+                  <option>Villa / radhus</option>
+                  <option>Bostadsrätt</option>
+                  <option>Fritidshus</option>
+                  <option>Flerbostadshus / BRF</option>
+                  <option>Annat</option>
+                </select>
+              </label>
+              <label class="field" for="a-when">När?
+                <select id="a-when" name="when">
+                  <option>Så snart som möjligt</option>
+                  <option>Inom 2 veckor</option>
+                  <option>Inom en månad</option>
+                  <option>Jag är flexibel</option>
+                </select>
+              </label>
+            </div>
+            <label class="field" for="a-msg">Kort beskrivning <small>(valfritt)</small>
+              <textarea id="a-msg" name="message" rows="2" placeholder="t.ex. 1970-talsvilla, tillträde i maj"></textarea>
+            </label>
+            <div class="actions">
+              <button type="button" class="btn btn--ghost" data-back>Tillbaka</button>
+              <button type="button" class="btn btn--cta" data-next>Fortsätt</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="2" hidden>
+            <legend>Vart ska offerterna skickas?</legend>
+            <label class="field" for="a-name">Namn
+              <input id="a-name" type="text" name="name" autocomplete="name" required>
+            </label>
+            <div class="row2">
+              <label class="field" for="a-phone">Telefon
+                <input id="a-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="07x-xxx xx xx" required>
+              </label>
+              <label class="field" for="a-email">E-post <small>(valfritt)</small>
+                <input id="a-email" type="email" name="email" autocomplete="email">
+              </label>
+            </div>
+            <label class="hp" aria-hidden="true">Webbplats <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="actions">
+              <button type="button" class="btn btn--ghost" data-back>Tillbaka</button>
+              <button type="submit" class="btn btn--cta">Skicka och få offerter</button>
+            </div>
+            <p class="micro">Din förfrågan delas med högst 3 besiktningsmän. Läs vår <a href="/integritetspolicy/">integritetspolicy</a>.</p>
+          </fieldset>
+
+          <div class="done" data-done hidden>
+            <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M17 29l7 7 15-16" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="lead__title">Tack, din förfrågan är mottagen</span>
+            <p class="muted">Besiktningsmän som tar uppdrag i ditt område kontaktar dig med offert. Du väljer själv om du vill gå vidare.</p>
+            <p class="micro">Detta är en designskiss. Inget har skickats.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="hero__media">
+        <img src="img/hero-person.webp" alt="Besiktningsman med surfplatta och fuktmätare framför en ljusgrå villa" width="1600" height="1195" fetchpriority="high">
+        <span class="ai">AI-genererad bild</span>
+        <div class="hero__note">
+          <strong>En förfrågan, upp till 3 offerter</strong>
+          <span>Jämför pris, omfattning och när protokollet levereras.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Därför Besiktningsmännen">
+    <div class="wrap">
+      <div><strong>Upp till 3 offerter</strong><span>Från besiktningsmän i ditt område</span></div>
+      <div><strong>Kostnadsfritt för dig</strong><span>Inga avgifter för att begära offert</span></div>
+      <div><strong>Hela Stockholms län</strong><span>Villa, bostadsrätt, BRF och nybygge</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="tjanster">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Tjänster</p>
+        <h2>Vad behöver du hjälp med?</h2>
+        <p>Välj typ av besiktning så hamnar du direkt i formuläret med rätt tjänst ifylld.</p>
+      </div>
+      <div class="services">
+        <a class="svc" href="#offert" data-service="overlatelsebesiktning"><img src="img/villa.webp" alt="Vit 1970-talsvilla med trädgård" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Överlåtelsebesiktning</h3><p>Inför köp eller försäljning av hus. Husets synliga skick och risker dokumenteras.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="lagenhetsbesiktning"><img src="img/lagenhet.webp" alt="Ljus sekelskifteslägenhet med fiskbensparkett" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Lägenhetsbesiktning</h3><p>För dig som köper bostadsrätt eller vill kontrollera en renoverad lägenhet.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="badrumsbesiktning"><img src="img/badrum-person.webp" alt="Besiktningsman mäter fukt vid golvbrunn" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Badrumsbesiktning</h3><p>Kontroll av nyrenoverat badrum eller våtrum inför köp.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="fuktutredning"><img src="img/fukt.webp" alt="Krypgrund med arbetslampa och fuktmätare" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Fuktutredning</h3><p>När fukt återkommer eller orsaken är oklar. Även fuktmätning i enskilda material.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="takbesiktning"><img src="img/tak.webp" alt="Tegeltak med takbrygga, skorsten och stege" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Takbesiktning</h3><p>Takets skick inför underhåll eller takbyte.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="statusbesiktning"><img src="img/vind.webp" alt="Vind med takstolar och isolering" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Statusbesiktning</h3><p>En samlad bild av husets skick innan du planerar renovering.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="slutbesiktning"><img src="img/nybygge.webp" alt="Nybyggt flerbostadshus med innergård" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Entreprenad, slutbesiktning &amp; BRF</h3><p>Bygge eller renovering granskas mot avtal och handlingar.</p><span class="svc__go">Få offerter →</span></div></a>
+        <a class="svc" href="#offert" data-service="fuktmatning"><img src="img/badrum.webp" alt="Fuktmätare bredvid golvbrunn i klinkergolv" loading="lazy" width="1200" height="805"><div class="svc__body"><h3>Fuktmätning</h3><p>Mätning av fukt i ett visst material eller utrymme, med tydlig rapport.</p><span class="svc__go">Få offerter →</span></div></a>
+      </div>
+      <div class="more">
+        <b>Fler tjänster:</b>
+        <a class="chip" href="/garantibesiktning/">Garantibesiktning</a>
+        <a class="chip" href="/brf/">Besiktning för BRF</a>
+        <a class="chip" href="/brf/underhallsplan/">Underhållsplan</a>
+        <a class="chip" href="/kontrollansvarig/">Kontrollansvarig</a>
+        <a class="chip" href="/byggprojektledning/">Byggprojektledning</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="sa-funkar-det">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Så funkar det</p>
+        <h2>Från förfrågan till bokad besiktning</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Beskriv ditt ärende</h3><p>Välj typ av besiktning, ange ort och hur vi når dig. Det tar ungefär en minut.</p></li>
+        <li><h3>Vi matchar dig</h3><p>Din förfrågan går till upp till 3 besiktningsmän som tar den typen av uppdrag i ditt område.</p></li>
+        <li><h3>Jämför och välj</h3><p>Du får offerter direkt från besiktningsmännen. Du bestämmer själv om och vem du anlitar.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap compare">
+      <div class="compare__copy">
+        <p class="eyebrow">Jämför rätt</p>
+        <h2>Fem saker att jämföra i offerterna</h2>
+        <p class="muted">Priset säger lite om du inte vet vad som ingår. Ställ offerterna bredvid varandra och titta på det här.</p>
+        <ul class="check">
+          <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 11.5 9 15.5 17 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Omfattning</strong><span>Vilka utrymmen ingår, till exempel vind, krypgrund och tak.</span></div></li>
+          <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 11.5 9 15.5 17 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Metod</strong><span>Okulär besiktning eller även fuktmätning och provtagning.</span></div></li>
+          <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 11.5 9 15.5 17 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Protokoll</strong><span>Hur utlåtandet ser ut och när du får det.</span></div></li>
+          <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 11.5 9 15.5 17 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Behörighet och försäkring</strong><span>Fråga efter certifiering och ansvarsförsäkring.</span></div></li>
+          <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 11.5 9 15.5 17 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Totalpris</strong><span>Inklusive moms, resa och eventuella tillägg.</span></div></li>
+        </ul>
+        <div><a class="btn btn--cta" href="#offert">Få offerter att jämföra</a></div>
+      </div>
+      <div class="compare__img"><img src="img/hero.webp" alt="Villa med besiktningsprotokoll och fuktmätare på trappan" loading="lazy" width="2000" height="1116"></div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="fragor">
+    <div class="wrap">
+      <div class="section__head"><p class="eyebrow">Frågor</p><h2>Vanliga frågor</h2></div>
+      <div class="faq">
+        <details open><summary>Kostar det något att begära offert?</summary><p>Nej. Det är kostnadsfritt att skicka en förfrågan och du förbinder dig inte till något.</p></details>
+        <details><summary>Hur många besiktningsmän hör av sig?</summary><p>Upp till tre, beroende på vilken typ av uppdrag det är och var bostaden ligger.</p></details>
+        <details><summary>Måste jag anlita någon av dem?</summary><p>Nej. Du jämför offerterna och väljer själv om du vill boka.</p></details>
+        <details><summary>Vad händer med mina uppgifter?</summary><p>Vi delar din förfrågan med de besiktningsmän du matchas med och sparar den inte längre än nödvändigt. Mer i integritetspolicyn.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="final">
+        <div>
+          <h2>Redo att jämföra?</h2>
+          <p>En förfrågan, upp till 3 offerter. Kostnadsfritt och utan förpliktelse.</p>
+        </div>
+        <a class="btn btn--cta" href="#offert">Få offerter nu</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Sidfot">
+      <a href="/tjanster/">Alla tjänster</a><a href="/priser/">Priser</a><a href="/guider/">Guider</a><a href="/for-besiktningsforetag/">För besiktningsföretag</a><a href="/integritetspolicy/">Integritetspolicy</a>
+    </nav>
+    <p>Besiktningsmännen förmedlar offertförfrågningar om besiktning i Stockholms län. Telefon 073-633 38 75. Bilderna på sidan är AI-genererade illustrationer.</p>
+  </div>
+</footer>
+
+<div class="mcta" data-mcta><a class="btn btn--cta" href="#offert">Få upp till 3 offerter</a></div>
+
+<script>
+(function () {
+  var form = document.getElementById('offert');
+  var steps = form.querySelectorAll('.step');
+  var bar = form.querySelector('[data-bar]');
+  var label = form.querySelector('[data-steplabel]');
+  var done = form.querySelector('[data-done]');
+  var current = 0;
+
+  function show(i) {
+    current = i;
+    steps.forEach(function (s, k) { s.hidden = k !== i; });
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    label.textContent = 'Steg ' + (i + 1) + ' av ' + steps.length;
+  }
+  function valid(step) {
+    var fields = step.querySelectorAll('input, select, textarea');
+    for (var n = 0; n < fields.length; n++) {
+      if (!fields[n].checkValidity()) { fields[n].reportValidity(); return false; }
+    }
+    return true;
+  }
+  form.addEventListener('click', function (e) {
+    if (e.target.closest('[data-next]') && valid(steps[current])) { show(current + 1); focusFirst(); }
+    if (e.target.closest('[data-back]')) show(current - 1);
+  });
+  function focusFirst() {
+    var f = steps[current].querySelector('input:not([type=radio]), select');
+    if (f) f.focus({ preventScroll: true });
+  }
+  form.addEventListener('change', function (e) {
+    if (e.target.name === 'service' && current === 0) setTimeout(function () { show(1); focusFirst(); }, 180);
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Designskiss: i produktion postas fälten till /enviar.php
+    if (!valid(steps[current])) return;
+    steps.forEach(function (s) { s.hidden = true; });
+    form.querySelector('.lead__head').hidden = true;
+    form.querySelector('.bar').hidden = true;
+    done.hidden = false;
+  });
+
+  document.querySelectorAll('[data-service]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var r = form.querySelector('input[name=service][value="' + a.dataset.service + '"]') || form.querySelector('input[name=service][value="fuktutredning"]');
+      if (r) { r.checked = true; show(1); }
+    });
+  });
+
+  var mcta = document.querySelector('[data-mcta]');
+  if ('IntersectionObserver' in window && mcta) {
+    new IntersectionObserver(function (en) {
+      mcta.classList.toggle('is-hidden', en[0].isIntersecting);
+    }).observe(form);
+  }
+})();
+</script>

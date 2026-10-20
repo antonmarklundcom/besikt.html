@@ -14,3 +14,11 @@ These depend on external facts/access rather than additional local coding:
 8. **Independent recovery:** committed source is published to GitHub main, including optimized images. GitHub excludes private configuration, customer records and original media stored on E:. Those need their own protected recovery copies. Portable manuals are deliberate captures, not live synchronization. No relocation/broad backup/deletion occurred.
 
 B2B commercial terms are not advertised: supplier page is unlinked/noindex/out of sitemap. Privacy/terms disclose mediation and potential provider forwarding, without invented lead prices, exclusivity or guarantees.
+
+## Added 20 October 2026 (design "Vit", brand Besiktningsmännen)
+
+9. **Up to three providers:** the site says a request goes to "upp till tre besiktningsmän". This is not a promise of three quotes: it can be 0–3, and the FAQ says so. Privacy policy, terms, about page and form note say the same. Lead routing still delivers to one place (log/CRM), so forwarding to up to three providers, and agreements with them, must exist before launch. Each provider's certificate and insurance must be checked; the about page no longer claims one SBR/KIWA-certified partner for every assignment.
+10. **Free and no obligation:** "Kostnadsfritt" and "Utan förpliktelse" are shown in the hero, strip, FAQ and CTA band. Confirm both stay true for the visitor.
+11. **Brand name:** titles, schema and logo read "Besiktningsmännen" while the domain stays besiktningsmannen.se. Search Console and any future Google Business Profile should use the same name.
+12. **Estimated prices:** price ranges (including VAT) are now shown on every service page and on /priser/ at Anton's request. They are labelled as estimates. Review them with the partnering inspectors and update `content/precios.php` when real price levels are known.
+13. **City pages Uppsala, Göteborg, Malmö:** Anton approved them on 2026-10-20. They say a request goes to up to three inspectors who take jobs in each city (0–3 quotes; the FAQ says it can be fewer, or none). Agreements with inspectors there, and lead routing by city, must exist before these pages are promoted. Fukt, tak and badrum are still described as mainly for Stockholms län.

@@ -208,7 +208,8 @@ while IFS=$'\t' read -r path expected; do
   [ -z "$title" ] && fail "$path — empty <title>"
   [ -z "$desc" ]  && fail "$path — empty meta description"
 
-  len=${#title}
+  # Characters, not bytes: å, ä, ö and – are several bytes each in UTF-8.
+  len=$(printf '%s' "$title" | LC_ALL=C.UTF-8 wc -m | tr -d ' ')
   if [ "$len" -gt 60 ]; then
     fail "$path — <title> is $len chars, over the 60-char budget: $title"
   fi

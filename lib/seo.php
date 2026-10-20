@@ -251,9 +251,29 @@ function jsonld_article(array $article, array $page): ?array
 /**
  * Every JSON-LD block this page should emit, in order.
  */
+/**
+ * WebSite block for the homepage. Google reads `name` and `alternateName` from
+ * it when it chooses the site name shown in results, so the brand
+ * ("Besiktningsmännen") and the domain both appear here.
+ */
+function jsonld_website(): array
+{
+    return array_filter([
+        '@context'      => 'https://schema.org',
+        '@type'         => 'WebSite',
+        'name'          => site('name'),
+        'alternateName' => site('domain'),
+        'url'           => url('/'),
+        'inLanguage'    => market_locale(),
+    ]);
+}
+
 function seo_jsonld(array $page): array
 {
     $blocks = [jsonld_organization()];
+    if (($page['path'] ?? '') === '/') {
+        $blocks[] = jsonld_website();
+    }
 
     foreach ([
         jsonld_breadcrumbs($page['breadcrumbs'] ?? []),

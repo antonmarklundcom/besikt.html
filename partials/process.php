@@ -21,7 +21,7 @@ declare(strict_types=1);
 $processEyebrow = $processEyebrow ?? ui('process.eyebrow');
 $processTitle   = $processTitle   ?? ui('process.title');
 $processSteps   = $processSteps   ?? content('ui')['process']['steps'];
-$processTone    = $processTone    ?? 'ink';
+$processTone    = $processTone    ?? 'surface';
 $processId      = $processId      ?? '';
 $processN       = 0;
 

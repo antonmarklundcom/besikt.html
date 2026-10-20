@@ -4,6 +4,8 @@ Swedish inspection enquiry site, plain PHP/static assets, intended for Hostinger
 
 **10 October 2026:** the completed SEO/content build is integrated with `main`: 14 services, 13 guides, 35 indexable pages and 13 relevant legacy redirects. Anton handles Hostinger deployment. See the [main release and current package](docs/MAIN-RELEASE-2026-10-10.md) and the [20 completed improvements](docs/SEO-RELEASE-2026-10-10.md).
 
+**20 October 2026:** brand is **Besiktningsmännen** (domain unchanged) and the site uses design "Vit": white header and light page heroes, green action colour, Schibsted Grotesk + Source Sans 3 (self-hosted), realistic AI photos labelled as AI, and a three-step quote form on the homepage (`partials/lead-steps.php`, `assets/js/lead-steps.js`). All 35 indexable URLs are unchanged. See [design and SEO notes](docs/DESIGN-VIT-2026-10-20.md).
+
 Phone: **+46 73 633 38 75**. Public contact is phone/form; no company contact email is displayed. Visitor email is optional. Pixels/GTM are not connected. Enquiries save privately when the optional CRM is unconfigured; Anton will supply the Swedish CRM later.
 
 ## Source and content
@@ -12,7 +14,7 @@ Reuse `C:/dev/besikt.html`; consult `C:/operation manuals/besikt.html/README.md`
 
 Edit `content/services.php`, `content/guias.php`, `content/legacy-guides.php`, `content/pages.php`, `content/ui.php`. Each service also needs a route and `content/lead-values.php` record. Navigation/sitemap derive from content. Business facts belong in `content/site.php`; private settings belong in ignored server-only `config.php`.
 
-Do not invent qualifications, cases, reviews, prices, deadlines or coverage. AI illustrations are labelled. Overlapping keyword variants share useful pages. [KWP evidence](docs/kwp/2026-10-10.json) and [decision rationale](docs/KWP-SEO-PLAN.md) are reference research, not a traffic forecast.
+Do not invent qualifications, cases, reviews, deadlines or coverage. Prices are only the estimated ranges in `content/precios.php` (requested by Anton on 2026-10-20 and labelled as estimates). AI illustrations are labelled. Overlapping keyword variants share useful pages. [KWP evidence](docs/kwp/2026-10-10.json) and [decision rationale](docs/KWP-SEO-PLAN.md) are reference research, not a traffic forecast.
 
 ## Verify on this PC
 
