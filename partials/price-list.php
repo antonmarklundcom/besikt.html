@@ -30,7 +30,7 @@ $priceClusters = content('ui')['clusters'] ?? [];
           <?php foreach ($priceItems as $priceSlug => $priceService): ?>
             <?php $priceBlock = $priceData['services'][$priceSlug]; ?>
             <div class="price-list__item">
-              <h3><a href="<?= e($priceService['path']) ?>"><?= e($priceBlock['h2']) ?></a></h3>
+              <h3><a href="<?= e($priceBlock['morePath'] ?? $priceService['path']) ?>"><?= e($priceBlock['h2']) ?></a></h3>
               <p><?= e($priceBlock['text']) ?></p>
               <?php require ROOT_DIR . '/partials/price-table.php'; ?>
             </div>

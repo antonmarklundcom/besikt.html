@@ -41,6 +41,82 @@ return [
         'changefreq' => 'monthly',
         'priority' => '0.9',
     ],
+    '/husbesiktning/pris/' => [
+        'title' => 'Vad kostar en husbesiktning? Priser',
+        'description' => 'Besiktning av hus kostar ofta 9 000–15 000 kr för en villa. Se pris för villa, radhus och fritidshus och vad som påverkar kostnaden i Stockholm.',
+        'h1' => 'Vad kostar en husbesiktning?',
+        'lead' => 'Här ser du ungefärligt pris på besiktning av hus i Stockholms län, inklusive moms. Priset beror på husets storlek, grundläggning och vilka tillägg du väljer. Ditt exakta pris får du i offerterna.',
+        'priceService' => 'husbesiktning-pris',
+        'leadForm' => true,
+        'breadcrumbs' => [
+            ['label' => 'Husbesiktning', 'path' => '/husbesiktning/'],
+            ['label' => 'Pris', 'path' => '/husbesiktning/pris/'],
+        ],
+        'sections' => [
+            [
+                'h2' => 'Vad påverkar kostnaden för en husbesiktning?',
+                'body' => [
+                    'Husets storlek är den faktor som oftast väger tyngst: ett större hus tar längre tid att gå igenom. Grundläggningen spelar också roll. Ett hus med krypgrund eller källare kräver mer arbete än ett hus på platta, eftersom fler utrymmen ska kontrolleras.',
+                    'Husets ålder och skick, hur lätt det är att komma åt vind och grund samt avståndet till bostaden kan också påverka kostnaden för besiktning av ett hus. Frågar du efter fuktmätning, termografering eller en utökad genomgång blir priset ett annat än för en vanlig okulär besiktning.',
+                ],
+            ],
+            [
+                'h2' => 'Tillägg: fuktmätning och utökad besiktning',
+                'body' => [
+                    'Fuktmätning är det vanligaste tillägget vid husbesiktning och kostar ofta 1 500–3 500 kr. Den är särskilt aktuell om huset har krypgrund eller källare, eller om det finns tecken på fukt.',
+                    'Fråga alltid om fuktmätning ingår i priset, och om mätningen sker i krypgrund, källare eller platta. Vill du ha en bedömning av hela husets skick finns även statusbesiktning.',
+                ],
+                'links' => [
+                    ['path' => '/fuktmatning/', 'label' => 'Fuktmätning'],
+                    ['path' => '/statusbesiktning/', 'label' => 'Statusbesiktning av hus'],
+                ],
+            ],
+            [
+                'h2' => 'Pris för villa, radhus och fritidshus',
+                'body' => [
+                    'En villa kostar oftast mest att besikta, ungefär 9 000–15 000 kr. Radhus och parhus ligger lägre, ungefär 8 000–12 000 kr, och fritidshus ungefär 7 000–12 000 kr.',
+                    'Det här är vägledande intervall. Samma prisnivåer gäller en överlåtelsebesiktning, alltså den besiktning många köpare gör före ett husköp.',
+                ],
+                'links' => [
+                    ['path' => '/overlatelsebesiktning/', 'label' => 'Överlåtelsebesiktning'],
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning vid husköp'],
+                ],
+            ],
+            [
+                'h2' => 'Så får du jämförbara priser',
+                'body' => [
+                    'Beskriv huset i förfrågan: typ, ungefärlig yta, grundläggning, byggår och om du vill ha fuktmätning. Då baseras offerterna på samma underlag och går att jämföra.',
+                    'Jämför inte bara priset. Titta på vad som ingår, hur protokollet ser ut och om resa och moms är inräknat.',
+                ],
+                'links' => [
+                    ['path' => '/guider/jamfora-besiktningsoffert/', 'label' => 'Så jämför du besiktningsofferter'],
+                    ['path' => '/husbesiktning/', 'label' => 'Husbesiktning'],
+                    ['path' => '/priser/', 'label' => 'Alla priser'],
+                ],
+            ],
+        ],
+        'faq' => [
+            [
+                'q' => 'Vem betalar husbesiktningen?',
+                'a' => 'Det är vanligen den som beställer besiktningen, ofta köparen vid ett husköp. Vem som betalar är inget lagkrav utan avgörs av vem som anlitar besiktningsmannen.',
+            ],
+            [
+                'q' => 'Är fuktmätning värt pengarna?',
+                'a' => 'Om huset har krypgrund eller källare, eller det finns tecken på fukt, kan fuktmätning ge underlag som en okulär besiktning inte ger. Fråga besiktningsmannen om mätning är motiverad för just ditt hus.',
+            ],
+            [
+                'q' => 'Varför skiljer sig priserna mellan besiktningsmän?',
+                'a' => 'Omfattning, metod, rapportens detaljnivå och vad som ingår skiljer sig åt. Jämför därför vad offerten omfattar, inte bara slutsumman.',
+            ],
+            [
+                'q' => 'Ingår moms i priserna?',
+                'a' => 'De prisnivåer vi visar är ungefärliga och anges inklusive moms för privatperson. Kontrollera alltid i offerten om moms och resa är inräknade.',
+            ],
+        ],
+        'stub' => false,
+        'changefreq' => 'monthly',
+        'priority' => '0.8',
+    ],
     '/priser/' => [
         'title' => 'Vad kostar en besiktning? Prislista',
         'description' => 'Ungefärliga priser på husbesiktning, lägenhet, badrum, fukt, tak och BRF i Stockholm. Jämför prisnivåer och få offert från upp till 3 besiktningsmän.',
@@ -55,6 +131,10 @@ return [
                     'Be om ett skriftligt pris för just den kontroll du behöver. Fuktmätning, specialistundersökningar och en köpargenomgång ska specificeras när de är aktuella.',
                 ],
                 'links' => [
+                    [
+                        'path' => '/husbesiktning/pris/',
+                        'label' => 'Vad kostar en husbesiktning?',
+                    ],
                     [
                         'path' => '/overlatelsebesiktning/',
                         'label' => 'Överlåtelsebesiktning av hus',

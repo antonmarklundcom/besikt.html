@@ -18,6 +18,9 @@ $priceNote = content('precios')['note'] ?? '';
       <h2><?= e($priceBlock['h2']) ?></h2>
       <p class="lead"><?= e($priceBlock['text']) ?></p>
       <p class="note"><?= e($priceNote) ?></p>
+      <?php if (!empty($priceBlock['morePath'])): ?>
+        <p><a href="<?= e($priceBlock['morePath']) ?>"><?= e($priceBlock['moreLabel'] ?? $priceBlock['h2']) ?></a></p>
+      <?php endif; ?>
       <div class="btn-row">
         <a class="btn btn--primary" href="#offert"><?= e(ui('service.price_cta')) ?></a>
         <a class="btn btn--secondary" href="<?= e(site_path('prices')) ?>"><?= e(ui('service.price_all')) ?></a>

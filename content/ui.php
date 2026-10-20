@@ -105,7 +105,7 @@ return [
         'unsure_text'  => 'Välj "Något annat" i formuläret och beskriv bostaden och vad som har hänt. Vi hjälper dig att hitta rätt typ av besiktning.',
 
         'compare_eyebrow' => 'Jämför rätt',
-        'compare_title'   => 'Fem saker att jämföra i offerterna',
+        'compare_title'   => 'Jämför besiktning: fem saker att titta på',
         'compare_lead'    => 'Priset säger lite om du inte vet vad som ingår. Ställ offerterna bredvid varandra och titta på det här.',
         'compare_items'   => [
             ['title' => 'Omfattning', 'text' => 'Vilka utrymmen ingår, till exempel vind, krypgrund och tak.'],
@@ -118,8 +118,8 @@ return [
         'compare_guide'   => 'Läs guiden: så jämför du besiktningsofferter',
 
         'area_eyebrow' => 'Område',
-        'area_title'   => 'Besiktning i hela Stockholms län',
-        'area_text' => 'Ange ort eller kommun i förfrågan, så går den till besiktningsmän som tar uppdrag där. Resevillkor ska framgå av offerten innan du bokar.',
+        'area_title'   => 'Besiktningsföretag i Stockholm och hela länet',
+        'area_text' => 'Söker du ett besiktningsföretag eller husbesiktning i Stockholm? Ange ort eller kommun i förfrågan, så går den till besiktningsmän som tar uppdrag där. Resevillkor ska framgå av offerten innan du bokar.',
 
         'prices_eyebrow' => 'Priser',
         'prices_title'   => 'Pris utifrån ditt uppdrag',

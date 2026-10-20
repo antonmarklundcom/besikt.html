@@ -24,13 +24,15 @@ if ($meta === []) {
     return;
 }
 
+$hasLeadForm = !empty($meta['leadForm']) || $path === site_path('prices');
+
 $page = [
-    'quotePath' => $path === site_path('prices') ? '#offert' : site_path('contact'),
+    'quotePath' => $hasLeadForm ? '#offert' : site_path('contact'),
     'title'       => $meta['title'],
     'description' => $meta['description'],
     'path'        => $path,
     'faq'         => $meta['faq'] ?? [],
-    'breadcrumbs' => [['label' => $meta['title'], 'path' => $path]],
+    'breadcrumbs' => $meta['breadcrumbs'] ?? [['label' => $meta['title'], 'path' => $path]],
     'noindex'     => !empty($meta['noindex']) || isset($_GET['enviado']) || isset($_GET['error']),
 ];
 
@@ -46,10 +48,22 @@ require ROOT_DIR . '/partials/header.php';
         <?php if (!empty($meta['lead'])): ?>
           <p class="lead"><?= e($meta['lead']) ?></p>
         <?php endif; ?>
-        <?php if ($path === site_path('prices')): ?><div class="btn-row mt-4"><a class="btn btn--primary" href="#offert"><?= e(ui('cta.quote')) ?></a></div><?php endif; ?>
+        <?php if ($hasLeadForm): ?><div class="btn-row mt-4"><a class="btn btn--primary" href="#offert"><?= e(ui('cta.quote')) ?></a></div><?php endif; ?>
       </div>
     </div>
   </section>
+
+  <?php if (!empty($meta['priceService']) && isset(content('precios')['services'][$meta['priceService']])): ?>
+    <?php $priceBlock = content('precios')['services'][$meta['priceService']]; ?>
+    <section class="section" id="pris">
+      <div class="container stack">
+        <div class="prose"><h2><?= e($priceBlock['h2']) ?></h2><p><?= e($priceBlock['text']) ?></p></div>
+        <?php require ROOT_DIR . '/partials/price-table.php'; ?>
+        <p class="note"><?= e(content('precios')['note'] ?? '') ?></p>
+      </div>
+    </section>
+    <?php unset($priceBlock); ?>
+  <?php endif; ?>
 
   <?php if (!empty($meta['priceList'])): ?>
     <?php require ROOT_DIR . '/partials/price-list.php'; ?>
@@ -80,7 +94,7 @@ require ROOT_DIR . '/partials/header.php';
   <?php endif; ?>
 
   <?php if (!empty($meta['faq'])): ?><section class="section section--surface"><div class="container"><?php $faqItems = $meta['faq']; require ROOT_DIR . '/partials/faq.php'; ?></div></section><?php endif; ?>
-  <?php if ($path === site_path('prices')): ?><section class="section" id="offert"><div class="container container--narrow"><?php $formId = 'priser'; require ROOT_DIR . '/partials/lead-form.php'; ?></div></section><?php $ctaContactPath = '#offert'; endif; ?>
+  <?php if ($hasLeadForm): ?><section class="section" id="offert"><div class="container container--narrow"><?php $formId = 'priser'; require ROOT_DIR . '/partials/lead-form.php'; ?></div></section><?php $ctaContactPath = '#offert'; endif; ?>
   <?php require ROOT_DIR . '/partials/cta-band.php'; ?>
 </main>
 <?php require ROOT_DIR . '/partials/footer.php'; ?>

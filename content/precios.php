@@ -21,12 +21,26 @@ return [
 
     'services' => [
         'husbesiktning' => [
-            'h2'   => 'Vad kostar en husbesiktning?',
+            'h2'   => 'Pris på husbesiktning',
+            'morePath'  => '/husbesiktning/pris/',
+            'moreLabel' => 'Läs mer: vad kostar en husbesiktning?',
             'text' => 'En vanlig husbesiktning av en villa kostar ungefär 9 000–15 000 kr. Priset beror främst på husets storlek, grundläggning och om du lägger till fuktmätning.',
             'rows' => [
                 ['Villa, överlåtelsebesiktning', '9 000–15 000 kr'],
                 ['Villa med fuktmätning', '11 000–17 000 kr'],
                 ['Radhus eller parhus', '8 000–12 000 kr'],
+                ['Statusbesiktning av villa', '9 000–16 000 kr'],
+            ],
+        ],
+        'husbesiktning-pris' => [
+            'h2'   => 'Pris på besiktning av hus',
+            'text' => 'Besiktning av en villa kostar ungefär 9 000–15 000 kr. Radhus och fritidshus ligger lägre. Fuktmätning är ett tillägg som höjer priset.',
+            'rows' => [
+                ['Villa, okulär besiktning', '9 000–15 000 kr'],
+                ['Villa med fuktmätning', '11 000–17 000 kr'],
+                ['Radhus eller parhus', '8 000–12 000 kr'],
+                ['Fritidshus', '7 000–12 000 kr'],
+                ['Tillägg fuktmätning', '1 500–3 500 kr'],
                 ['Statusbesiktning av villa', '9 000–16 000 kr'],
             ],
         ],
