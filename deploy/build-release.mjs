@@ -21,7 +21,9 @@ cpSync(join(root,'assets/css/site.min.css'),join(stage,'assets/css/site.css'));
 // The extra readable/minified copy is harmless; source and package remain deterministic.
 mkdirSync(join(stage,'logs'));writeFileSync(join(stage,'logs/.htaccess'),'Require all denied\n');
 writeFileSync(join(stage,'logs/.gitkeep'),'');
-for(const f of ['config.php','docs','tests','deploy','.git'])if(existsSync(join(stage,f)))throw Error('Forbidden release file: '+f);
+mkdirSync(join(stage,'deploy'));cpSync(join(root,'deploy/lead-delivery.php'),join(stage,'deploy/lead-delivery.php'));
+if(readdirSync(join(stage,'deploy')).join(',')!=='lead-delivery.php')throw Error('Unexpected deployed operator tool');
+for(const f of ['config.php','docs','tests','.git'])if(existsSync(join(stage,f)))throw Error('Forbidden release file: '+f);
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const files=[];
 function walk(dir,prefix=''){for(const e of readdirSync(dir,{withFileTypes:true})){const f=join(dir,e.name),rel=prefix+e.name;if(e.isDirectory())walk(f,rel+'/');else{const b=readFileSync(f);files.push({path:rel,bytes:b.length,sha256:hash(b)});}}}

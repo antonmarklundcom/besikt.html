@@ -39,6 +39,7 @@
 declare(strict_types=1);
 
 require __DIR__ . '/lib/bootstrap.php';
+require_once __DIR__ . '/lib/lead-delivery.php';
 
 const LEAD_RATE_MAX     = 5;     // submissions per IP …
 const LEAD_RATE_WINDOW  = 600;   // … per 10 minutes
@@ -489,49 +490,35 @@ if ($fields !== []) {
     $payload['fields'] = $fields;
 }
 
-// --- 7. Forward, or degrade gracefully --------------------------------------
-$crmUrl = cfg('VENDERCRM_URL');
-$apiKey = cfg('VENDERCRM_API_KEY');
-
-if ($crmUrl === null || $apiKey === null || !function_exists('curl_init')) {
-    if (!log_lead($payload, 'degraded:not-configured')) {
+// --- 7. Retain before delivery; only a saved CRM receipt confirms delivery. ---
+// This new private outbox never reads or automatically replays the older ledger.
+$delivery = new BesiktLeadDelivery(BesiktLeadDelivery::config(ROOT_DIR), ROOT_DIR);
+$retained = false;
+$result = ['received' => false, 'status' => 0, 'code' => 'queue-unavailable'];
+try {
+    $entry = $delivery->enqueue($payload);
+    $retained = true;
+    $result = $delivery->deliver($entry);
+} catch (Throwable $error) {
+    if ($error->getMessage() === 'identity-conflict') {
         respond(false, true, 'storage');
     }
-    notify_by_email($payload, 'degraded:not-configured');
-    respond(true, true, null, $leadResult);
+    // A queue outage may still produce a real receipt. Neither storage path
+    // may be assumed to have worked just because the HTTP request was attempted.
+    try { $result = $delivery->send($payload); } catch (Throwable $networkError) {}
 }
-
-$ch = curl_init(rtrim($crmUrl, '/') . '/api/v1/leads');
-curl_setopt_array($ch, [
-    CURLOPT_POST           => true,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT        => LEAD_CRM_TIMEOUT,
-    CURLOPT_CONNECTTIMEOUT => 5,
-    CURLOPT_HTTPHEADER     => [
-        'Content-Type: application/json',
-        'X-Api-Key: ' . $apiKey,
-    ],
-    CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_UNICODE),
-]);
-
-$response = curl_exec($ch);
-$status   = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curlErr  = curl_error($ch);
-curl_close($ch);
-
-/* 201 created, 200 idempotency replay — both are the system working. */
-if ($status === 201 || $status === 200) {
-    log_lead($payload, 'crm:' . $status);
-    notify_by_email($payload, 'crm:' . $status);
+if (!empty($result['received'])) {
+    log_lead($payload, 'crm:received');
+    if (($result['code'] ?? '') !== 'already-received') {
+        notify_by_email($payload, 'crm:received');
+    }
     respond(true, false, null, $leadResult);
 }
-
-/* Anything else is our problem, not the visitor's. The body names the failing
-   field on a 422 and the misconfiguration on a 401/403; record the status only. */
-error_log(sprintf('VenderCRM lead failed [HTTP %d].', $status));
-if (!log_lead($payload, 'degraded:crm-' . ($status ?: 'unreachable'))) {
+$outcome = 'degraded:' . ($result['code'] ?? 'unknown');
+$logged = log_lead($payload, $outcome);
+if (!$retained && !$logged) {
     respond(false, true, 'storage');
 }
-notify_by_email($payload, 'degraded:crm-' . ($status ?: 'unreachable'));
-
+error_log(sprintf('VenderCRM lead pending [HTTP %d].', (int) ($result['status'] ?? 0)));
+notify_by_email($payload, $outcome);
 respond(true, true, null, $leadResult);
