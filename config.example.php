@@ -21,6 +21,8 @@ return [
     // still gets a success state pointing at WhatsApp.
     'VENDERCRM_URL'     => '',
     'VENDERCRM_API_KEY' => '',
+    // Optional absolute directory outside public_html; preserved across releases.
+    'BESIKT_OUTBOX_DIR' => '',
 
     // E-postnotis per lead (valfritt, oberoende av VenderCRM). Två sändare:
     //  1. Cloudflare Email Sending (förstahand): CF_ACCOUNT_ID + en API-token med

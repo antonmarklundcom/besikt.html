@@ -6,7 +6,7 @@
 #     → dist/<slug>-YYYY-MM-DD.zip, where <slug> is 'slug' in content/site.php
 #
 # The zip contains exactly what the site needs to run and nothing else: no docs,
-# no prompts, no tests, no deploy scripts, no git metadata, no config.php (that
+# no prompts, no tests, only the guarded delivery CLI, no git metadata, no config.php (that
 # is created on the server from config.example.php) and no logs.
 #
 # Upload it in hPanel → File Manager, extract inside public_html/ (the archive is
@@ -88,8 +88,12 @@ Require all denied
 HTACCESS
 touch "$STAGE/logs/.gitkeep"
 
+# Only this CLI operator entry is shipped; it returns404 outside CLI.
+mkdir -p "$STAGE/deploy"
+cp "$ROOT/deploy/lead-delivery.php" "$STAGE/deploy/lead-delivery.php"
+
 # Belt and braces: nothing that should have been excluded may be in the stage.
-for forbidden in docs prompts tests deploy .git config.php dist plan.md README.md KNOWN-ISSUES.md; do
+for forbidden in docs prompts tests .git config.php dist plan.md README.md KNOWN-ISSUES.md; do
   if [ -e "$STAGE/$forbidden" ]; then
     echo "refusing to ship: $forbidden" >&2
     exit 1

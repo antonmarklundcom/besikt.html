@@ -14,4 +14,5 @@ file_put_contents($dir . '/requests.ndjson', json_encode([
 ]) . "\n", FILE_APPEND | LOCK_EX);
 header('Content-Type: application/json');
 http_response_code((int) file_get_contents($dir . '/status'));
-echo '{"id":"synthetic-lead"}';
+echo is_file($dir . '/response') ? file_get_contents($dir . '/response')
+    : '{"contactId":"AAAAAAAAAAAAAAAAAAAAAAAAAA","submissionId":"BBBBBBBBBBBBBBBBBBBBBBBBBB"}';

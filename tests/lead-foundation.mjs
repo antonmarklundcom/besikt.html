@@ -87,19 +87,35 @@ try {
   await settings(crm);
   for (const status of [201, 200, 401, 403, 422, 429]) {
     await writeFile(join(state, 'status'), String(status));
-    const r = await post({ idempotency_key: 'same-submission-key', value_tier: 'C', utm_source: 'synthetic' });
+    const r = await post({ idempotency_key: 'same-submission-key-' + status, value_tier: 'C', utm_source: 'synthetic' });
     assert.equal(r.data.ok, true);
     assert.equal(r.data.degraded, ![200, 201].includes(status));
     assert.equal(r.data.value_tier, 'A', 'Posted tier must not override server routing');
     const sent = (await requests()).at(-1);
     assert.equal(sent.method, 'POST'); assert.equal(sent.key, 'test-key-not-a-secret');
     assert.equal(sent.payload.source, 'web'); assert.equal(sent.payload.phone, '+46700000000');
-    assert.equal(sent.payload.idempotency_key, 'same-submission-key');
+    assert.equal(sent.payload.idempotency_key, 'same-submission-key-' + status);
     assert.equal(sent.payload.fields.ort, fixture.location); assert.equal(sent.payload.fields.valor, 'A');
     assert.equal(sent.payload.fields.necesita, 'Köpa eller sälja');
     assert.equal(sent.payload.utm_source, 'synthetic');
     for (const forbidden of ['pipeline', 'stage', 'owner', 'tags']) assert.equal(sent.payload[forbidden], undefined);
   }
+  await writeFile(join(state, 'status'), '201');
+  const fullMessage = 'Åäö – full message\nSecond line. '.repeat(25).trim();
+  const duplicateFields = { idempotency_key: 'verified-duplicate-key', message: fullMessage };
+  const successful = await post(duplicateFields);
+  assert.equal(successful.data.degraded, false);
+  const requestCount = (await requests()).length;
+  assert.equal((await post(duplicateFields)).data.degraded, false);
+  assert.equal((await requests()).length, requestCount, 'A confirmed duplicate must not be submitted again');
+  assert.equal((await requests()).at(-1).payload.message, fullMessage, 'Keep the complete Unicode message and newlines');
+  assert.equal((await post({ ...duplicateFields, message: 'Changed enquiry under the same identity' })).data.ok, false);
+  for (const [index, body] of ['<html>Login page</html>', '{"contactId":"missing-submission"}', 'not-json'].entries()) {
+    await writeFile(join(state, 'response'), body);
+    const malformed = await post({ idempotency_key: 'malformed-receipt-' + index, message: fullMessage });
+    assert.equal(malformed.data.degraded, true, 'A 201 without a valid saved receipt stays pending');
+  }
+  await unlink(join(state, 'response'));
   await settings('http://127.0.0.1:1');
   assert.equal((await post()).data.degraded, true, 'Unreachable CRM must preserve the lead');
   await settings();
@@ -122,9 +138,11 @@ try {
   assert.doesNotMatch(site.diagnostics(), /PHP (Warning|Notice|Fatal error|Deprecated)/);
 
   await unlink(join(state, 'leads.log')); await mkdir(join(state, 'leads.log'));
+  await rm(join(state, 'outbox'), { recursive: true, force: true });
+  await writeFile(join(state, 'outbox'), 'Queue directory unavailable');
   const unavailable = await post();
   assert.equal(unavailable.data.ok, false); assert.equal(unavailable.data.error, 'storage', 'A lost lead must never return success');
-  console.log('PASS: validation, CRM 200/201/401/403/422/429, fallback, storage failure, source/key contract, no-JS, rate limit and SEO state.');
+  console.log('PASS: validation, verified CRM receipts, complete Unicode messages, durable outbox, duplicate-safe delivery, failures, no-JS and rate limits.');
 } finally {
   for (const child of children) child.kill();
   await Promise.all(children.map(child => child.exitCode !== null ? Promise.resolve() : new Promise(r => child.once('exit', r))));
